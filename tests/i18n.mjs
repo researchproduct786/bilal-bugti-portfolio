@@ -44,12 +44,13 @@ const stripBrands = (p) => p.replace(/projects\[(\d+)\]\.brand$/, 'projects.*.br
 const dir = await mkdtemp(path.join(tmpdir(), 'i18n-'));
 const entry = path.join(dir, 'entry.ts');
 await writeFile(entry, `
-  export { dictionaries } from '${process.cwd()}/src/i18n/dictionaries';
-  export { contents } from '${process.cwd()}/src/i18n/dictionaries';
+  export { dictionaries, contents } from '${process.cwd()}/src/i18n/dictionaries';
+  export { uiLabels, demoNotes } from '${process.cwd()}/src/i18n/ui-labels';
+  export { defaultUiLabels } from '${process.cwd()}/src/components/visuals/Ui';
 `);
 const out = path.join(dir, 'bundle.mjs');
 await build({ entryPoints: [entry], bundle: true, format: 'esm', platform: 'node', outfile: out, logLevel: 'silent', jsx: 'automatic' });
-const { dictionaries, contents } = await import(pathToFileURL(out).href);
+const { dictionaries, contents, uiLabels, demoNotes, defaultUiLabels } = await import(pathToFileURL(out).href);
 
 const locales = Object.keys(dictionaries);
 const fails = [];
@@ -75,6 +76,28 @@ for (const loc of locales.filter((l) => l !== 'en')) {
     }
   }
   for (const k of Object.keys(c)) if (!(k in baseContent)) fails.push(`${loc}: extra content "${k}"`);
+}
+
+/* 4 — interface labels drawn inside the product mockups */
+const baseUi = flatten(defaultUiLabels);
+for (const loc of locales.filter((l) => l !== 'en')) {
+  const labels = uiLabels[loc];
+  if (!labels) { fails.push(`${loc}: no interface labels`); continue; }
+  const t = flatten(labels);
+  // These are spelled identically in the target language and are not errors.
+  const UI_SAME_OK = new Set(['source', 'pipeline', 'table', 'guides', 'contact', 'campaign', 'menu', 'items']);
+  for (const [k, v] of Object.entries(baseUi)) {
+    if (!(k in t)) fails.push(`${loc}: missing interface label "${k}"`);
+    else if (!String(t[k]).trim()) fails.push(`${loc}: empty interface label "${k}"`);
+    else if (String(t[k]) === v && v.length > 3 && !(loc === 'fr' && UI_SAME_OK.has(k))) {
+      fails.push(`${loc}: untranslated interface label "${k}" = "${v}"`);
+    }
+  }
+  for (const k of Object.keys(t)) if (!(k in baseUi)) fails.push(`${loc}: extra interface label "${k}"`);
+  // every demo note must exist in every language
+  for (const [note, tr] of Object.entries(demoNotes)) {
+    if (!tr[loc]?.trim()) fails.push(`${loc}: missing demo note "${note}"`);
+  }
 }
 
 console.log(`${locales.length} locales checked (${Object.keys(base).length} UI keys, ${Object.keys(baseContent).length} content strings)`);

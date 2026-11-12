@@ -1,5 +1,6 @@
 'use client';
 import dynamic from 'next/dynamic';
+import { DemoChromeProvider, type DemoChrome } from './shared';
 
 const loading = () => <div className="demo demo-loading" role="status">Loading demonstration…</div>;
 // Each demonstration is its own chunk: a project page only downloads the demo it shows.
@@ -12,7 +13,7 @@ const map = {
   slowtide: dynamic(() => import('./Slowtide'), { loading }),
 } as const;
 
-export function Demo({ slug }: { slug: string }) {
+export function Demo({ slug, chrome }: { slug: string; chrome?: Partial<DemoChrome> }) {
   const C = map[slug as keyof typeof map];
-  return C ? <C /> : null;
+  return C ? <DemoChromeProvider value={chrome}><C /></DemoChromeProvider> : null;
 }

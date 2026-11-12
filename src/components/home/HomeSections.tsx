@@ -4,6 +4,8 @@ import type { SiteContent, ContentProject } from '@/i18n/content/types';
 import { CapabilityVisual } from '@/components/visuals/Capability';
 import { Scene } from '@/components/visuals/Scene';
 import { uiFor } from '@/components/visuals/Ui';
+import { uiLabels } from '@/i18n/ui-labels';
+import type { LocaleCode } from '@/i18n/config';
 import { ProcessJourney } from './ProcessJourney';
 import { ProjectCard } from './ProjectCard';
 
@@ -26,7 +28,7 @@ export function Capabilities({ t, L }: { t: Dict; L: (p: string) => string }) {
     <div className="capgrid">
       {CAP_ORDER.map((k) => (
         <Link key={k} href={L('/services')} className="capcard reveal" data-cursor>
-          <span className="capcard-media"><CapabilityVisual id={k} /></span>
+          <span className="capcard-media"><CapabilityVisual id={k} todayLabel={t.home.today} /></span>
           <span className="capcard-body">
             <span className="capcard-t">{label[k][0]}</span>
             <span className="capcard-l">{label[k][1]}</span>
@@ -37,16 +39,17 @@ export function Capabilities({ t, L }: { t: Dict; L: (p: string) => string }) {
   );
 }
 
-export function WorkGrid({ projects, t, L }: { projects: ContentProject[]; t: Dict; L: (p: string) => string }) {
+export function WorkGrid({ projects, t, L, locale }: { projects: ContentProject[]; t: Dict; L: (p: string) => string; locale: LocaleCode }) {
+  const ui = uiLabels[locale];
   return (
     <ul className="workgrid2">
-      {projects.map((p) => <li key={p.slug}><ProjectCard project={p} t={t} L={L} /></li>)}
+      {projects.map((p) => <li key={p.slug}><ProjectCard project={p} t={t} L={L} ui={ui} /></li>)}
     </ul>
   );
 }
 
 /** The portfolio reference artwork, presented inside a real monitor frame. */
-export function ReferenceReel({ title, body }: { title: string; body: string }) {
+export function ReferenceReel({ title, body, caption, alt }: { title: string; body: string; caption: string; alt?: string }) {
   return (
     <div className="reel reveal">
       <div className="monitor">
@@ -61,7 +64,7 @@ export function ReferenceReel({ title, body }: { title: string; body: string }) 
           <p className="kicker">{title}</p>
           <p className="body" style={{ marginTop: 12 }}>{body}</p>
         </div>
-        <p className="mono muted">Concept artwork · identity study</p>
+        <p className="mono muted">{caption}</p>
       </div>
     </div>
   );

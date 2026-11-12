@@ -27,13 +27,18 @@ export default async function Lab({ params }: { params: Promise<{ locale: string
     <Shell b={b}>
       <PageHero kicker={t.nav.lab} title={c.pages.lab.title} lede={c.pages.lab.lede} />
       <section className="section tight">
-        <div className="wrap"><ReferenceReel title={c.pages.lab.title} body={c.pages.lab.note} /></div>
+        <div className="wrap"><ReferenceReel
+            title={t.nav.lab}
+            body={c.pages.lab.note}
+            caption={t.ui.reelCaption}
+            alt={`${t.nav.lab} — ${c.pages.lab.title}`}
+          /></div>
       </section>
       <section className="section tight rule">
         <div className="wrap">
           <div className="capgrid">
             {['branding', 'marketing', 'automation', 'web'].map((k) => (
-              <div key={k} className="capcard reveal"><span className="capcard-media"><CapabilityVisual id={k} /></span></div>
+              <div key={k} className="capcard reveal"><span className="capcard-media"><CapabilityVisual id={k} todayLabel={t.home.today} /></span></div>
             ))}
           </div>
           <p className="notice reveal" style={{ marginTop: 28 }}><b>{t.ui.concept}</b>{c.pages.lab.note}</p>

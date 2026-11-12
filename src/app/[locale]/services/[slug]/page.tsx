@@ -6,6 +6,7 @@ import { getBundle } from '@/i18n/dictionaries';
 import { Shell } from '@/components/site/Shell';
 import { PageHero, FinalCTA } from '@/components/site/Blocks';
 import { ProjectCard } from '@/components/home/ProjectCard';
+import { uiLabels } from '@/i18n/ui-labels';
 import { Scene } from '@/components/visuals/Scene';
 import { ServiceVisual } from '@/components/visuals/ServiceVisual';
 
@@ -52,7 +53,11 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
 
       <section className="section tight">
         <div className="wrap">
-          <ServiceVisual id={s.visual} />
+          <ServiceVisual
+            id={s.visual}
+            ui={uiLabels[locale as LocaleCode]}
+            captions={Object.fromEntries(['store', 'app', 'web', 'automation', 'crm', 'ai', 'marketing'].map((k, i) => [k, t.ui.svcCaption[i]])) as Record<'store' | 'app' | 'web' | 'automation' | 'crm' | 'ai' | 'marketing', string>}
+          />
         </div>
       </section>
 
@@ -108,7 +113,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
         <div className="wrap">
           <p className="kicker reveal">{t.services.demos}</p>
           <ul className="workgrid2" style={{ marginTop: 24 }}>
-            {demos.map((p) => p && <li key={p.slug}><ProjectCard project={p} t={t} L={L} /></li>)}
+            {demos.map((p) => p && <li key={p.slug}><ProjectCard project={p} t={t} L={L} ui={uiLabels[locale as LocaleCode]} /></li>)}
           </ul>
         </div>
       </section>

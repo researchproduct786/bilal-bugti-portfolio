@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Dict } from '@/i18n/en';
 import type { ContentProject } from '@/i18n/content/types';
-import { uiFor } from '@/components/visuals/Ui';
+import { uiFor, defaultUiLabels, type UiLabels } from '@/components/visuals/Ui';
 
 /**
  * One project card.
@@ -10,14 +10,14 @@ import { uiFor } from '@/components/visuals/Ui';
  * questions a visitor actually has: what is it, who is it for, what does it solve.
  * No two cards use the same interface, so the six read as six products.
  */
-export function ProjectCard({ project, t, L }: { project: ContentProject; t: Dict; L: (p: string) => string }) {
+export function ProjectCard({ project, t, L, ui = defaultUiLabels }: { project: ContentProject; t: Dict; L: (p: string) => string; ui?: UiLabels }) {
   const Ui = uiFor[project.visual];
   return (
     <article className="pcard reveal" style={{ ['--ac' as string]: project.accent }}>
       <Link href={L(`/work/${project.slug}`)} className="pcard-media" data-cursor aria-label={`${project.brand} — ${project.what}`}>
         <span className="pcard-tag">{t.ui.concept}</span>
         <span className={`pcard-ui ${project.visual === 'app' ? 'is-phone' : ''}`}>
-          <Ui compact />
+          <Ui compact l={ui} />
         </span>
       </Link>
       <div className="pcard-body">

@@ -1,5 +1,21 @@
 'use client';
-import type { CSSProperties, ReactNode } from 'react';
+import { createContext, useContext, type CSSProperties, type ReactNode } from 'react';
+
+/** Chrome strings for the demonstration frame. Provided per locale from the page. */
+export interface DemoChrome {
+  concept: string;
+  loading: string;
+  views: string;
+  /** Translated demonstration notes, keyed by the English note the demo passes in. */
+  notes?: Record<string, Record<string, string>>;
+  locale?: string;
+}
+const fallback: DemoChrome = { concept: 'Concept project', loading: 'Loading demonstration…', views: 'views' };
+const ChromeContext = createContext<DemoChrome>(fallback);
+export function DemoChromeProvider({ value, children }: { value?: Partial<DemoChrome>; children: ReactNode }) {
+  return <ChromeContext.Provider value={{ ...fallback, ...value }}>{children}</ChromeContext.Provider>;
+}
+export const useDemoChrome = () => useContext(ChromeContext);
 
 export const money = (n: number) => `$${n.toLocaleString('en-US', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 })}`;
 
@@ -7,15 +23,16 @@ interface ShellProps { title: string; note: string; tabs?: string[]; tab?: strin
 
 /** Common chrome for every demonstration: makes the fictional status impossible to miss. */
 export function DemoShell({ title, note, tabs, tab, onTab, theme, className = '', children }: ShellProps) {
+  const c = useDemoChrome();
   return (
     <div className={`demo ${className}`} style={theme}>
       <div className="demo-bar">
         <span className="demo-dots" aria-hidden="true"><i /><i /><i /></span>
         <span className="demo-title">{title}</span>
-        <span className="demo-flag">Concept project · {note}</span>
+        <span className="demo-flag">{c.concept} · {(c.locale && c.notes?.[note]?.[c.locale]) || note}</span>
       </div>
       {tabs && (
-        <div className="demo-tabs" role="tablist" aria-label={`${title} views`}>
+        <div className="demo-tabs" role="tablist" aria-label={`${title} ${c.views}`}>
           {tabs.map((t) => <button key={t} role="tab" aria-selected={t === tab} onClick={() => onTab?.(t)}>{t}</button>)}
         </div>
       )}

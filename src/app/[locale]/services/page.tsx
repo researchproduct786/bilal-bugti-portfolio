@@ -52,7 +52,7 @@ export default async function Services({ params }: { params: Promise<{ locale: s
               <div className="svc-caps">
                 {s.capabilities.map((k) => (
                   <div key={k} className="svc-cap">
-                    <div className="capcard-media"><CapabilityVisual id={k} /></div>
+                    <div className="capcard-media"><CapabilityVisual id={k} todayLabel={t.home.today} /></div>
                     <p className="capcard-t">{capLabel[k][0]}</p>
                     <p className="capcard-l">{capLabel[k][1]}</p>
                   </div>

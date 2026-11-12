@@ -1,21 +1,21 @@
-import { AppUi, AssistantUi, CampaignUi, CrmUi, DashboardUi, KitchenUi, StoreUi, BrowserUi } from './Ui';
+import { AppUi, AssistantUi, CampaignUi, CrmUi, DashboardUi, KitchenUi, StoreUi, BrowserUi, defaultUiLabels, type UiLabels } from './Ui';
 
 /**
  * A small, real interface preview for each capability.
  * The point is that a business owner can see the thing, not read about it.
  */
-export function CapabilityVisual({ id }: { id: string }) {
+export function CapabilityVisual({ id, todayLabel = 'Today', ui = defaultUiLabels }: { id: string; todayLabel?: string; ui?: UiLabels }) {
   switch (id) {
     case 'shopify':
-      return <div className="ui-frame"><BrowserUi url="haldenstore.example"><StoreUi compact /></BrowserUi></div>;
+      return <div className="ui-frame"><BrowserUi url="haldenstore.example"><StoreUi compact l={ui} /></BrowserUi></div>;
     case 'app':
-      return <div className="phone scale-sm"><div className="phone-notch" /><div className="phone-screen"><div className="ap-top"><span>9:41</span><span>Tillo</span></div><p className="ap-k">Today</p><p className="ap-big">₨ 48,500</p><div className="ap-two"><div className="warn"><b>4</b>open orders</div><div><b>2</b>low stock</div></div><div className="ap-row"><span><b>#1042</b> Amara O.</span><em>Pack</em></div><div className="ap-row"><span><b>#1041</b> Jonas W.</span><em>Pack</em></div><nav className="ap-nav" aria-hidden="true"><i className="on">◧</i><i>☰</i><i>◎</i><i>▦</i><i>◢</i></nav></div></div>;
+      return <div className="phone scale-sm"><div className="phone-notch" /><div className="phone-screen"><div className="ap-top"><span>9:41</span><span>Tillo</span></div><p className="ap-k">{todayLabel}</p><p className="ap-big">₨ 48,500</p><div className="ap-two"><div className="warn"><b>4</b>open orders</div><div><b>2</b>low stock</div></div><div className="ap-row"><span><b>#1042</b> Amara O.</span><em>Pack</em></div><div className="ap-row"><span><b>#1041</b> Jonas W.</span><em>Pack</em></div><nav className="ap-nav" aria-hidden="true"><i className="on">◧</i><i>☰</i><i>◎</i><i>▦</i><i>◢</i></nav></div></div>;
     case 'web':
-      return <div className="ui-frame"><BrowserUi url="westgate-retail.example"><div className="ui ui-webmini"><div className="ui-word">WESTGATE<span>Retail</span></div><p className="wm-h">Parts, tools and advice<br />from people who use them.</p><div className="wm-row"><span>Shop</span><span>Guides</span><span>Contact</span></div></div></BrowserUi></div>;
+      return <div className="ui-frame"><BrowserUi url="westgate-retail.example"><div className="ui ui-webmini"><div className="ui-word">WESTGATE<span>Retail</span></div><p className="wm-h">Parts, tools and advice<br />from people who use them.</p><div className="wm-row"><span>{ui.shop}</span><span>{ui.guides}</span><span>{ui.contact}</span></div></div></BrowserUi></div>;
     case 'automation':
       return (
         <div className="ui ui-auto">
-          <div className="ui-bar"><span className="ui-word">AUTOMATION<span>Live</span></span><span className="ui-cart">3 runs today</span></div>
+          <div className="ui-bar"><span className="ui-word">AUTOMATION<span>{ui.automationLive}</span></span><span className="ui-cart">{ui.runsToday}</span></div>
           <div className="ui-body">
             <div className="auto-flow">
               <span className="au-n">Order paid</span><i>→</i><span className="au-n">Create task</span><i>→</i><span className="au-n">Notify WhatsApp</span>
@@ -25,11 +25,11 @@ export function CapabilityVisual({ id }: { id: string }) {
         </div>
       );
     case 'crm':
-      return <div className="ui-frame"><CrmUi compact /></div>;
+      return <div className="ui-frame"><CrmUi compact l={ui} /></div>;
     case 'ai':
-      return <div className="ui-frame"><AssistantUi compact /></div>;
+      return <div className="ui-frame"><AssistantUi compact l={ui} /></div>;
     case 'marketing':
-      return <div className="ui-frame"><CampaignUi compact /></div>;
+      return <div className="ui-frame"><CampaignUi compact l={ui} /></div>;
     case 'branding':
       return (
         <div className="ui ui-brand">

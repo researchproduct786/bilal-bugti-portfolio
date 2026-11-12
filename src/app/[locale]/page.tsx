@@ -40,7 +40,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="section rule alt2" aria-labelledby="work-h">
         <div className="wrap">
           <SectionHead id="work-h" kicker={t.home.workKicker} title={t.home.workTitle}>{t.home.workBody}</SectionHead>
-          <WorkGrid projects={c.projects} t={t} L={L} />
+          <WorkGrid projects={c.projects} t={t} L={L} locale={locale as LocaleCode} />
           <div className="reveal" style={{ marginTop: 36 }}><Btn href={L('/work')} variant="ghost">{t.nav.work}</Btn></div>
         </div>
       </section>
@@ -49,7 +49,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="section rule" aria-labelledby="reel-h">
         <div className="wrap">
           <SectionHead id="reel-h" kicker={t.nav.lab} title={c.pages.lab.title}>{c.pages.lab.lede}</SectionHead>
-          <ReferenceReel title={c.pages.lab.title} body={c.pages.lab.note} />
+          <ReferenceReel
+            title={t.nav.lab}
+            body={c.pages.lab.note}
+            caption={t.ui.reelCaption}
+            alt={`${t.nav.lab} — ${c.pages.lab.title}`}
+          />
         </div>
       </section>
 

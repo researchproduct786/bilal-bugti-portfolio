@@ -22,6 +22,10 @@ export const zh: Dict = {
     all: '全部',
     demo: '演示',
     concept: '概念项目',
+    reelCaption: '概念作品 · 品牌形象研究',
+    svcCaption: ['小品牌正在打包线上订单——商城本应让这件事更轻松。', '店主用手里已有的手机查看当天的订单。', '先在纸上决定版式，再为手机和桌面构建。', '自动化要取代的人工步骤：同一笔订单录入两次。', '仍在靠纸张运转的后台——销售管道替代了丢失的便签。', '构建一个会标注答案出处文件的助手界面。', '规划推广：同一条信息贯穿所有版式。'], // store, app, web, automation, crm, ai, marketing
+    loadingDemo: '正在加载演示…',
+    views: '视图',
     conceptShort: '概念',
     selfInitiated: '自主演示项目',
     fictional: '虚构品牌与示例数据',
@@ -64,6 +68,7 @@ export const zh: Dict = {
     heroLine: '数字创业者，为小企业构建他们真正赖以运转的网店、应用与系统。',
     heroTagline: '我不只是做项目，我为真实问题构建解决方案。',
     heroProof: '六个可操作的产品演示：网店、手机应用、CRM、AI 助手、餐厅点单与营销活动。',
+    today: '今日',
     heroCta1: '查看我的作品',
     heroCta2: '聊聊你的业务',
     heroStat1: '可操作演示',

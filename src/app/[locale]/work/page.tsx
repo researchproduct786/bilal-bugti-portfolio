@@ -6,6 +6,7 @@ import { getBundle } from '@/i18n/dictionaries';
 import { Shell } from '@/components/site/Shell';
 import { PageHero, FinalCTA } from '@/components/site/Blocks';
 import { ProjectCard } from '@/components/home/ProjectCard';
+import { uiLabels } from '@/i18n/ui-labels';
 
 export const dynamicParams = false;
 export function generateStaticParams() { return localeCodes.map((locale) => ({ locale })); }
@@ -33,7 +34,7 @@ export default async function Work({ params }: { params: Promise<{ locale: strin
       <section className="section tight">
         <div className="wrap">
           <ul className="workgrid2">
-            {c.projects.map((p) => <li key={p.slug}><ProjectCard project={p} t={t} L={L} /></li>)}
+            {c.projects.map((p) => <li key={p.slug}><ProjectCard project={p} t={t} L={L} ui={uiLabels[locale as LocaleCode]} /></li>)}
           </ul>
           <p className="notice reveal" style={{ marginTop: 40 }}><b>{t.ui.concept}</b>{t.ui.footerNote}</p>
           <div className="reveal" style={{ marginTop: 24 }}>

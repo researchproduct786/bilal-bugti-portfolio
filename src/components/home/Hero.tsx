@@ -41,7 +41,7 @@ export function Hero({ t, projects, portraitAlt }: { t: Dict; projects: ContentP
             <span className="hero2-phone-notch" aria-hidden="true" />
             <span className="hero2-screen">
               <span className="h2s-top"><span>9:41</span><span>Tillo</span></span>
-              <span className="h2s-k">Today</span>
+              <span className="h2s-k">{t.home.today}</span>
               <span className="h2s-big">₨ 48,500</span>
               <span className="h2s-two"><span><b>4</b>open</span><span><b>2</b>low</span></span>
               <span className="h2s-row"><span>#1042 Amara O.</span><em>Pack</em></span>

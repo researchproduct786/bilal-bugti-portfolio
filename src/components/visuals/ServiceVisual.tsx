@@ -1,23 +1,26 @@
-import { AppUi, AssistantUi, BrowserUi, CrmUi, StoreUi } from './Ui';
+import { AppUi, AssistantUi, BrowserUi, CrmUi, StoreUi, defaultUiLabels, type UiLabels } from './Ui';
 import { Scene } from './Scene';
 
 type Id = 'store' | 'app' | 'web' | 'automation' | 'crm' | 'ai' | 'marketing';
+
+/** English fallbacks; every page passes its own translated captions. */
+const defaultCaptions: Record<Id, string> = {
+  store: 'A small brand packing an online order — the work the storefront has to make easier.',
+  app: 'A shop owner checking the day’s orders on the device already in her hand.',
+  web: 'Layout decisions on paper first, then built for phone and desktop.',
+  automation: 'The manual step that automation removes: re-typing the same order twice.',
+  crm: 'A back office still running on paper — the pipeline replaces the lost note.',
+  ai: 'Building an assistant interface that cites the document it answered from.',
+  marketing: 'Campaign planning: one message carried across every format.',
+};
 
 /**
  * Each service is explained with a photograph of the real-world situation AND the interface
  * that solves it — the pairing the brief asks for. The caption ties them together.
  */
-export function ServiceVisual({ id }: { id: Id }) {
+export function ServiceVisual({ id, ui = defaultUiLabels, captions = defaultCaptions }: { id: Id; ui?: UiLabels; captions?: Record<Id, string> }) {
   const scene = id === 'store' ? 'ecommerce' : id === 'app' ? 'delivery' : id === 'web' ? 'design' : id === 'automation' ? 'operations' : id === 'crm' ? 'operations' : id === 'ai' ? 'build' : 'planning';
-  const caption = {
-    store: 'A small brand packing an online order — the work the storefront has to make easier.',
-    app: 'A shop owner checking the day’s orders on the device already in her hand.',
-    web: 'Layout decisions on paper first, then built for phone and desktop.',
-    automation: 'The manual step that automation removes: re-typing the same order twice.',
-    crm: 'A back office still running on paper — the pipeline replaces the lost note.',
-    ai: 'Building an assistant interface that cites the document it answered from.',
-    marketing: 'Campaign planning: one message carried across every format.',
-  }[id];
+  const caption = captions[id] ?? '';
 
   return (
     <div className="duo">
@@ -28,14 +31,14 @@ export function ServiceVisual({ id }: { id: Id }) {
         priority
       />
       <div className="ui-frame">
-        {id === 'store' && <BrowserUi url="haldenobjects.example"><StoreUi /></BrowserUi>}
-        {id === 'app' && <AppUi />}
+        {id === 'store' && <BrowserUi url="haldenobjects.example"><StoreUi l={ui} /></BrowserUi>}
+        {id === 'app' && <AppUi l={ui} />}
         {id === 'web' && (
           <div className="ui ui-webmini big">
-            <div className="ui-bar"><span className="ui-word">WESTGATE<span>Retail</span></span><span className="ui-cart">Menu</span></div>
+            <div className="ui-bar"><span className="ui-word">WESTGATE<span>Retail</span></span><span className="ui-cart">{ui.menu}</span></div>
             <div className="ui-body">
               <p className="wm-h">Parts, tools and advice from people who use them.</p>
-              <div className="wm-row"><span>Shop</span><span>Guides</span><span>Contact</span></div>
+              <div className="wm-row"><span>{ui.shop}</span><span>{ui.guides}</span><span>{ui.contact}</span></div>
               <div className="wm-cards"><span /><span /><span /></div>
             </div>
           </div>
@@ -50,8 +53,8 @@ export function ServiceVisual({ id }: { id: Id }) {
             </div>
           </div>
         )}
-        {id === 'crm' && <CrmUi />}
-        {id === 'ai' && <AssistantUi />}
+        {id === 'crm' && <CrmUi l={ui} />}
+        {id === 'ai' && <AssistantUi l={ui} />}
         {id === 'marketing' && (
           <div className="ui ui-webmini big">
             <div className="ui-bar"><span className="ui-word">SLOWTIDE<span>Campaign</span></span><span className="ui-cart">Sample data</span></div>

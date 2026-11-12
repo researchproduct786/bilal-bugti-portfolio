@@ -22,6 +22,10 @@ export const de: Dict = {
     all: 'Alle',
     demo: 'Demo',
     concept: 'Konzeptprojekt',
+    reelCaption: 'Konzeptgrafik · Identitätsstudie',
+    svcCaption: ['Eine kleine Marke packt eine Online-Bestellung — die Arbeit, die der Shop leichter machen muss.', 'Eine Ladeninhaberin prüft die Bestellungen des Tages auf dem Gerät in ihrer Hand.', 'Erst Layout-Entscheidungen auf Papier, dann für Telefon und Desktop gebaut.', 'Der manuelle Schritt, den die Automatisierung entfernt: dieselbe Bestellung zweimal tippen.', 'Ein Büro, das noch auf Papier läuft — die Pipeline ersetzt den verlorenen Zettel.', 'Eine Assistenten-Oberfläche, die das Dokument zitiert, aus dem sie geantwortet hat.', 'Kampagnenplanung: eine Botschaft in jedem Format.'], // store, app, web, automation, crm, ai, marketing
+    loadingDemo: 'Demo wird geladen…',
+    views: 'Ansichten',
     conceptShort: 'Konzept',
     selfInitiated: 'Eigenständige Demonstration',
     fictional: 'Fiktive Marke & Beispieldaten',
@@ -65,6 +69,7 @@ export const de: Dict = {
     heroLine: 'Digitaler Unternehmer, der die Shops, Apps und Systeme baut, mit denen kleine Unternehmen wirklich arbeiten.',
     heroTagline: 'Ich baue nicht nur Projekte. Ich baue Lösungen für echte Probleme.',
     heroProof: 'Sechs lauffähige Produktdemonstrationen: Shops, eine App, ein CRM, ein KI-Assistent, Restaurantbestellung und eine Kampagne.',
+    today: 'Heute',
     heroCta1: 'Meine Arbeit ansehen',
     heroCta2: 'Sprechen wir über Ihr Geschäft',
     heroStat1: 'Lauffähige Demos',

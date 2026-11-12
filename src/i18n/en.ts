@@ -26,6 +26,10 @@ export const en = {
     all: 'All',
     demo: 'Demo',
     concept: 'Concept project',
+    reelCaption: 'Concept artwork · identity study',
+    svcCaption: ['A small brand packing an online order — the work the storefront has to make easier.', 'A shop owner checking the day’s orders on the device already in her hand.', 'Layout decisions on paper first, then built for phone and desktop.', 'The manual step that automation removes: re-typing the same order twice.', 'A back office still running on paper — the pipeline replaces the lost note.', 'Building an assistant interface that cites the document it answered from.', 'Campaign planning: one message carried across every format.'], // store, app, web, automation, crm, ai, marketing
+    loadingDemo: 'Loading demonstration…',
+    views: 'views',
     conceptShort: 'Concept',
     selfInitiated: 'Self-initiated demonstration',
     fictional: 'Fictional brand & demo data',
@@ -69,6 +73,7 @@ export const en = {
     heroLine: 'Digital entrepreneur building the stores, apps and systems that small businesses actually run on.',
     heroTagline: 'I don’t just build projects. I build solutions to real-world problems.',
     heroProof: 'Six working product demonstrations — stores, an app, a CRM, an AI assistant, restaurant ordering and a campaign.',
+    today: 'Today',
     heroCta1: 'Explore my work',
     heroCta2: 'Let’s discuss your business',
     heroStat1: 'Working demos',

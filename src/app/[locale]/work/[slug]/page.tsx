@@ -8,6 +8,7 @@ import { PageHero, FinalCTA } from '@/components/site/Blocks';
 import { Demo } from '@/components/demos';
 import { ProjectVisual } from '@/components/visuals/ProjectVisual';
 import { Scene } from '@/components/visuals/Scene';
+import { uiLabels, demoNotes } from '@/i18n/ui-labels';
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -72,9 +73,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ locale
             <h2 id="demo-h" className="h3">{t.work.demoTitle}</h2>
             <p className="mono muted">{t.ui.demoRuns}</p>
           </div>
-          <div className="reveal"><ProjectVisual project={p} /></div>
+          <div className="reveal"><ProjectVisual project={p} ui={uiLabels[locale as LocaleCode]} /></div>
           <div className="demo-wrap reveal" style={{ marginTop: 26 }}>
-            <Demo slug={p.slug} />
+            <Demo slug={p.slug} chrome={{
+              concept: t.ui.concept,
+              loading: t.ui.loadingDemo,
+              views: t.ui.views,
+              notes: demoNotes,
+              locale,
+            }} />
           </div>
           <p className="notice" style={{ marginTop: 16 }}><b>{t.ui.concept}</b>{t.ui.demoNote}</p>
         </div>
@@ -141,7 +148,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ locale
               <span className="h1">{next.brand} <span aria-hidden="true">→</span></span>
               <span className="muted">{next.what}</span>
             </span>
-            <span className="nextproj-vis"><ProjectVisual project={next} compact /></span>
+            <span className="nextproj-vis"><ProjectVisual project={next} compact ui={uiLabels[locale as LocaleCode]} /></span>
           </Link>
         </div>
       </section>

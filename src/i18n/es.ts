@@ -22,6 +22,10 @@ export const es: Dict = {
     all: 'Todo',
     demo: 'Demo',
     concept: 'Proyecto conceptual',
+    reelCaption: 'Obra conceptual · estudio de identidad',
+    svcCaption: ['Una pequeña marca preparando un pedido: el trabajo que la tienda debe facilitar.', 'Una dueña de tienda revisando los pedidos del día en el móvil que ya tiene en la mano.', 'Primero las decisiones de diseño en papel; después, móvil y escritorio.', 'El paso manual que la automatización elimina: escribir el mismo pedido dos veces.', 'Una oficina que aún funciona con papel: el embudo sustituye la nota perdida.', 'Construir un asistente que cita el documento del que respondió.', 'Planificar la campaña: un solo mensaje en todos los formatos.'], // store, app, web, automation, crm, ai, marketing
+    loadingDemo: 'Cargando la demostración…',
+    views: 'vistas',
     conceptShort: 'Concepto',
     selfInitiated: 'Demostración propia',
     fictional: 'Marca ficticia y datos de ejemplo',
@@ -65,6 +69,7 @@ export const es: Dict = {
     heroLine: 'Emprendedor digital que construye las tiendas, las aplicaciones y los sistemas con los que las pequeñas empresas trabajan de verdad.',
     heroTagline: 'No solo hago proyectos. Construyo soluciones para problemas reales.',
     heroProof: 'Seis demostraciones de producto funcionales: tiendas, una app, un CRM, un asistente de IA, pedidos de restaurante y una campaña.',
+    today: 'Hoy',
     heroCta1: 'Explorar mi trabajo',
     heroCta2: 'Hablemos de tu negocio',
     heroStat1: 'Demos funcionales',
