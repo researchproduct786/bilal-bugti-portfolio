@@ -1,7 +1,9 @@
 'use client';
+import { useT } from '@/i18n/client';
 import dynamic from 'next/dynamic';
 
-const loading = () => <div className="demo demo-loading" role="status">Loading demonstration…</div>;
+function Loading() { const t = useT(); return <div className="demo demo-loading" role="status">{t('Loading demonstration…')}</div>; }
+const loading = () => <Loading />;
 // Each demonstration is its own chunk: a project page only downloads the demo it shows.
 const map = {
   'halden-objects': dynamic(() => import('./Halden'), { loading }),

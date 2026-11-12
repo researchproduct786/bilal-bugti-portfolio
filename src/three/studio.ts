@@ -2,13 +2,15 @@
  * The studio — a single, self-contained Three.js scene.
  *
  * Framework-free on purpose: React only mounts a <canvas> and forwards scroll progress.
- * Everything is procedural (no model or texture downloads), so the whole signature
- * experience costs one code-split JS chunk and zero additional network requests.
- *
- * The seated figure is a deliberately faceless placeholder — not a likeness of anyone.
+ * The room, desk, screens and body are procedural. The head is the one downloaded asset:
+ * `/avatar/head.glb`, Bilal's personal avatar, reconstructed from a single photograph
+ * (see tools/avatar/README.md). During the transformation the face is never replaced —
+ * plating grows over the neck, skull and one side of the jaw while the face stays human.
  */
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 
 const V = (x: number, y: number, z: number) => new THREE.Vector3(x, y, z);
 const smooth = (a: number, b: number, x: number) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
@@ -23,7 +25,7 @@ const NOISE_GLSL = /* glsl */ `
     float n = vnoise(vWPos * 13.0) * 0.62 + vnoise(vWPos * 41.0) * 0.38; return d * 0.56 + n * 0.44; }
 `;
 
-export interface StudioOptions { onReady?: () => void; maxDpr?: number }
+export interface StudioOptions { onReady?: () => void; maxDpr?: number; avatarUrl?: string }
 
 export class StudioScene {
   private renderer: THREE.WebGLRenderer;
@@ -41,6 +43,9 @@ export class StudioScene {
   private path: THREE.CatmullRomCurve3;
   private look: THREE.CatmullRomCurve3;
   private fx: { mats: (THREE.MeshBasicMaterial | THREE.PointsMaterial)[]; extras: THREE.MeshStandardMaterial[]; points?: THREE.Points; screenLight?: THREE.PointLight } = { mats: [], extras: [] };
+  private head = new THREE.Group(); private headParts: THREE.Object3D[] = []; private figure = new THREE.Group();
+  private screens: THREE.MeshBasicMaterial[] = []; private holos: { m: THREE.Mesh; base: THREE.Vector3; out: THREE.Vector3; ph: number; q: THREE.Quaternion }[] = []; private tmpQ = new THREE.Quaternion(); private tmpM = new THREE.Matrix4();
+  private avatarLoaded = false; private disposed = false; private faceLight?: THREE.SpotLight;
   private clock = new THREE.Clock();
   private frames = 0; private slow = 0; private dpr: number; private ready = false;
   private w = 1; private h = 1;
@@ -62,11 +67,13 @@ export class StudioScene {
     this.scene.environment = env; this.scene.environmentIntensity = 0.22;
     pmrem.dispose(); this.disposables.push(env);
 
-    this.path = new THREE.CatmullRomCurve3([V(3.5, 2.05, 5.4), V(2.1, 1.6, 3.5), V(0.2, 1.5, 2.75), V(-1.55, 1.42, 1.75), V(-1.95, 1.36, 0.55)], false, 'catmullrom', 0.5);
-    this.look = new THREE.CatmullRomCurve3([V(-1.25, 1.0, -0.3), V(-0.35, 1.1, 0), V(0, 1.18, 0.2), V(0, 1.2, 0.45), V(0, 1.22, 0.6)]);
+    this.path = new THREE.CatmullRomCurve3([V(3.5, 2.05, 5.4), V(2.1, 1.6, 3.5), V(0.2, 1.5, 2.75), V(-1.5, 1.44, 1.9), V(-1.9, 1.42, 0.7), V(-1.3, 1.5, 0.12), V(-0.6, 1.52, 0.1)], false, 'catmullrom', 0.5);
+    this.look = new THREE.CatmullRomCurve3([V(-1.25, 1.0, -0.3), V(-0.35, 1.1, 0), V(0, 1.18, 0.2), V(0, 1.22, 0.45), V(0, 1.3, 0.6), V(0, 1.42, 0.66), V(0.02, 1.46, 0.66)]);
 
-    this.buildRoom(); this.buildDesk(); this.buildFigure(); this.buildLights(); this.buildFx();
+    this.buildRoom(); this.buildDesk(); this.buildFigure(); this.buildLights(); this.buildFx(); this.buildHolograms();
     this.resize(); this.applyCamera(0); this.renderer.compile(this.scene, this.camera);
+    canvas.addEventListener('webglcontextlost', this.onLost, false); canvas.addEventListener('webglcontextrestored', this.onRestored, false);
+    this.loadAvatar(opts.avatarUrl ?? '/avatar/head.glb');
   }
 
   /* ───────── helpers ───────── */
@@ -169,7 +176,8 @@ export class StudioScene {
     for (const [x, z, ry, tex] of screens) {
       const g = new THREE.Group(); g.position.set(x, 1.2, z); g.rotation.y = ry; this.scene.add(g);
       this.box(0.68, 0.4, 0.022, bezel, V(0, 0, 0), g);
-      const s = this.mesh(new THREE.PlaneGeometry(0.656, 0.378), this.track(new THREE.MeshBasicMaterial({ map: tex, toneMapped: false })), V(0, 0, 0.0125), g, false); s.receiveShadow = false;
+      const sm = this.track(new THREE.MeshBasicMaterial({ map: tex, toneMapped: false })); this.screens.push(sm);
+      const s = this.mesh(new THREE.PlaneGeometry(0.656, 0.378), sm, V(0, 0, 0.0125), g, false); s.receiveShadow = false;
       const halo = this.mesh(new THREE.PlaneGeometry(1.7, 1.2), this.track(new THREE.MeshBasicMaterial({ map: glow, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: 0.5 })), V(0, 0, -0.03), g, false); halo.receiveShadow = false;
       this.box(0.04, 0.3, 0.03, metal, V(0, -0.3, -0.03), g); this.box(0.24, 0.012, 0.16, metal, V(0, -0.431, -0.02), g);
     }
@@ -205,7 +213,7 @@ export class StudioScene {
       s.vertexShader = s.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vWPos;').replace('#include <begin_vertex>', '#include <begin_vertex>\nvWPos = (modelMatrix * vec4(transformed, 1.0)).xyz;');
       s.fragmentShader = s.fragmentShader.replace('#include <common>', '#include <common>\n' + NOISE_GLSL)
         .replace('#include <clipping_planes_fragment>', '#include <clipping_planes_fragment>\nfloat mf = morphField(); float thr = uMorph * 1.14 - 0.07; if (mf < thr) discard;')
-        .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\ntotalEmissiveRadiance += vec3(0.22, 0.52, 1.0) * 2.6 * smoothstep(0.05, 0.0, mf - thr) * step(0.002, uMorph);');
+        .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\ntotalEmissiveRadiance += vec3(0.22, 0.52, 1.0) * 1.7 * smoothstep(0.016, 0.0, mf - thr) * step(0.002, uMorph);');
     };
     mat.customProgramCacheKey = () => 'dissolve';
     return mat;
@@ -225,11 +233,10 @@ export class StudioScene {
   private buildFigure() {
     const cloth = this.dissolving({ color: 0x111319, roughness: 0.94 });
     const trousers = this.dissolving({ color: 0x0b0c0f, roughness: 0.9 });
-    const skin = this.dissolving({ color: 0x9c755c, roughness: 0.72 });
-    const hair = this.dissolving({ color: 0x050506, roughness: 0.55 });
+    const skin = this.dissolving({ color: 0xa8775f, roughness: 0.72 });
     const plate = this.plated({ color: 0x596069, roughness: 0.36, metalness: 1, envMapIntensity: 2.0 });
     const joint = this.std({ color: 0x15181d, roughness: 0.4, metalness: 0.9, envMapIntensity: 2 });
-    const g = new THREE.Group(); this.scene.add(g);
+    const g = this.figure; this.scene.add(g);
     const up = V(0, 1, 0);
     const pair = (geo: THREE.BufferGeometry, shell: THREE.Material, pos: THREE.Vector3, q?: THREE.Quaternion, scale?: THREE.Vector3, core = 0.9) => {
       this.track(geo);
@@ -247,9 +254,6 @@ export class StudioScene {
     pair(new THREE.CapsuleGeometry(0.175, 0.36, 8, 24), cloth, V(0, 0.93, 0.76), lean, V(1.12, 1, 0.82));          // torso
     pair(new THREE.SphereGeometry(0.2, 24, 16), trousers, V(0, 0.62, 0.8), undefined, V(1.05, 0.62, 0.95));           // pelvis
     pair(new THREE.SphereGeometry(0.15, 20, 14), cloth, V(0, 1.265, 0.8), undefined, V(1.25, 0.55, 0.8), 0.25);       // hood
-    pair(new THREE.CylinderGeometry(0.05, 0.058, 0.12, 16), skin, V(0, 1.325, 0.7), undefined, undefined, 0.8);       // neck
-    pair(new THREE.SphereGeometry(0.115, 32, 24), skin, V(0, 1.465, 0.68), undefined, V(0.9, 1.1, 1.0), 0.94);        // head
-    pair(new THREE.SphereGeometry(0.122, 32, 20, 0, Math.PI * 2, 0, Math.PI * 0.68), hair, V(0, 1.48, 0.7), new THREE.Quaternion().setFromEuler(new THREE.Euler(0.6, 0, 0)), V(0.95, 1.08, 1.04), 0.5);
     for (const sx of [-1, 1]) {
       const sh = V(0.235 * sx, 1.2, 0.71), el = V(0.29 * sx, 0.93, 0.56), wr = V(0.16 * sx, 0.815, 0.27);
       limb(sh, el, 0.058, cloth); limb(el, wr, 0.047, cloth);
@@ -258,13 +262,121 @@ export class StudioScene {
       limb(hip, kn, 0.082, trousers); limb(kn, an, 0.06, trousers);
       pair(new THREE.BoxGeometry(0.095, 0.07, 0.25), trousers, V(0.14 * sx, 0.04, 0.33), undefined, undefined, 0.94);
     }
+    this.mesh(new THREE.CylinderGeometry(0.05, 0.062, 0.2, 20), joint, V(0, 1.2, 0.738), g, false);   // neck column, hidden by the hood until it dissolves
     // Machine-only details: emissive spine and visor, driven by the morph value.
     const lit = (c: number) => { const m = this.std({ color: 0x05070a, emissive: c, emissiveIntensity: 0, roughness: 0.3, metalness: 0.6 }); this.fx.extras.push(m); return m; };
     const blue = lit(0x5a9bff);
     for (let i = 0; i < 6; i++) this.box(0.03, 0.028, 0.012, blue, V(0, 0.76 + i * 0.075, 0.905 - i * 0.011), g, false);
-    const visor = this.mesh(new THREE.SphereGeometry(0.1165, 32, 6, Math.PI * 1.5 - 0.95, 1.9, Math.PI * 0.43, Math.PI * 0.085), blue, V(0, 1.465, 0.68), g, false); visor.scale.set(0.9, 1.1, 1.0).multiplyScalar(0.955);
     for (const sx of [-1, 1]) this.mesh(new THREE.TorusGeometry(0.052, 0.006, 8, 24), blue, V(0.29 * sx, 0.93, 0.56), g, false).rotation.y = Math.PI / 2;
     g.traverse((o) => { if ((o as THREE.Mesh).isMesh) o.frustumCulled = false; });
+  }
+
+  /* ───────── head: the personal avatar ───────── */
+  private skinShader(mat: THREE.MeshStandardMaterial) {
+    const u = this.uniforms;
+    mat.onBeforeCompile = (s) => {
+      s.uniforms.uMorph = u.uMorph; s.uniforms.uToHead = { value: mat.userData.toHead ?? new THREE.Matrix4() };
+      s.vertexShader = s.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vOPos; uniform mat4 uToHead;').replace('#include <begin_vertex>', '#include <begin_vertex>\nvOPos = (uToHead * vec4(position, 1.0)).xyz;');
+      s.fragmentShader = s.fragmentShader.replace('#include <common>', /* glsl */ `#include <common>
+        varying vec3 vOPos; uniform float uMorph; float gMech; float gSeam; float gGlow;
+        float c3(vec3 p){ return fract(sin(dot(floor(p), vec3(12.9898,78.233,37.719))) * 43758.5453); }`)
+        .replace('#include <map_fragment>', /* glsl */ `#include <map_fragment>
+        {
+          vec3 p = vOPos;
+          // where plating may grow: neck, back of the skull, behind the ears, and the right side of the jaw
+          if (p.y < 0.052 || (p.y < 0.09 && length(p.xz - vec2(0.0, -0.012)) > 0.066)) discard;   // the bust below the collar is never shown
+          float neck = smoothstep(0.112, 0.075, p.y);
+          float back = smoothstep(0.012, -0.075, p.z) * smoothstep(0.06, 0.13, p.y);
+          float side = smoothstep(0.052, 0.074, abs(p.x)) * smoothstep(0.05, -0.012, p.z);
+          float jaw  = smoothstep(0.02, 0.05, -p.x) * smoothstep(0.2, 0.15, p.y) * smoothstep(0.085, 0.045, p.z);
+          float temple = smoothstep(0.03, 0.058, -p.x) * smoothstep(0.228, 0.256, p.y) * 0.95;
+          float region = max(max(neck, back), max(max(side, jaw), temple));
+          vec3 cell = p * vec3(46.0, 34.0, 46.0);
+          float order = region + (c3(cell) - 0.5) * 0.26;                 // panels arrive one by one
+          float thr = 1.12 - uMorph * 0.78;
+          gMech = smoothstep(thr, thr + 0.012, order) * step(0.001, uMorph);
+          vec3 fc = abs(fract(cell) - 0.5); float line = smoothstep(0.455, 0.49, max(fc.x, max(fc.y, fc.z)));
+          float rings = smoothstep(0.42, 0.49, abs(fract(p.y * 62.0) - 0.5)) * neck;
+          gSeam = max(line, rings) * gMech;
+          gGlow = smoothstep(0.035, 0.0, abs(order - thr)) * step(0.001, uMorph) * (1.0 - step(0.999, uMorph) * 0.6);
+          vec3 metal = vec3(0.115, 0.125, 0.14) * (0.8 + 0.4 * c3(cell + 7.0));
+          diffuseColor.rgb = mix(diffuseColor.rgb, metal * (1.0 - 0.75 * gSeam), gMech);
+        }`)
+        .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\nroughnessFactor = mix(roughnessFactor, 0.34, gMech);')
+        .replace('#include <metalnessmap_fragment>', '#include <metalnessmap_fragment>\nmetalnessFactor = mix(metalnessFactor, 1.0, gMech);')
+        .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\ntotalEmissiveRadiance += vec3(0.2, 0.5, 1.0) * (gGlow * 2.2 + gSeam * step(0.86, c3(vOPos * vec3(46.0, 34.0, 46.0) + 3.0)) * 1.6 * uMorph);');
+    };
+    mat.customProgramCacheKey = () => 'avatar-skin';
+  }
+  private loadAvatar(url: string) {
+    const head = this.head; head.position.set(0, 1.238, 0.725); head.rotation.y = Math.PI; this.figure.add(head);
+    new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).load(url, (gltf) => {
+      if (this.disposed) return;
+      const u = this.uniforms;
+      gltf.scene.updateMatrixWorld(true);
+      gltf.scene.traverse((o) => {
+        const m = o as THREE.Mesh; if (!m.isMesh) return;
+        (m.material as THREE.Material).userData.toHead = m.matrixWorld.clone();   // compressed meshes are quantised + node-transformed; shaders work in head space
+        m.castShadow = true; m.receiveShadow = true; m.frustumCulled = false;
+        const mat = m.material as THREE.MeshStandardMaterial; this.track(mat); this.track(m.geometry); if (mat.map) { mat.map.anisotropy = 8; this.track(mat.map); }
+        if (m.name === 'Skin') { mat.roughness = 0.58; mat.envMapIntensity = 0.6; this.skinShader(mat); }
+        if (m.name === 'Hair') { mat.vertexColors = true; mat.color.set(0x0d0b0a); mat.roughness = 0.66; mat.envMapIntensity = 0.5; }
+        if (m.name === 'Eyes') {
+          mat.vertexColors = true; mat.roughness = 0.08; mat.envMapIntensity = 1.4;
+          mat.onBeforeCompile = (s) => {
+            s.uniforms.uMorph = u.uMorph; s.uniforms.uToHead = { value: mat.userData.toHead ?? new THREE.Matrix4() };
+            s.vertexShader = s.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vOPos; uniform mat4 uToHead;').replace('#include <begin_vertex>', '#include <begin_vertex>\nvOPos = (uToHead * vec4(position, 1.0)).xyz;');
+            s.fragmentShader = s.fragmentShader.replace('#include <common>', '#include <common>\nvarying vec3 vOPos; uniform float uMorph;')
+              .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\nfloat iris = step(vColor.r, 0.2) * step(0.02, vColor.r) * step(vOPos.x, 0.0); totalEmissiveRadiance += vec3(0.16, 0.45, 1.0) * iris * smoothstep(0.55, 1.0, uMorph) * 9.0;');
+          };
+          mat.customProgramCacheKey = () => 'avatar-eyes';
+        }
+      });
+      head.add(gltf.scene);
+      // Hardware that seats itself as the plating completes: ear module, jaw rail, neck collar.
+      const dark = this.std({ color: 0x14171c, roughness: 0.32, metalness: 1, envMapIntensity: 2 });
+      const glow = this.std({ color: 0x05070a, emissive: 0x5a9bff, emissiveIntensity: 0, roughness: 0.3, metalness: 0.6 }); this.fx.extras.push(glow);
+      const part = (m: THREE.Mesh) => { m.castShadow = false; this.headParts.push(m); m.scale.setScalar(0.001); return m; };
+      const ear = part(this.mesh(new THREE.CylinderGeometry(0.017, 0.02, 0.012, 24), dark, V(-0.079, 0.208, -0.012), head)); ear.rotation.z = Math.PI / 2;
+      const earRing = part(this.mesh(new THREE.TorusGeometry(0.0125, 0.0022, 8, 28), glow, V(-0.0855, 0.208, -0.012), head)); earRing.rotation.y = Math.PI / 2;
+      const rail = part(this.box(0.004, 0.006, 0.058, dark, V(-0.071, 0.158, 0.012), head)); rail.rotation.x = 0.5;
+      const collar = part(this.mesh(new THREE.TorusGeometry(0.058, 0.007, 10, 40), dark, V(0, 0.062, -0.012), head)); collar.rotation.x = Math.PI / 2 + 0.18; collar.scale.z = 1;
+      const collarGlow = part(this.mesh(new THREE.TorusGeometry(0.0595, 0.0018, 6, 40), glow, V(0, 0.071, -0.012), head)); collarGlow.rotation.x = Math.PI / 2 + 0.18;
+      this.avatarLoaded = true; this.renderer.compile(this.scene, this.camera);
+      if (!this.active) this.renderOnce();
+      if (!this.ready) { this.ready = true; this.opts.onReady?.(); }
+    }, undefined, () => { if (this.disposed) return; this.buildFallbackHead(); if (!this.ready) { this.ready = true; this.opts.onReady?.(); } });
+  }
+  /** Only used if the avatar file cannot be fetched: a neutral, clearly non-personal head so the scene still reads. */
+  private buildFallbackHead() {
+    const skin = this.dissolving({ color: 0xa8775f, roughness: 0.72 }); const plate = this.plated({ color: 0x596069, roughness: 0.36, metalness: 1 });
+    for (const [mat, k] of [[skin, 1], [plate, 0.94]] as [THREE.Material, number][]) { const m = this.mesh(new THREE.SphereGeometry(0.115, 32, 24), mat, V(0, 1.465, 0.68), this.figure); m.scale.set(0.9, 1.1, 1).multiplyScalar(k); }
+  }
+  /** Floating interface panels — the work the desk produces — that surface as the scene comes alive. */
+  private buildHolograms() {
+    const panel = (w: number, h: number, draw: (c: CanvasRenderingContext2D, W: number, H: number) => void) => this.canvasTex(w, h, (c) => {
+      c.clearRect(0, 0, w, h); c.fillStyle = 'rgba(8,14,24,.82)'; c.fillRect(0, 0, w, h); c.strokeStyle = 'rgba(120,170,255,.75)'; c.lineWidth = 2; c.strokeRect(1, 1, w - 2, h - 2); draw(c, w, h);
+    });
+    const blue = '#7fb0ff', pale = '#dfe8f5', dim = '#2a3d5c', warm = '#e6c08a';
+    const defs: { tex: THREE.Texture; w: number; h: number; base: THREE.Vector3; out: THREE.Vector3; ry: number }[] = [
+      { // storefront
+        tex: panel(320, 220, (c) => { c.fillStyle = pale; c.fillRect(16, 16, 90, 8); c.fillStyle = dim; for (let i = 0; i < 3; i++) { c.fillRect(16 + i * 98, 40, 88, 96); } c.fillStyle = warm; c.fillRect(34, 70, 52, 34); c.fillRect(140, 62, 36, 50); c.fillRect(230, 78, 56, 22); c.fillStyle = pale; for (let i = 0; i < 3; i++) c.fillRect(16 + i * 98, 146, 60, 6); c.fillStyle = blue; c.fillRect(16, 176, 120, 26); }),
+        w: 0.4, h: 0.275, base: V(-1.02, 1.62, 0.1), out: V(0.1, 1.78, 1.85), ry: 0.6 },
+      { // phone
+        tex: panel(150, 290, (c) => { c.fillStyle = pale; c.fillRect(16, 20, 60, 8); c.fillStyle = blue; c.fillRect(16, 40, 118, 54); c.fillStyle = dim; for (let i = 0; i < 4; i++) c.fillRect(16, 108 + i * 36, 118, 26); c.fillStyle = warm; for (let i = 0; i < 4; i++) c.fillRect(24, 116 + i * 36, 10, 10); c.fillStyle = pale; for (let i = 0; i < 4; i++) c.fillRect(42, 118 + i * 36, 50 + (i * 17) % 30, 5); }),
+        w: 0.17, h: 0.33, base: V(1.02, 1.6, 0.16), out: V(1.12, 1.6, 0.8), ry: -0.55 },
+      { // pipeline
+        tex: panel(340, 180, (c) => { for (let k = 0; k < 4; k++) { c.fillStyle = dim; c.fillRect(14 + k * 80, 14, 72, 152); c.fillStyle = pale; c.fillRect(20 + k * 80, 22, 40, 5); for (let i = 0; i < 3 - (k % 2); i++) { c.fillStyle = k === 3 ? '#7fd1b9' : blue; c.globalAlpha = 0.85; c.fillRect(20 + k * 80, 38 + i * 40, 60, 30); c.globalAlpha = 1; } } }),
+        w: 0.42, h: 0.222, base: V(0.42, 1.86, -0.3), out: V(0.42, 2.0, 1.6), ry: -0.18 },
+      { // growth chart
+        tex: panel(300, 180, (c) => { c.fillStyle = pale; c.fillRect(16, 16, 80, 8); c.strokeStyle = blue; c.lineWidth = 3; c.beginPath(); for (let i = 0; i <= 20; i++) { const x = 18 + i * 13.2, y = 150 - i * 4.6 - Math.sin(i * 0.9) * 12; if (i) c.lineTo(x, y); else c.moveTo(x, y); } c.stroke(); c.fillStyle = dim; for (let i = 0; i < 9; i++) c.fillRect(22 + i * 30, 160 - (14 + (i * 23) % 40), 16, 14 + (i * 23) % 40); }),
+        w: 0.36, h: 0.216, base: V(-0.46, 1.84, -0.32), out: V(1.4, 1.28, 0.5), ry: 0.2 },
+    ];
+    for (const [i, d] of defs.entries()) {
+      const mat = this.track(new THREE.MeshBasicMaterial({ map: d.tex, transparent: true, opacity: 0, depthWrite: false, side: THREE.DoubleSide, toneMapped: false }));
+      const m = this.mesh(new THREE.PlaneGeometry(d.w, d.h), mat, d.base, this.scene, false); m.receiveShadow = false; m.rotation.y = d.ry; m.renderOrder = 2;
+      this.holos.push({ m, base: d.base, out: d.out, ph: i * 1.7, q: m.quaternion.clone() });
+    }
   }
 
   private buildLights() {
@@ -277,6 +389,8 @@ export class StudioScene {
     const rim = new THREE.DirectionalLight(0x7fa6e8, 0.85); rim.position.set(-3.5, 2.6, 3.4); this.scene.add(rim);
     const wash = new THREE.PointLight(0x2f62c8, 1.4, 4, 1.8); wash.position.set(0, 0.6, -0.9); this.scene.add(wash);
     const far = new THREE.PointLight(0xffa868, 5, 7, 1.7); far.position.set(3.6, 2.2, -2.2); this.scene.add(far);
+    // A soft key that only comes up when the camera reaches the face, so the likeness is actually lit.
+    const face = new THREE.SpotLight(0xffd2a8, 0, 4, 0.5, 0.9, 1.2); face.position.set(-0.2, 2.1, -0.75); face.target.position.set(0, 1.45, 0.66); this.scene.add(face, face.target); this.faceLight = face;
   }
 
   private buildFx() {
@@ -323,14 +437,31 @@ export class StudioScene {
     const pos = this.path.getPoint(p), look = this.look.getPoint(p);
     pos.x += this.pointerEase.x * 0.16; pos.y += this.pointerEase.y * -0.08;
     this.camera.position.copy(pos); this.camera.lookAt(look);
-    const m = this.morphOverride ?? smooth(0.26, 0.9, p);
+    const m = this.morphOverride ?? smooth(0.47, 0.9, p);
     this.uniforms.uMorph.value = m;
     const late = smooth(0.45, 1, m);
     for (const e of this.fx.extras) e.emissiveIntensity = late * 2.4;
     (this.fx.mats[0] as THREE.MeshBasicMaterial).opacity = late * 0.55;
     (this.fx.mats[1] as THREE.PointsMaterial).opacity = late * 0.4;
-    if (this.fx.screenLight) this.fx.screenLight.intensity = 3.4 + late * 2.2;
+    // Screens wake up as the camera approaches; the light they throw follows.
+    const wake = smooth(0.02, 0.24, p), t = this.clock.elapsedTime;
+    this.screens.forEach((sm, i) => sm.color.setScalar(0.1 + 0.9 * smooth(i * 0.12, 0.6 + i * 0.12, wake)));
+    if (this.fx.screenLight) this.fx.screenLight.intensity = (0.6 + 2.8 * wake) + late * 2.2;
+    // Interface panels surface (scene 2–3), then drift outwards into the wider world (scene 6).
+    const show = smooth(0.26, 0.4, p) * (1 - smooth(0.56, 0.68, p) * (1 - smooth(0.8, 0.95, p)) * 0.8), spread = smooth(0.7, 0.94, p);
+    for (const h of this.holos) {
+      h.m.position.lerpVectors(h.base, h.out, spread); h.m.position.y += Math.sin(t * 0.6 + h.ph) * 0.012 - (1 - smooth(0.2, 0.36, p)) * 0.08;
+      this.tmpM.lookAt(this.camera.position, h.m.position, this.camera.up); this.tmpQ.setFromRotationMatrix(this.tmpM); h.m.quaternion.slerpQuaternions(h.q, this.tmpQ, spread); h.m.scale.setScalar(1 + spread * 0.45);
+      (h.m.material as THREE.MeshBasicMaterial).opacity = show * 0.92; h.m.visible = show > 0.01;
+    }
+    // The head: an idle, then a turn towards the viewer as the transformation resolves.
+    const turn = smooth(0.6, 0.9, p);
+    this.head.rotation.set(-0.05 + turn * 0.03 + Math.sin(t * 0.5) * 0.008, Math.PI + turn * 0.62 + Math.sin(t * 0.33) * 0.012 + this.pointerEase.x * 0.04, turn * -0.03);
+    for (const part of this.headParts) { const k = Math.max(0.001, smooth(0.5, 0.85, m)); part.scale.set(k, k, k); part.visible = k > 0.002; }
+    if (this.faceLight) this.faceLight.intensity = smooth(0.55, 0.9, p) * 5.5;
   }
+  private onLost = (e: Event) => { e.preventDefault(); cancelAnimationFrame(this.raf); };
+  private onRestored = () => { if (this.active) { this.clock.getDelta(); this.raf = requestAnimationFrame(this.tick); } else this.renderOnce(); };
 
   private tick = () => {
     if (!this.active) return;
@@ -339,7 +470,6 @@ export class StudioScene {
     this.applyCamera(dt);
     if (this.fx.points) { this.fx.points.rotation.y = Math.sin(this.clock.elapsedTime * 0.07) * 0.25; this.fx.points.position.y = Math.sin(this.clock.elapsedTime * 0.3) * 0.04; }
     this.renderer.render(this.scene, this.camera);
-    if (!this.ready) { this.ready = true; this.opts.onReady?.(); }
     // Automatic quality: if frames run long, step resolution down, then drop shadows.
     this.frames++; if (dt > 0.03) this.slow++;
     if (this.frames >= 90) {
@@ -352,7 +482,8 @@ export class StudioScene {
   };
 
   dispose() {
-    this.setActive(false);
+    this.disposed = true; this.setActive(false);
+    this.canvas.removeEventListener('webglcontextlost', this.onLost); this.canvas.removeEventListener('webglcontextrestored', this.onRestored);
     for (const d of this.disposables) d.dispose();
     this.disposables = [];
     this.renderer.dispose();

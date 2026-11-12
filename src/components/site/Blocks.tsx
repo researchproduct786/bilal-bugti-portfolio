@@ -1,13 +1,16 @@
-import Link from 'next/link';
+'use client';
+import Link from '@/components/site/L';
 import type { ReactNode } from 'react';
 import { Btn } from './Btn';
+import { useT } from '@/i18n/client';
 
 export function PageHero({ crumbs, kicker, title, lede, children }: { crumbs?: { href?: string; label: string }[]; kicker: string; title: ReactNode; lede?: ReactNode; children?: ReactNode }) {
+  const t = useT();
   return (
     <header className="phero">
       <div className="wrap">
         {crumbs && (
-          <nav className="crumbs" aria-label="Breadcrumb">
+          <nav className="crumbs" aria-label={t('Breadcrumb')}>
             {crumbs.map((c, i) => (
               <span key={i}>{c.href ? <Link href={c.href}>{c.label}</Link> : <span aria-current="page">{c.label}</span>}{i < crumbs.length - 1 && <span aria-hidden="true">&nbsp;&nbsp;/</span>}</span>
             ))}
@@ -22,16 +25,18 @@ export function PageHero({ crumbs, kicker, title, lede, children }: { crumbs?: {
   );
 }
 
-export function FinalCTA({ q = 'Have a problem worth solving?', a = 'Let’s turn your idea into something real.' }: { q?: string; a?: string }) {
+export function FinalCTA({ q, a }: { q?: string; a?: string }) {
+  const t = useT();
+  q = q ?? t('Have a problem worth solving?'); a = a ?? t('Let’s turn your idea into something real.');
   return (
     <section className="final" aria-labelledby="final-q">
       <div className="wrap">
-        <p className="kicker reveal">Next step</p>
+        <p className="kicker reveal">{t('Next step')}</p>
         <h2 id="final-q" className="q reveal" style={{ marginTop: 26 }}>{q}</h2>
         <p className="a reveal">{a}</p>
         <div className="row reveal">
-          <Btn href="/contact">Start a project</Btn>
-          <Btn href="/process" variant="ghost">See how I work</Btn>
+          <Btn href="/contact">{t('Start a project')}</Btn>
+          <Btn href="/process" variant="ghost">{t('See how I work')}</Btn>
         </div>
       </div>
     </section>

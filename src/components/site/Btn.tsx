@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/site/L';
 import type { ReactNode } from 'react';
 
 interface Props { href: string; children: ReactNode; variant?: 'solid' | 'ghost'; small?: boolean; external?: boolean; className?: string }

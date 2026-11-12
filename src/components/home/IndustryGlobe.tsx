@@ -1,4 +1,5 @@
 'use client';
+import { useT } from '@/i18n/client';
 import { useEffect, useRef, useState } from 'react';
 import { industries } from '@/data/content';
 
@@ -13,6 +14,7 @@ const fib = (n: number): P3[] => Array.from({ length: n }, (_, i) => {
  * Canvas 2D, ~700 points: cheap enough to run on any phone. Draws only while visible.
  */
 export function IndustryGlobe() {
+  const t = useT();
   const cv = useRef<HTMLCanvasElement>(null);
   const [sel, setSel] = useState(0);
   const selRef = useRef(0);
@@ -101,16 +103,16 @@ export function IndustryGlobe() {
     <div className="globe">
       <div className="globe-view">
         <canvas ref={cv} aria-hidden="true" data-cursor />
-        <p className="mono muted globe-hint">Drag to rotate · select a point</p>
+        <p className="mono muted globe-hint">{t('Drag to rotate · select a point')}</p>
       </div>
       <div className="globe-side">
-        <ul className="globe-list" aria-label="Industries">
+        <ul className="globe-list" aria-label={t('Industries')}>
           {industries.map((ind, i) => (
             <li key={ind.name}><button aria-pressed={i === sel} onClick={() => pick(i)}><span className="mono">{String(i + 1).padStart(2, '0')}</span>{ind.name}</button></li>
           ))}
         </ul>
         <div className="globe-note" aria-live="polite">
-          <p className="mono muted">Typical problems in</p>
+          <p className="mono muted">{t('Typical problems in')}</p>
           <p className="h3" style={{ marginTop: 6 }}>{industries[sel].name}</p>
           <p className="body" style={{ marginTop: 10 }}>{industries[sel].note}</p>
         </div>

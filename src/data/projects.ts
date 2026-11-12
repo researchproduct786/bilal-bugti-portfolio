@@ -6,6 +6,10 @@ export interface Project {
   category: string;
   service: string; // service slug
   summary: string;
+  plain: string; // one-sentence explanation for a non-technical reader
+  before: string[]; // how the work runs without the product
+  after: string[]; // the same work with it
+  value: string[]; // what the business gains
   problem: string;
   solution: string;
   features: string[];
@@ -29,6 +33,10 @@ export const projects: Project[] = [
     category: 'E-commerce',
     service: 'digital-product-development',
     summary: 'A quiet, considered storefront for a fictional maker of desk objects — with a working cart, variants, checkout flow and an owner’s analytics view.',
+    plain: 'An online shop where a customer can find a product, choose a colour and size, and pay — in under a minute, on a phone.',
+    before: ['Customers message to ask what is in stock', 'Orders are typed out by hand', 'Nobody knows which products actually sell'],
+    after: ['Customers browse and choose for themselves', 'Checkout collects the order and payment', 'The owner sees sales and best sellers in one view'],
+    value: ['Sell at any hour without answering messages', 'Fewer abandoned orders from a shorter checkout', 'Stock and pricing decisions based on what sells'],
     problem: 'Small premium brands often inherit a theme built for discount retail: loud banners, crowded product pages, and a checkout that asks for too much. The product is careful; the shop is not.',
     solution: 'A storefront that gives each object room, keeps the buying decision on one screen, and takes the customer from product to confirmation in three calm steps. The owner gets a plain view of orders and what is selling.',
     features: ['Product grid with category filter', 'Product page with colour and size variants', 'Cart drawer with quantity editing', 'Three-step checkout demonstration', 'Owner analytics preview'],
@@ -50,6 +58,10 @@ export const projects: Project[] = [
     category: 'Mobile app',
     service: 'digital-product-development',
     summary: 'A pocket back-office for a small shop: today’s numbers, open orders, customers, stock and settings — designed for one thumb and a busy counter.',
+    plain: 'A phone app that lets a shop owner run the day — orders, stock and customers — without going back to a computer.',
+    before: ['Orders live in a notebook and a chat app', 'Stock is checked by walking to the shelf', 'The day’s takings are a guess until closing'],
+    after: ['Every order is a card you move with one tap', 'Low stock shows up before it runs out', 'Today’s numbers are on the first screen'],
+    value: ['Less time on admin at the counter', 'Fewer missed or forgotten orders', 'A clear picture of the day, from anywhere'],
     problem: 'Owners of small shops run the day from a phone, between customers. Desktop dashboards squeezed onto a small screen make simple questions — what is open, what is low, who owes — slow to answer.',
     solution: 'A mobile-first app organised around the questions an owner asks during the day. Orders can be advanced with one tap, low stock is flagged before it runs out, and every screen is readable at arm’s length.',
     features: ['Daily dashboard', 'Orders with one-tap status changes', 'Customer list and detail', 'Products with stock alerts', 'Weekly analytics', 'Settings'],
@@ -71,6 +83,10 @@ export const projects: Project[] = [
     category: 'AI & automation',
     service: 'ai-business-systems',
     summary: 'An assistant that answers from a company’s own knowledge, proposes next actions and keeps a task list — demonstrated here with scripted local responses.',
+    plain: 'A question box for your own company documents: ask in plain words, get an answer with its source, and turn it into a task.',
+    before: ['Answers are buried in files and spreadsheets', 'The same questions interrupt the same people', 'Follow-ups are remembered, or not'],
+    after: ['Ask a question and see which document answered it', 'Staff help themselves first', 'Suggested next steps become tasks in one click'],
+    value: ['Less time spent searching for information', 'Answers that can be checked against a source', 'Fewer follow-ups that fall through'],
     problem: 'Teams lose time asking each other the same questions: what is the return policy, which orders are late, what did we agree with that supplier. The answers exist, scattered across documents and inboxes.',
     solution: 'A single conversation surface connected to a defined set of business knowledge. It answers with its source, suggests a concrete action, and can turn that action into a task — with a person approving anything that leaves the building.',
     features: ['Conversation interface', 'Business knowledge panel with sources', 'Suggested actions', 'Task list created from chat', 'Business insights summary'],
@@ -92,6 +108,10 @@ export const projects: Project[] = [
     category: 'Business systems',
     service: 'ai-business-systems',
     summary: 'A lead pipeline, customer records, tasks and a visual automation builder for a fictional services firm — one place to see what is moving and what is stuck.',
+    plain: 'One shared board that shows every lead, who owns it and what happens next — with reminders that send themselves.',
+    before: ['Leads sit in personal inboxes and phones', 'Follow-ups depend on someone’s memory', 'Nobody can see what is stuck'],
+    after: ['Every lead is a card on a shared pipeline', 'Follow-ups and reminders run automatically', 'Stalled deals are flagged after seven days'],
+    value: ['Fewer enquiries lost between people', 'Faster replies to new leads', 'A pipeline the whole team can see'],
     problem: 'Leads arrive by form, phone and message. Without a shared pipeline, follow-ups depend on memory, and the owner cannot see which deals are stalled until they are already lost.',
     solution: 'A pipeline the whole team can read at a glance, with records that keep the history in one place and automations that handle the predictable steps: acknowledge, assign, remind.',
     features: ['Lead pipeline with stage movement', 'Customer records', 'Task management', 'Workflow visualiser', 'Automation on/off status', 'Pipeline analytics'],
@@ -113,6 +133,10 @@ export const projects: Project[] = [
     category: 'Hospitality',
     service: 'digital-product-development',
     summary: 'Customer menu and ordering on one side, kitchen and owner dashboard on the other — connected, so marking a dish unavailable removes it from the menu instantly.',
+    plain: 'Guests order from a menu on their phone; the kitchen sees the ticket instantly and marks each stage as it cooks.',
+    before: ['Orders are taken by phone and re-typed', 'Guests ask for dishes that have run out', 'Nobody knows when an order will be ready'],
+    after: ['Guests order and pay from the live menu', 'Sold-out dishes disappear from the menu at once', 'Each order shows its stage, from received to ready'],
+    value: ['Fewer mistakes between counter and kitchen', 'No orders for dishes that are finished', 'Guests who know where their order is'],
     problem: 'Independent restaurants pay heavy commission to delivery platforms and still take phone orders on paper. The menu online does not match the kitchen, and nobody knows the day’s numbers until closing.',
     solution: 'A direct ordering experience the restaurant owns, tied to a simple kitchen view. Orders flow from customer to kitchen to pickup with status visible to both sides, and the menu is managed from the same screen.',
     features: ['Customer menu with categories', 'Order builder and basket', 'Live order tracking demonstration', 'Kitchen order queue', 'Menu availability management', 'Sales overview'],
@@ -134,6 +158,10 @@ export const projects: Project[] = [
     category: 'Marketing & creative',
     service: 'digital-growth-creative',
     summary: 'A launch campaign for a fictional cold-brew tea: concept, identity, ad creatives, social mockups, a landing page and a performance dashboard built on sample data.',
+    plain: 'A complete launch kit for a new drink: the idea, the look, the adverts, a sign-up page and a way to see what worked.',
+    before: ['A product with no story or look', 'Adverts made one at a time, each different', 'No way to tell which channel brought sign-ups'],
+    after: ['One idea carried through every piece', 'One design system that adapts to each format', 'One dashboard comparing channels (sample data)'],
+    value: ['A brand people recognise across channels', 'Faster production of new adverts', 'Budget moved toward what actually brings leads'],
     problem: 'A new drinks brand entering a crowded shelf has seconds to be understood. Most launches scatter effort across channels with a different look and promise on each.',
     solution: 'One idea — “Take the long afternoon” — carried through identity, creative, landing page and measurement, so every touchpoint says the same thing and every result can be traced back.',
     features: ['Campaign concept', 'Brand identity system', 'Advertising creatives', 'Social media mockups', 'Landing page', 'Campaign dashboard (fictional sample data)'],

@@ -1,6 +1,6 @@
 /* ───────── Hero ───────── */
 .hero { position: relative; height: 100svh; min-height: 620px; background: #040507; }
-.hero--full { height: 440vh; }
+.hero--full { height: 620vh; }
 .hero-stage { position: sticky; top: 0; height: 100svh; min-height: 620px; overflow: hidden; }
 .hero-poster, .hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero-poster { object-position: 62% 50%; }
@@ -26,9 +26,10 @@
 .hero-caps { position: absolute; inset: 0; pointer-events: none; }
 .cap { position: absolute; opacity: 0; font-stretch: 110%; font-weight: 540; letter-spacing: -0.02em; line-height: 1.04; font-size: clamp(30px, 3.9vw, 62px); max-width: 11em; text-wrap: balance; text-shadow: 0 2px 40px rgba(0,0,0,.75); will-change: opacity, transform; }
 .cap .mono { display: block; font-weight: 400; font-stretch: 100%; color: var(--blue); margin-bottom: 16px; letter-spacing: .14em; text-transform: uppercase; font-size: 11.5px; text-shadow: none; }
-.cap-a { left: var(--pad); bottom: 16vh; }
-.cap-b { right: var(--pad); top: 24vh; text-align: right; }
-.cap-c { right: var(--pad); bottom: 15vh; text-align: right; font-family: var(--f-serif); font-style: italic; font-weight: 400; font-size: clamp(44px, 6.4vw, 108px); line-height: .96; }
+.cap-a { inset-inline-start: var(--pad); bottom: 16vh; }
+.cap-b { inset-inline-end: var(--pad); top: 22vh; text-align: end; }
+.cap-end { font-family: var(--f-serif); font-style: italic; font-weight: 400; font-size: clamp(38px, 5vw, 84px); line-height: 1; max-width: 9em; }
+.hero-note b { color: var(--paper); font-weight: 400; }
 @media (max-width: 1100px) { .hero-under { grid-template-columns: 1fr; gap: 18px; } .hero-triad { display: none; } }
 @media (max-width: 899px) {
   .hero-poster { object-position: 50% 30%; }
@@ -38,14 +39,23 @@
   .hero-ctas .btn { flex: 1 1 auto; justify-content: space-between; }
 }
 
-.morph-lite { padding: 56px 0 8px; }
-.compare { position: relative; margin-top: 24px; aspect-ratio: 4 / 4.6; max-width: 560px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--r); background: #040507; }
-.compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.compare img.top { clip-path: inset(0 0 0 var(--mix)); }
-.compare-line { position: absolute; top: 0; bottom: 0; left: var(--mix); width: 1px; background: var(--blue); box-shadow: 0 0 18px 2px rgba(106,163,255,.6); }
-.compare-line::after { content: '⇆'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; background: var(--paper); color: var(--ink); display: grid; place-items: center; font-size: 15px; }
-.compare input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; touch-action: pan-y; }
-.compare:focus-within { outline: 2px solid var(--blue); outline-offset: 3px; }
+/* Lightweight six-scene reel (phones / reduced data): stacked figures by default, a pinned cross-fade when motion is allowed. */
+.reel { background: #040507; position: relative; }
+.reel-frame { position: relative; margin: 0; }
+.reel-frame img { width: 100%; height: auto; max-height: 100svh; object-fit: cover; display: block; }
+.reel-frame figcaption { position: absolute; inset-inline: 0; bottom: 0; padding-bottom: 34px; padding-top: 90px; display: grid; gap: 10px; background: linear-gradient(0deg, rgba(4,5,7,.94), rgba(4,5,7,0)); }
+.reel-frame .mono { color: var(--blue); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+.reel-line { font-size: clamp(26px, 7.4vw, 44px); line-height: 1.06; font-weight: 540; font-stretch: 110%; letter-spacing: -0.02em; text-wrap: balance; max-width: 13em; }
+.reel-note { font-size: 10.5px; letter-spacing: .08em; padding-block: 14px 26px; }
+.reel--live { height: 430svh; }
+.reel--live .reel-stage { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+.reel--live .reel-frame { position: absolute; inset: 0; opacity: 0; will-change: opacity; }
+.reel--live .reel-frame:first-child { opacity: 1; }
+.reel--live .reel-frame img { height: 100%; max-height: none; }
+.reel--live .reel-frame figcaption { transform: translateY(14px); opacity: 0; transition: opacity .5s ease, transform .5s ease; }
+.reel--live .reel-frame.on figcaption { transform: none; opacity: 1; }
+.reel--live .reel-note { position: absolute; bottom: 0; inset-inline: 0; padding-block: 0 8px; opacity: .7; }
+@media (min-width: 900px) { .reel-stage { max-width: 720px; margin-inline: auto; } }
 
 /* ───────── Home sections ───────── */
 .alt { background: var(--carbon); }

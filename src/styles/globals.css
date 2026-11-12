@@ -153,7 +153,9 @@ ul, ol { list-style: none; }
 }
 .langs { display: flex; flex-wrap: wrap; gap: 6px; }
 .lang { height: 34px; padding: 0 12px; border: 1px solid var(--line); font-size: 13px; border-radius: 2px; display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
-.lang[aria-pressed='true'] { border-color: var(--paper); color: var(--paper); }
+.lang[aria-current='true'] { border-color: var(--paper); color: var(--paper); } .lang:hover { color: var(--paper); border-color: var(--line-strong); }
+.langpick { position: relative; } .langpick summary { list-style: none; cursor: pointer; height: 34px; min-width: 40px; padding: 0 10px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 2px; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; color: var(--silver); } .langpick summary::-webkit-details-marker { display: none; } .langpick summary:hover, .langpick[open] summary { color: var(--paper); border-color: var(--line-strong); }
+.langpick-menu { position: absolute; inset-inline-end: 0; top: 42px; background: var(--carbon); border: 1px solid var(--line-strong); border-radius: 2px; padding: 6px; display: grid; min-width: 150px; z-index: 5; } .langpick-menu a { padding: 9px 12px; font-size: 14px; color: var(--silver); border-radius: 2px; } .langpick-menu a:hover, .langpick-menu a[aria-current] { color: var(--paper); background: rgba(255,255,255,.06); }
 .lang[disabled] { cursor: not-allowed; }
 .lang small { font-family: var(--f-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
 .toggle { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--silver); }

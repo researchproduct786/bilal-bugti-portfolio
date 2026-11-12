@@ -1,4 +1,5 @@
 'use client';
+import { useT } from '@/i18n/client';
 import dynamic from 'next/dynamic';
 import { useEffect, useRef, useState } from 'react';
 import type { StudioScene } from '@/three/studio';
@@ -7,6 +8,7 @@ const StudioCanvas = dynamic(() => import('./StudioCanvas'), { ssr: false });
 
 /** Manual control of the hero scene: one slider for the camera move, one for the transformation. */
 export function LabStudio() {
+  const t = useT();
   const scene = useRef<StudioScene | null>(null);
   const [cam, setCam] = useState(62);
   const [morph, setMorph] = useState(45);
@@ -21,15 +23,15 @@ export function LabStudio() {
   return (
     <div className="labstudio">
       <div className="labstudio-view">
-        {gl === false && <p className="notice"><b>WebGL unavailable</b>This browser or device cannot run the 3D scene. The stills on the home page show the same environment.</p>}
+        {gl === false && <p className="notice"><b>{t('WebGL unavailable')}</b>{t('This browser or device cannot run the 3D scene. The stills on the home page show the same environment.')}</p>}
         {gl && <StudioCanvas parallax={false} onScene={(s) => {
           scene.current = s;
           if (s) { s.jumpTo(cam / 100); s.setMorph(morph / 100); (window as unknown as { __studio?: StudioScene }).__studio = s; }
         }} />}
       </div>
       <div className="labstudio-ctl">
-        <label><span className="mono">Camera path</span><input type="range" min={0} max={100} value={cam} onChange={(e) => setCam(+e.target.value)} /><output className="mono">{cam}%</output></label>
-        <label><span className="mono">Human → machine</span><input type="range" min={0} max={100} value={morph} onChange={(e) => setMorph(+e.target.value)} /><output className="mono">{morph}%</output></label>
+        <label><span className="mono">{t('Camera path')}</span><input type="range" min={0} max={100} value={cam} onChange={(e) => setCam(+e.target.value)} /><output className="mono">{cam}%</output></label>
+        <label><span className="mono">{t('Human → machine')}</span><input type="range" min={0} max={100} value={morph} onChange={(e) => setMorph(+e.target.value)} /><output className="mono">{morph}%</output></label>
       </div>
     </div>
   );
