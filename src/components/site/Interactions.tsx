@@ -1,13 +1,11 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import { blip } from './sound';
 
 /**
  * Site-wide progressive enhancements, mounted once:
  *  - scroll reveal (one IntersectionObserver for every `.reveal`)
  *  - custom cursor + magnetic buttons (fine pointers only, never with reduced motion)
- *  - optional click sound
  * Everything is cleaned up on unmount and nothing here is required for the site to work.
  */
 export function Interactions() {
@@ -29,11 +27,7 @@ export function Interactions() {
   useEffect(() => {
     const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const onClick = (e: MouseEvent) => {
-      if ((e.target as HTMLElement).closest('a, button')) blip();
-    };
-    document.addEventListener('click', onClick);
-    if (!fine || reduce) return () => document.removeEventListener('click', onClick);
+    if (!fine || reduce) return;
 
     let x = -100, y = -100, rx = x, ry = y, raf = 0, running = false;
     let magnet: HTMLElement | null = null;
@@ -68,7 +62,6 @@ export function Interactions() {
       cancelAnimationFrame(raf);
       window.removeEventListener('pointermove', move);
       document.documentElement.removeEventListener('mouseleave', leave);
-      document.removeEventListener('click', onClick);
     };
   }, []);
 
