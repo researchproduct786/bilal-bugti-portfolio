@@ -40,7 +40,7 @@ let res = await p.goto(base + '/definitely-not-a-page', { waitUntil: 'networkidl
 ok(res.status() === 404 && (await p.content()).includes('doesn’t exist'), '404 page');
 // 3. SEO files
 for (const f of ['/sitemap.xml', '/robots.txt', '/opengraph-image', '/icon.svg']) { res = await p.goto(base + f); ok(res.status() === 200, `GET ${f}`); }
-res = await p.goto(base + '/sitemap.xml'); ok(((await res.text()).match(/<loc>/g) || []).length === routes.length, 'sitemap lists all routes');
+res = await p.goto(base + '/sitemap.xml'); ok(((await res.text()).match(/<loc>/g) || []).length === routes.length * 6, 'sitemap lists all routes in all six languages');
 
 // 4. home: hero, structured data, problem selector, honesty
 await p.goto(base + '/', { waitUntil: 'networkidle2' });

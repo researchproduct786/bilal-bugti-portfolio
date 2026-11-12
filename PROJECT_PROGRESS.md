@@ -46,3 +46,36 @@ _See bottom of file — filled in from actual runs._
 - `node tests/e2e.mjs` — **74 passed, 0 failed**.
 - `node tests/hero.mjs` — full WebGL hero mounts and scrolls through human → machine with no console errors (software-rendered headless Chromium; not measured on real GPUs or phones).
 - Not tested: real iOS/Android devices, screen readers, Lighthouse scores.
+
+---
+
+## Phase 2 — avatar, six-scene hero, process journey, product stories, six languages
+
+**Rollback reference:** `main` = `e46f3e862d7fc65c1fc1c8f00bace9ab0708e46b`, Vercel production deployment `dpl_fKxx8f9rZVGP4RzhpCZdxqTNNcgc`.
+Production is not touched until the preview of branch `arena/eaeb608c-bilal-bugti-portfolio` has been reviewed.
+
+### Done
+- **Avatar** — head modelled from one authorised photograph (`tools/avatar`, `public/avatar/head.glb`, 0.7 MB), loaded into the studio scene; face stays human while plating grows over neck, skull and jaw.
+- **Hero** — six scroll scenes (The Human → My digital world), skip link, progress bar; still-image version for phones, reduced motion and devices without WebGL.
+- **Process journey** — seven 3D stations on `/process` and the home page, with a plain list fallback and a text description of every scene.
+- **Product pages** — each `/work/<slug>` now tells the story in plain words: problem, solution, before/after, live demo, features, business value, technical details.
+- **Languages** — English (original, unprefixed URLs), Arabic (right-to-left), Spanish, German, French, Simplified Chinese. 1,394 strings per language, hreflang + sitemap for every page, language switcher with a remembered choice.
+
+### How translation works
+- English strings in the code are the keys. `node tools/i18n-extract.mjs` collects them into `src/i18n/keys.json`.
+- Translations live in `tools/i18n-work/*.txt` (one line per string, five languages) against `tools/i18n-work/source.tsv`.
+- `node tools/i18n-merge.mjs` rebuilds `src/i18n/dict/*.json` and checks placeholders.
+- To add a string: write it in English with `t('…')`, run extract, append the new line to `source.tsv`, add a line to a work file, run merge.
+
+### Tests (local production build)
+- `npm run typecheck` clean; `npm run build` — 133 static pages.
+- `node tests/locales.mjs` — 21 routes × 6 languages: status, `lang`/`dir`, hreflang, translated titles, redirects, sitemap.
+- `node tests/leaks.mjs <base> <locale>` — looks for English sentences left on translated pages.
+- `node tests/e2e.mjs` — the phase 1 browser suite (navigation, demos, contact form, reduced motion, headers).
+
+### Known limits
+- Translations were written and checked by the developer, not by professional translators; the language menu says so.
+- The avatar is a likeness from a single photo; hair is stylised. More photos would improve it.
+- The social preview image (`/opengraph-image`) is English only.
+- Not tested: real phones and tablets, screen readers, Lighthouse on the deployed preview.
+- Still needed from Bilal: contact e-mail and WhatsApp number, social links, real testimonials, published articles.

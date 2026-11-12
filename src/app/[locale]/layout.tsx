@@ -8,6 +8,7 @@ import '@/styles/home.css';
 import '@/styles/pages.css';
 import '@/styles/demos.css';
 import '@/styles/journey.css';
+import '@fontsource-variable/noto-sans-arabic/wght.css';
 import '@/styles/rtl.css';
 import { site } from '@/data/site';
 import { isLocale, localeCodes, localeMeta } from '@/i18n/config';

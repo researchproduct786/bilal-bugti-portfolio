@@ -20,4 +20,4 @@ export function middleware(req: NextRequest) {
   const url = req.nextUrl.clone(); url.pathname = `/${defaultLocale}${pathname === '/' ? '' : pathname}`; url.search = search;
   return NextResponse.rewrite(url);
 }
-export const config = { matcher: ['/((?!_next|api|scene|avatar|fonts|.*\\.[a-zA-Z0-9]{2,5}$).*)'] };
+export const config = { matcher: ['/((?!_next|api|scene|avatar|fonts|opengraph-image|.*\\.[a-zA-Z0-9]{2,5}$).*)'] };

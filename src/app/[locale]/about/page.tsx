@@ -23,7 +23,7 @@ export default async function About({ params }: PageProps) {
   const { locale } = await params; const t = getT(locale); const lessons = t.x(lessonsEn); const story = t.x(storyEn); const detail = t.x(detailEn);
   return (
     <>
-      <PageHero kicker={t('About')} title={<>{t('Curiosity first.')} <span className="serif muted">{t('Everything else followed.')}</span></>} lede={site.statement} />
+      <PageHero kicker={t('About')} title={<>{t('Curiosity first.')} <span className="serif muted">{t('Everything else followed.')}</span></>} lede={t(site.statement)} />
 
       <section className="section tight">
         <div className="wrap split">

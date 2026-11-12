@@ -1,1 +1,42 @@
-/* right-to-left adjustments */
+/* Locale typography and right-to-left adjustments.
+   Layout itself uses logical properties / flex / grid, which mirror automatically under dir="rtl";
+   this file only holds what does not flip on its own. */
+
+/* ---------- Arabic ---------- */
+:lang(ar) {
+  --f-sans: 'Archivo Variable', 'Archivo', 'Noto Sans Arabic Variable', 'Noto Sans Arabic', 'Geeza Pro', 'Segoe UI', Tahoma, system-ui, sans-serif;
+  --f-serif: 'Instrument Serif', 'Noto Sans Arabic Variable', 'Noto Sans Arabic', 'Geeza Pro', 'Segoe UI', Tahoma, serif;
+  --f-mono: 'IBM Plex Mono', 'Noto Sans Arabic Variable', 'Noto Sans Arabic', 'Geeza Pro', 'Segoe UI', Tahoma, monospace;
+}
+/* Arabic letters join: tracking breaks the script, italics are synthetic, tight leading clips marks. */
+:lang(ar) *, :lang(ar) *::before, :lang(ar) *::after { letter-spacing: 0 !important; }
+:lang(ar) body { line-height: 1.8; }
+:lang(ar) .serif, :lang(ar) em, :lang(ar) i:not([aria-hidden]) { font-style: normal; }
+:lang(ar) h1, :lang(ar) h2, :lang(ar) h3, :lang(ar) .display, :lang(ar) .final .q { line-height: 1.32 !important; text-transform: none; }
+:lang(ar) .eyebrow, :lang(ar) .mono, :lang(ar) .crumbs, :lang(ar) .chip { font-size: 13px; }
+
+/* ---------- Simplified Chinese ---------- */
+:lang(zh-Hans) {
+  --f-sans: 'Archivo Variable', 'Archivo', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'Noto Sans CJK SC', 'Source Han Sans SC', system-ui, sans-serif;
+  --f-serif: 'Instrument Serif', 'Songti SC', 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', serif;
+  --f-mono: 'IBM Plex Mono', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'Noto Sans CJK SC', monospace;
+}
+:lang(zh-Hans) body { line-height: 1.75; }
+:lang(zh-Hans) .serif, :lang(zh-Hans) em, :lang(zh-Hans) i:not([aria-hidden]) { font-style: normal; }
+:lang(zh-Hans) h1, :lang(zh-Hans) h2, :lang(zh-Hans) h3, :lang(zh-Hans) .display, :lang(zh-Hans) .final .q { line-height: 1.22 !important; letter-spacing: 0 !important; }
+:lang(zh-Hans) p, :lang(zh-Hans) li { line-break: strict; }
+
+/* Longer words (German, French, Spanish): let headings break instead of overflowing. */
+:lang(de) h1, :lang(de) h2, :lang(de) h3 { hyphens: auto; overflow-wrap: break-word; }
+:lang(es) h1, :lang(es) h2, :lang(fr) h1, :lang(fr) h2 { overflow-wrap: break-word; }
+
+/* ---------- Right-to-left ---------- */
+/* Code, numbers, e-mail addresses and brand wordmarks stay left-to-right. */
+[dir='rtl'] code, [dir='rtl'] kbd, [dir='rtl'] input[type='email'], [dir='rtl'] input[type='tel'], [dir='rtl'] input[type='url'] { direction: ltr; text-align: right; unicode-bidi: plaintext; }
+/* Arrows drawn as text glyphs point the other way. */
+[dir='rtl'] .arrow, [dir='rtl'] .btn .arr, [dir='rtl'] [data-flip] { display: inline-block; transform: scaleX(-1); }
+/* Interactive demos are product mock-ups with their own internal layout; their charts stay left-to-right. */
+[dir='rtl'] svg text { unicode-bidi: plaintext; }
+[dir='rtl'] canvas { direction: ltr; }
+
+:lang(ar) .hero-title { padding-bottom: .2em; }

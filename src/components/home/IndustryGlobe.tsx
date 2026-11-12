@@ -1,7 +1,7 @@
 'use client';
 import { useT } from '@/i18n/client';
 import { useEffect, useRef, useState } from 'react';
-import { industries } from '@/data/content';
+import { industries as industriesEn } from '@/data/content';
 
 interface P3 { x: number; y: number; z: number }
 const fib = (n: number): P3[] => Array.from({ length: n }, (_, i) => {
@@ -15,6 +15,7 @@ const fib = (n: number): P3[] => Array.from({ length: n }, (_, i) => {
  */
 export function IndustryGlobe() {
   const t = useT();
+  const industries = t.x(industriesEn);
   const cv = useRef<HTMLCanvasElement>(null);
   const [sel, setSel] = useState(0);
   const selRef = useRef(0);
