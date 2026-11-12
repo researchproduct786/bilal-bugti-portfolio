@@ -143,7 +143,12 @@ export function InquiryForm({
           <label className="f-field">{c.timeline} <em>{c.optional}</em><select {...a11y('timeline')} value={d.timeline} onChange={set('timeline')}><option value="">—</option>{timelines.map((b) => <option key={b}>{b}</option>)}</select></label>
           <fieldset className="f-field wide f-radio">
             <legend>{c.preferred}</legend>
-            {['Email', 'WhatsApp', c.other].map((x) => <label key={x}><input type="radio" name="contact" value={x} checked={d.contact === x} onChange={set('contact')} />{x}</label>)}
+            {[[c.preferredEmail, 'Email'], [c.preferredWhatsApp, 'WhatsApp'], [c.other, 'Other']].map(([label, value]) => (
+              <label key={value}>
+                <input type="radio" name="contact" value={value} checked={d.contact === value} onChange={set('contact')} />
+                {label}
+              </label>
+            ))}
           </fieldset>
           <div className="wide f-review">
             <p className="mono muted">{c.review}</p>

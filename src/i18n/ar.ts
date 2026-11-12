@@ -261,6 +261,8 @@ export const ar: Dict = {
     threePlus: 'أكثر من ثلاثة أشهر',
     timeline: 'الجدول الزمني',
     preferred: 'طريقة التواصل المفضلة',
+    preferredEmail: 'البريد الإلكتروني',
+    preferredWhatsApp: 'واتساب',
     review: 'مراجعة',
     continue: 'متابعة',
     prepare: 'جهّز رسالتي',

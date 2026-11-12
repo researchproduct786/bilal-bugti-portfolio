@@ -265,6 +265,8 @@ export const en = {
     threePlus: '3+ months',
     timeline: 'Timeline',
     preferred: 'Preferred contact',
+    preferredEmail: 'Email',
+    preferredWhatsApp: 'WhatsApp',
     review: 'Review',
     continue: 'Continue',
     prepare: 'Prepare my message',

@@ -20,7 +20,7 @@ const ALLOWED_SAME = new Set([
   'meta.role', 'home.heroTitle', 'home.heroCta1',
   'projects.*.brand', 'projects.*.skills', 'projects.*.features',
   // Proper nouns, and product words that are correct in the target language too.
-  'contact.whatsapp', 'contact.flexible', 'industries[*].name', 'services[*].steps[*].title',
+  'contact.whatsapp', 'contact.preferredWhatsApp', 'contact.flexible', 'industries[*].name', 'services[*].steps[*].title',
   // Words that are spelled identically in the target language and are not an error.
   'nav.services', 'nav.contact', 'services.kicker', 'contact.kicker', 'ui.demo', 'story[*].title',
 ]);

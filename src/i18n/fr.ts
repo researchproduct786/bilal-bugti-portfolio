@@ -261,6 +261,8 @@ export const fr: Dict = {
     threePlus: 'Plus de 3 mois',
     timeline: 'Délai',
     preferred: 'Contact préféré',
+    preferredEmail: 'E-mail',
+    preferredWhatsApp: 'WhatsApp',
     review: 'Vérification',
     continue: 'Continuer',
     prepare: 'Préparer mon message',

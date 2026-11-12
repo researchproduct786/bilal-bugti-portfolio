@@ -260,6 +260,8 @@ export const zh: Dict = {
     threePlus: '三个月以上',
     timeline: '时间安排',
     preferred: '偏好的联系方式',
+    preferredEmail: '电子邮件',
+    preferredWhatsApp: 'WhatsApp',
     review: '确认',
     continue: '继续',
     prepare: '生成我的消息',
