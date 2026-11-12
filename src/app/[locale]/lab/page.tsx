@@ -20,7 +20,7 @@ export default async function Lab({ params }: PageProps) {
       <section className="section tight">
         <div className="wrap">
           <div className="lab-block">
-            <div className="lab-head"><span className="mono muted">{t('Exp. 01')}</span><h2 className="h2">{t('Human ⇄ machine')}</h2><p className="body">{t('The studio from the home page, under manual control. The scene is procedural — geometry, textures and the dissolve shader are generated in code, so nothing is downloaded but the script. The figure is a faceless placeholder, not a likeness.')}</p></div>
+            <div className="lab-head"><span className="mono muted">{t('Exp. 01')}</span><h2 className="h2">{t('Human ⇄ machine')}</h2><p className="body">{t('The studio from the home page, under manual control. The room, the screens and the transformation shader are generated in code; the head is a compact 3D model built from one photograph of Bilal — a likeness, not an exact scan.')}</p></div>
             <LabStudio />
           </div>
           <div className="lab-block">

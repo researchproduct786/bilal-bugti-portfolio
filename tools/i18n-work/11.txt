@@ -1,0 +1,100 @@
+1291 ¦ دوّن العملية، ثم دع البرمجيات تحملها. ¦ Pon el proceso por escrito y deja que el software lo lleve. ¦ Den Prozess aufschreiben und ihn dann von Software tragen lassen. ¦ Mettre le processus par écrit, puis laisser le logiciel le porter. ¦ 把流程写下来，再让软件来承载它。
+1292 ¦ كتبه العميل ¦ Escrita por el cliente ¦ Vom Kunden geschrieben ¦ Rédigé par le client ¦ 由客户撰写
+1293 ¦ = ¦ = ¦ = ¦ = ¦ =
+1294 ¦ نعم. سأراجع الموجود أولًا وأخبرك بصدق إن كان الأجدى تحسينه أم إعادة بناء جزء منه. ¦ Sí. Primero revisaré lo que existe y te diré con sinceridad si tiene más sentido mejorarlo o reconstruir una parte. ¦ Ja. Ich sehe mir zuerst an, was vorhanden ist, und sage dir ehrlich, ob es sinnvoller ist, es zu verbessern oder einen Teil neu zu bauen. ¦ Oui. J’examinerai d’abord l’existant et vous dirai honnêtement s’il vaut mieux l’améliorer ou en reconstruire une partie. ¦ 可以。我会先审视现有的东西，如实告诉你是改进它更合理，还是重做其中一部分。
+1295 ¦ نعم. الأعمال الإبداعية الصغيرة المحددة جيدًا مرحَّب بها. ¦ Sí. Los encargos creativos pequeños y bien definidos son bienvenidos. ¦ Ja. Kleine, klar umrissene Kreativaufträge sind willkommen. ¦ Oui. Les petites missions créatives bien définies sont les bienvenues. ¦ 可以。小而明确的创意工作同样欢迎。
+1296 ¦ تحصل على ¦ Recibes ¦ Du bekommst ¦ Vous obtenez ¦ 你会得到
+1297 ¦ قد تتعرّف على ¦ Quizá te suene ¦ Das kennst du vielleicht ¦ Vous reconnaîtrez peut-être ¦ 你可能似曾相识
+1298 ¦ تستلم نطاقًا وجدولًا زمنيًا وتكلفة بلغة بسيطة. ¦ Recibes un alcance, un plazo y un coste en lenguaje claro. ¦ Du erhältst Umfang, Zeitplan und Kosten in klarer Sprache. ¦ Vous recevez un périmètre, un calendrier et un coût en langage clair. ¦ 你会收到用平实语言写的范围、时间表和费用。
+1299 ¦ ترى برمجيات تعمل عند كل مرحلة — لا نسبة مئوية في بريد حالة. ¦ Ves software que funciona en cada hito, no un porcentaje en un correo de estado. ¦ Du siehst bei jedem Meilenstein funktionierende Software – keine Prozentzahl in einer Status-E-Mail. ¦ Vous voyez un logiciel qui fonctionne à chaque jalon — pas un pourcentage dans un e-mail d’avancement. ¦ 每个里程碑你看到的都是能运行的软件——而不是进度邮件里的一个百分比。
+1300 ¦ سلتك فارغة. ¦ Tu carrito está vacío. ¦ Dein Warenkorb ist leer. ¦ Votre panier est vide. ¦ 你的购物车是空的。
+1301 ¦ طلبك # ¦ Tu pedido # ¦ Deine Bestellung # ¦ Votre commande # ¦ 你的订单 #
+1302 ¦ طلبك المجهَّز ¦ Tu consulta preparada ¦ Deine vorbereitete Anfrage ¦ Votre demande préparée ¦ 你准备好的咨询内容
+1303 ¦ أنت في القائمة (التجريبية). لم يُرسل أو يُخزَّن شيء فعليًا. ¦ Estás en la lista (de demostración). En realidad no se envió ni se guardó nada. ¦ Du stehst auf der (Demo-)Liste. Tatsächlich wurde nichts gesendet oder gespeichert. ¦ Vous êtes sur la liste (de démonstration). Rien n’a réellement été envoyé ni enregistré. ¦ 你已加入（演示）名单。实际上没有发送或存储任何内容。
+1304 ¦ إضافة ملخص الإرجاع إلى بريد تأكيد الطلب ¦ añadir el resumen de devoluciones al correo de confirmación del pedido ¦ Rückgabe-Zusammenfassung in die Bestellbestätigung aufnehmen ¦ ajouter le résumé des retours à l’e-mail de confirmation de commande ¦ 在订单确认邮件中加入退货说明摘要
+1305 ¦ سكر مضاف ¦ de azúcar añadido ¦ zugesetzter Zucker ¦ de sucre ajouté ¦ 添加糖
+1306 ¦ = ¦ = ¦ = ¦ = ¦ =
+1307 ¦ متأخر ¦ atrasad ¦ rückstand ¦ en retard ¦ 落后
+1308 ¦ دون حدّ إعادة الطلب ¦ por debajo del nivel de reposición ¦ unter dem Meldebestand ¦ sous le seuil de réapprovisionnement ¦ 低于补货线
+1309 ¦ أفضل ¦ mejor ¦ beste ¦ meilleur ¦ 最好
+1310 ¦ الاتصال بـ Corbel Timber بشأن ألواح الجوز ¦ llamar a Corbel Timber por los paneles de nogal ¦ Corbel Timber wegen der Nussbaumplatten anrufen ¦ appeler Corbel Timber au sujet des panneaux de noyer ¦ 就胡桃木板致电 Corbel Timber
+1311 ¦ حرفًا ¦ caracteres ¦ Zeichen ¦ caractères ¦ 个字符
+1312 ¦ التحقق من مخزون طاولة Arlo الجانبية للشهر المقبل ¦ revisar el stock de la mesa auxiliar Arlo para el mes que viene ¦ Bestand des Beistelltischs Arlo für nächsten Monat prüfen ¦ vérifier le stock de la table d’appoint Arlo pour le mois prochain ¦ 检查下个月 Arlo 边桌的库存
+1313 ¦ نقع على البارد ¦ de infusión en frío ¦ kalt gezogen ¦ d’infusion à froid ¦ 冷泡
+1314 ¦ مشروع تصوري ¦ proyecto conceptual ¦ Konzeptprojekt ¦ projet conceptuel ¦ 概念项目
+1315 ¦ = ¦ = ¦ = ¦ = ¦ =
+1316 ¦ = ¦ = ¦ = ¦ = ¦ =
+1317 ¦ تأخير ¦ demora ¦ verzöger ¦ délai dépassé ¦ 延误
+1318 ¦ = ¦ = ¦ = ¦ = ¦ =
+1319 ¦ مراسلة عملاء الطلبين #2214 و#2219 بالبريد ¦ escribir a los clientes de #2214 y #2219 ¦ Kunden zu #2214 und #2219 per E-Mail informieren ¦ écrire aux clients des commandes #2214 et #2219 ¦ 给 #2214 和 #2219 的客户发邮件
+1320 ¦ علامة خيالية وبيانات أداء نموذجية ¦ marca ficticia y datos de rendimiento de muestra ¦ fiktive Marke und Beispiel-Leistungsdaten ¦ marque fictive et données de performance d’exemple ¦ 虚构品牌和示例效果数据
+1321 ¦ علامة خيالية، لا تُعالَج أي دفعة ¦ marca ficticia, no se procesa ningún pago ¦ fiktive Marke, es wird keine Zahlung verarbeitet ¦ marque fictive, aucun paiement n’est traité ¦ 虚构品牌，不处理任何付款
+1322 ¦ شركة خيالية وبيانات نموذجية ¦ empresa ficticia y datos de muestra ¦ fiktive Firma und Beispieldaten ¦ société fictive et données d’exemple ¦ 虚构公司和示例数据
+1323 ¦ مطعم خيالي، لا يُرسل أي طلب ¦ restaurante ficticio, no se envía ningún pedido ¦ fiktives Restaurant, es wird keine Bestellung gesendet ¦ restaurant fictif, aucune commande n’est envoyée ¦ 虚构餐厅，不会发送任何订单
+1324 ¦ متجر خيالي وبيانات نموذجية ¦ tienda ficticia y datos de muestra ¦ fiktiver Laden und Beispieldaten ¦ boutique fictive et données d’exemple ¦ 虚构店铺和示例数据
+1325 ¦ = ¦ = ¦ = ¦ = ¦ =
+1326 ¦ ساعات ¦ horario ¦ öffnungszeit ¦ horaire ¦ 营业
+1327 ¦ منها {v0} في هذه الجلسة ¦ incl. {v0} de esta sesión ¦ inkl. {v0} aus dieser Sitzung ¦ dont {v0} pendant cette session ¦ 含本次会话的 {v0}
+1328 ¦ = ¦ = ¦ = ¦ = ¦ =
+1329 ¦ عناصر ¦ artículos ¦ Artikel ¦ articles ¦ 件
+1330 ¦ عناصر · ¦ artículos · ¦ Artikel · ¦ articles · ¦ 件 ·
+1331 ¦ = ¦ = ¦ = ¦ = ¦ =
+1332 ¦ متأخرة ¦ retras ¦ verspätet ¦ retard ¦ 延迟
+1333 ¦ مدة التوريد ¦ plazo de entrega ¦ lieferzeit ¦ délai de livraison ¦ 交货期
+1334 ¦ الإجمالي منذ البداية ¦ en total ¦ insgesamt ¦ au total ¦ 累计消费
+1335 ¦ العصر الطويل. ¦ tarde larga. ¦ langen Nachmittag. ¦ long après-midi. ¦ 悠长的午后。
+1336 ¦ مخزون منخفض ¦ stock bajo ¦ niedriger Bestand ¦ stock bas ¦ 库存低
+1337 ¦ = ¦ = ¦ = ¦ = ¦ =
+1338 ¦ يحتاج إلى متابعة ¦ necesita seguimiento ¦ braucht Nachfassen ¦ à relancer ¦ 需要跟进
+1339 ¦ لا الشاشات فقط. ¦ no solo las pantallas. ¦ nicht nur die Screens. ¦ pas seulement les écrans. ¦ 不只是界面。
+1340 ¦ وسؤال واحد أولًا: ¦ una pregunta primero: ¦ zuerst eine Frage: ¦ une question d’abord : ¦ 先问一个问题：
+1341 ¦ مفتوحة ¦ abiertas ¦ offen ¦ en cours ¦ 未完成
+1342 ¦ طلبات مفتوحة ¦ pedidos abiertos ¦ offene Bestellungen ¦ commandes en cours ¦ 未完成订单
+1343 ¦ اختياري ¦ opcional ¦ optional ¦ facultatif ¦ 选填
+1344 ¦ أو لا شيء على الإطلاق. ¦ o nada en absoluto. ¦ oder gar nichts. ¦ ou rien du tout. ¦ 否则宁可空着。
+1345 ¦ طلبات متأخرة — المورّد نفسه في 2 ¦ pedidos con retraso — el mismo proveedor en 2 ¦ Bestellungen verspätet – bei 2 derselbe Lieferant ¦ commandes en retard — même fournisseur pour 2 ¦ 笔订单延迟——其中 2 笔是同一家供应商
+1346 ¦ طلبات مقارنةً بالأسبوع الماضي ¦ pedidos frente a la semana pasada ¦ Bestellungen ggü. Vorwoche ¦ commandes par rapport à la semaine dernière ¦ 笔订单（较上周）
+1347 ¦ فات موعد ¦ vencid ¦ überfällig ¦ dépassé ¦ 超期
+1348 ¦ نظرة عامة ¦ panorama ¦ überblick ¦ vue d’ensemble ¦ 概览
+1349 ¦ = ¦ = ¦ = ¦ = ¦ =
+1350 ¦ سياسة ¦ política ¦ regelung ¦ politique ¦ 政策
+1351 ¦ رائج ¦ popular ¦ beliebt ¦ populaire ¦ 热销
+1352 ¦ منتج ¦ producto ¦ produkt ¦ produit ¦ 商品
+1353 ¦ استرداد ¦ reembols ¦ erstattung ¦ rembours ¦ 退款
+1354 ¦ إعادة طلب ألواح الجوز ¦ volver a pedir paneles de nogal ¦ Nussbaumplatten nachbestellen ¦ recommander des panneaux de noyer ¦ 补订胡桃木板
+1355 ¦ طلب رصيد عن تأخر التسليم من Corbel Timber ¦ solicitar a Corbel Timber el abono por entrega tardía ¦ Gutschrift für verspätete Lieferung bei Corbel Timber anfordern ¦ demander à Corbel Timber l’avoir pour livraison tardive ¦ 向 Corbel Timber 申请延迟交货抵扣
+1356 ¦ إرجاع ¦ devoluc ¦ rückgabe ¦ retour ¦ 退货
+1357 ¦ مراجعة الشكويين المفتوحتين ¦ revisar las 2 quejas abiertas ¦ die 2 offenen Beschwerden prüfen ¦ examiner les 2 réclamations en cours ¦ 查看 2 起待处理投诉
+1358 ¦ = ¦ = ¦ = ¦ = ¦ =
+1359 ¦ = ¦ = ¦ = ¦ = ¦ =
+1360 ¦ ردود مكتوبة مسبقًا، لا نموذج ذكاء اصطناعي متصل ¦ respuestas guionizadas, ningún modelo de IA conectado ¦ geskriptete Antworten, kein KI-Modell angebunden ¦ réponses scénarisées, aucun modèle d’IA connecté ¦ 预设脚本回答，未接入 AI 模型
+1361 ¦ مبيع ¦ vend ¦ verkauf ¦ vend ¦ 卖
+1362 ¦ صالة العرض ¦ sala de exposición ¦ showroom ¦ showroom ¦ 展厅
+1363 ¦ = ¦ = ¦ = ¦ = ¦ =
+1364 ¦ مباع ¦ vendidos ¦ verkauft ¦ vendus ¦ 已售
+1365 ¦ ملخص ¦ resumen ¦ zusammenfassung ¦ résumé ¦ 总结
+1366 ¦ المورّد ¦ proveedor ¦ lieferant ¦ fournisseur ¦ 供应商
+1367 ¦ أنواع شاي عند الإطلاق ¦ tés en el lanzamiento ¦ Tees zum Start ¦ thés au lancement ¦ 款茶首发
+1368 ¦ = ¦ = ¦ = ¦ = ¦ =
+1369 ¦ = ¦ = ¦ = ¦ = ¦ =
+1370 ¦ الأعلى ¦ más vendid ¦ bestseller ¦ meilleures ventes ¦ 畅销
+1371 ¦ = ¦ = ¦ = ¦ = ¦ =
+1372 ¦ زيارة ¦ visita ¦ besuch ¦ visite ¦ 参观
+1373 ¦ الأسبوع ¦ semana ¦ woche ¦ semaine ¦ 本周
+1374 ¦ إجمالي الأسبوع ¦ total de la semana ¦ Wochensumme ¦ total de la semaine ¦ 本周合计
+1375 ¦ ما المشكلة الحقيقية؟ ¦ ¿cuál es el problema real? ¦ Was ist das eigentliche Problem? ¦ quel est le vrai problème ? ¦ 真正的问题是什么？
+1376 ¦ والغطاء مرفوع. ¦ con la tapa quitada. ¦ bei offenem Deckel. ¦ capot ouvert. ¦ 掀开盖子看。
+1377 ¦ = ¦ = ¦ = ¦ = ¦ =
+1378 ¦ {brand} — {title}. غلاف مشروع تصوري. ¦ {brand} — {title}. Portada de proyecto conceptual. ¦ {brand} – {title}. Cover eines Konzeptprojekts. ¦ {brand} — {title}. Couverture de projet conceptuel. ¦ {brand} — {title}。概念项目封面。
+1379 ¦ {length} من هذه الجلسة ¦ {length} de esta sesión ¦ {length} aus dieser Sitzung ¦ {length} de cette session ¦ 本次会话 {length} 笔
+1380 ¦ {name} متوفر ¦ {name} disponible ¦ {name} verfügbar ¦ {name} disponible ¦ {name} 可供应
+1381 ¦ {name}، من {v0} ¦ {name}, desde {v0} ¦ {name}, ab {v0} ¦ {name}, à partir de {v0} ¦ {name}，{v0} 起
+1382 ¦ {stock} في المخزون ¦ {stock} en stock ¦ {stock} auf Lager ¦ {stock} en stock ¦ 库存 {stock}
+1383 ¦ مرحلة {s} ¦ Etapa {s} ¦ Phase {s} ¦ Étape {s} ¦ {s} 阶段
+1384 ¦ واجهات {title} ¦ Vistas de {title} ¦ Ansichten von {title} ¦ Vues de {title} ¦ {title} 视图
+1385 ¦ · مشروع تصوري ¦ · Proyecto conceptual ¦ · Konzeptprojekt ¦ · Projet conceptuel ¦ · 概念项目
+1386 ¦ «أنا لا أبني مشاريع فحسب. أنا أبني حلولًا لمشكلات من الواقع.» ¦ «No solo construyo proyectos. Construyo soluciones a problemas del mundo real.» ¦ „Ich baue nicht einfach Projekte. Ich baue Lösungen für echte Probleme.“ ¦ « Je ne me contente pas de construire des projets. Je construis des solutions à des problèmes bien réels. » ¦ “我不只是做项目。我为现实中的问题打造解决方案。”
+1387 ¦ ‹ العملاء ¦ ‹ Clientes ¦ ‹ Kunden ¦ ‹ Clients ¦ ‹ 客户
+1388 ¦ ← كل الأغراض ¦ ← Todos los objetos ¦ ← Alle Objekte ¦ ← Tous les objets ¦ ← 全部物件
+1389 ¦ ← رجوع ¦ ← Atrás ¦ ← Zurück ¦ ← Retour ¦ ← 返回
+1390 ¦ ← تعديل إجاباتي ¦ ← Editar mis respuestas ¦ ← Meine Antworten bearbeiten ¦ ← Modifier mes réponses ¦ ← 修改我的回答

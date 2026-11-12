@@ -1,0 +1,140 @@
+901 ¦ = ¦ = ¦ = ¦ = ¦ =
+902 ¦ الإيرادات بحسب اليوم · بيانات نموذجية ¦ Ingresos por día · datos de muestra ¦ Umsatz nach Tag · Beispieldaten ¦ Chiffre d’affaires par jour · données d’exemple ¦ 每日营收 · 示例数据
+903 ¦ الإيرادات بحسب فترة اليوم ¦ Ingresos por franja del día ¦ Umsatz nach Tageszeit ¦ Chiffre d’affaires par service ¦ 各时段营收
+904 ¦ مراجعة ¦ Revisar ¦ Prüfen ¦ Vérifier ¦ 核对
+905 ¦ صلاحيات بحسب الدور ¦ Acceso por roles ¦ Rollenbasierter Zugriff ¦ Accès par rôle ¦ 基于角色的访问
+906 ¦ الأدوار والصلاحيات ¦ Roles y permisos ¦ Rollen und Berechtigungen ¦ Rôles et autorisations ¦ 角色与权限
+907 ¦ نحو ست إلى سبع سنوات في استكشاف العالم الرقمي وتعلّمه، بالتعلّم الذاتي في معظمها ¦ Unos seis o siete años explorando y aprendiendo el mundo digital, en gran parte de forma autodidacta ¦ Rund sechs bis sieben Jahre Erkunden und Lernen der digitalen Welt, größtenteils autodidaktisch ¦ Environ six à sept ans à explorer et apprendre le monde numérique, en grande partie en autodidacte ¦ 大约六到七年探索和学习数字世界，大部分靠自学
+908 ¦ التشغيل ¦ Operar ¦ Betreiben ¦ Exploiter ¦ 运行
+909 ¦ شغّل الاختبار ¦ Ejecutar prueba ¦ Test ausführen ¦ Lancer le test ¦ 运行测试
+910 ¦ قيد التشغيل… ¦ En ejecución… ¦ Läuft … ¦ En cours… ¦ 运行中…
+911 ¦ يعمل في متصفحك · لا شيء يُحفظ أو يُرسل ¦ Funciona en tu navegador · nada se guarda ni se envía ¦ Läuft in deinem Browser · nichts wird gespeichert oder gesendet ¦ Fonctionne dans votre navigateur · rien n’est enregistré ni envoyé ¦ 在你的浏览器中运行 · 不保存也不发送任何内容
+912 ¦ صدئي ¦ Óxido ¦ Rost ¦ Rouille ¦ 铁锈红
+913 ¦ فتات الجاودار، كرز حامض ¦ Migas de centeno, guinda ¦ Roggenbrösel, Sauerkirsche ¦ Chapelure de seigle, griotte ¦ 黑麦碎、酸樱桃
+914 ¦ خبز جاودار مخمَّر ¦ Pan de centeno de masa madre ¦ Roggensauerteigbrot ¦ Pain de seigle au levain ¦ 黑麦酸种面包
+915 ¦ خبز جاودار مخمَّر، زبدة مخمَّرة ¦ Pan de centeno de masa madre, mantequilla fermentada ¦ Roggensauerteigbrot, Sauerrahmbutter ¦ Pain de seigle au levain, beurre de baratte ¦ 黑麦酸种面包、发酵黄油
+916 ¦ أساسيات تحسين محركات البحث ¦ SEO básico ¦ SEO-Grundlagen ¦ Bases du référencement ¦ SEO 基础
+917 ¦ = ¦ = ¦ = ¦ = ¦ =
+918 ¦ تحديثات الطلب عبر الرسائل النصية أو الإشعارات ¦ Avisos del pedido por SMS o push ¦ Bestell-Updates per SMS oder Push ¦ Mises à jour de commande par SMS ou notification ¦ 短信或推送的订单更新
+919 ¦ رسوم بيانية SVG ببيانات نموذجية ¦ Gráficos SVG con datos de muestra ¦ SVG-Diagramme mit Beispieldaten ¦ Graphiques SVG avec données d’exemple ¦ 使用示例数据的 SVG 图表
+920 ¦ المبيعات بحسب اليوم ¦ Ventas por día ¦ Verkäufe nach Tag ¦ Ventes par jour ¦ 每日销售
+921 ¦ المبيعات بحسب الساعة · بيانات نموذجية ¦ Ventas por hora · datos de muestra ¦ Verkäufe nach Stunde · Beispieldaten ¦ Ventes par heure · données d’exemple ¦ 每小时销售 · 示例数据
+922 ¦ بنية قمع المبيعات ¦ Estructura del embudo de ventas ¦ Aufbau des Sales-Funnels ¦ Structure du tunnel de vente ¦ 销售漏斗结构
+923 ¦ أقماع المبيعات وجذب العملاء المحتملين ¦ Embudos de venta y generación de contactos ¦ Sales-Funnels & Lead-Generierung ¦ Tunnels de vente et génération de prospects ¦ 销售漏斗与线索获取
+924 ¦ نظرة عامة على المبيعات ¦ Resumen de ventas ¦ Verkaufsübersicht ¦ Vue d’ensemble des ventes ¦ 销售概览
+925 ¦ تقرير المبيعات ¦ Informe de ventas ¦ Verkaufsbericht ¦ Rapport des ventes ¦ 销售报告
+926 ¦ مبيعات اليوم ¦ Ventas de hoy ¦ Verkäufe heute ¦ Ventes du jour ¦ 今日销售
+927 ¦ وثائق نموذجية لشركة خيالية. الإجابات تذكر الوثيقة التي جاءت منها. ¦ Documentos de muestra de una empresa ficticia. Las respuestas citan el documento del que proceden. ¦ Beispieldokumente einer fiktiven Firma. Antworten nennen das Dokument, aus dem sie stammen. ¦ Documents d’exemple d’une société fictive. Les réponses citent le document dont elles proviennent. ¦ 一家虚构公司的示例文档。回答会注明出自哪份文档。
+928 ¦ رملي ¦ Arena ¦ Sand ¦ Sable ¦ 沙色
+929 ¦ = ¦ = ¦ = ¦ = ¦ =
+930 ¦ جدولة مهمة الانطلاق ¦ Programar tarea de arranque ¦ Kickoff-Aufgabe planen ¦ Planifier la tâche de lancement ¦ 安排启动任务
+931 ¦ مهام مجدولة ¦ Tareas programadas ¦ Geplante Jobs ¦ Tâches planifiées ¦ 定时任务
+932 ¦ النطاق ¦ Alcance ¦ Umfang ¦ Périmètre ¦ 范围
+933 ¦ النطاق والتكلفة والمفاضلات تُشرح بلا مصطلحات معقدة. إن تعذّر شرح شيء ببساطة، فهو لم يُفهم جيدًا بعد. ¦ El alcance, el coste y las concesiones se explican sin jerga. Si algo no se puede explicar de forma sencilla, todavía no se entiende lo bastante bien. ¦ Umfang, Kosten und Abwägungen werden ohne Fachjargon erklärt. Lässt sich etwas nicht einfach erklären, ist es noch nicht gut genug verstanden. ¦ Périmètre, coût et compromis sont expliqués sans jargon. Si quelque chose ne peut pas s’expliquer simplement, c’est qu’il n’est pas encore assez bien compris. ¦ 范围、成本和取舍都不用术语来解释。如果一件事没法简单说清，那就是还没真正弄懂。
+934 ¦ النطاق، والمراحل، وتكاليف التشغيل. ¦ Alcance, hitos y costes recurrentes. ¦ Umfang, Meilensteine und laufende Kosten. ¦ Périmètre, jalons et coûts récurrents. ¦ 范围、里程碑和持续成本。
+935 ¦ يُتفق على النطاق والأولويات والأدوات والتكاليف بلغة بسيطة. وما ليس مشمولًا يُكتب بوضوح ما هو مشمول. ¦ El alcance, las prioridades, las herramientas y los costes se acuerdan en lenguaje claro. Lo que no está incluido se deja por escrito con la misma claridad que lo que sí. ¦ Umfang, Prioritäten, Tools und Kosten werden in klarer Sprache vereinbart. Was nicht enthalten ist, wird genauso deutlich festgehalten wie das, was enthalten ist. ¦ Périmètre, priorités, outils et coûts sont convenus en langage clair. Ce qui n’est pas inclus est écrit aussi nettement que ce qui l’est. ¦ 范围、优先级、工具和成本都用平实的语言商定。不包含的内容和包含的内容写得一样清楚。
+936 ¦ مطابقة نوايا مكتوبة مسبقًا — لا نموذج ذكاء اصطناعي متصل ¦ Coincidencia de intenciones guionizada — no hay ningún modelo de IA conectado ¦ Geskriptete Absichtserkennung – kein KI-Modell angebunden ¦ Reconnaissance d’intention scénarisée — aucun modèle d’IA n’est connecté ¦ 预设脚本的意图匹配——未接入任何 AI 模型
+937 ¦ مرّر عبر مشروع واحد من المحادثة الأولى إلى التسليم. ¦ Recorre un proyecto desde la primera conversación hasta la entrega. ¦ Scrolle durch ein Projekt, vom ersten Gespräch bis zur Übergabe. ¦ Faites défiler un projet, de la première conversation à la passation. ¦ 滚动浏览一个项目，从第一次交谈到交接。
+938 ¦ مرّر ↓ ¦ Desliza ↓ ¦ Scrollen ↓ ¦ Défiler ↓ ¦ 向下滚动 ↓
+939 ¦ واجهة خلفية آمنة عبر API ¦ Backend de API seguro ¦ Sicheres API-Backend ¦ Backend d’API sécurisé ¦ 安全的 API 后端
+940 ¦ شاهد كيف أعمل ¦ Ver cómo trabajo ¦ So arbeite ich ¦ Voir ma méthode ¦ 看我如何工作
+941 ¦ شاهده معروضًا ¦ Verlo en una demostración ¦ In der Demo ansehen ¦ Voir la démonstration ¦ 看演示
+942 ¦ شاهد واجهة المالك ← ¦ Ver la vista del propietario → ¦ Zur Inhaber-Ansicht → ¦ Voir la vue propriétaire → ¦ 查看店主视图 →
+943 ¦ شاهد الأعمال ¦ Ver los trabajos ¦ Arbeiten ansehen ¦ Voir les réalisations ¦ 查看作品
+944 ¦ أعمال مختارة ¦ Trabajos seleccionados ¦ Ausgewählte Arbeiten ¦ Réalisations choisies ¦ 精选作品
+945 ¦ عرض تجريبي بمبادرة ذاتية ¦ Demostración de iniciativa propia ¦ Selbst initiierte Demo ¦ Démonstration d’initiative personnelle ¦ 自发创作的演示
+946 ¦ عرض تجريبي بمبادرة ذاتية. العلامة والأشخاص وجميع الأرقام بيانات نموذجية خيالية أُنشئت لهذا المعرض. ¦ Demostración de iniciativa propia. La marca, las personas y todas las cifras son datos de muestra ficticios creados para este portafolio. ¦ Selbst initiierte Demo. Marke, Personen und alle Zahlen sind fiktive Beispieldaten, die für dieses Portfolio erstellt wurden. ¦ Démonstration d’initiative personnelle. La marque, les personnes et tous les chiffres sont des données d’exemple fictives créées pour ce portfolio. ¦ 自发创作的演示。品牌、人物和所有数字都是为这份作品集创建的虚构示例数据。
+947 ¦ عروض تجريبية بمبادرة ذاتية ¦ Demostraciones de iniciativa propia ¦ Selbst initiierte Demos ¦ Démonstrations d’initiative personnelle ¦ 自发创作的演示
+948 ¦ بِع في أي ساعة دون الرد على الرسائل ¦ Vende a cualquier hora sin contestar mensajes ¦ Zu jeder Uhrzeit verkaufen, ohne Nachrichten zu beantworten ¦ Vendre à toute heure sans répondre aux messages ¦ 任何时间都能卖，不用回消息
+949 ¦ إرسال ¦ Enviar ¦ Senden ¦ Envoyer ¦ 发送
+950 ¦ إرسال جدول ورشة الخميس ¦ Enviar el programa del taller del jueves ¦ Zeitplan für den Workshop am Donnerstag senden ¦ Envoyer le programme de l’atelier de jeudi ¦ 发送周四工作坊日程
+951 ¦ إرسال بريد تأكيد الاستلام ¦ Enviar correo de acuse de recibo ¦ Bestätigungs-E-Mail senden ¦ Envoyer l’e-mail d’accusé de réception ¦ 发送确认收到的邮件
+952 ¦ إرسال بالبريد ¦ Enviar por correo ¦ Per E-Mail senden ¦ Envoyer par e-mail ¦ 通过邮件发送
+953 ¦ إرسال بريد متابعة ¦ Enviar correo de seguimiento ¦ Nachfass-E-Mail senden ¦ Envoyer un e-mail de relance ¦ 发送跟进邮件
+954 ¦ أرسله. أفضل الموضوعات تأتي من مشكلات حقيقية. ¦ Envíala. Los mejores temas salen de problemas reales. ¦ Schick sie. Die besten Themen entstehen aus echten Problemen. ¦ Envoyez-la. Les meilleurs sujets naissent de vrais problèmes. ¦ 发过来吧。最好的选题来自真实的问题。
+955 ¦ إرسال عبر واتساب ¦ Enviar por WhatsApp ¦ Per WhatsApp senden ¦ Envoyer sur WhatsApp ¦ 通过 WhatsApp 发送
+956 ¦ إرسال عرض السعر المعدَّل إلى Orchard Prep School ¦ Enviar la propuesta revisada a Orchard Prep School ¦ Überarbeitetes Angebot an Orchard Prep School senden ¦ Envoyer la proposition révisée à Orchard Prep School ¦ 向 Orchard Prep School 发送修订后的报价
+957 ¦ إرسال حزمة الترحيب ¦ Enviar el paquete de bienvenida ¦ Willkommenspaket senden ¦ Envoyer le kit de bienvenue ¦ 发送欢迎资料包
+958 ¦ الخدمة ¦ Servicio ¦ Leistung ¦ Service ¦ 服务
+959 ¦ الخدمة المطلوبة ¦ Servicio requerido ¦ Gewünschte Leistung ¦ Service souhaité ¦ 所需服务
+960 ¦ الخدمات ¦ Servicios ¦ Leistungen ¦ Services ¦ 服务
+961 ¦ الخدمات — منتجات رقمية، ذكاء اصطناعي وأنظمة أعمال، نمو ¦ Servicios — productos digitales, IA y sistemas de negocio, crecimiento ¦ Leistungen – digitale Produkte, KI & Geschäftssysteme, Wachstum ¦ Services — produits numériques, IA et systèmes de gestion, croissance ¦ 服务——数字产品、AI 与业务系统、增长
+962 ¦ طقم من قطعتين ¦ Juego de 2 ¦ 2er-Set ¦ Lot de 2 ¦ 2 件套
+963 ¦ الإعدادات ¦ Ajustes ¦ Einstellungen ¦ Réglages ¦ 设置
+964 ¦ سبعمئة نقطة وأربع عشرة عقدة على لوحة ثنائية الأبعاد، تُدار ببضعة أسطر من حساب المثلثات. خفيفة على أي هاتف؛ اسحبها. ¦ Setecientos puntos y catorce nodos en un lienzo 2D, girados con unas pocas líneas de trigonometría. Lo bastante ligero para cualquier móvil; arrástralo. ¦ Siebenhundert Punkte und vierzehn Knoten auf einem 2D-Canvas, gedreht mit ein paar Zeilen Trigonometrie. Leicht genug für jedes Handy; zieh daran. ¦ Sept cents points et quatorze nœuds sur un canevas 2D, mis en rotation avec quelques lignes de trigonométrie. Assez léger pour n’importe quel téléphone ; faites-le glisser. ¦ 二维画布上的七百个点和十四个节点，用几行三角函数让它转起来。轻到任何手机都能跑；拖动试试。
+965 ¦ سبع خطوات، بالترتيب ¦ Siete pasos, en orden ¦ Sieben Schritte, der Reihe nach ¦ Sept étapes, dans l’ordre ¦ 七个步骤，按顺序
+966 ¦ سبع خطوات. ¦ Siete pasos. ¦ Sieben Schritte. ¦ Sept étapes. ¦ 七个步骤。
+967 ¦ سبع خطوات. الأوليان هما الأهم. ¦ Siete pasos. Los dos primeros son los que más importan. ¦ Sieben Schritte. Die ersten beiden zählen am meisten. ¦ Sept étapes. Les deux premières comptent le plus. ¦ 七个步骤。前两步最重要。
+968 ¦ حصة الطلبات المباشرة ¦ Proporción de pedidos hechos directamente ¦ Anteil direkt aufgegebener Bestellungen ¦ Part des commandes passées en direct ¦ 直接下单的占比
+969 ¦ حالة محلية مشتركة بين واجهتي العميل والإدارة ¦ Estado local compartido entre las vistas de cliente y administración ¦ Gemeinsamer lokaler Zustand für Kunden- und Admin-Ansicht ¦ État local partagé entre les vues client et administration ¦ 顾客视图与管理视图共享的本地状态
+970 ¦ مشحون ¦ Enviado ¦ Versendet ¦ Expédiée ¦ 已发货
+971 ¦ يُشحن خلال 2–3 أيام · إرجاع خلال 30 يومًا ¦ Envío en 2–3 días · devoluciones en 30 días ¦ Versand in 2–3 Tagen · 30 Tage Rückgabe ¦ Expédié sous 2 à 3 jours · retours sous 30 jours ¦ 2–3 天内发货 · 30 天退货
+972 ¦ المتجر: Corner Roast (خيالي). نسخة تجريبية — التغييرات تُعاد عند إعادة التحميل. ¦ Tienda: Corner Roast (ficticia). Versión de demostración: los cambios se reinician al recargar. ¦ Laden: Corner Roast (fiktiv). Demo-Version – Änderungen werden beim Neuladen zurückgesetzt. ¦ Boutique : Corner Roast (fictive). Version de démonstration — les modifications sont réinitialisées au rechargement. ¦ 店铺：Corner Roast（虚构）。演示版本——刷新后更改会重置。
+973 ¦ = ¦ = ¦ = ¦ = ¦ =
+974 ¦ Shopify والتجارة الإلكترونية ¦ Shopify y comercio electrónico ¦ Shopify & E-Commerce ¦ Shopify et e-commerce ¦ Shopify 与电商
+975 ¦ Shopify والتجارة الإلكترونية ¦ Shopify y comercio electrónico ¦ Shopify & E-Commerce ¦ Shopify et e-commerce ¦ Shopify 与电商
+976 ¦ Shopify والتجارة الإلكترونية، تطبيقات الهاتف، تطوير الويب ¦ Shopify y comercio electrónico, apps móviles, desarrollo web ¦ Shopify & E-Commerce, mobile Apps, Webentwicklung ¦ Shopify et e-commerce, applications mobiles, développement web ¦ Shopify 与电商、移动应用、网站开发
+977 ¦ Shopify *و*التجارة الإلكترونية ¦ Shopify *y* comercio electrónico ¦ Shopify *&* E-Commerce ¦ Shopify *et* e-commerce ¦ Shopify *与*电商
+978 ¦ = ¦ = ¦ = ¦ = ¦ =
+979 ¦ Shopify هي المنصة التي ألجأ إليها أولًا لمعظم المتاجر، لأنها تتيح لفريق صغير إدارة متجر جادّ دون صيانة خوادم. وإن احتاج العمل إلى شيء لا تجيده Shopify، سأقول ذلك وأقترح بناءً مخصصًا بدلًا منها. ¦ Shopify es la plataforma a la que recurro primero para la mayoría de las tiendas, porque permite a un equipo pequeño llevar una tienda seria sin mantener servidores. Si el negocio necesita algo que Shopify resuelve mal, lo diré y propondré un desarrollo a medida. ¦ Shopify ist die Plattform, zu der ich bei den meisten Shops zuerst greife, weil ein kleines Team damit einen ernsthaften Shop führen kann, ohne Server zu warten. Braucht das Unternehmen etwas, das Shopify schlecht kann, sage ich das und schlage stattdessen eine Eigenentwicklung vor. ¦ Shopify est la plateforme vers laquelle je me tourne en premier pour la plupart des boutiques, car elle permet à une petite équipe de tenir une boutique sérieuse sans maintenir de serveurs. Si l’entreprise a besoin de quelque chose que Shopify gère mal, je le dirai et proposerai plutôt un développement sur mesure. ¦ 对大多数店铺，我首先会选 Shopify，因为它让小团队不用维护服务器就能经营一家像样的店。如果业务需要的东西 Shopify 做不好，我会直说，并建议改为定制开发。
+980 ¦ ملاحظات عمل قصيرة من بلال بوغتي، والموضوعات التي تُصاغ لمقالات مقبلة عن التجارة الإلكترونية والتطبيقات والأتمتة والبناء ضمن القيود. ¦ Notas de trabajo breves de Bilal Bugti y los temas en borrador para futuros artículos sobre comercio electrónico, apps, automatización y construir con limitaciones. ¦ Kurze Arbeitsnotizen von Bilal Bugti und die Themen, die für künftige Artikel über E-Commerce, Apps, Automatisierung und Bauen unter Einschränkungen in Arbeit sind. ¦ De courtes notes de travail de Bilal Bugti, et les sujets en préparation pour de futurs articles sur l’e-commerce, les applications, l’automatisation et la réalisation sous contraintes. ¦ Bilal Bugti 的简短工作笔记，以及正在起草的未来文章选题：电商、应用、自动化和在限制条件下做事。
+981 ¦ مراحل قصيرة ومرئية. ترى برمجيات تعمل، لا تقارير حالة. ¦ Hitos cortos y visibles. Ves software que funciona, no informes de estado. ¦ Kurze, sichtbare Meilensteine. Du siehst funktionierende Software, keine Statusberichte. ¦ Des jalons courts et visibles. Vous voyez un logiciel qui fonctionne, pas des rapports d’avancement. ¦ 短而可见的里程碑。你看到的是能运行的软件，而不是进度报告。
+982 ¦ مونتاج الفيديو القصير ¦ Edición de vídeo corto ¦ Schnitt von Kurzvideos ¦ Montage de vidéos courtes ¦ 短视频剪辑
+983 ¦ فضي ¦ Plata ¦ Silber ¦ Argent ¦ 银色
+984 ¦ مفرد ¦ Individual ¦ Einzeln ¦ À l’unité ¦ 单件
+985 ¦ رسالة واحدة ¦ Mensaje único ¦ Eine Botschaft ¦ Message unique ¦ 单一信息
+986 ¦ فهرس الموقع ¦ Índice del sitio ¦ Seitenübersicht ¦ Plan du site ¦ 站点索引
+987 ¦ ستة مشاريع تصورية ¦ Seis proyectos conceptuales ¦ Sechs Konzeptprojekte ¦ Six projets conceptuels ¦ 六个概念项目
+988 ¦ ستة مشاريع تصورية. ¦ Seis proyectos conceptuales. ¦ Sechs Konzeptprojekte. ¦ Six projets conceptuels. ¦ 六个概念项目。
+989 ¦ ستة منتجات بُنيت لتُظهر كيف أفكر. ¦ Seis productos, construidos para mostrar cómo pienso. ¦ Sechs Produkte, gebaut, um zu zeigen, wie ich denke. ¦ Six produits, conçus pour montrer comment je réfléchis. ¦ 六个产品，为展示我的思考方式而做。
+990 ¦ ستة مشاريع تجريبية بمبادرة ذاتية من بلال بوغتي: تجارة إلكترونية، تطبيق هاتف للأعمال، واجهة مساعد ذكاء اصطناعي، نظام CRM، طلبات مطعم، وحملة تسويقية. علامات خيالية وشاشات تعمل. ¦ Seis proyectos de demostración de iniciativa propia de Bilal Bugti: comercio electrónico, una app móvil de negocio, una interfaz de asistente de IA, un CRM, pedidos para restaurante y una campaña de marketing. Marcas ficticias, pantallas que funcionan. ¦ Sechs selbst initiierte Demoprojekte von Bilal Bugti: E-Commerce, eine mobile Business-App, eine KI-Assistenten-Oberfläche, ein CRM, Restaurantbestellungen und eine Marketingkampagne. Fiktive Marken, funktionierende Screens. ¦ Six projets de démonstration lancés à l’initiative de Bilal Bugti : e-commerce, une application mobile de gestion, une interface d’assistant IA, un CRM, la commande en restaurant et une campagne marketing. Marques fictives, écrans fonctionnels. ¦ Bilal Bugti 自发创作的六个演示项目：电商、移动端业务应用、AI 助手界面、CRM、餐厅点餐和一场营销推广。虚构品牌，可操作的界面。
+991 ¦ ست إلى سبع سنوات من استكشاف العالم الرقمي وتعلّمه ذاتيًا — البرمجيات، والأعمال على الإنترنت، والتصميم، والتسويق — يدفعها الإيمان بأن التقنية ستشكّل المستقبل، وأن الاستعداد له خير من التخلف عنه. ¦ De seis a siete años explorando y aprendiendo por su cuenta el mundo digital —software, negocio online, diseño, marketing—, movido por la convicción de que la tecnología dará forma al futuro y de que es mejor prepararse que quedarse atrás. ¦ Sechs bis sieben Jahre, in denen er die digitale Welt erkundet und sich selbst beigebracht hat – Software, Online-Business, Design, Marketing – getragen von der Überzeugung, dass Technologie die Zukunft prägen wird und dass es besser ist, sich darauf vorzubereiten, als zurückzufallen. ¦ Six à sept ans à explorer et à apprendre seul le monde numérique — logiciel, commerce en ligne, design, marketing — porté par la conviction que la technologie façonnera l’avenir et qu’il vaut mieux s’y préparer que prendre du retard. ¦ 六到七年探索并自学数字世界——软件、线上生意、设计、营销——出于这样的信念：技术将塑造未来，与其落后，不如早做准备。
+992 ¦ ستة عروض تجريبية تعمل ¦ Seis demostraciones funcionales ¦ Sechs funktionierende Demos ¦ Six démonstrations fonctionnelles ¦ 六个可操作的演示
+993 ¦ المقاس ¦ Tamaño ¦ Größe ¦ Taille ¦ 尺寸
+994 ¦ تخطَّ المقدمة ↓ ¦ Saltar la intro ↓ ¦ Intro überspringen ↓ ¦ Passer l’intro ↓ ¦ 跳过开场 ↓
+995 ¦ انتقل إلى المحتوى ¦ Saltar al contenido ¦ Zum Inhalt springen ¦ Aller au contenu ¦ 跳到正文
+996 ¦ أردوازي ¦ Pizarra ¦ Schiefer ¦ Ardoise ¦ 石板灰
+997 ¦ = ¦ = ¦ = ¦ = ¦ =
+998 ¦ = ¦ = ¦ = ¦ = ¦ =
+999 ¦ Slowtide شاي خيالي منقوع على البارد لثماني عشرة ساعة. كل مشروب آخر على الرف يعد بالطاقة. هذا يعد بالعكس: ساعة بلا استعجال. ¦ Slowtide es un té ficticio de infusión en frío, reposado durante dieciocho horas. Todas las demás bebidas del estante prometen energía. Esta promete lo contrario: una hora sin prisa. ¦ Slowtide ist ein fiktiver Cold-Brew-Tee, achtzehn Stunden gezogen. Jedes andere Getränk im Regal verspricht Energie. Dieses verspricht das Gegenteil: eine Stunde ohne Eile. ¦ Slowtide est un thé fictif infusé à froid pendant dix-huit heures. Toutes les autres boissons du rayon promettent de l’énergie. Celle-ci promet l’inverse : une heure sans hâte. ¦ Slowtide 是一款虚构的冷泡茶，浸泡十八小时。货架上别的饮料都承诺能量，它承诺的恰恰相反：从容的一小时。
+1000 ¦ Slowtide — حملة الإطلاق ¦ Slowtide — campaña de lanzamiento ¦ Slowtide – Launch-Kampagne ¦ Slowtide — campagne de lancement ¦ Slowtide — 上市推广
+1001 ¦ صغير ¦ Pequeño ¦ Klein ¦ Petit ¦ 小
+1002 ¦ أطباق صغيرة ¦ Platos pequeños ¦ Kleine Teller ¦ Petites assiettes ¦ 小碟
+1003 ¦ العلامات الصغيرة الفاخرة كثيرًا ما ترث قالبًا صُنع لتجارة التخفيضات: لافتات صاخبة، صفحات منتجات مزدحمة، وإتمام شراء يطلب أكثر مما ينبغي. المنتج متقن؛ والمتجر ليس كذلك. ¦ Las marcas premium pequeñas suelen heredar un tema pensado para el comercio de descuento: banners estridentes, páginas de producto abarrotadas y un pago que pide demasiado. El producto está cuidado; la tienda no. ¦ Kleine Premiummarken erben oft ein Theme, das für Discount-Handel gebaut wurde: laute Banner, überladene Produktseiten und ein Checkout, der zu viel abfragt. Das Produkt ist sorgfältig; der Shop ist es nicht. ¦ Les petites marques haut de gamme héritent souvent d’un thème conçu pour le discount : bannières criardes, pages produit surchargées et un paiement qui en demande trop. Le produit est soigné ; la boutique ne l’est pas. ¦ 小型高端品牌常常沿用为折扣零售设计的主题：喧闹的横幅、拥挤的商品页、要求过多的结账流程。产品很用心，店铺却没有。
+1004 ¦ مدخَّن ¦ Ahumado ¦ Rauch ¦ Fumé ¦ 烟熏灰
+1005 ¦ كتف خروف مدخَّن ¦ Paletilla de cordero ahumada ¦ Geräucherte Lammschulter ¦ Épaule d’agneau fumée ¦ 烟熏羊肩
+1006 ¦ وسائل التواصل ¦ Redes ¦ Social ¦ Réseaux sociaux ¦ 社交
+1007 ¦ نماذج توضيحية لوسائل التواصل ¦ Maquetas para redes sociales ¦ Social-Media-Mockups ¦ Maquettes pour les réseaux sociaux ¦ 社交媒体样稿
+1008 ¦ قوالب وسائل التواصل ¦ Plantillas para redes sociales ¦ Social-Media-Vorlagen ¦ Modèles pour les réseaux sociaux ¦ 社交媒体模板
+1009 ¦ قوالب اجتماعية ¦ Plantillas sociales ¦ Social-Vorlagen ¦ Modèles sociaux ¦ 社交模板
+1010 ¦ نفد ¦ Agotado ¦ Ausverkauft ¦ Épuisé ¦ 已售完
+1011 ¦ الأطباق التي نفدت تختفي من القائمة فورًا ¦ Los platos agotados desaparecen de la carta al momento ¦ Ausverkaufte Gerichte verschwinden sofort von der Karte ¦ Les plats épuisés disparaissent aussitôt de la carte ¦ 售完的菜立刻从菜单上消失
+1012 ¦ بعض الأعمال تجري بعيدًا عن المكتب — عند طاولة البيع، في أثناء التوصيل، في يد العميل. التطبيق الجيد يلاقي الناس هناك؛ والسيئ يُحذف. ¦ Algunos trabajos ocurren lejos de un escritorio: en un mostrador, en un reparto, en la mano de un cliente. Una buena app acompaña a la gente ahí; una mala se borra. ¦ Manche Arbeit passiert nicht am Schreibtisch – an der Theke, bei der Lieferung, in der Hand einer Kundin. Eine gute App holt Menschen dort ab; eine schlechte wird gelöscht. ¦ Certains métiers s’exercent loin d’un bureau — à un comptoir, en livraison, dans la main d’un client. Une bonne application rejoint les gens là où ils sont ; une mauvaise est supprimée. ¦ 有些工作不在办公桌前——在柜台、在送货路上、在客户手里。好的应用会在那里迎上人们；差的应用会被删掉。
+1013 ¦ حدث خطأ ما ¦ Algo ha fallado ¦ Etwas ist schiefgelaufen ¦ Une erreur est survenue ¦ 出了点问题
+1014 ¦ الصوت متوقف ¦ Sonido desactivado ¦ Ton aus ¦ Son coupé ¦ 声音关
+1015 ¦ الصوت يعمل ¦ Sonido activado ¦ Ton an ¦ Son activé ¦ 声音开
+1016 ¦ صوت عند طلب جديد ¦ Sonido al entrar un pedido ¦ Ton bei neuer Bestellung ¦ Son à chaque nouvelle commande ¦ 新订单提示音
+1017 ¦ المصدر · ¦ Fuente · ¦ Quelle · ¦ Source · ¦ 来源 ·
+1018 ¦ المصدر · جدول الطلبات ¦ Fuente · Hoja de pedidos ¦ Quelle · Bestelltabelle ¦ Source · Feuille des commandes ¦ 来源 · 订单表
+1019 ¦ الإنفاق ¦ Gasto ¦ Ausgaben ¦ Dépenses ¦ 花费
+1020 ¦ الإنفاق وتكلفة العميل المحتمل يُعرضان قبل الوصول، لأن أرقام التباهي سهلة التضخيم وصعبة التحصيل. ¦ El gasto y el coste por contacto se muestran antes que el alcance, porque las métricas de vanidad son fáciles de inflar y difíciles de cobrar. ¦ Ausgaben und Kosten pro Lead stehen vor der Reichweite, denn Eitelkeitszahlen lassen sich leicht steigern und schwer zu Geld machen. ¦ Les dépenses et le coût par prospect sont affichés avant la portée, car les chiffres flatteurs sont faciles à gonfler et difficiles à encaisser. ¦ 花费和单条线索成本排在触达量之前，因为虚荣数字容易做大，却很难变现。
+1021 ¦ إعلان مموَّل · نموذج تصميمي ¦ Patrocinado · maqueta de diseño ¦ Gesponsert · Design-Mockup ¦ Sponsorisé · maquette de design ¦ 赞助内容 · 设计样稿
+1022 ¦ مربع ¦ Cuadrado ¦ Quadrat ¦ Carré ¦ 方形
+1023 ¦ التثبيت ¦ Estabilizar ¦ Stabilisieren ¦ Stabiliser ¦ 稳定
+1024 ¦ الموظفون يخدمون أنفسهم أولًا ¦ El equipo se resuelve solo primero ¦ Das Team hilft sich zuerst selbst ¦ L’équipe se débrouille d’abord seule ¦ 员工先自己解决
+1025 ¦ التحويل من مرحلة إلى أخرى ¦ Conversión de etapa a etapa ¦ Conversion von Phase zu Phase ¦ Conversion d’étape en étape ¦ 阶段间转化
+1026 ¦ متوقفة منذ 7 أيام أو أكثر ¦ Paradas 7 días o más ¦ Stockt seit 7+ Tagen ¦ Bloquées depuis 7 jours ou plus ¦ 停滞 7 天以上
+1027 ¦ الصفقات المتوقفة تُعلَّم بعد سبعة أيام ¦ Las oportunidades paradas se señalan a los siete días ¦ Stockende Deals werden nach sieben Tagen markiert ¦ Les affaires bloquées sont signalées au bout de sept jours ¦ 停滞的商机在七天后被标出
+1028 ¦ قياسي ¦ Estándar ¦ Standard ¦ Standard ¦ 标准
+1029 ¦ يمكن إرجاع المنتجات القياسية خلال 30 يومًا بحالتها الأصلية. الأثاث المصنوع حسب الطلب لا يُرجَع، لكن العيوب تُصلَح أو يُستبدل المنتج خلال 12 شهرًا. ¦ Los artículos estándar pueden devolverse en 30 días en su estado original. Los muebles hechos por encargo no admiten devolución, pero los defectos se reparan o sustituyen durante 12 meses. ¦ Standardartikel können innerhalb von 30 Tagen im Originalzustand zurückgegeben werden. Auf Bestellung gefertigte Möbel sind von der Rückgabe ausgeschlossen, Mängel werden aber innerhalb von 12 Monaten repariert oder ersetzt. ¦ Les articles standard peuvent être retournés sous 30 jours dans leur état d’origine. Les meubles fabriqués sur commande ne sont pas repris, mais les défauts sont réparés ou remplacés pendant 12 mois. ¦ 标准商品可在 30 天内按原状退货。定制家具不可退货，但 12 个月内出现的缺陷可维修或更换。
+1030 ¦ البدء ¦ Empezar ¦ Starten ¦ Démarrer ¦ 开始
+1031 ¦ ابدأ مشروعًا ¦ Empezar un proyecto ¦ Projekt starten ¦ Démarrer un projet ¦ 开始一个项目
+1032 ¦ ابدأ مشروعًا حول هذا ¦ Empezar un proyecto sobre esto ¦ Dazu ein Projekt starten ¦ Démarrer un projet sur ce sujet ¦ 就此开始一个项目
+1033 ¦ ابدأ مشروعًا كهذا ¦ Empezar un proyecto así ¦ So ein Projekt starten ¦ Démarrer un projet comme celui-ci ¦ 开始一个这样的项目
+1034 ¦ ابدأ مشروعًا — وأخبرني بعدها، بصدق، كيف سار. ¦ Empieza un proyecto y cuéntame después, con sinceridad, cómo fue. ¦ Starte ein Projekt – und sag mir danach ehrlich, wie es lief. ¦ Démarrez un projet — et dites-moi ensuite, honnêtement, comment cela s’est passé. ¦ 开始一个项目——之后如实告诉我，过程如何。
+1035 ¦ ابدأ من طريقة عمل المنشأة، ثم صمّم المنتج حولها. ¦ Partir de cómo funciona el negocio y diseñar el producto a su alrededor. ¦ Davon ausgehen, wie das Unternehmen arbeitet, und das Produkt darum herum gestalten. ¦ Partir du fonctionnement de l’entreprise, puis concevoir le produit autour. ¦ 从业务的运作方式出发，再围绕它设计产品。
+1036 ¦ ابدأ من المشكلة ¦ Empieza por el problema ¦ Beim Problem anfangen ¦ Partir du problème ¦ 从问题出发
+1037 ¦ ابدأ من هنا. ¦ Empieza aquí. ¦ Hier anfangen. ¦ Commencez ici. ¦ 从这里开始。
+1038 ¦ الشركات الناشئة ¦ Startups ¦ Start-ups ¦ Startups ¦ 初创公司
+1039 ¦ الحالة ¦ Estado ¦ Status ¦ Statut ¦ 状态
+1040 ¦ الحالة يحددها المطبخ. افتح «المطبخ والإدارة» وقدّم هذا الطلب لتراه يتغير هنا. ¦ El estado lo marca la cocina. Abre «Cocina y administración» y avanza este pedido para verlo cambiar aquí. ¦ Den Status setzt die Küche. Öffne „Küche & Verwaltung“ und schalte diese Bestellung weiter, um die Änderung hier zu sehen. ¦ Le statut est défini par la cuisine. Ouvrez « Cuisine et administration » et faites avancer cette commande pour la voir changer ici. ¦ 状态由厨房设置。打开“厨房与管理”并推进这个订单，就能看到这里的变化。

@@ -1,0 +1,130 @@
+231 ¦ بناء النظام أو إعداده، وربط الأدوات، وترحيل البيانات. ¦ Construir o configurar el sistema, conectar las herramientas, migrar los datos. ¦ Das System bauen oder einrichten, die Tools verbinden, die Daten migrieren. ¦ Construire ou configurer le système, connecter les outils, migrer les données. ¦ 搭建或配置系统、连接各个工具、迁移数据。
+232 ¦ بناء المنتج ¦ Construir el producto ¦ Das Produkt bauen ¦ Construire le produit ¦ 构建产品
+233 ¦ البناء ¦ Construcción ¦ Bauen ¦ Construction ¦ 构建
+234 ¦ بناء مواقع سريعة لاتصالات بطيئة ¦ Crear sitios rápidos para conexiones lentas ¦ Schnelle Websites für langsame Verbindungen bauen ¦ Créer des sites rapides pour des connexions lentes ¦ 为慢网速打造快网站
+235 ¦ مصمَّم لجهاز لوحي قرب الموقد ¦ Pensado para una tableta junto a los fogones ¦ Gebaut für ein Tablet neben dem Herd ¦ Conçu pour une tablette près des fourneaux ¦ 为灶台边的平板而设计
+236 ¦ مصمَّم ليُسلَّم ¦ Hecho para entregarse ¦ Für die Übergabe gebaut ¦ Conçu pour être transmis ¦ 为交接而建
+237 ¦ تشيز كيك محروق ¦ Tarta de queso quemada ¦ Gebrannter Käsekuchen ¦ Cheesecake brûlé ¦ 焦香芝士蛋糕
+238 ¦ الأعمال ¦ Negocio ¦ Business ¦ Entreprise ¦ 商业
+239 ¦ أتمتة الأعمال ¦ Automatización de negocio ¦ Geschäftsautomatisierung ¦ Automatisation des activités ¦ 业务自动化
+240 ¦ استشارات الأعمال ¦ Consultoría de negocio ¦ Unternehmensberatung ¦ Conseil aux entreprises ¦ 商业咨询
+241 ¦ ملخص رؤى الأعمال ¦ Resumen de indicadores del negocio ¦ Zusammenfassung der Geschäftskennzahlen ¦ Synthèse des indicateurs de l’activité ¦ 业务洞察摘要
+242 ¦ معرفة الشركة ¦ Conocimiento del negocio ¦ Firmenwissen ¦ Connaissances de l’entreprise ¦ 企业知识
+243 ¦ لوحة معرفة الشركة مع المصادر ¦ Panel de conocimiento del negocio con fuentes ¦ Wissensbereich mit Quellen ¦ Panneau des connaissances de l’entreprise avec sources ¦ 带出处的企业知识面板
+244 ¦ لوحات إدارة الأعمال ¦ Paneles de gestión del negocio ¦ Management-Dashboards ¦ Tableaux de bord de gestion ¦ 业务管理看板
+245 ¦ أنظمة الأعمال ¦ Sistemas de negocio ¦ Geschäftssysteme ¦ Systèmes de gestion ¦ 业务系统
+246 ¦ أنظمة الأعمال والأتمتة ¦ Sistemas de negocio y automatización ¦ Geschäftssysteme & Automatisierung ¦ Systèmes de gestion et automatisation ¦ 业务系统与自动化
+247 ¦ أنظمة CRM والإدارة ¦ CRM y sistemas de gestión ¦ CRM- & Verwaltungssysteme ¦ CRM et systèmes de gestion ¦ CRM 与管理系统
+248 ¦ نظام CRM وأتمتة سير العمل ¦ Sistema CRM y automatización de flujos ¦ CRM- & Workflow-Automatisierungssystem ¦ Système CRM et automatisation des flux de travail ¦ CRM 与工作流自动化系统
+249 ¦ منصة CRM أو بناء مخصص ¦ Plataforma CRM o desarrollo a medida ¦ CRM-Plattform oder Eigenentwicklung ¦ Plateforme CRM ou développement sur mesure ¦ CRM 平台或定制开发
+250 ¦ إعداد CRM أو بناء مخصص ¦ Configuración de CRM o desarrollo a medida ¦ CRM-Einrichtung oder Eigenentwicklung ¦ Mise en place d’un CRM ou développement sur mesure ¦ CRM 配置或定制开发
+251 ¦ = ¦ = ¦ = ¦ = ¦ =
+252 ¦ CSS (بلا مكتبة واجهات) ¦ CSS (sin kit de UI) ¦ CSS (ohne UI-Kit) ¦ CSS (sans kit d’interface) ¦ CSS（未使用 UI 组件库）
+253 ¦ إطار جهاز مرسوم بـ CSS ¦ Marco de dispositivo en CSS ¦ Geräterahmen in CSS ¦ Cadre d’appareil en CSS ¦ CSS 绘制的设备外框
+254 ¦ مواد إعلانية مرسومة بـ CSS ¦ Creatividades dibujadas con CSS ¦ Mit CSS gezeichnete Motive ¦ Créations dessinées en CSS ¦ 用 CSS 绘制的创意素材
+255 ¦ الاتصال بـ Greenline Logistics — لا نشاط منذ 9 أيام ¦ Llamar a Greenline Logistics — sin actividad desde hace 9 días ¦ Greenline Logistics anrufen – seit 9 Tagen keine Aktivität ¦ Appeler Greenline Logistics — aucune activité depuis 9 jours ¦ 致电 Greenline Logistics——已 9 天无动态
+256 ¦ حُجزت مكالمة ليوم الجمعة 10:00 ¦ Llamada reservada para el viernes a las 10:00 ¦ Anruf für Freitag 10:00 Uhr gebucht ¦ Appel planifié vendredi à 10 h ¦ 已预约周五 10:00 通话
+257 ¦ حُجزت مكالمة — الجمعة ¦ Llamada reservada — viernes ¦ Anruf gebucht – Freitag ¦ Appel planifié — vendredi ¦ 已预约通话——周五
+258 ¦ مسار الكاميرا ¦ Recorrido de cámara ¦ Kamerafahrt ¦ Trajectoire de la caméra ¦ 镜头路径
+259 ¦ فكرة الحملة ¦ Concepto de campaña ¦ Kampagnenkonzept ¦ Concept de campagne ¦ 推广概念
+260 ¦ لوحة الحملة (بيانات نموذجية خيالية) ¦ Panel de campaña (datos de muestra ficticios) ¦ Kampagnen-Dashboard (fiktive Beispieldaten) ¦ Tableau de bord de campagne (données d’exemple fictives) ¦ 推广看板（虚构示例数据）
+261 ¦ الحملات ¦ Campañas ¦ Kampagnen ¦ Campagnes ¦ 推广活动
+262 ¦ هل تستطيع ضمان النتائج؟ ¦ ¿Puedes garantizar resultados? ¦ Kannst du Ergebnisse garantieren? ¦ Pouvez-vous garantir des résultats ? ¦ 你能保证效果吗？
+263 ¦ هل يمكنك العمل على موقع أو تطبيق قائم؟ ¦ ¿Puedes trabajar con un sitio web o una app que ya existe? ¦ Kannst du mit einer bestehenden Website oder App arbeiten? ¦ Pouvez-vous travailler sur un site ou une application existants ? ¦ 可以在现有网站或应用的基础上做吗？
+264 ¦ السلة ( ¦ Carrito ( ¦ Warenkorb ( ¦ Panier ( ¦ 购物车 (
+265 ¦ السلة ومسار إتمام الشراء ¦ Carrito y flujo de pago ¦ Warenkorb und Checkout ¦ Panier et tunnel de paiement ¦ 购物车与结账流程
+266 ¦ درج السلة مع تعديل الكميات ¦ Panel lateral del carrito con edición de cantidades ¦ Warenkorb-Leiste mit Mengenänderung ¦ Panier latéral avec modification des quantités ¦ 可修改数量的侧边购物车
+267 ¦ دراسات الحالة ¦ Casos de estudio ¦ Fallstudien ¦ Études de cas ¦ 案例研究
+268 ¦ دراسات الحالة — المنطق وراء ستة مشاريع تصورية ¦ Casos de estudio — el razonamiento detrás de seis proyectos conceptuales ¦ Fallstudien – die Überlegungen hinter sechs Konzeptprojekten ¦ Études de cas — le raisonnement derrière six projets conceptuels ¦ 案例研究——六个概念项目背后的思路
+269 ¦ دراسات الحالة ¦ Casos de estudio ¦ Fallstudien ¦ Études de cas ¦ 案例研究
+270 ¦ سلمون مرقط على لوح الأرز ¦ Trucha a la tabla de cedro ¦ Forelle vom Zedernbrett ¦ Truite sur planche de cèdre ¦ 雪松木板烤鳟鱼
+271 ¦ قمع تقطير خزفي ¦ Cafetera de goteo de cerámica ¦ Keramik-Handfilter ¦ Filtre à café en céramique ¦ 陶瓷手冲滤杯
+272 ¦ التحديات ¦ Retos ¦ Herausforderungen ¦ Défis ¦ 挑战
+273 ¦ القناة ¦ Canal ¦ Kanal ¦ Canal ¦ 渠道
+274 ¦ القنوات ¦ Canales ¦ Kanäle ¦ Canaux ¦ 渠道
+275 ¦ فحمي ¦ Carbón ¦ Anthrazit ¦ Anthracite ¦ 炭灰
+276 ¦ خبز مسطح بالكراث المشوي ¦ Pan plano con puerro a la brasa ¦ Fladenbrot mit geröstetem Lauch ¦ Pain plat aux poireaux grillés ¦ 炭烤韭葱薄饼
+277 ¦ إتمام الشراء ¦ Pago ¦ Kasse ¦ Paiement ¦ 结账
+278 ¦ إتمام الشراء يطلب فقط ما يحتاجه تنفيذ الطلب ¦ El pago solo pide lo que la entrega necesita ¦ Der Checkout fragt nur ab, was die Abwicklung braucht ¦ Le paiement ne demande que ce qui est nécessaire à la livraison ¦ 结账只问履约需要的信息
+279 ¦ إتمام الشراء يجمع الطلب والدفع ¦ El pago recoge el pedido y el cobro ¦ Der Checkout nimmt Bestellung und Zahlung auf ¦ Le paiement enregistre la commande et le règlement ¦ 结账环节同时收下订单和付款
+280 ¦ نسبة إتمام الشراء ¦ Finalización del pago ¦ Checkout-Abschlussrate ¦ Taux de finalisation du paiement ¦ 结账完成率
+281 ¦ إتمام الشراء بحسب الخطوة ¦ Finalización del pago por paso ¦ Checkout-Abschluss je Schritt ¦ Finalisation du paiement par étape ¦ 各步骤的结账完成率
+282 ¦ اختر مشكلة عمل ¦ Elige un problema de negocio ¦ Ein Geschäftsproblem wählen ¦ Choisissez un problème d’entreprise ¦ 选择一个业务问题
+283 ¦ اختر… ¦ Elige… ¦ Auswählen… ¦ Choisir… ¦ 请选择…
+284 ¦ حدود وتكاليف ونقاط مراجعة بشرية واضحة ¦ Límites, costes y puntos de revisión humana claros ¦ Klare Grenzen, Kosten und menschliche Prüfpunkte ¦ Des limites, des coûts et des points de validation humaine clairs ¦ 明确的边界、成本和人工复核节点
+285 ¦ استقبال العملاء الجدد، ومعالجة الوثائق، وتقارير واضحة. ¦ Alta de clientes, gestión de documentos e informes claros. ¦ Kunden-Onboarding, Dokumentenhandling und klares Reporting. ¦ Accueil des clients, gestion des documents et rapports clairs. ¦ 客户接入、文档处理和清晰的报告。
+286 ¦ إغلاق ¦ Cerrar ¦ Schließen ¦ Fermer ¦ 关闭
+287 ¦ إغلاق السلة ¦ Cerrar carrito ¦ Warenkorb schließen ¦ Fermer le panier ¦ 关闭购物车
+288 ¦ إغلاق ✕ ¦ Cerrar ✕ ¦ Schließen ✕ ¦ Fermer ✕ ¦ 关闭 ✕
+289 ¦ شاي منقوع على البارد ¦ Té de infusión en frío ¦ Cold-Brew-Tee ¦ Thé infusé à froid ¦ 冷泡茶
+290 ¦ شاي منقوع على البارد لثماني عشرة ساعة. انضم إلى القائمة لخصم 20% على الدفعة الأولى. ¦ Té de infusión en frío, reposado dieciocho horas. Únete a la lista y obtén un 20 % de descuento en el primer lote. ¦ Cold-Brew-Tee, achtzehn Stunden gezogen. Trag dich in die Liste ein – 20 % Rabatt auf die erste Charge. ¦ Thé infusé à froid pendant dix-huit heures. Inscrivez-vous pour bénéficier de 20 % sur le premier lot. ¦ 冷泡茶，浸泡十八小时。加入名单，首批享八折。
+291 ¦ تم الاستلام ¦ Recogido ¦ Abgeholt ¦ Retirée ¦ 已取餐
+292 ¦ تم الاستلام. بالهناء. ¦ Recogido. Que aproveche. ¦ Abgeholt. Guten Appetit. ¦ Retirée. Bon appétit. ¦ 已取餐。请慢用。
+293 ¦ يُختار اللون والمقاس في مكانهما ويتحدّث السعر في موضعه، فلا يفقد العميل موقعه ولا الصورة التي كان ينظر إليها. ¦ El color y el tamaño se eligen en línea y el precio se actualiza en su sitio, así el cliente nunca pierde su posición ni la imagen que estaba mirando. ¦ Farbe und Größe werden direkt gewählt, der Preis aktualisiert sich an Ort und Stelle – so verliert die Kundin weder ihre Position noch das Bild, das sie gerade ansah. ¦ La couleur et la taille se choisissent sur place et le prix se met à jour au même endroit : le client ne perd ni sa position ni l’image qu’il regardait. ¦ 颜色和尺寸就地选择，价格原位更新，顾客不会丢失浏览位置，也不会离开正在看的图片。
+294 ¦ اللون — ¦ Color — ¦ Farbe – ¦ Couleur — ¦ 颜色 —
+295 ¦ الشركة أو النشاط التجاري ¦ Empresa o negocio ¦ Firma oder Unternehmen ¦ Société ou activité ¦ 公司或业务名称
+296 ¦ الفكرة ¦ Concepto ¦ Konzept ¦ Concept ¦ 概念
+297 ¦ مشروع تصوري ¦ Proyecto conceptual ¦ Konzeptprojekt ¦ Projet conceptuel ¦ 概念项目
+298 ¦ مشاريع تصورية ¦ Proyectos conceptuales ¦ Konzeptprojekte ¦ Projets conceptuels ¦ 概念项目
+299 ¦ دراسات حالة تصورية ¦ Casos de estudio conceptuales ¦ Konzept-Fallstudien ¦ Études de cas conceptuelles ¦ 概念案例研究
+300 ¦ مشروع تصوري · ¦ Proyecto conceptual · ¦ Konzeptprojekt · ¦ Projet conceptuel · ¦ 概念项目 ·
+301 ¦ مشروع تصوري — لم يُبنَ لعميل ولم يُكلَّف به من عميل. ¦ Proyecto conceptual: no fue creado para un cliente ni encargado por ninguno. ¦ Konzeptprojekt – weder für einen Kunden gebaut noch von einem beauftragt. ¦ Projet conceptuel — ni réalisé pour un client, ni commandé par un client. ¦ 概念项目——并非为客户而做，也没有客户委托。
+302 ¦ مشاريع تصورية لهذه الخدمة. ¦ Proyectos conceptuales de este servicio. ¦ Konzeptprojekte zu dieser Leistung. ¦ Projets conceptuels pour ce service. ¦ 与这项服务相关的概念项目。
+303 ¦ تأكيد مكالمة الجمعة مع Atlas Fitness ¦ Confirmar la llamada del viernes con Atlas Fitness ¦ Freitagsanruf mit Atlas Fitness bestätigen ¦ Confirmer l’appel de vendredi avec Atlas Fitness ¦ 确认周五与 Atlas Fitness 的通话
+304 ¦ القيود معلّم ¦ Las limitaciones enseñan ¦ Grenzen sind ein Lehrer ¦ Les contraintes sont un professeur ¦ 限制是一位老师
+305 ¦ تواصل ¦ Contacto ¦ Kontakt ¦ Contact ¦ 联系
+306 ¦ تواصل — ابدأ مشروعًا ¦ Contacto — empieza un proyecto ¦ Kontakt – ein Projekt starten ¦ Contact — démarrer un projet ¦ 联系——开始一个项目
+307 ¦ بيانات التواصل، التوصيل، الدفع. بلا إنشاء حساب، وبلا خانة نشرة بريدية مؤشَّرة مسبقًا. ¦ Contacto, entrega, pago. Sin crear cuenta ni casilla de boletín marcada por defecto. ¦ Kontakt, Lieferung, Zahlung. Kein Kundenkonto, kein vorab angekreuzter Newsletter. ¦ Coordonnées, livraison, paiement. Pas de création de compte, pas de case newsletter cochée par défaut. ¦ 联系方式、配送、支付。无需注册账号，也没有默认勾选的订阅框。
+308 ¦ متابعة ¦ Continuar ¦ Weiter ¦ Continuer ¦ 继续
+309 ¦ تم توقيع العقد ¦ Contrato firmado ¦ Vertrag unterschrieben ¦ Contrat signé ¦ 合同已签署
+310 ¦ تم توقيع العقد — اليوم ¦ Contrato firmado — hoy ¦ Vertrag unterschrieben – heute ¦ Contrat signé — aujourd’hui ¦ 合同已签署——今天
+311 ¦ المحادثة ¦ Conversación ¦ Gespräch ¦ Conversation ¦ 对话
+312 ¦ واجهة محادثة ¦ Interfaz de conversación ¦ Gesprächsoberfläche ¦ Interface de conversation ¦ 对话界面
+313 ¦ معدل التحويل بحسب الجهاز ¦ Tasa de conversión por dispositivo ¦ Conversion-Rate nach Gerät ¦ Taux de conversion par appareil ¦ 各设备的转化率
+314 ¦ تم النسخ ✓ ¦ Copiado ✓ ¦ Kopiert ✓ ¦ Copié ✓ ¦ 已复制 ✓
+315 ¦ نسخ الرسالة ¦ Copiar mensaje ¦ Nachricht kopieren ¦ Copier le message ¦ 复制消息
+316 ¦ منع المتصفح النسخ — حدّد النص أعلاه وانسخه يدويًا. ¦ El navegador bloqueó la copia: selecciona el texto de arriba y cópialo a mano. ¦ Der Browser hat das Kopieren blockiert – markiere den Text oben und kopiere ihn von Hand. ¦ Le navigateur a bloqué la copie — sélectionnez le texte ci-dessus et copiez-le manuellement. ¦ 浏览器阻止了复制——请选中上面的文字手动复制。
+317 ¦ مهلة التوريد المتفق عليها مع Corbel Timber هي 10 أيام عمل. آخر شحنتين استغرقتا 16 و19 يومًا. ويتيح العقد رصيدًا بنسبة 5% للشحنات المتأخرة أكثر من 5 أيام. ¦ El plazo acordado con Corbel Timber es de 10 días laborables. Las dos últimas entregas tardaron 16 y 19 días. El contrato permite un abono del 5 % por entregas con más de 5 días de retraso. ¦ Die vereinbarte Lieferzeit von Corbel Timber beträgt 10 Werktage. Die letzten beiden Lieferungen brauchten 16 und 19 Tage. Der Vertrag sieht 5 % Gutschrift bei mehr als 5 Tagen Verspätung vor. ¦ Le délai convenu avec Corbel Timber est de 10 jours ouvrés. Les deux dernières livraisons ont pris 16 et 19 jours. Le contrat prévoit un avoir de 5 % pour les livraisons en retard de plus de 5 jours. ¦ 与 Corbel Timber 约定的交期是 10 个工作日。最近两次交货分别用了 16 天和 19 天。合同规定，延迟超过 5 天可获 5% 的抵扣。
+318 ¦ أساسي ¦ Principal ¦ Kern ¦ Cœur ¦ 核心
+319 ¦ تكلفة العميل المحتمل ¦ Coste por contacto ¦ Kosten pro Lead ¦ Coût par prospect ¦ 单条线索成本
+320 ¦ تكلفة العميل المحتمل المؤهَّل ¦ Coste por contacto cualificado ¦ Kosten pro qualifiziertem Lead ¦ Coût par prospect qualifié ¦ 单条合格线索成本
+321 ¦ البلد ¦ País ¦ Land ¦ Pays ¦ 国家/地区
+322 ¦ الحِرفة ¦ Oficio ¦ Handwerk ¦ Savoir-faire ¦ 工艺
+323 ¦ الإبداع ¦ Crear ¦ Gestalten ¦ Créer ¦ 创作
+324 ¦ إنشاء مهمة اتصال للمسؤول ¦ Crear tarea de llamada para el responsable ¦ Anrufaufgabe für die Zuständige anlegen ¦ Créer une tâche d’appel pour le responsable ¦ 为负责人创建电话任务
+325 ¦ إنشاء عميل محتمل في «جديد» ¦ Crear contacto en «Nuevo» ¦ Lead in „Neu“ anlegen ¦ Créer le prospect dans « Nouveau » ¦ 在“新线索”中创建线索
+326 ¦ إنشاء سجل مشروع ¦ Crear ficha de proyecto ¦ Projektdatensatz anlegen ¦ Créer la fiche projet ¦ 创建项目记录
+327 ¦ إنشاء مهمة ¦ Crear tarea ¦ Aufgabe anlegen ¦ Créer une tâche ¦ 创建任务
+328 ¦ الإبداع ¦ Creatividad ¦ Kreation ¦ Création ¦ 创意
+329 ¦ المختبر الإبداعي ¦ Laboratorio creativo ¦ Kreativlabor ¦ Laboratoire créatif ¦ 创意实验室
+330 ¦ المختبر الإبداعي — تجارب تفاعلية ¦ Laboratorio creativo — experimentos interactivos ¦ Kreativlabor – interaktive Experimente ¦ Laboratoire créatif — expériences interactives ¦ 创意实验室——互动实验
+331 ¦ مواد إبداعية مصمَّمة كنظام ¦ Creatividad diseñada como sistema ¦ Gestaltung als System angelegt ¦ Une création pensée comme un système ¦ 把创意当作一套系统来设计
+332 ¦ خطة اختبار المواد الإبداعية ¦ Plan de pruebas de creatividades ¦ Testplan für Motive ¦ Plan de test des créations ¦ 创意测试计划
+333 ¦ نسبة النقر لكل مادة إعلانية ¦ Clics por creatividad ¦ Klickrate je Motiv ¦ Taux de clic par création ¦ 各素材的点击率
+334 ¦ المواد الإعلانية ¦ Creatividades ¦ Motive ¦ Créations ¦ 创意素材
+335 ¦ الإبداع ¦ Creatividad ¦ Kreativität ¦ Créativité ¦ 创意
+336 ¦ زبدة مخمّرة، ملح مدخّن ¦ Mantequilla fermentada, sal ahumada ¦ Sauerrahmbutter, Rauchsalz ¦ Beurre de culture, sel fumé ¦ 发酵黄油、烟熏盐
+337 ¦ الفضول ¦ Curiosidad ¦ Neugier ¦ Curiosité ¦ 好奇心
+338 ¦ الفضول أولًا. ¦ Primero, la curiosidad. ¦ Zuerst die Neugier. ¦ La curiosité d’abord. ¦ 先有好奇心。
+339 ¦ الحالة الراهنة ¦ Estado actual ¦ Aktueller Stand ¦ Situation actuelle ¦ 当前状态
+340 ¦ برمجيات مخصصة ¦ Software a medida ¦ Individuelle Software ¦ Logiciels sur mesure ¦ 定制软件
+341 ¦ الزبون والمطبخ يقرآن البيانات نفسها. أوقف طبقًا من لوحة الإدارة فيختفي من القائمة فورًا — جرّب. ¦ Cliente y cocina leen los mismos datos. Desactiva un plato en la administración y desaparece de la carta al instante: pruébalo. ¦ Gast und Küche lesen dieselben Daten. Ein Gericht in der Verwaltung ausschalten, und es verschwindet sofort von der Karte – probier es aus. ¦ Le client et la cuisine lisent les mêmes données. Désactivez un plat dans l’administration et il disparaît aussitôt de la carte — essayez. ¦ 顾客和厨房读取的是同一份数据。在管理端关掉一道菜，它会立刻从菜单上消失——试试看。
+342 ¦ قائمة العملاء وتفاصيلهم ¦ Lista y ficha de clientes ¦ Kundenliste und -details ¦ Liste et fiche des clients ¦ 客户列表与详情
+343 ¦ قائمة الزبون وطلبه من جهة، ولوحة المطبخ والمالك من الجهة الأخرى — متصلتان، فتعليم طبق كغير متوفر يزيله من القائمة فورًا. ¦ Carta y pedidos del cliente por un lado, panel de cocina y del dueño por el otro; conectados, de modo que marcar un plato como no disponible lo quita de la carta al instante. ¦ Karte und Bestellung für den Gast auf der einen Seite, Küchen- und Inhaber-Dashboard auf der anderen – verbunden, sodass ein als nicht verfügbar markiertes Gericht sofort von der Karte verschwindet. ¦ La carte et la commande côté client, le tableau de bord cuisine et gérant de l’autre — reliés, de sorte qu’un plat marqué indisponible disparaît instantanément de la carte. ¦ 一边是顾客的菜单和点餐，另一边是厨房和店主的看板——两者相连，把某道菜标为售罄，它会立刻从菜单上移除。
+344 ¦ قائمة الزبائن مع التصنيفات ¦ Carta del cliente con categorías ¦ Gästekarte mit Kategorien ¦ Carte client avec catégories ¦ 带分类的顾客菜单
+345 ¦ طلب الزبون ¦ Pedido del cliente ¦ Bestellen als Gast ¦ Commande client ¦ 顾客点餐
+346 ¦ سجلات العملاء ¦ Fichas de clientes ¦ Kundenakten ¦ Fiches clients ¦ 客户档案
+347 ¦ سجلات العملاء والطلبات والمهام ¦ Registros de clientes, pedidos y tareas ¦ Kunden-, Bestell- und Aufgabendatensätze ¦ Fiches clients, commandes et tâches ¦ 客户、订单和任务记录
+348 ¦ العملاء ¦ Clientes ¦ Kunden ¦ Clients ¦ 客户
+349 ¦ العملاء يتصفحون ويختارون بأنفسهم ¦ Los clientes miran y eligen por sí mismos ¦ Kunden stöbern und wählen selbst ¦ Les clients parcourent et choisissent eux-mêmes ¦ 顾客自己浏览、自己挑选
+350 ¦ العملاء يتصفحون من هواتفهم لكنهم يتراجعون عند إتمام الشراء. ¦ Los clientes miran desde el móvil, pero abandonan en el pago. ¦ Kunden stöbern am Handy, brechen aber im Checkout ab. ¦ Les clients naviguent sur leur téléphone mais abandonnent au moment de payer. ¦ 顾客用手机浏览，却在结账时放弃。
+351 ¦ يتوقع العملاء أن يتصفحوا ويشتروا من هواتفهم في أي ساعة. ومن دون متجر تملكه، تعتمد المبيعات على الزبائن العابرين والأسواق الإلكترونية وسلاسل الرسائل. ¦ Los clientes esperan mirar y comprar desde el móvil a cualquier hora. Sin una tienda propia, las ventas dependen de quien entra por la puerta, de los marketplaces y de hilos de mensajes. ¦ Kunden erwarten, jederzeit am Handy stöbern und kaufen zu können. Ohne eigenen Shop hängt der Umsatz von Laufkundschaft, Marktplätzen und Chatverläufen ab. ¦ Les clients s’attendent à pouvoir parcourir et acheter sur leur téléphone, à toute heure. Sans boutique qui vous appartient, les ventes dépendent du passage, des places de marché et des fils de messages. ¦ 顾客期望随时用手机浏览和购买。没有自己的网店，销售就只能靠路过的客人、第三方平台和聊天记录。
+352 ¦ العملاء يراسلون ليسألوا عمّا هو متوفر ¦ Los clientes escriben para preguntar qué hay en stock ¦ Kunden schreiben, um zu fragen, was vorrätig ist ¦ Les clients écrivent pour demander ce qui est en stock ¦ 顾客发消息来问有没有货
+353 ¦ الاستخدام اليومي الفعلي من قِبل المالك ¦ Uso diario activo por parte del dueño ¦ Tägliche aktive Nutzung durch die Inhaberin ¦ Utilisation quotidienne active par le propriétaire ¦ 店主的每日活跃使用
+354 ¦ لوحة اليوم ¦ Panel diario ¦ Tages-Dashboard ¦ Tableau de bord du jour ¦ 每日看板
+355 ¦ ملخص يومي عند الثامنة مساءً ¦ Resumen diario a las 20:00 ¦ Tageszusammenfassung um 20 Uhr ¦ Récapitulatif quotidien à 20 h ¦ 每晚 8 点的每日摘要
+356 ¦ لوحة المتابعة ¦ Panel ¦ Dashboard ¦ Tableau de bord ¦ 看板
+357 ¦ لوحات متابعة وأدوات داخلية ¦ Paneles y herramientas internas ¦ Dashboards und interne Tools ¦ Tableaux de bord et outils internes ¦ 看板与内部工具
+358 ¦ تحليل البيانات ¦ Análisis de datos ¦ Datenanalyse ¦ Analyse de données ¦ 数据分析
+359 ¦ تنظيف البيانات وتحليلها ¦ Limpieza y análisis de datos ¦ Datenbereinigung und -analyse ¦ Nettoyage et analyse de données ¦ 数据清洗与分析
+360 ¦ قاعدة بيانات ¦ Base de datos ¦ Datenbank ¦ Base de données ¦ 数据库

@@ -1,0 +1,130 @@
+361 ¦ الصفقة تدخل مرحلة «عرض السعر» ¦ La oportunidad entra en «Propuesta» ¦ Deal wechselt zu „Angebot“ ¦ L’affaire passe en « Proposition » ¦ 商机进入“报价”阶段
+362 ¦ الصفقة عُلّمت «مكسوبة» ¦ Oportunidad marcada como «Ganada» ¦ Deal als „Gewonnen“ markiert ¦ Affaire marquée « Gagnée » ¦ 商机被标记为“已成交”
+363 ¦ الصفقات بحسب المرحلة ¦ Oportunidades por etapa ¦ Deals nach Phase ¦ Affaires par étape ¦ 各阶段商机数
+364 ¦ صفقات أو طلبات بلا مسؤول ¦ Oportunidades o pedidos sin responsable ¦ Deals oder Bestellungen ohne Zuständige ¦ Affaires ou commandes sans responsable ¦ 没有负责人的商机或订单
+365 ¦ صفقات بلا نشاط منذ 7 أيام ¦ Oportunidades sin actividad en 7 días ¦ Deals ohne Aktivität seit 7 Tagen ¦ Affaires sans activité depuis 7 jours ¦ 7 天无动态的商机
+366 ¦ القرار ¦ Decidir ¦ Entscheiden ¦ Décider ¦ 决策
+367 ¦ القرارات وراء العروض التجريبية ¦ Las decisiones detrás de las demos ¦ Entscheidungen hinter den Demos ¦ Les décisions derrière les démos ¦ 演示背后的决策
+368 ¦ أنقص {name} ¦ Reducir {name} ¦ {name} verringern ¦ Diminuer {name} ¦ 减少 {name}
+369 ¦ عميق ¦ Profundo ¦ Tiefe ¦ Abysse ¦ 深海
+370 ¦ حدّد الأمرين أو الثلاثة التي يجب أن يتقنها التطبيق، اصنع لها نموذجًا أوليًا، ثم ابنِ لنظامي iOS وأندرويد من شيفرة واحدة. ¦ Define las dos o tres cosas que la app debe hacer bien, haz un prototipo y luego constrúyela para iOS y Android desde un único código. ¦ Die zwei, drei Dinge festlegen, die die App gut können muss, sie als Prototyp bauen und dann aus einer Codebasis für iOS und Android entwickeln. ¦ Définir les deux ou trois choses que l’application doit bien faire, les prototyper, puis développer pour iOS et Android à partir d’une seule base de code. ¦ 确定应用必须做好的两三件事，先做原型，再用一套代码同时开发 iOS 和 Android 版本。
+371 ¦ التسليم والدعم ¦ Entregar y dar soporte ¦ Ausliefern und betreuen ¦ Livrer et accompagner ¦ 交付与支持
+372 ¦ التوصيل ¦ Entrega ¦ Lieferung ¦ Livraison ¦ 配送
+373 ¦ طاقة التنفيذ، ومشاريع تُبنى باسم الوكالة، وأدوات داخلية. ¦ Capacidad de entrega, desarrollos de marca blanca y herramientas internas. ¦ Lieferkapazität, White-Label-Projekte und interne Tools. ¦ Capacité de production, réalisations en marque blanche et outils internes. ¦ 交付能力、白标开发和内部工具。
+374 ¦ دفع تجريبي ¦ Pago de demostración ¦ Demo-Zahlung ¦ Paiement de démonstration ¦ 演示支付
+375 ¦ العمق يغلب التشتت ¦ La profundidad vence a la dispersión ¦ Tiefe schlägt Verzettelung ¦ La profondeur l’emporte sur la dispersion ¦ 深入胜过漂移
+376 ¦ صِف المشكلة. اختيار الخدمة المناسبة مهمتي أنا لا مهمتك. ¦ Describe el problema. Elegir el servicio adecuado es mi trabajo, no el tuyo. ¦ Beschreib das Problem. Die richtige Leistung auszuwählen ist meine Aufgabe, nicht deine. ¦ Décrivez le problème. Choisir le bon service, c’est mon travail, pas le vôtre. ¦ 描述问题就好。选哪项服务是我的工作，不是你的。
+377 ¦ قرارات التصميم ¦ Decisiones de diseño ¦ Designentscheidungen ¦ Décisions de conception ¦ 设计决策
+378 ¦ تصميم التجربة ¦ Diseñar la experiencia ¦ Das Erlebnis gestalten ¦ Concevoir l’expérience ¦ 设计体验
+379 ¦ صُمّم وبُني كمنتج قائم بذاته: مشهد ثلاثي الأبعاد حيّ على الحاسوب، وتجربة أخف على الهواتف، ولا خدمات مدفوعة خلفه. ¦ Diseñado y construido como un producto en sí mismo: una escena 3D en tiempo real en escritorio, una experiencia más ligera en móviles y ningún servicio de pago detrás. ¦ Als eigenständiges Produkt entworfen und gebaut: eine Echtzeit-3D-Szene am Desktop, ein leichteres Erlebnis auf dem Handy und keine kostenpflichtigen Dienste dahinter. ¦ Conçu et réalisé comme un produit à part entière : une scène 3D en temps réel sur ordinateur, une expérience allégée sur mobile, et aucun service payant derrière. ¦ 作为一个独立产品来设计和开发：桌面端是实时 3D 场景，手机端是更轻量的体验，背后没有任何付费服务。
+380 ¦ تصميم تطبيق لشخص مشغول بفعل شيء آخر ¦ Diseñar una app para alguien que está ocupado haciendo otra cosa ¦ Eine App für jemanden gestalten, der gerade mit etwas anderem beschäftigt ist ¦ Concevoir une application pour quelqu’un qui est occupé à autre chose ¦ 为正忙着别的事的人设计应用
+381 ¦ الإجراء المطلوب ¦ Acción deseada ¦ Gewünschte Aktion ¦ Action souhaitée ¦ 期望的行动
+382 ¦ = ¦ = ¦ = ¦ = ¦ =
+383 ¦ Deskhand — مساعد الأعمال ¦ Deskhand — asistente de negocio ¦ Deskhand – Geschäftsassistent ¦ Deskhand — assistant d’entreprise ¦ Deskhand — 业务助手
+384 ¦ التفاصيل ¦ Detalles ¦ Details ¦ Détails ¦ 详情
+385 ¦ = ¦ = ¦ = ¦ = ¦ =
+386 ¦ يجري التطوير على مراحل قصيرة، وفي نهاية كل منها شيء يعمل يمكن مراجعته. ¦ El desarrollo avanza en hitos cortos, con algo que funciona para revisar en cada uno. ¦ Die Entwicklung läuft in kurzen Meilensteinen, an deren Ende jeweils etwas Funktionierendes zum Prüfen steht. ¦ Le développement avance par jalons courts, avec à chaque fois quelque chose de fonctionnel à examiner. ¦ 开发按短里程碑推进，每个节点都有能运行的成果可供检查。
+387 ¦ ورقة التشخيص ¦ Hoja de diagnóstico ¦ Diagnoseblatt ¦ Fiche de diagnostic ¦ 诊断单
+388 ¦ أعمال مختلفة. ¦ Negocios distintos. ¦ Verschiedene Unternehmen. ¦ Des entreprises différentes. ¦ 不同的企业。
+389 ¦ أعمال مختلفة. مشكلات مألوفة. ¦ Negocios distintos. Problemas conocidos. ¦ Verschiedene Unternehmen. Vertraute Probleme. ¦ Des entreprises différentes. Des problèmes familiers. ¦ 不同的企业，相似的问题。
+390 ¦ رائد أعمال رقمي ¦ Emprendedor digital ¦ Digitaler Unternehmer ¦ Entrepreneur du numérique ¦ 数字创业者
+391 ¦ النمو الرقمي والحلول الإبداعية ¦ Crecimiento digital y soluciones creativas ¦ Digitales Wachstum & Kreativlösungen ¦ Croissance digitale et solutions créatives ¦ 数字增长与创意方案
+392 ¦ تطوير المنتجات الرقمية ¦ Desarrollo de productos digitales ¦ Digitale Produktentwicklung ¦ Développement de produits numériques ¦ 数字产品开发
+393 ¦ التسويق الرقمي ¦ Marketing digital ¦ Digitales Marketing ¦ Marketing digital ¦ 数字营销
+394 ¦ حملة تسويق رقمي وإبداعي ¦ Campaña de marketing digital y creatividad ¦ Digitale Marketing- & Kreativkampagne ¦ Campagne de marketing digital et de création ¦ 数字营销与创意推广
+395 ¦ مباشر ¦ Directo ¦ Direkt ¦ Direct ¦ 直接
+396 ¦ الحجوزات المباشرة، ومراسلة النزلاء، والعمليات اليومية. ¦ Reservas directas, mensajería con huéspedes y operativa diaria. ¦ Direktbuchungen, Gästekommunikation und Tagesgeschäft. ¦ Réservations directes, messagerie avec les clients et gestion quotidienne. ¦ 直接预订、住客沟通和日常运营。
+397 ¦ الطلب المباشر، ودقة القائمة، ومطبخ يرى ما بيع. ¦ Pedidos directos, una carta exacta y una cocina que ve lo que se vendió. ¦ Direktbestellung, eine stimmige Karte und eine Küche, die sieht, was verkauft wurde. ¦ Commande directe, carte à jour et une cuisine qui voit ce qui a été vendu. ¦ 直接点餐、准确的菜单，以及看得见卖出了什么的厨房。
+398 ¦ أُجريت مكالمة تعارف ¦ Llamada de descubrimiento realizada ¦ Erstgespräch geführt ¦ Appel de découverte effectué ¦ 已进行需求沟通电话
+399 ¦ الأطباق المتوفرة ¦ Platos disponibles ¦ Verfügbare Gerichte ¦ Plats disponibles ¦ 可供应菜品
+400 ¦ هل أحتاج إلى الذكاء الاصطناعي أصلًا؟ ¦ ¿De verdad necesito IA? ¦ Brauche ich überhaupt KI? ¦ Ai-je vraiment besoin d’IA ? ¦ 我到底需不需要 AI？
+401 ¦ هل تعمل مع Shopify فقط؟ ¦ ¿Solo trabajas con Shopify? ¦ Arbeitest du nur mit Shopify? ¦ Travaillez-vous uniquement avec Shopify ? ¦ 你只做 Shopify 吗？
+402 ¦ هل تستخدم الذكاء الاصطناعي في العمل الإبداعي؟ ¦ ¿Usas IA para el trabajo creativo? ¦ Nutzt du KI für kreative Arbeit? ¦ Utilisez-vous l’IA pour le travail créatif ? ¦ 创意工作中你会用 AI 吗？
+403 ¦ استرجاع الوثائق ¦ Recuperación de documentos ¦ Dokumentensuche ¦ Recherche documentaire ¦ 文档检索
+404 ¦ وثّق سير العمل الحالي: من يفعل ماذا، بأي أداة، وأين ينكسر. ¦ Documentar el flujo actual: quién hace qué, con qué herramienta y dónde falla. ¦ Den aktuellen Ablauf dokumentieren: wer was mit welchem Tool macht – und wo es hakt. ¦ Documenter le flux actuel : qui fait quoi, avec quel outil, et où cela casse. ¦ 记录现有流程：谁在做什么、用什么工具、在哪里出问题。
+405 ¦ تم ¦ Hecho ¦ Erledigt ¦ Terminé ¦ 完成
+406 ¦ = ¦ = ¦ = ¦ = ¦ =
+407 ¦ صياغة بريد للمورّد ¦ Redactar correo al proveedor ¦ Lieferanten-E-Mail entwerfen ¦ Rédiger un e-mail au fournisseur ¦ 起草给供应商的邮件
+408 ¦ مسودة — لم تُنشر بعد ¦ Borrador — aún sin publicar ¦ Entwurf – noch nicht veröffentlicht ¦ Brouillon — pas encore publié ¦ 草稿——尚未发布
+409 ¦ الصياغة والتلخيص داخل الأدوات الموجودة ¦ Redacción y resúmenes dentro de las herramientas existentes ¦ Entwerfen und Zusammenfassen in bestehenden Tools ¦ Rédaction et synthèse dans les outils existants ¦ 在现有工具中起草和总结
+410 ¦ كل منها مشروع تصوري أصلي صُنع لهذا المعرض — علامات خيالية، بيانات نموذجية، شاشات تعمل. لا يُعاد استخدام أي عمل لعميل ولا يُكشف عنه. ¦ Cada uno es un proyecto conceptual original hecho para este portafolio: marcas ficticias, datos de muestra, pantallas que funcionan. No se reutiliza ni se revela ningún trabajo de clientes. ¦ Jedes ist ein eigenes Konzeptprojekt für dieses Portfolio – fiktive Marken, Beispieldaten, funktionierende Screens. Keine Kundenarbeit wird wiederverwendet oder offengelegt. ¦ Chacun est un projet conceptuel original créé pour ce portfolio — marques fictives, données d’exemple, écrans fonctionnels. Aucun travail client n’est réutilisé ni divulgué. ¦ 每一个都是为这份作品集原创的概念项目——虚构的品牌、示例数据、可操作的界面。没有复用或披露任何客户项目。
+411 ¦ كل طلب يُظهر خطوة تالية واحدة بالضبط. لا توجد قائمة حالات للاختيار منها. ¦ Cada pedido muestra exactamente un siguiente paso. No hay un menú de estados entre los que elegir. ¦ Jede Bestellung zeigt genau einen nächsten Schritt. Es gibt kein Menü mit Status zur Auswahl. ¦ Chaque commande affiche exactement une étape suivante. Il n’y a pas de menu de statuts parmi lesquels choisir. ¦ 每个订单只显示一个下一步，没有一长串状态让你选。
+412 ¦ كل طلب يُظهر مرحلته، من الاستلام إلى الجاهزية ¦ Cada pedido muestra su etapa, de recibido a listo ¦ Jede Bestellung zeigt ihren Stand, von eingegangen bis fertig ¦ Chaque commande affiche son étape, de reçue à prête ¦ 每个订单都显示所处阶段，从已接单到可取餐
+413 ¦ كل مشروع أدناه صُمّم وبُني لهذا المعرض، بعلامة خيالية وبيانات نموذجية. وُجدت لتُظهر كيف أتناول المشكلة — ولكي يبقى عمل العملاء السري سريًا. ¦ Cada proyecto de abajo se diseñó y construyó para este portafolio, con una marca ficticia y datos de muestra. Existen para mostrar cómo abordo un problema, y para que el trabajo confidencial de los clientes siga siendo confidencial. ¦ Jedes Projekt unten wurde für dieses Portfolio entworfen und gebaut, mit fiktiver Marke und Beispieldaten. Sie zeigen, wie ich an ein Problem herangehe – und sorgen dafür, dass vertrauliche Kundenarbeit vertraulich bleibt. ¦ Chacun des projets ci-dessous a été conçu et réalisé pour ce portfolio, avec une marque fictive et des données d’exemple. Ils existent pour montrer comment j’aborde un problème — et pour que le travail confidentiel des clients le reste. ¦ 下面的每个项目都是为这份作品集设计和开发的，使用虚构品牌和示例数据。它们用来展示我处理问题的方式，也让需要保密的客户项目继续保密。
+414 ¦ لكل مشروع شرح مكتوب للقرارات التي تقف وراءه. ¦ Cada proyecto tiene una explicación escrita de las decisiones que hay detrás. ¦ Zu jedem Projekt gibt es eine schriftliche Erklärung der Entscheidungen dahinter. ¦ Chaque projet est accompagné d’une explication écrite des décisions qui le sous-tendent. ¦ 每个项目都配有文字说明，解释背后的决策。
+415 ¦ كل تقييم أدناه منشور بإذن صاحبه ومرتبط بالمكان الذي كُتب فيه أصلًا. ¦ Cada reseña de abajo se publica con permiso y enlaza al lugar donde se escribió originalmente. ¦ Jede Bewertung unten ist mit Erlaubnis veröffentlicht und verlinkt auf den Ort, an dem sie ursprünglich geschrieben wurde. ¦ Chaque avis ci-dessous est publié avec autorisation et renvoie à l’endroit où il a été rédigé à l’origine. ¦ 下面每条评价都经许可发布，并链接到最初发表的位置。
+416 ¦ كل سير عمل يُعرض كسلسلة خطوات ليفهم الفريق ما يفعله النظام نيابةً عنه. ¦ Cada flujo se muestra como una secuencia de pasos para que el equipo entienda qué hace el sistema en su nombre. ¦ Jeder Workflow wird als Abfolge von Schritten gezeigt, damit das Team versteht, was das System in seinem Namen tut. ¦ Chaque flux est présenté comme une suite d’étapes afin que l’équipe comprenne ce que le système fait en son nom. ¦ 每个工作流都以步骤序列呈现，让团队明白系统替他们做了什么。
+417 ¦ التعليم ¦ Educación ¦ Bildung ¦ Éducation ¦ 教育
+418 ¦ أيٌّ منهما ¦ Cualquiera ¦ Beides möglich ¦ L’un ou l’autre ¦ 都可以
+419 ¦ في أماكن أخرى ¦ En otros sitios ¦ Anderswo ¦ Ailleurs ¦ 其他平台
+420 ¦ البريد الإلكتروني ¦ Correo ¦ E-Mail ¦ E-mail ¦ 邮件
+421 ¦ تكامل البريد / المراسلة ¦ Integración de correo y mensajería ¦ E-Mail-/Messaging-Integration ¦ Intégration e-mail / messagerie ¦ 邮件/消息集成
+422 ¦ البريد الإلكتروني ¦ Correo electrónico ¦ E-Mail-Adresse ¦ Adresse e-mail ¦ 电子邮箱
+423 ¦ تكاملات البريد والمراسلة ¦ Integraciones de correo y mensajería ¦ E-Mail- und Messaging-Integrationen ¦ Intégrations e-mail et messagerie ¦ 邮件与消息集成
+424 ¦ جمع عناوين البريد والمتابعة ¦ Captación de correos y seguimiento ¦ E-Mail-Erfassung und Nachfassen ¦ Collecte d’e-mails et relance ¦ 邮箱收集与跟进
+425 ¦ بريد إلكتروني لإرسال الإيصال ¦ Correo para el recibo ¦ E-Mail für den Beleg ¦ E-mail pour le reçu ¦ 用于接收收据的邮箱
+426 ¦ البريد الإلكتروني — لم يُضبط بعد ¦ Correo — aún sin configurar ¦ E-Mail – noch nicht eingerichtet ¦ E-mail — pas encore configuré ¦ 邮件——尚未配置
+427 ¦ = ¦ = ¦ = ¦ = ¦ =
+428 ¦ = ¦ = ¦ = ¦ = ¦ =
+429 ¦ Ember & Rye — اطلب مباشرة ¦ Ember & Rye — pide directamente ¦ Ember & Rye – direkt bestellen ¦ Ember & Rye — commandez en direct ¦ Ember & Rye — 直接点餐
+430 ¦ شمندر مشوي على الجمر ¦ Remolacha asada a la brasa ¦ In der Glut gerösteter Rote Bete ¦ Betterave rôtie sous la braise ¦ 炭烤甜菜根
+431 ¦ فارغ ¦ Vacío ¦ Leer ¦ Vide ¦ 空
+432 ¦ الإنجليزية ¦ Inglés ¦ Englisch ¦ Anglais ¦ 英语
+433 ¦ نموذج استفسار — أمس ¦ Formulario de consulta — ayer ¦ Anfrageformular – gestern ¦ Formulaire de demande — hier ¦ 咨询表单——昨天
+434 ¦ التسجيل، وتقديم المقررات، وإبقاء المتعلمين وأولياء الأمور على اطلاع. ¦ Matriculación, impartición de cursos y mantener informados a alumnos y familias. ¦ Anmeldung, Kursdurchführung und Lernende wie Eltern auf dem Laufenden halten. ¦ Inscriptions, déroulement des cours et information des apprenants et des parents. ¦ 报名、课程交付，以及让学员和家长及时了解情况。
+435 ¦ أدخل بريدًا إلكترونيًا صالحًا. ¦ Introduce un correo electrónico válido. ¦ Bitte eine gültige E-Mail-Adresse eingeben. ¦ Saisissez une adresse e-mail valide. ¦ 请输入有效的电子邮箱。
+436 ¦ الأخطاء وإعادة الإدخال التي جرى تفاديها ¦ Errores y reintroducciones evitados ¦ Vermiedene Fehler und Doppeleingaben ¦ Erreurs et ressaisies évitées ¦ 避免的错误和重复录入
+437 ¦ الميزانية التقديرية ¦ Presupuesto estimado ¦ Geschätztes Budget ¦ Budget estimé ¦ 预算范围
+438 ¦ كل إجابة تُظهر مصدرها ¦ Cada respuesta muestra de dónde viene ¦ Jede Antwort zeigt, woher sie stammt ¦ Chaque réponse indique d’où elle vient ¦ 每个回答都标明出处
+439 ¦ كل أتمتة يمكن إيقافها بنقرة واحدة. الثقة بالأتمتة تبدأ من القدرة على إيقافها. ¦ Cada automatización puede pausarse con un clic. La confianza en la automatización empieza por poder detenerla. ¦ Jede Automation lässt sich mit einem Klick pausieren. Vertrauen in Automatisierung beginnt damit, sie stoppen zu können. ¦ Chaque automatisation peut être mise en pause en un clic. La confiance dans l’automatisation commence par la possibilité de l’arrêter. ¦ 每个自动化都能一键暂停。对自动化的信任，始于能够让它停下来。
+440 ¦ كل رقم داخل المشاريع التجريبية — الإيرادات، الطلبات، العملاء المحتملون، أداء الحملات — بيانات نموذجية خيالية، ومعلَّمة بذلك حيثما ظهرت. ¦ Todas las cifras dentro de los proyectos de demostración —ingresos, pedidos, contactos, rendimiento de campañas— son datos de muestra ficticios, y así se indica donde aparecen. ¦ Jede Zahl in den Demoprojekten – Umsatz, Bestellungen, Leads, Kampagnenleistung – ist ein fiktiver Beispielwert und dort, wo sie erscheint, so gekennzeichnet. ¦ Tous les chiffres des projets de démonstration — chiffre d’affaires, commandes, prospects, performance des campagnes — sont des données d’exemple fictives, signalées comme telles là où elles apparaissent. ¦ 演示项目中的所有数字——营收、订单、线索、推广效果——都是虚构的示例数据，并在出现的地方标明。
+441 ¦ كل عميل محتمل بطاقة على مسار مشترك ¦ Cada contacto es una tarjeta en un embudo compartido ¦ Jeder Lead ist eine Karte in einer gemeinsamen Pipeline ¦ Chaque prospect est une carte dans un pipeline partagé ¦ 每条线索都是共享管道上的一张卡片
+442 ¦ كل طلب بطاقة تحرّكها بنقرة واحدة ¦ Cada pedido es una tarjeta que mueves con un toque ¦ Jede Bestellung ist eine Karte, die du mit einem Tippen weiterschiebst ¦ Chaque commande est une carte que l’on déplace d’un geste ¦ 每个订单都是一张卡片，点一下就能推进
+443 ¦ كل مشروع يبدأ بشخص ومشكلة. ¦ Todo proyecto empieza con una persona y un problema. ¦ Jedes Projekt beginnt mit einem Menschen und einem Problem. ¦ Tout projet commence par une personne et un problème. ¦ 每个项目都始于一个人和一个问题。
+444 ¦ كل عنوان بخط غير مذيّل في هذا الموقع يأتي من ملف خط متغيّر واحد. يُضبط الوزن والعرض لكل عنصر بدل تحميل خطوط منفصلة. ¦ Todos los titulares sans-serif de este sitio salen de un único archivo de fuente variable. El peso y la anchura se ajustan por elemento en lugar de cargar fuentes separadas. ¦ Jede serifenlose Überschrift auf dieser Website stammt aus einer einzigen variablen Schriftdatei. Stärke und Breite werden pro Element gesetzt, statt einzelne Schriften zu laden. ¦ Tous les titres sans empattement de ce site proviennent d’un seul fichier de police variable. La graisse et la largeur sont définies par élément au lieu de charger des polices distinctes. ¦ 本站所有无衬线标题都来自同一个可变字体文件。字重和字宽按元素设置，而不是加载多个字体。
+445 ¦ كل شيء أُنجز. جميل. ¦ Todo está hecho. Bien. ¦ Alles erledigt. Schön. ¦ Tout est fait. Bravo. ¦ 全部完成。不错。
+446 ¦ كل شيء في متناول إبهام اليد التي تمسك الهاتف. ¦ Todo se alcanza con el pulgar de la mano que sostiene el teléfono. ¦ Alles ist mit dem Daumen der Hand erreichbar, die das Handy hält. ¦ Tout est accessible avec le pouce de la main qui tient le téléphone. ¦ 握着手机的那只手，用拇指就能够到所有操作。
+447 ¦ تجربة 01 ¦ Exp. 01 ¦ Exp. 01 ¦ Exp. 01 ¦ 实验 01
+448 ¦ تجربة 02 ¦ Exp. 02 ¦ Exp. 02 ¦ Exp. 02 ¦ 实验 02
+449 ¦ تجربة 03 ¦ Exp. 03 ¦ Exp. 03 ¦ Exp. 03 ¦ 实验 03
+450 ¦ استكشف ¦ Explorar ¦ Entdecken ¦ Explorer ¦ 浏览
+451 ¦ في تراجع بعد تفعيل أتمتة الاستقبال (توضيحي). ¦ Baja tras activar la automatización de entrada (ilustrativo). ¦ Sinkt, seit die Eingangs-Automation eingeschaltet wurde (illustrativ). ¦ En baisse depuis l’activation de l’automatisation d’accueil (illustratif). ¦ 启用线索接入自动化后下降（仅作示意）。
+452 ¦ مشكلات مألوفة. ¦ Problemas conocidos. ¦ Vertraute Probleme. ¦ Des problèmes familiers. ¦ 相似的问题。
+453 ¦ إنتاج أسرع للإعلانات الجديدة ¦ Producción más rápida de anuncios nuevos ¦ Schnellere Produktion neuer Anzeigen ¦ Une production plus rapide de nouvelles publicités ¦ 新广告制作更快
+454 ¦ ردود أسرع على العملاء المحتملين الجدد ¦ Respuestas más rápidas a nuevos contactos ¦ Schnellere Antworten auf neue Anfragen ¦ Des réponses plus rapides aux nouveaux prospects ¦ 更快回复新线索
+455 ¦ طلبات متروكة أقل بفضل إتمام شراء أقصر ¦ Menos pedidos abandonados gracias a un pago más corto ¦ Weniger abgebrochene Bestellungen dank kürzerem Checkout ¦ Moins de commandes abandonnées grâce à un paiement plus court ¦ 结账更短，弃单更少
+456 ¦ استفسارات أقل تضيع بين الأشخاص ¦ Menos consultas perdidas entre personas ¦ Weniger Anfragen, die zwischen Personen verloren gehen ¦ Moins de demandes perdues entre les personnes ¦ 在人与人之间丢失的咨询更少
+457 ¦ متابعات أقل تسقط من الحساب ¦ Menos seguimientos que se quedan por el camino ¦ Weniger Nachfassaktionen, die untergehen ¦ Moins de relances oubliées ¦ 被遗漏的跟进更少
+458 ¦ طلبات أقل تُفوَّت أو تُنسى ¦ Menos pedidos perdidos u olvidados ¦ Weniger verpasste oder vergessene Bestellungen ¦ Moins de commandes manquées ou oubliées ¦ 漏单、忘单更少
+459 ¦ أخطاء أقل بين طاولة البيع والمطبخ ¦ Menos errores entre el mostrador y la cocina ¦ Weniger Fehler zwischen Theke und Küche ¦ Moins d’erreurs entre le comptoir et la cuisine ¦ 前台与厨房之间的差错更少
+460 ¦ علامة وبيانات خيالية ¦ Marca y datos ficticios ¦ Fiktive Marke & Daten ¦ Marque et données fictives ¦ 虚构品牌与数据
+461 ¦ بيانات نموذجية خيالية · طلبات الجلسة تُضاف مباشرة ¦ Datos de muestra ficticios · los pedidos de la sesión se añaden en vivo ¦ Fiktive Beispieldaten · Bestellungen dieser Sitzung kommen live hinzu ¦ Données d’exemple fictives · les commandes de la session s’ajoutent en direct ¦ 虚构示例数据 · 本次会话的订单会实时加入
+462 ¦ بيانات نموذجية خيالية — توضّح شكل التقرير، لا نتائج حملة حقيقية ¦ Datos de muestra ficticios: ilustran el formato del informe, no resultados reales de campaña ¦ Fiktive Beispieldaten – sie zeigen das Berichtsformat, keine echten Kampagnenergebnisse ¦ Données d’exemple fictives — elles illustrent le format du rapport, pas des résultats de campagne réels ¦ 虚构示例数据——用于展示报告格式，并非真实推广效果
+463 ¦ تصفية بحسب الفئة ¦ Filtrar por categoría ¦ Nach Kategorie filtern ¦ Filtrer par catégorie ¦ 按分类筛选
+464 ¦ المالية وخدمات الأعمال ¦ Finanzas y servicios empresariales ¦ Finanzen & Unternehmensdienstleistungen ¦ Finance et services aux entreprises ¦ 金融与商业服务
+465 ¦ اعثر على مهمة أو مهمتين يوفّر فيهما النموذج وقتًا حقيقيًا، واربطه بمعلوماتك أنت، وأبقِ شخصًا ضمن الحلقة. ¦ Encuentra una o dos tareas en las que un modelo ahorre tiempo de verdad, conéctalo con tu propia información y mantén a una persona en el circuito. ¦ Ein, zwei Aufgaben finden, bei denen ein Modell wirklich Zeit spart, es mit den eigenen Informationen verbinden und einen Menschen in der Schleife behalten. ¦ Trouver une ou deux tâches où un modèle fait réellement gagner du temps, le relier à vos propres informations et garder une personne dans la boucle. ¦ 找出一两项模型确实能省时间的任务，把它接到你自己的信息上，并保留人工把关。
+466 ¦ العثور على المشكلة الحقيقية وراء الطلب الأول ¦ Encontrar el problema real detrás de la primera petición ¦ Das eigentliche Problem hinter der ersten Anfrage finden ¦ Trouver le vrai problème derrière la première demande ¦ 找出最初需求背后的真正问题
+467 ¦ الدفعة الأولى · صفحة نموذجية ¦ Primer lote · página de muestra ¦ Erste Charge · Beispielseite ¦ Premier lot · page d’exemple ¦ 首批 · 示例页面
+468 ¦ خمسة فصول. ¦ Cinco capítulos. ¦ Fünf Kapitel. ¦ Cinq chapitres. ¦ 五个章节。
+469 ¦ خبز مسطح، مخللات، لبن بالثوم ¦ Pan plano, encurtidos, yogur de ajo ¦ Fladenbrot, Pickles, Knoblauchjoghurt ¦ Pain plat, pickles, yaourt à l’ail ¦ 薄饼、腌菜、蒜味酸奶
+470 ¦ مرن ¦ Flexible ¦ Flexibel ¦ Flexible ¦ 灵活
+471 ¦ زبد ¦ Espuma ¦ Schaum ¦ Écume ¦ 浪沫
+472 ¦ التركيز ¦ Enfoque ¦ Fokus ¦ Concentration ¦ 专注
+473 ¦ المتابعات والتذكيرات تعمل تلقائيًا ¦ Los seguimientos y recordatorios funcionan solos ¦ Nachfassen und Erinnerungen laufen automatisch ¦ Les relances et rappels partent automatiquement ¦ 跟进和提醒自动进行
+474 ¦ المتابعات تعتمد على أن يتذكرها أحد. ¦ Los seguimientos dependen de que alguien se acuerde. ¦ Das Nachfassen hängt davon ab, dass jemand daran denkt. ¦ Les relances dépendent de la mémoire de quelqu’un. ¦ 跟进全靠有人记得。
+475 ¦ المتابعات تعتمد على ذاكرة شخص ما ¦ Los seguimientos dependen de la memoria de alguien ¦ Nachfassen hängt am Gedächtnis einzelner ¦ Les relances reposent sur la mémoire de quelqu’un ¦ 跟进全靠某个人的记性
+476 ¦ أُرسل النموذج: «نحتاج إلى حجز عبر الإنترنت» ¦ Formulario enviado: «Necesitamos reservas online» ¦ Formular abgeschickt: „Brauchen Online-Buchung“ ¦ Formulaire envoyé : « Besoin de réservation en ligne » ¦ 表单已提交：“需要在线预约”
+477 ¦ الصيغة ¦ Formato ¦ Format ¦ Format ¦ 版式
+478 ¦ أربع مراحل، في كل منها شيء تراه. ¦ Cuatro etapas, cada una con algo que puedes ver. ¦ Vier Phasen, jede mit etwas, das man sehen kann. ¦ Quatre étapes, chacune avec quelque chose de visible. ¦ 四个阶段，每个阶段都有看得见的成果。
+479 ¦ أربعة أمور تعلّمتها بالطريق الطويل. ¦ Cuatro cosas aprendidas por el camino lento. ¦ Vier Dinge, auf dem langsamen Weg gelernt. ¦ Quatre choses apprises par le chemin le plus long. ¦ 慢慢学到的四件事。
+480 ¦ من ¦ Desde ¦ Ab ¦ À partir de ¦ 起价
+481 ¦ من الإنسان إلى الإنسان مع الآلة، في ستة مشاهد ¦ De humano a humano más máquina, en seis escenas ¦ Vom Menschen zum Menschen plus Maschine, in sechs Szenen ¦ De l’humain à l’humain augmenté par la machine, en six scènes ¦ 从人到“人 + 机器”，共六幕
+482 ¦ من النار ¦ Del fuego ¦ Vom Feuer ¦ Au feu de bois ¦ 炭火料理
+483 ¦ الاسم الكامل ¦ Nombre completo ¦ Vollständiger Name ¦ Nom complet ¦ 姓名
+484 ¦ القمع يعكس تبويب المسار مباشرة · بقية الأرقام بيانات نموذجية خيالية ¦ El embudo refleja en vivo la pestaña de oportunidades · las demás cifras son datos de muestra ficticios ¦ Der Trichter spiegelt den Pipeline-Tab live · übrige Zahlen sind fiktive Beispieldaten ¦ L’entonnoir reflète en direct l’onglet Pipeline · les autres chiffres sont des données d’exemple fictives ¦ 漏斗实时反映“管道”标签页 · 其余数字为虚构示例数据
+485 ¦ طموح مستقبلي — لا ادعاء حالي ¦ Ambición futura, no una afirmación actual ¦ Ziel für die Zukunft – keine aktuelle Behauptung ¦ Ambition future — pas une affirmation actuelle ¦ 未来的目标——不是现在的宣称
+486 ¦ إطارات منشورات عامة رُسمت لهذا النموذج — ليست لقطات شاشة من أي منصة، وليست منشورات حقيقية. ¦ Marcos genéricos de publicación dibujados para esta maqueta: no son capturas de ninguna plataforma ni publicaciones reales. ¦ Generische Post-Rahmen, für dieses Mockup gezeichnet – keine Screenshots einer Plattform und keine echten Posts. ¦ Cadres de publication génériques dessinés pour cette maquette — ni captures d’écran d’une plateforme, ni vraies publications. ¦ 为这份样稿绘制的通用帖子框——不是任何平台的截图，也不是真实帖子。
+487 ¦ وضع نسخة أولى بين أيدي المستخدمين دون إفراط في البناء. ¦ Poner una primera versión delante de los usuarios sin construir de más. ¦ Eine erste Version vor Nutzer bringen, ohne zu viel zu bauen. ¦ Mettre une première version entre les mains des utilisateurs sans trop en faire. ¦ 把第一个版本交到用户手上，同时不过度开发。
+488 ¦ أعطني ملخص الأسبوع ¦ Dame un resumen de la semana ¦ Gib mir eine Zusammenfassung der Woche ¦ Donne-moi un résumé de la semaine ¦ 给我一份本周总结
+489 ¦ أعطِ العمل المتكرر للنظام. واحتفظ بالحُكم للناس. ¦ Dale el trabajo repetitivo al sistema. Guarda el criterio para las personas. ¦ Gib die wiederkehrende Arbeit dem System. Behalte das Urteil bei den Menschen. ¦ Confiez le travail répétitif au système. Gardez le jugement pour les personnes. ¦ 把重复的工作交给系统，把判断留给人。
+490 ¦ أعمال جيدة تبقى غير مرئية لأن الرسالة غير واضحة. ¦ Buenos negocios siguen siendo invisibles porque el mensaje no está claro. ¦ Gute Unternehmen bleiben unsichtbar, weil die Botschaft unklar ist. ¦ De bonnes entreprises restent invisibles parce que leur message n’est pas clair. ¦ 好企业默默无闻，是因为信息没说清楚。

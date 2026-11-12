@@ -1,0 +1,110 @@
+1181 ¦ الجدول الزمني ¦ Plazo ¦ Zeitrahmen ¦ Calendrier ¦ 时间安排
+1182 ¦ اليوم ¦ Hoy ¦ Heute ¦ Aujourd’hui ¦ 今天
+1183 ¦ اليوم · بيانات نموذجية ¦ Hoy · datos de muestra ¦ Heute · Beispieldaten ¦ Aujourd’hui · données d’exemple ¦ 今天 · 示例数据
+1184 ¦ أرقام اليوم على الشاشة الأولى ¦ Las cifras de hoy están en la primera pantalla ¦ Die Zahlen von heute stehen auf dem ersten Screen ¦ Les chiffres du jour sont sur le premier écran ¦ 今天的数字就在第一屏
+1185 ¦ = ¦ = ¦ = ¦ = ¦ =
+1186 ¦ تكاملات بين الأدوات ¦ Integraciones entre herramientas ¦ Tool-zu-Tool-Integrationen ¦ Intégrations entre outils ¦ 工具间集成
+1187 ¦ الأدوات يمكن استبدالها والمال يمكن كسبه من جديد. الساعات لا. خطّط قبل أن تبني. ¦ Las herramientas se pueden sustituir y el dinero se puede volver a ganar. Las horas, no. Planifica antes de construir. ¦ Werkzeuge lassen sich ersetzen, Geld lässt sich wieder verdienen. Stunden nicht. Erst planen, dann bauen. ¦ Les outils se remplacent et l’argent se regagne. Les heures, non. Planifier avant de construire. ¦ 工具可以换，钱可以再赚，时间不行。先规划，再动手。
+1188 ¦ أفضل المنتجات ¦ Productos principales ¦ Top-Produkte ¦ Meilleurs produits ¦ 热门商品
+1189 ¦ موضوعات قيد الكتابة. ¦ Temas en redacción. ¦ Themen, an denen geschrieben wird. ¦ Sujets en cours d’écriture. ¦ 正在撰写的选题。
+1190 ¦ الإجمالي ¦ Total ¦ Gesamt ¦ Total ¦ 合计
+1191 ¦ التتبع والتسليم إلى CRM ¦ Seguimiento y traspaso al CRM ¦ Tracking & CRM-Übergabe ¦ Suivi et transmission au CRM ¦ 追踪与 CRM 交接
+1192 ¦ إعداد التتبع والتقارير ¦ Configuración de seguimiento e informes ¦ Einrichtung von Tracking und Reporting ¦ Mise en place du suivi et du reporting ¦ 追踪与报告设置
+1193 ¦ تتبع يعكس حال المطبخ ¦ Un seguimiento que refleja la cocina ¦ Tracking, das die Küche widerspiegelt ¦ Un suivi qui reflète la cuisine ¦ 如实反映厨房进度的跟踪
+1194 ¦ درّب الفريق، راقبه يعمل على مهام حقيقية، وعدّل. ¦ Formar al equipo, verlo funcionar con trabajo real y ajustar. ¦ Das Team schulen, es an echter Arbeit laufen sehen und nachjustieren. ¦ Former l’équipe, l’observer sur du travail réel et ajuster. ¦ 培训团队，看它在真实工作中运行，再做调整。
+1195 ¦ كوب سفر حافظ للحرارة ¦ Vaso térmico de viaje ¦ Reisebecher ¦ Gobelet de voyage ¦ 随行杯
+1196 ¦ خط الاتجاه، بيانات نموذجية ¦ Línea de tendencia, datos de muestra ¦ Trendlinie, Beispieldaten ¦ Courbe de tendance, données d’exemple ¦ 趋势线，示例数据
+1197 ¦ المُشغِّل ¦ Disparador ¦ Auslöser ¦ Déclencheur ¦ 触发条件
+1198 ¦ أتمتة مبنية على المُشغِّلات ¦ Automatizaciones basadas en disparadores ¦ Auslöserbasierte Automationen ¦ Automatisations à déclencheur ¦ 基于触发条件的自动化
+1199 ¦ حاول مجددًا ¦ Intentar de nuevo ¦ Erneut versuchen ¦ Réessayer ¦ 重试
+1200 ¦ جرّبه ¦ Pruébalo ¦ Ausprobieren ¦ Essayer ¦ 试一试
+1201 ¦ جرّب العرض الحي ¦ Probar la demo en vivo ¦ Live-Demo ausprobieren ¦ Essayer la démo en direct ¦ 试用在线演示
+1202 ¦ جرّب العرض التجريبي العامل ¦ Probar la demostración funcional ¦ Funktionierende Demo ausprobieren ¦ Essayer la démonstration fonctionnelle ¦ 试用可操作的演示
+1203 ¦ مخروط من قضيب نحاس أصفر واحد. يحمل قلمًا واحدًا، عن قصد. ¦ Torneado a partir de una sola barra de latón. Sostiene un bolígrafo, a propósito. ¦ Aus einem einzigen Messingstab gedreht. Hält genau einen Stift – mit Absicht. ¦ Tourné dans une seule barre de laiton. Contient un seul stylo, délibérément. ¦ 由一整根黄铜棒车削而成。只放一支笔，有意为之。
+1204 ¦ تحويل مشكلات الأعمال إلى حلول رقمية عملية. ¦ Convertir problemas de negocio en soluciones digitales prácticas. ¦ Aus geschäftlichen Problemen praktische digitale Lösungen machen. ¦ Transformer les problèmes d’entreprise en solutions numériques concrètes. ¦ 把业务问题变成实用的数字解决方案。
+1205 ¦ واجهتان، مصدر واحد للحقيقة ¦ Dos vistas, una sola fuente de verdad ¦ Zwei Ansichten, eine Quelle der Wahrheit ¦ Deux vues, une seule source de vérité ¦ 两个视图，一个事实来源
+1206 ¦ = ¦ = ¦ = ¦ = ¦ =
+1207 ¦ تصميم واجهات وتجربة المستخدم ¦ Diseño UI/UX ¦ UI/UX-Design ¦ Design UI/UX ¦ UI/UX 设计
+1208 ¦ أقل من 1,000 دولار ¦ Menos de 1.000 $ ¦ Unter 1.000 $ ¦ Moins de 1 000 $ ¦ 1,000 美元以下
+1209 ¦ فهم العمل ¦ Entender el negocio ¦ Das Unternehmen verstehen ¦ Comprendre l’entreprise ¦ 了解业务
+1210 ¦ مراقبة الاستخدام ¦ Supervisión del uso ¦ Nutzungsüberwachung ¦ Suivi de l’utilisation ¦ 用量监控
+1211 ¦ الخيارات تغيّر السعر، لا الصفحة ¦ Las variantes cambian el precio, no la página ¦ Varianten ändern den Preis, nicht die Seite ¦ Les variantes changent le prix, pas la page ¦ 规格改变的是价格，不是页面
+1212 ¦ يمكن التحقق منه اليوم ¦ Verificable hoy ¦ Heute überprüfbar ¦ Vérifiable aujourd’hui ¦ 今天就能核实
+1213 ¦ مونتاج الفيديو ¦ Edición de vídeo ¦ Videoschnitt ¦ Montage vidéo ¦ 视频剪辑
+1214 ¦ تقدّم مرئي ¦ Progreso visible ¦ Sichtbarer Fortschritt ¦ Des progrès visibles ¦ 看得见的进展
+1215 ¦ الرؤية ¦ Visión ¦ Vision ¦ Vision ¦ 愿景
+1216 ¦ المواد البصرية تُصنع واحدة واحدة بلا هوية مشتركة. ¦ Las piezas visuales se hacen de una en una, sin identidad común. ¦ Visuals entstehen einzeln, ohne gemeinsame Identität. ¦ Les visuels sont réalisés un par un, sans identité commune. ¦ 视觉素材一张一张做，没有统一的识别。
+1217 ¦ انتظار ¦ Esperar ¦ Warten ¦ Attendre ¦ 等待
+1218 ¦ ألواح الجوز ¦ Paneles de nogal ¦ Nussbaumplatten ¦ Panneaux de noyer ¦ 胡桃木板
+1219 ¦ تريد شيئًا تفاعليًا خاصًا بك؟ ¦ ¿Quieres algo interactivo propio? ¦ Du möchtest etwas Interaktives für dich? ¦ Envie de quelque chose d’interactif pour vous ? ¦ 想要一个属于你自己的互动作品？
+1220 ¦ تريد أن تكون الأول؟ ¦ ¿Quieres ser el primero? ¦ Möchtest du die oder der Erste sein? ¦ Envie d’être le premier ? ¦ 想成为第一个吗？
+1221 ¦ نجري محادثة قصيرة عن العمل. ¦ Tenemos una conversación breve sobre el negocio. ¦ Wir führen ein kurzes Gespräch über das Unternehmen. ¦ Nous avons une courte conversation sur l’entreprise. ¦ 我们就业务做一次简短的交谈。
+1222 ¦ الويب والبرمجيات المخصصة ¦ Web y software a medida ¦ Web & individuelle Software ¦ Web et logiciels sur mesure ¦ 网站与定制软件
+1223 ¦ تطوير الويب ¦ Desarrollo web ¦ Webentwicklung ¦ Développement web ¦ 网站开发
+1224 ¦ تطبيق ويب + واجهة لوحية للمطبخ ¦ App web + vista de tableta para cocina ¦ Web-App + Tablet-Ansicht für die Küche ¦ Application web + vue tablette pour la cuisine ¦ 网页应用 + 厨房平板视图
+1225 ¦ تطبيق ويب مع قاعدة بيانات ¦ Aplicación web con base de datos ¦ Webanwendung mit Datenbank ¦ Application web avec base de données ¦ 带数据库的网页应用
+1226 ¦ تطوير الويب ¦ Desarrollo web ¦ Webentwicklung ¦ Développement web ¦ 网站开发
+1227 ¦ WebGL غير متاح ¦ WebGL no disponible ¦ WebGL nicht verfügbar ¦ WebGL indisponible ¦ WebGL 不可用
+1228 ¦ الموقع ¦ Sitio web ¦ Website ¦ Site web ¦ 网站
+1229 ¦ أُرسل نموذج الموقع ¦ Formulario web enviado ¦ Website-Formular abgeschickt ¦ Formulaire du site envoyé ¦ 网站表单已提交
+1230 ¦ تحليلات أسبوعية ¦ Analítica semanal ¦ Wöchentliche Analyse ¦ Statistiques hebdomadaires ¦ 每周分析
+1231 ¦ لوحة متابعة أسبوعية ¦ Panel semanal ¦ Wochen-Dashboard ¦ Tableau de bord hebdomadaire ¦ 每周看板
+1232 ¦ الوزن ¦ Peso ¦ Stärke ¦ Graisse ¦ 字重
+1233 ¦ ما يقدّمه بلال بوغتي: Shopify والتجارة الإلكترونية، تطوير الهاتف والويب، أتمتة الأعمال وأنظمة CRM، الذكاء الاصطناعي التطبيقي، التسويق الرقمي والعمل الإبداعي. ¦ Lo que hace Bilal Bugti: Shopify y comercio electrónico, desarrollo móvil y web, automatización de negocio y sistemas CRM, IA aplicada, marketing digital y creatividad. ¦ Was Bilal Bugti macht: Shopify und E-Commerce, Mobile- und Webentwicklung, Geschäftsautomatisierung und CRM-Systeme, angewandte KI, digitales Marketing und Kreation. ¦ Ce que fait Bilal Bugti : Shopify et e-commerce, développement mobile et web, automatisation et systèmes CRM, IA appliquée, marketing digital et création. ¦ Bilal Bugti 做什么：Shopify 与电商、移动端与网站开发、业务自动化与 CRM 系统、应用型 AI、数字营销与创意。
+1234 ¦ ما أفعله ¦ Lo que hago ¦ Was ich mache ¦ Ce que je fais ¦ 我做什么
+1235 ¦ ما الذي ينبغي أن يصلحه متجر صغير قبل الإنفاق على الإعلانات ¦ Lo que una tienda pequeña debería arreglar antes de gastar en anuncios ¦ Was ein kleiner Shop in Ordnung bringen sollte, bevor er Geld für Anzeigen ausgibt ¦ Ce qu’une petite boutique devrait corriger avant de dépenser en publicité ¦ 小店在花钱投广告之前该先修好什么
+1236 ¦ ماذا عن الاشتراكات المدفوعة؟ ¦ ¿Y las suscripciones de pago? ¦ Was ist mit kostenpflichtigen Abos? ¦ Et les abonnements payants ? ¦ 付费订阅怎么算？
+1237 ¦ ماذا تحتاج مني للبدء؟ ¦ ¿Qué necesitas de mí para empezar? ¦ Was brauchst du von mir, um loszulegen? ¦ De quoi avez-vous besoin de ma part pour commencer ? ¦ 开始前你需要我提供什么？
+1238 ¦ ما الذي يُقاس ¦ Qué se mide ¦ Was gemessen wird ¦ Ce qui est mesuré ¦ 衡量什么
+1239 ¦ ماذا يحدث بعد ذلك ¦ Qué pasa después ¦ Wie es weitergeht ¦ La suite ¦ 接下来会怎样
+1240 ¦ ما الذي يعترض طريق عملك؟ ¦ ¿Qué se interpone en tu negocio? ¦ Was steht deinem Unternehmen im Weg? ¦ Qu’est-ce qui freine votre entreprise ? ¦ 是什么在阻碍你的业务？
+1241 ¦ ما المشمول ¦ Qué incluye ¦ Was enthalten ist ¦ Ce qui est inclus ¦ 包含什么
+1242 ¦ ما سياسة الإرجاع لدينا؟ ¦ ¿Cuál es nuestra política de devoluciones? ¦ Wie ist unsere Rückgaberegelung? ¦ Quelle est notre politique de retour ? ¦ 我们的退货政策是什么？
+1243 ¦ ما العمل، وما المشكلة، وكيف تبدو النتيجة الجيدة؟ ¦ ¿Cuál es el negocio, cuál es el problema y cómo sería un buen resultado? ¦ Was ist das Unternehmen, was ist das Problem, und wie sähe ein gutes Ergebnis aus? ¦ Quelle est l’entreprise, quel est le problème, et à quoi ressemblerait un bon résultat ? ¦ 业务是什么、问题是什么、理想的结果是什么样？
+1244 ¦ ما الذي علّمه ¦ Lo que enseñó ¦ Was es gelehrt hat ¦ Ce que cela a appris ¦ 学到了什么
+1245 ¦ ما الأكثر مبيعًا هذا الشهر؟ ¦ ¿Qué se vendió más este mes? ¦ Was hat sich diesen Monat am besten verkauft? ¦ Qu’est-ce qui s’est le mieux vendu ce mois-ci ? ¦ 这个月什么卖得最好？
+1246 ¦ ما الذي يعمل عليه هذا العرض التجريبي، وما الذي سيستخدمه على الأرجح بناء حقيقي لعميل بدلًا منه. ¦ Con qué funciona esta demostración y qué usaría con más probabilidad un desarrollo real para un cliente. ¦ Womit diese Demo läuft – und was ein echtes Kundenprojekt stattdessen höchstwahrscheinlich nutzen würde. ¦ Sur quoi repose cette démonstration, et ce qu’une vraie réalisation client utiliserait très probablement à la place. ¦ 这个演示运行在什么之上，以及真实的客户项目最可能改用什么。
+1247 ¦ ما الذي تعلّمناه، ربحًا أو خسارة ¦ Lo aprendido, se gane o se pierda ¦ Was gelernt wurde – Erfolg oder nicht ¦ Ce qui a été appris, succès ou non ¦ 无论成败，学到了什么
+1248 ¦ ما كان سيُقاس، لكل مشروع ¦ Qué se mediría, por proyecto ¦ Was gemessen würde, je Projekt ¦ Ce qui serait mesuré, projet par projet ¦ 每个项目会衡量什么
+1249 ¦ ما تستطيع التحقق منه بنفسك. ¦ Lo que puedes comprobar por ti mismo. ¦ Was du selbst überprüfen kannst. ¦ Ce que vous pouvez vérifier par vous-même. ¦ 你可以自己核实的内容。
+1250 ¦ ما تستطيع أن تتوقعه مني. ¦ Lo que puedes esperar de mí. ¦ Was du von mir erwarten kannst. ¦ Ce que vous pouvez attendre de moi. ¦ 你可以对我抱有的期待。
+1251 ¦ واتساب ¦ = ¦ = ¦ = ¦ =
+1252 ¦ واتساب — لم يُضبط بعد ¦ WhatsApp — aún sin configurar ¦ WhatsApp – noch nicht eingerichtet ¦ WhatsApp — pas encore configuré ¦ WhatsApp——尚未配置
+1253 ¦ ما المشمول ¦ Qué incluye ¦ Was enthalten ist ¦ Ce qui est inclus ¦ 包含内容
+1254 ¦ مشكّل على عجلة الخزّاف، غير مزجَّج من الخارج، يتسع لـ 240 مل. بلا مقبض؛ يبقى دافئًا في اليد. ¦ Hecha al torno, sin esmaltar por fuera, capacidad de 240 ml. Sin asa; se mantiene cálida en la mano. ¦ Auf der Scheibe gedreht, außen unglasiert, fasst 240 ml. Kein Henkel; bleibt warm in der Hand. ¦ Tournée à la main, non émaillée à l’extérieur, contenance 240 ml. Sans anse ; elle reste chaude dans la main. ¦ 手工拉坯，外壁不上釉，容量 240 毫升。没有把手，握在手里是暖的。
+1255 ¦ حين يستغرق حاسوب محمول دقائق لما يجب أن يأخذ ثوانيَ، تتعلّم أن تخطط قبل أن تنقر. وحين ينقطع الاتصال، تتعلّم أن تعمل دون اتصال وألا تهدر شيئًا. تلك العادات صارت جزءًا من طريقة بناء كل مشروع. ¦ Cuando un portátil tarda minutos en hacer lo que debería llevar segundos, aprendes a planificar antes de hacer clic. Cuando la conexión se cae, aprendes a trabajar sin conexión y a no desperdiciar nada. Esos hábitos forman ya parte de cómo se construye cada proyecto. ¦ Wenn ein Laptop Minuten für etwas braucht, das Sekunden dauern sollte, lernt man, zu planen, bevor man klickt. Wenn die Verbindung abbricht, lernt man, offline zu arbeiten und nichts zu verschwenden. Diese Gewohnheiten gehören heute dazu, wie jedes Projekt gebaut wird. ¦ Quand un ordinateur portable met des minutes à faire ce qui devrait prendre des secondes, on apprend à planifier avant de cliquer. Quand la connexion tombe, on apprend à travailler hors ligne et à ne rien gaspiller. Ces habitudes font désormais partie de la façon dont chaque projet est construit. ¦ 当一台笔记本要花几分钟才能做完本该几秒的事，你就学会了先规划再点击。当网络断掉，你就学会了离线工作、不浪费任何东西。这些习惯如今已融入每个项目的做法之中。
+1256 ¦ حين يعيش تاريخ العملاء في هواتف وصناديق بريد فردية، لا يستطيع العمل أن يرى مساره هو — ويخسره حين يغادر أحدهم. ¦ Cuando el historial de clientes vive en teléfonos y bandejas individuales, el negocio no puede ver su propio embudo, y lo pierde cuando alguien se va. ¦ Wenn die Kundenhistorie in einzelnen Handys und Postfächern liegt, kann das Unternehmen seine eigene Pipeline nicht sehen – und verliert sie, wenn jemand geht. ¦ Quand l’historique client vit dans des téléphones et des boîtes mail individuels, l’entreprise ne peut pas voir son propre pipeline — et le perd quand quelqu’un s’en va. ¦ 当客户往来记录只存在于个人手机和邮箱里，企业就看不到自己的管道——有人离职时，还会连它一起失去。
+1257 ¦ أين يساعد النموذج اللغوي منشأة صغيرة فعلًا — وأين لا يساعد ¦ Dónde ayuda de verdad un modelo de lenguaje a una pequeña empresa, y dónde no ¦ Wo ein Sprachmodell einem kleinen Unternehmen wirklich hilft – und wo nicht ¦ Là où un modèle de langage aide vraiment une petite entreprise — et là où il n’aide pas ¦ 语言模型在哪里真正帮得上小企业——又在哪里帮不上
+1258 ¦ حيث يفيد — في المسودات والتنويعات وبعض إنتاج الفيديو. كل ما يولّده الذكاء الاصطناعي يُراجَع ويُحرَّر ويُفصَح لك عنه. ¦ Donde ayuda: para borradores, variaciones y parte de la producción de vídeo. Todo lo generado con IA se revisa, se edita y se te comunica. ¦ Dort, wo sie hilft – für Entwürfe, Varianten und einen Teil der Videoproduktion. Alles KI-Generierte wird geprüft, bearbeitet und dir offengelegt. ¦ Là où elle aide — pour les brouillons, les variantes et une partie de la production vidéo. Tout contenu généré par IA est relu, retravaillé et vous est signalé. ¦ 在有帮助的地方会用——草稿、变体和部分视频制作。任何 AI 生成的内容都会经过审核、修改，并向你说明。
+1259 ¦ حيث يكون الأصل علنيًا، ترتبط البطاقة به ليتمكن أي شخص من التحقق. ¦ Cuando el original es público, la tarjeta enlaza a él para que cualquiera pueda verificarlo. ¦ Ist das Original öffentlich, verlinkt die Karte darauf, damit es jeder überprüfen kann. ¦ Lorsque l’original est public, la carte y renvoie pour que chacun puisse le vérifier. ¦ 如果原文是公开的，卡片会链接过去，任何人都能核实。
+1260 ¦ أين تسكن المشكلات ¦ Dónde viven los problemas ¦ Wo die Probleme sitzen ¦ Là où vivent les problèmes ¦ 问题在哪里
+1261 ¦ أين تسكن المشكلات. ¦ Dónde viven los problemas. ¦ Wo die Probleme sitzen. ¦ Là où vivent les problèmes. ¦ 问题在哪里。
+1262 ¦ أي الطلبات متأخرة هذا الأسبوع؟ ¦ ¿Qué pedidos van con retraso esta semana? ¦ Welche Bestellungen sind diese Woche verspätet? ¦ Quelles commandes sont en retard cette semaine ? ¦ 这周哪些订单延迟了？
+1263 ¦ أي الطلبات متأخرة؟ ¦ ¿Qué pedidos van con retraso? ¦ Welche Bestellungen sind verspätet? ¦ Quelles commandes sont en retard ? ¦ 哪些订单延迟了？
+1264 ¦ جبنة فيتا مخفوقة، عسل محروق، زعتر ¦ Feta batida, miel tostada, tomillo ¦ Geschlagener Feta, gebrannter Honig, Thymian ¦ Feta fouettée, miel brûlé, thym ¦ 打发菲达奶酪、焦蜂蜜、百里香
+1265 ¦ لمن هو، وماذا يحل، ولماذا الآن — في جملة أو جملتين. ¦ Para quién es, qué resuelve y por qué ahora, en una o dos frases. ¦ Für wen es ist, was es löst und warum jetzt – in ein, zwei Sätzen. ¦ Pour qui, ce que cela résout, et pourquoi maintenant — en une ou deux phrases. ¦ 给谁用、解决什么、为什么是现在——用一两句话说清。
+1266 ¦ إلى من أرد؟ ¦ ¿A quién respondo? ¦ Wem soll ich antworten? ¦ À qui dois-je répondre ? ¦ 我该回复给谁？
+1267 ¦ قرنبيط كامل مشوي ¦ Coliflor entera asada ¦ Im Ganzen gerösteter Blumenkohl ¦ Chou-fleur entier rôti ¦ 整颗烤花椰菜
+1268 ¦ استفسار بيع بالجملة قيد الانتظار. ¦ Consulta mayorista pendiente. ¦ Großhandelsanfrage offen. ¦ Demande de vente en gros en attente. ¦ 批发询价待处理。
+1269 ¦ لماذا يستحق البناء، وما الذي ينبغي أن يغيّره. ¦ Por qué merece la pena construirlo y qué debería cambiar. ¦ Warum es sich zu bauen lohnt und was es verändern soll. ¦ Pourquoi cela vaut la peine d’être construit, et ce que cela doit changer. ¦ 为什么值得做，以及它应该改变什么。
+1270 ¦ لماذا يهم ¦ Por qué importa ¦ Warum es wichtig ist ¦ Pourquoi c’est important ¦ 为什么重要
+1271 ¦ لماذا الحذر ¦ Por qué la cautela ¦ Warum die Vorsicht ¦ Pourquoi cette prudence ¦ 为何如此谨慎
+1272 ¦ العرض ¦ Anchura ¦ Breite ¦ Largeur ¦ 字宽
+1273 ¦ هل سيحل هذا محل الأدوات التي نستخدمها حاليًا؟ ¦ ¿Sustituirá esto a las herramientas que ya usamos? ¦ Ersetzt das die Tools, die wir schon nutzen? ¦ Cela remplacera-t-il les outils que nous utilisons déjà ? ¦ 这会取代我们现在用的工具吗？
+1274 ¦ خلال شهر ¦ En un mes ¦ Innerhalb eines Monats ¦ D’ici un mois ¦ 一个月内
+1275 ¦ مكسوبة ¦ Ganada ¦ Gewonnen ¦ Gagnée ¦ 已成交
+1276 ¦ مكسوبة ← التهيئة ¦ Ganada → incorporación ¦ Gewonnen → Onboarding ¦ Gagnée → intégration ¦ 已成交 → 客户导入
+1277 ¦ مطبخ على نار الحطب · الاستلام خلال نحو 25 دقيقة ¦ Cocina de leña · Recogida en unos 25 minutos ¦ Holzfeuerküche · Abholung in etwa 25 Minuten ¦ Cuisine au feu de bois · Retrait dans environ 25 minutes ¦ 柴火厨房 · 约 25 分钟后可取餐
+1278 ¦ بساط مكتب صوفي ¦ Alfombrilla de escritorio de lana ¦ Schreibtischunterlage aus Wolle ¦ Sous-main en laine ¦ 羊毛桌垫
+1279 ¦ الأعمال ¦ Trabajos ¦ Arbeiten ¦ Réalisations ¦ 作品
+1280 ¦ الأعمال — ستة مشاريع تصورية أصلية ¦ Trabajos — seis proyectos conceptuales originales ¦ Arbeiten – sechs eigene Konzeptprojekte ¦ Réalisations — six projets conceptuels originaux ¦ 作品——六个原创概念项目
+1281 ¦ أتمتة سير العمل ¦ Automatización de flujos de trabajo ¦ Workflow-Automatisierung ¦ Automatisation des flux de travail ¦ 工作流自动化
+1282 ¦ رسم سير العمل ¦ Mapeo de flujos de trabajo ¦ Workflow-Mapping ¦ Cartographie des flux de travail ¦ 工作流梳理
+1283 ¦ رسم سير العمل وإعادة تصميمه ¦ Mapeo y rediseño de flujos de trabajo ¦ Workflow-Mapping und Neugestaltung ¦ Cartographie et refonte des flux de travail ¦ 工作流梳理与重新设计
+1284 ¦ عارض سير العمل ¦ Visualizador de flujos ¦ Workflow-Visualisierung ¦ Visualiseur de flux ¦ 工作流可视化
+1285 ¦ لغة العمل ¦ Idioma de trabajo ¦ Arbeitssprache ¦ Langue de travail ¦ 工作语言
+1286 ¦ ملاحظات عمل ¦ Notas de trabajo ¦ Arbeitsnotizen ¦ Notes de travail ¦ 工作笔记
+1287 ¦ ملاحظات عمل. ¦ Notas de trabajo. ¦ Arbeitsnotizen. ¦ Notes de travail. ¦ 工作笔记。
+1288 ¦ مبادئ العمل ¦ Principios de trabajo ¦ Arbeitsprinzipien ¦ Principes de travail ¦ 工作原则
+1289 ¦ برمجيات تعمل، تُعرض بانتظام. ¦ Software que funciona, mostrado con regularidad. ¦ Funktionierende Software, regelmäßig gezeigt. ¦ Un logiciel qui fonctionne, montré régulièrement. ¦ 能运行的软件，定期展示。
+1290 ¦ كنت سأقيس ¦ Mediría ¦ Würde messen ¦ Je mesurerais ¦ 会衡量

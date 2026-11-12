@@ -1,0 +1,140 @@
+761 ¦ مقاس واحد ¦ Talla única ¦ Einheitsgröße ¦ Taille unique ¦ 均码
+762 ¦ نظام واحد، ثلاث صيغ، ثلاثة اختبارات للعنوان. بدّل بينها لترى التخطيط يتكيّف. ¦ Un sistema, tres formatos, tres pruebas de titular. Cámbialos para ver cómo se adapta el diseño. ¦ Ein System, drei Formate, drei Headline-Tests. Wechsle sie durch und sieh, wie sich das Layout anpasst. ¦ Un système, trois formats, trois tests de titre. Passez de l’un à l’autre pour voir la mise en page s’adapter. ¦ 一套系统、三种版式、三个标题测试。切换它们，看布局如何适配。
+763 ¦ طريقة عمل واحدة. ¦ Una sola forma de trabajar. ¦ Eine Arbeitsweise. ¦ Une seule façon de travailler. ¦ 一种工作方式。
+764 ¦ افتح عميلًا، ثم ترس الإعدادات. ¦ Abre un cliente y luego el engranaje de ajustes. ¦ Öffne einen Kunden, dann das Zahnrad für die Einstellungen. ¦ Ouvrez un client, puis l’icône des réglages. ¦ 打开一位客户，然后点设置齿轮。
+765 ¦ افتح السلة، {count} عناصر ¦ Abrir carrito, {count} artículos ¦ Warenkorb öffnen, {count} Artikel ¦ Ouvrir le panier, {count} articles ¦ 打开购物车，{count} 件商品
+766 ¦ المسار المفتوح ¦ Embudo abierto ¦ Offene Pipeline ¦ Pipeline en cours ¦ 进行中的管道
+767 ¦ افتح العرض التجريبي ¦ Abrir la demostración ¦ Demo öffnen ¦ Ouvrir la démonstration ¦ 打开演示
+768 ¦ افتح الدفتر ¦ Abrir el cuaderno ¦ Notizbuch öffnen ¦ Ouvrir le carnet ¦ 打开笔记本
+769 ¦ افتح الأعمال ¦ Abrir los trabajos ¦ Arbeiten öffnen ¦ Voir les réalisations ¦ 查看作品
+770 ¦ افتح العرض التجريبي العامل ¦ Abrir la demostración funcional ¦ Funktionierende Demo öffnen ¦ Ouvrir la démonstration fonctionnelle ¦ 打开可操作的演示
+771 ¦ = ¦ = ¦ = ¦ = ¦ =
+772 ¦ الطلب ¦ Pedido ¦ Bestellung ¦ Commande ¦ 订单
+773 ¦ الطلب #218 · الطاولة 6 ¦ Pedido #218 · Mesa 6 ¦ Bestellung #218 · Tisch 6 ¦ Commande #218 · Table 6 ¦ 订单 #218 · 6 号桌
+774 ¦ دقة الطلبات ¦ Precisión de los pedidos ¦ Bestellgenauigkeit ¦ Exactitude des commandes ¦ 订单准确率
+775 ¦ منشئ الطلب والسلة ¦ Creador de pedidos y cesta ¦ Bestellaufbau und Warenkorb ¦ Composition de commande et panier ¦ 点单与购物车
+776 ¦ قائمة انتظار الطلبات ¦ Cola de pedidos ¦ Bestellschlange ¦ File des commandes ¦ 订单队列
+777 ¦ حالة الطلب تتقدم بفعل قائمة المطبخ، لا بمؤقّت متفائل. ¦ El estado del pedido lo hace avanzar la cola de cocina, no un temporizador optimista. ¦ Der Bestellstatus wird von der Küchenschlange weitergeschaltet, nicht von einem optimistischen Timer. ¦ Le statut de la commande avance grâce à la file de la cuisine, pas à un minuteur optimiste. ¦ 订单状态由厨房队列推进，而不是靠一个乐观的计时器。
+778 ¦ ملخص الطلب ¦ Resumen del pedido ¦ Bestellübersicht ¦ Récapitulatif de la commande ¦ 订单摘要
+779 ¦ تتبع الطلبات، وتنسيق الإرسال، وتحديثات الحالة. ¦ Seguimiento de pedidos, coordinación de envíos y avisos de estado. ¦ Sendungsverfolgung, Disposition und Statusmeldungen. ¦ Suivi des commandes, coordination des expéditions et mises à jour de statut. ¦ 订单跟踪、调度协调和状态更新。
+780 ¦ وضوح الرؤية من الطلب إلى الإنتاج واستبدال أوراق العمل الورقية. ¦ Visibilidad del pedido a la producción y sustitución de las hojas de trabajo en papel. ¦ Transparenz vom Auftrag bis zur Produktion und Ersatz für Laufzettel aus Papier. ¦ Visibilité de la commande à la production et remplacement des fiches de travail papier. ¦ 从订单到生产的可见性，以及取代纸质工单。
+781 ¦ الطلبات ¦ Pedidos ¦ Bestellungen ¦ Commandes ¦ 订单
+782 ¦ الطلبات تؤخذ بالهاتف ويُعاد إدخالها ¦ Los pedidos se toman por teléfono y se vuelven a teclear ¦ Bestellungen werden telefonisch angenommen und abgetippt ¦ Les commandes sont prises par téléphone puis ressaisies ¦ 订单靠电话接，再重新录入
+783 ¦ الطلبات تُكتب يدويًا ¦ Los pedidos se teclean a mano ¦ Bestellungen werden von Hand eingetippt ¦ Les commandes sont saisies à la main ¦ 订单全靠手工录入
+784 ¦ طلبات في الانتظار ¦ Pedidos en cola ¦ Bestellungen in der Schlange ¦ Commandes en attente ¦ 排队中的订单
+785 ¦ الطلبات موجودة في دفتر وتطبيق محادثة ¦ Los pedidos viven en un cuaderno y una app de chat ¦ Bestellungen stehen in einem Notizbuch und einer Chat-App ¦ Les commandes vivent dans un carnet et une appli de messagerie ¦ 订单记在本子上和聊天软件里
+786 ¦ الطلبات المُنشأة في هذه الجلسة ¦ Pedidos hechos en esta sesión ¦ Bestellungen aus dieser Sitzung ¦ Commandes passées pendant cette session ¦ 本次会话下的订单
+787 ¦ الطلبات المعالَجة داخل التطبيق ¦ Pedidos procesados en la app ¦ In der App bearbeitete Bestellungen ¦ Commandes traitées dans l’application ¦ 在应用内处理的订单
+788 ¦ جدول الطلبات ¦ Hoja de pedidos ¦ Bestelltabelle ¦ Feuille des commandes ¦ 订单表
+789 ¦ طلبات تتغير حالتها بنقرة واحدة ¦ Pedidos con cambios de estado de un toque ¦ Bestellungen mit Statuswechsel per Tippen ¦ Commandes dont le statut change d’un geste ¦ 一键更改状态的订单
+790 ¦ الطلبات والمخزون ورسائل العملاء موزعة على ثلاثة أماكن مختلفة. ¦ Pedidos, stock y mensajes de clientes viven en tres sitios distintos. ¦ Bestellungen, Bestand und Kundennachrichten liegen an drei verschiedenen Orten. ¦ Commandes, stock et messages clients vivent à trois endroits différents. ¦ 订单、库存和客户消息分散在三个不同的地方。
+791 ¦ التنظيم ¦ Organizar ¦ Ordnen ¦ Organiser ¦ 整理
+792 ¦ عروض تجريبية أصلية تعمل، بعلامات خيالية — ليست أعمال عملاء. ¦ Demostraciones originales y funcionales con marcas ficticias; no es trabajo de clientes. ¦ Eigene, funktionierende Demos mit fiktiven Marken – keine Kundenarbeit. ¦ Démonstrations originales et fonctionnelles avec des marques fictives — pas des travaux clients. ¦ 原创的、可操作的演示，使用虚构品牌——并非客户项目。
+793 ¦ أخرى ¦ Otro ¦ Sonstiges ¦ Autre ¦ 其他
+794 ¦ تحليلات المالك ¦ Analítica del propietario ¦ Analyse für Inhaber ¦ Statistiques du propriétaire ¦ 店主分析
+795 ¦ معاينة تحليلات المالك ¦ Vista previa de la analítica del propietario ¦ Vorschau der Inhaber-Analyse ¦ Aperçu des statistiques du propriétaire ¦ 店主分析预览
+796 ¦ أصحاب المتاجر الصغيرة يديرون يومهم من الهاتف، بين زبون وآخر. لوحات الحاسوب المحشورة في شاشة صغيرة تجعل الأسئلة البسيطة — ما المفتوح، ما القليل، من عليه دين — بطيئة الإجابة. ¦ Quienes llevan tiendas pequeñas gestionan el día desde el móvil, entre cliente y cliente. Los paneles de escritorio encajados en una pantalla pequeña hacen que preguntas sencillas —qué está abierto, qué escasea, quién debe— tarden en responderse. ¦ Inhaberinnen kleiner Läden steuern den Tag vom Handy aus, zwischen zwei Kunden. Desktop-Dashboards, auf einen kleinen Bildschirm gequetscht, machen einfache Fragen – was ist offen, was wird knapp, wer schuldet noch – langsam beantwortbar. ¦ Les gérants de petites boutiques pilotent leur journée depuis un téléphone, entre deux clients. Les tableaux de bord de bureau comprimés sur un petit écran rendent lentes des questions simples — qu’est-ce qui est en cours, qu’est-ce qui manque, qui doit quoi. ¦ 小店店主在接待顾客的间隙用手机打理一天的生意。把桌面看板硬塞进小屏幕，会让简单的问题——哪些未完成、哪些快没货、谁还欠款——变得很难快速回答。
+797 ¦ مُجهَّز ¦ Empaquetado ¦ Gepackt ¦ Emballée ¦ 已打包
+798 ¦ مدفوع (تجريبي) ¦ Pagado (demo) ¦ Bezahlt (Demo) ¦ Payée (démo) ¦ 已付款（演示）
+799 ¦ إعلانات مدفوعة ¦ Anuncios de pago ¦ Bezahlte Anzeigen ¦ Publicités payantes ¦ 付费广告
+800 ¦ الإعلان المدفوع ¦ Publicidad de pago ¦ Bezahlte Werbung ¦ Publicité payante ¦ 付费广告投放
+801 ¦ إعداد الإعلانات المدفوعة ¦ Configuración de publicidad de pago ¦ Einrichtung bezahlter Werbung ¦ Mise en place de la publicité payante ¦ 付费广告搭建
+802 ¦ إعلانات اجتماعية مدفوعة، بحث، بريد. صفحة هبوط واحدة. ¦ Redes de pago, búsqueda, correo. Una sola landing page. ¦ Paid Social, Suche, E-Mail. Eine Landingpage. ¦ Social payant, recherche, e-mail. Une seule page d’atterrissage. ¦ 付费社交、搜索、邮件。一个落地页。
+803 ¦ فلاتر ورقية ×100 ¦ Filtros de papel ×100 ¦ Papierfilter ×100 ¦ Filtres papier ×100 ¦ 滤纸 ×100
+804 ¦ متوقف مؤقتًا ¦ En pausa ¦ Pausiert ¦ En pause ¦ 已暂停
+805 ¦ الدفع ¦ Pago ¦ Zahlung ¦ Paiement ¦ 支付
+806 ¦ بوابة الدفع ¦ Pasarela de pago ¦ Zahlungsgateway ¦ Passerelle de paiement ¦ 支付网关
+807 ¦ مزوّد الدفع ¦ Proveedor de pagos ¦ Zahlungsanbieter ¦ Prestataire de paiement ¦ 支付服务商
+808 ¦ إعداد الدفع والشحن والضرائب ¦ Configuración de pagos, envíos e impuestos ¦ Einrichtung von Zahlung, Versand und Steuern ¦ Configuration des paiements, de la livraison et des taxes ¦ 支付、配送和税务设置
+809 ¦ أشخاص بين 25 و40 يعملون أمام الشاشات وتعبوا من أن يُقال لهم اركضوا أكثر. ¦ Personas de 25 a 40 años que trabajan frente a pantallas y están cansadas de que les digan que se esfuercen más. ¦ Menschen zwischen 25 und 40, die am Bildschirm arbeiten und es leid sind, zum Dauereinsatz angetrieben zu werden. ¦ Des personnes de 25 à 40 ans qui travaillent sur écran et sont lasses qu’on leur dise d’en faire toujours plus. ¦ 25 到 40 岁、对着屏幕工作、厌倦了被催着“再拼一点”的人。
+810 ¦ الناس يتحققون قبل أن يتصلوا. موقع قديم أو حسابات غير متسقة ترسلهم بهدوء إلى منافس. ¦ La gente comprueba antes de llamar. Un sitio desactualizado o unos perfiles incoherentes los mandan en silencio a la competencia. ¦ Menschen prüfen, bevor sie anrufen. Eine veraltete Website oder uneinheitliche Profile schicken sie leise zur Konkurrenz. ¦ Les gens vérifient avant d’appeler. Un site daté ou des profils incohérents les envoient discrètement chez un concurrent. ¦ 人们在打电话前会先查一查。过时的网站或不一致的资料，会悄悄把他们送到竞争对手那里。
+811 ¦ أعمال الأداء وإمكانية الوصول ¦ Trabajo de rendimiento y accesibilidad ¦ Arbeit an Performance und Barrierefreiheit ¦ Travail sur la performance et l’accessibilité ¦ 性能与无障碍优化
+812 ¦ = ¦ = ¦ = ¦ = ¦ =
+813 ¦ اختر التغييرات القليلة التي تزيل أكبر قدر من الاحتكاك. ليس كل شيء ينبغي أتمتته. ¦ Elegir los pocos cambios que eliminan más fricción. No todo debe automatizarse. ¦ Die wenigen Änderungen wählen, die am meisten Reibung beseitigen. Nicht alles sollte automatisiert werden. ¦ Choisir les quelques changements qui suppriment le plus de friction. Tout ne doit pas être automatisé. ¦ 挑出少数几项能消除最多阻力的改动。不是什么都该自动化。
+814 ¦ اختر العبارة الأقرب إلى حالتك. ستحصل على عرض مبسّط لسبب أهميتها وكيف يمكن حلها. ¦ Elige la frase que más se parezca a la tuya. Verás un esquema sencillo de por qué importa y cómo podría resolverse. ¦ Wähl die Aussage, die deiner am nächsten kommt. Du bekommst einen klaren Überblick, warum sie wichtig ist und wie sie sich lösen ließe. ¦ Choisissez l’affirmation la plus proche de la vôtre. Vous obtiendrez un aperçu simple de son importance et de la façon dont elle pourrait être résolue. ¦ 选一句最接近你情况的话，你会看到一份简明的说明：它为什么重要、可以怎么解决。
+815 ¦ = ¦ = ¦ = ¦ = ¦ =
+816 ¦ المسار ¦ Embudo ¦ Pipeline ¦ Pipeline ¦ 管道
+817 ¦ تحليلات المسار ¦ Analítica del embudo ¦ Pipeline-Analyse ¦ Analyse du pipeline ¦ 管道分析
+818 ¦ أنشئ طلبًا تجريبيًا ¦ Hacer pedido de prueba ¦ Demo-Bestellung aufgeben ¦ Passer une commande de démonstration ¦ 下演示订单
+819 ¦ أنشئ طلبًا تجريبيًا — {v0} ¦ Hacer pedido de prueba — {v0} ¦ Demo-Bestellung aufgeben – {v0} ¦ Passer une commande de démonstration — {v0} ¦ 下演示订单 — {v0}
+820 ¦ نص مؤقت ¦ Provisional ¦ Platzhalter ¦ Provisoire ¦ 占位
+821 ¦ نص مؤقت — سيُضاف عنوان البريد ¦ Provisional — falta añadir el correo ¦ Platzhalter – E-Mail-Adresse folgt ¦ Provisoire — adresse e-mail à ajouter ¦ 占位——邮箱地址待补充
+822 ¦ نص مؤقت — سيُضاف الرقم ¦ Provisional — falta añadir el número ¦ Platzhalter – Nummer folgt ¦ Provisoire — numéro à ajouter ¦ 占位——号码待补充
+823 ¦ لغة بسيطة ¦ Lenguaje claro ¦ Klare Sprache ¦ Langage clair ¦ 平实的语言
+824 ¦ مراجعات أداء بلغة بسيطة ¦ Revisiones de rendimiento en lenguaje claro ¦ Leistungsberichte in klarer Sprache ¦ Bilans de performance en langage clair ¦ 用平实语言写的效果复盘
+825 ¦ تخطيط الحل ¦ Planificar la solución ¦ Die Lösung planen ¦ Planifier la solution ¦ 规划方案
+826 ¦ يُرجى اختيار خدمة (أو «لست متأكدًا»). ¦ Elige un servicio (o «No lo sé»). ¦ Bitte eine Leistung wählen (oder „Nicht sicher“). ¦ Veuillez choisir un service (ou « Pas sûr »). ¦ 请选择一项服务（或“不确定”）。
+827 ¦ يُرجى اختيار أقرب قطاع. ¦ Elige el sector más cercano. ¦ Bitte die nächstliegende Branche wählen. ¦ Veuillez choisir le secteur le plus proche. ¦ 请选择最接近的行业。
+828 ¦ يُرجى إدخال بريد إلكتروني صالح. ¦ Introduce un correo electrónico válido. ¦ Bitte eine gültige E-Mail-Adresse eingeben. ¦ Veuillez saisir une adresse e-mail valide. ¦ 请输入有效的电子邮箱。
+829 ¦ يُرجى إدخال بلدك. ¦ Introduce tu país. ¦ Bitte dein Land eingeben. ¦ Veuillez indiquer votre pays. ¦ 请输入你所在的国家。
+830 ¦ يُرجى إدخال اسمك الكامل. ¦ Introduce tu nombre completo. ¦ Bitte deinen vollständigen Namen eingeben. ¦ Veuillez indiquer votre nom complet. ¦ 请输入你的姓名。
+831 ¦ الموضع ¦ Posición ¦ Position ¦ Position ¦ 位置
+832 ¦ أفضّل عدم الإفصاح ¦ Prefiero no decirlo ¦ Keine Angabe ¦ Je préfère ne pas le dire ¦ 不便透露
+833 ¦ وسيلة التواصل المفضلة ¦ Método de contacto preferido ¦ Bevorzugter Kontaktweg ¦ Mode de contact préféré ¦ 首选联系方式
+834 ¦ يفضّل الاستلام بنفسه. يطلب عادةً أيام الجمعة. ¦ Prefiere recoger. Suele pedir los viernes. ¦ Bevorzugt Abholung. Bestellt meist freitags. ¦ Préfère le retrait. Commande généralement le vendredi. ¦ 偏好自取，通常周五下单。
+835 ¦ واجهة متجر إلكتروني فاخرة ¦ Tienda online premium ¦ Premium-E-Commerce-Storefront ¦ Boutique e-commerce haut de gamme ¦ 高端电商店面
+836 ¦ جهّز طلبي ¦ Preparar mi consulta ¦ Meine Anfrage vorbereiten ¦ Préparer ma demande ¦ 准备我的咨询
+837 ¦ قيد التحضير ¦ Preparando ¦ In Zubereitung ¦ En préparation ¦ 制作中
+838 ¦ لباد ميرينو مضغوط بسماكة 4 ملم. هادئ تحت لوحة المفاتيح ورفيق بالمعصمين. ¦ Fieltro de merino prensado, 4 mm de grosor. Silencioso bajo el teclado y amable con las muñecas. ¦ Gepresster Merinofilz, 4 mm stark. Leise unter der Tastatur und angenehm für die Handgelenke. ¦ Feutre de mérinos pressé, 4 mm d’épaisseur. Silencieux sous un clavier et doux pour les poignets. ¦ 压制美利奴羊毛毡，厚 4 毫米。垫在键盘下很安静，对手腕也友好。
+839 ¦ أساسي ¦ Principal ¦ Primär ¦ Principal ¦ 主色
+840 ¦ المشكلة ¦ Problema ¦ Problem ¦ Problème ¦ 问题
+841 ¦ المشكلة، والمقاربة، وقرارات التصميم، وما كان سيُقاس — مكتوبة لكل من مشاريع بلال بوغتي التصورية الستة التي بادر بها بنفسه. ¦ Problema, enfoque, decisiones de diseño y qué se mediría, redactado para cada uno de los seis proyectos conceptuales de iniciativa propia de Bilal Bugti. ¦ Problem, Ansatz, Designentscheidungen und was gemessen würde – aufgeschrieben für jedes der sechs selbst initiierten Konzeptprojekte von Bilal Bugti. ¦ Problème, approche, décisions de conception et ce qui serait mesuré — rédigés pour chacun des six projets conceptuels lancés à l’initiative de Bilal Bugti. ¦ 问题、思路、设计决策以及会衡量什么——为 Bilal Bugti 自发创作的六个概念项目逐一写成。
+842 ¦ طريقة العمل ¦ Proceso ¦ Prozess ¦ Méthode ¦ 流程
+843 ¦ تحسين الإجراءات ¦ Optimización de procesos ¦ Prozessoptimierung ¦ Optimisation des processus ¦ 流程优化
+844 ¦ خطوات العمل ¦ Pasos del proceso ¦ Prozessschritte ¦ Étapes de la méthode ¦ 流程步骤
+845 ¦ طريقة العمل — سبع خطوات من المشكلة إلى منتج مُسلَّم ¦ Proceso — siete pasos del problema al producto entregado ¦ Prozess – sieben Schritte vom Problem zum ausgelieferten Produkt ¦ Méthode — sept étapes, du problème au produit livré ¦ 流程——从问题到交付产品的七个步骤
+846 ¦ شبكة منتجات مع تصفية بحسب الفئة ¦ Cuadrícula de productos con filtro por categoría ¦ Produktraster mit Kategoriefilter ¦ Grille de produits avec filtre par catégorie ¦ 带分类筛选的商品网格
+847 ¦ صفحة منتج بخيارات اللون والمقاس ¦ Página de producto con variantes de color y tamaño ¦ Produktseite mit Farb- und Größenvarianten ¦ Page produit avec variantes de couleur et de taille ¦ 带颜色和尺寸选项的商品页
+848 ¦ بنية المنتجات والخيارات والمجموعات ¦ Estructura de productos, variantes y colecciones ¦ Struktur für Produkte, Varianten und Kollektionen ¦ Structure des produits, variantes et collections ¦ 商品、规格与系列结构
+849 ¦ المنتجات ¦ Productos ¦ Produkte ¦ Produits ¦ 商品
+850 ¦ منتجات مع تنبيهات المخزون ¦ Productos con alertas de stock ¦ Produkte mit Bestandswarnungen ¦ Produits avec alertes de stock ¦ 带库存提醒的商品
+851 ¦ الخدمات المهنية ¦ Servicios profesionales ¦ Professionelle Dienstleistungen ¦ Services professionnels ¦ 专业服务
+852 ¦ التقدم ¦ Progreso ¦ Fortschritt ¦ Progression ¦ 进度
+853 ¦ وصف المشروع ¦ Descripción del proyecto ¦ Projektbeschreibung ¦ Description du projet ¦ 项目描述
+854 ¦ استفسار عن مشروع ¦ Consulta de proyecto ¦ Projektanfrage ¦ Demande de projet ¦ 项目咨询
+855 ¦ استفسار عن مشروع لـ {name} ¦ Consulta de proyecto para {name} ¦ Projektanfrage für {name} ¦ Demande de projet pour {name} ¦ 致 {name} 的项目咨询
+856 ¦ عرض السعر ¦ Propuesta ¦ Angebot ¦ Proposition ¦ 报价
+857 ¦ قُبل عرض السعر ¦ Propuesta aceptada ¦ Angebot angenommen ¦ Proposition acceptée ¦ 报价已接受
+858 ¦ متابعة عرض السعر ¦ Seguimiento de propuesta ¦ Nachfassen zum Angebot ¦ Relance de proposition ¦ 报价跟进
+859 ¦ أُرسل عرض السعر — قبل 4 أيام ¦ Propuesta enviada — hace 4 días ¦ Angebot gesendet – vor 4 Tagen ¦ Proposition envoyée — il y a 4 jours ¦ 报价已发送——4 天前
+860 ¦ أُرسلت النسخة الثانية من عرض السعر ¦ Propuesta v2 enviada ¦ Angebot v2 gesendet ¦ Proposition v2 envoyée ¦ 报价第 2 版已发送
+861 ¦ النموذج الأولي ¦ Prototipo ¦ Prototyp ¦ Prototype ¦ 原型
+862 ¦ نتائج العملاء المنشورة: لا شيء بعد. ¦ Resultados de clientes publicados: ninguno todavía. ¦ Veröffentlichte Kundenergebnisse: noch keine. ¦ Résultats clients publiés : aucun pour l’instant. ¦ 已发布的客户成果：暂无。
+863 ¦ منشور بإذن ¦ Publicada con permiso ¦ Mit Erlaubnis veröffentlicht ¦ Publié avec autorisation ¦ 经许可发布
+864 ¦ الإشعارات الفورية ¦ Notificaciones push ¦ Push-Benachrichtigungen ¦ Notifications push ¦ 推送通知
+865 ¦ الإشعارات الفورية ومسارات الحساب ¦ Notificaciones push y flujos de cuenta ¦ Push-Benachrichtigungen und Konto-Abläufe ¦ Notifications push et parcours de compte ¦ 推送通知与账户流程
+866 ¦ مؤهَّل ¦ Cualificado ¦ Qualifiziert ¦ Qualifié ¦ 已确认意向
+867 ¦ تم التأهيل هاتفيًا ¦ Cualificado por teléfono ¦ Telefonisch qualifiziert ¦ Qualifié par téléphone ¦ 已电话确认意向
+868 ¦ أسئلة ¦ Preguntas ¦ Fragen ¦ Questions ¦ 常见问题
+869 ¦ أسئلة أُجيب عنها دون تصعيد ¦ Preguntas respondidas sin escalar ¦ Ohne Eskalation beantwortete Fragen ¦ Questions résolues sans escalade ¦ 无需升级就解答的问题
+870 ¦ قائمة الانتظار فارغة. ¦ La cola está vacía. ¦ Die Schlange ist leer. ¦ La file est vide. ¦ 队列已清空。
+871 ¦ = ¦ = ¦ = ¦ = ¦ =
+872 ¦ = ¦ = ¦ = ¦ = ¦ =
+873 ¦ = ¦ = ¦ = ¦ = ¦ =
+874 ¦ اقرأ عن الخدمة ¦ Leer sobre el servicio ¦ Mehr zur Leistung ¦ En savoir plus sur le service ¦ 了解这项服务
+875 ¦ اقرأ دراسات الحالة ¦ Leer los casos de estudio ¦ Fallstudien lesen ¦ Lire les études de cas ¦ 阅读案例研究
+876 ¦ اقرأ القصة كاملة ¦ Leer la historia completa ¦ Die ganze Geschichte lesen ¦ Lire toute l’histoire ¦ 阅读完整故事
+877 ¦ جاهز ¦ Listo ¦ Fertig ¦ Prête ¦ 可取餐
+878 ¦ جاهز للخطوة الأولى؟ ¦ ¿Listo para el primer paso? ¦ Bereit für Schritt eins? ¦ Prêt pour la première étape ? ¦ 准备好迈出第一步了吗？
+879 ¦ أجهزة حقيقية، محتوى حقيقي، حالات حدّية حقيقية. المشكلات التي تُكتشف هنا رخيصة؛ والتي يكتشفها العملاء ليست كذلك. ¦ Dispositivos reales, contenido real, casos límite reales. Los problemas que se encuentran aquí salen baratos; los que encuentran los clientes, no. ¦ Echte Geräte, echte Inhalte, echte Grenzfälle. Probleme, die hier auffallen, sind billig; Probleme, die Kunden finden, nicht. ¦ De vrais appareils, de vrais contenus, de vrais cas limites. Les problèmes trouvés ici coûtent peu ; ceux que trouvent les clients, non. ¦ 真实设备、真实内容、真实的边界情况。在这里发现问题代价很小；让客户发现就不是了。
+880 ¦ العقارات ¦ Inmobiliaria ¦ Immobilien ¦ Immobilier ¦ 房地产
+881 ¦ التقييمات الحقيقية ستُنشر فقط بكلمات العميل وإذنه ورابط إلى المصدر. ¦ Las reseñas reales se publicarán solo con las palabras del cliente, su permiso y un enlace a la fuente. ¦ Echte Bewertungen werden nur mit den Worten des Kunden, seiner Erlaubnis und einem Link zur Quelle veröffentlicht. ¦ Les vrais avis ne seront publiés qu’avec les mots du client, son autorisation et un lien vers la source. ¦ 真实评价只会以客户的原话、经其许可并附上来源链接发布。
+882 ¦ كلمات حقيقية من أشخاص حقيقيين — ¦ Palabras reales de personas reales — ¦ Echte Worte von echten Menschen – ¦ De vrais mots de vraies personnes — ¦ 真实的人说的真实的话 —
+883 ¦ ربط بطابعة الإيصالات أو شاشة المطبخ (KDS) ¦ Integración con impresora de tickets o KDS ¦ Anbindung von Bondrucker oder KDS ¦ Intégration imprimante de tickets ou KDS ¦ 小票打印机或 KDS 集成
+884 ¦ تم الاستلام ¦ Recibido ¦ Eingegangen ¦ Reçue ¦ 已接单
+885 ¦ أنقص المخزون في «المنتجات» حتى يصبح أحد العناصر «منخفضًا». ¦ Reduce el stock en Productos hasta que un artículo pase a «Bajo». ¦ Verringere unter „Produkte“ den Bestand, bis ein Artikel „Niedrig“ anzeigt. ¦ Réduisez le stock dans Produits jusqu’à ce qu’un article passe à « Bas ». ¦ 在“商品”中减少库存，直到某件商品变为“库存低”。
+886 ¦ الخدمة ذات الصلة ¦ Servicio relacionado ¦ Zugehörige Leistung ¦ Service associé ¦ 相关服务
+887 ¦ جُدول تذكير لليوم الخامس ¦ Recordatorio programado para el día 5 ¦ Erinnerung für Tag 5 geplant ¦ Rappel programmé pour le jour 5 ¦ 已安排第 5 天提醒
+888 ¦ احذف واحدًا من {name} ¦ Quitar una unidad de {name} ¦ Einmal {name} entfernen ¦ Retirer un exemplaire de {name} ¦ 减少一件 {name}
+889 ¦ معدل تكرار الشراء ¦ Tasa de recompra ¦ Wiederkaufrate ¦ Taux de réachat ¦ 复购率
+890 ¦ المهام المتكررة هي حيث يموت الانتباه — وحيث تتراكم الأخطاء الصغيرة دون أن يلاحظها أحد. ¦ Las tareas repetitivas son donde la atención va a morir, y donde los pequeños errores se acumulan sin que nadie lo note. ¦ Wiederkehrende Aufgaben sind der Ort, an dem Aufmerksamkeit stirbt – und an dem sich kleine Fehler unbemerkt ansammeln. ¦ Les tâches répétitives sont l’endroit où l’attention s’éteint — et où les petites erreurs s’accumulent sans que personne ne les remarque. ¦ 重复性任务是注意力消亡的地方——也是小错误悄悄累积的地方。
+891 ¦ التقارير ¦ Informes ¦ Berichte ¦ Rapports ¦ 报告
+892 ¦ لوحة التقارير ¦ Panel de informes ¦ Reporting-Dashboard ¦ Tableau de bord de reporting ¦ 报告看板
+893 ¦ التقارير تستغرق ساعات لتجميعها وتصل متقادمة. ¦ Los informes tardan horas en montarse y llegan desactualizados. ¦ Berichte brauchen Stunden und sind bei Ankunft schon veraltet. ¦ Les rapports prennent des heures à assembler et sont déjà périmés à l’arrivée. ¦ 报告要花几个小时拼出来，出来时就已经过时。
+894 ¦ منصة طلبات وإدارة للمطاعم ¦ Plataforma de pedidos y gestión para restaurantes ¦ Bestell- & Verwaltungsplattform für Restaurants ¦ Plateforme de commande et de gestion pour restaurants ¦ 餐厅点餐与管理平台
+895 ¦ المطاعم ¦ Restaurantes ¦ Restaurants ¦ Restaurants ¦ 餐厅
+896 ¦ النتائج ¦ Resultados ¦ Ergebnisse ¦ Résultats ¦ 成果
+897 ¦ النتائج — ما الذي يُقاس، وما الذي لا يُدَّعى ¦ Resultados — qué se mide y qué no se afirma ¦ Ergebnisse – was gemessen wird und was nicht behauptet wird ¦ Résultats — ce qui est mesuré, et ce qui n’est pas revendiqué ¦ 成果——衡量什么，不宣称什么
+898 ¦ التجزئة ¦ Comercio minorista ¦ Einzelhandel ¦ Commerce de détail ¦ 零售
+899 ¦ الاسترجاع من وثائق الشركة ¦ Recuperación sobre documentos de la empresa ¦ Suche in Unternehmensdokumenten ¦ Recherche dans les documents de l’entreprise ¦ 基于公司文档的检索
+900 ¦ العائد على الإنفاق الإعلاني ¦ Retorno de la inversión publicitaria ¦ Return on Ad Spend ¦ Retour sur dépenses publicitaires ¦ 广告支出回报率

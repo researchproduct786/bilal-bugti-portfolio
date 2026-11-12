@@ -8,14 +8,14 @@ import { DemoShell } from './shared';
  * IMPORTANT: there is no AI model behind this. Answers are chosen by simple keyword
  * matching against a small scripted knowledge base, entirely in the browser.
  */
-interface Intent { keys: string[]; answer: string; source: string; actions: string[] }
+interface Intent { keys: string[]; answer: string; cite: string; actions: string[] }
 const intentsEn: Intent[] = i18n([
-  { keys: ['late', 'delay', 'overdue', 'behind'], answer: 'Three orders are past their promised date: #2214, #2219 and #2223. Two of them are waiting on walnut panels from the same supplier, Corbel Timber.', source: 'Orders sheet · updated today', actions: ['call Corbel Timber about walnut panels', 'email customers on #2214 and #2219'] },
-  { keys: ['return', 'refund', 'policy'], answer: 'Standard items can be returned within 30 days in original condition. Made-to-order furniture is not returnable, but faults are repaired or replaced within 12 months.', source: 'Returns policy.pdf · section 2', actions: ['add returns summary to order confirmation email'] },
-  { keys: ['sell', 'best', 'top', 'popular', 'product'], answer: 'This month the best sellers are the Arlo side table (38 units), the Fen bookshelf (21) and the Arlo bench (17). The side table accounts for roughly a third of revenue.', source: 'Sales report · this month', actions: ['check Arlo side table stock for next month'] },
-  { keys: ['supplier', 'corbel', 'timber', 'lead time'], answer: 'Corbel Timber’s agreed lead time is 10 working days. The last two deliveries took 16 and 19 days. The contract allows a 5% credit for deliveries more than 5 days late.', source: 'Supplier agreement · Corbel Timber', actions: ['request late-delivery credit from Corbel Timber'] },
-  { keys: ['hour', 'open', 'showroom', 'visit'], answer: 'The showroom is open Tuesday to Saturday, 10:00–18:00. Workshop visits are by appointment on Thursdays.', source: 'Team handbook · Showroom', actions: [] },
-  { keys: ['summary', 'week', 'overview', 'how are we'], answer: 'This week: 46 orders (up 6 on last week), 3 running late, 2 open customer complaints, and stock of walnut panels is below the reorder level.', source: 'Weekly dashboard', actions: ['reorder walnut panels', 'review the 2 open complaints'] },
+  { keys: ['late', 'delay', 'overdue', 'behind'], answer: 'Three orders are past their promised date: #2214, #2219 and #2223. Two of them are waiting on walnut panels from the same supplier, Corbel Timber.', cite: 'Orders sheet · updated today', actions: ['call Corbel Timber about walnut panels', 'email customers on #2214 and #2219'] },
+  { keys: ['return', 'refund', 'policy'], answer: 'Standard items can be returned within 30 days in original condition. Made-to-order furniture is not returnable, but faults are repaired or replaced within 12 months.', cite: 'Returns policy.pdf · section 2', actions: ['add returns summary to order confirmation email'] },
+  { keys: ['sell', 'best', 'top', 'popular', 'product'], answer: 'This month the best sellers are the Arlo side table (38 units), the Fen bookshelf (21) and the Arlo bench (17). The side table accounts for roughly a third of revenue.', cite: 'Sales report · this month', actions: ['check Arlo side table stock for next month'] },
+  { keys: ['supplier', 'corbel', 'timber', 'lead time'], answer: 'Corbel Timber’s agreed lead time is 10 working days. The last two deliveries took 16 and 19 days. The contract allows a 5% credit for deliveries more than 5 days late.', cite: 'Supplier agreement · Corbel Timber', actions: ['request late-delivery credit from Corbel Timber'] },
+  { keys: ['hour', 'open', 'showroom', 'visit'], answer: 'The showroom is open Tuesday to Saturday, 10:00–18:00. Workshop visits are by appointment on Thursdays.', cite: 'Team handbook · Showroom', actions: [] },
+  { keys: ['summary', 'week', 'overview', 'how are we'], answer: 'This week: 46 orders (up 6 on last week), 3 running late, 2 open customer complaints, and stock of walnut panels is below the reorder level.', cite: 'Weekly dashboard', actions: ['reorder walnut panels', 'review the 2 open complaints'] },
 ]);
 const docsEn = i18n([['Orders sheet', '312 rows'], ['Returns policy.pdf', '4 pages'], ['Supplier agreement · Corbel Timber', '9 pages'], ['Sales report', 'Monthly'], ['Team handbook', '27 pages'], ['Weekly dashboard', 'Live']]);
 const promptsEn = i18n(['Which orders are running late?', 'What is our return policy?', 'What sold best this month?', 'Give me a summary of the week']);
@@ -39,9 +39,9 @@ export default function Deskhand() {
     const text = q.trim(); if (!text || busy) return;
     setMsgs((m) => [...m, { from: 'me', text }]); setInput(''); setBusy(true);
     const low = text.toLowerCase();
-    const hit = intents.find((i) => i.keys.some((k) => low.includes(k)));
+    const hit = intents[intentsEn.findIndex((i, n) => [...i.keys, ...intents[n].keys].some((k) => low.includes(k.toLowerCase())))];
     timer.current = setTimeout(() => {
-      setMsgs((m) => [...m, hit ? { from: 'bot', text: hit.answer, source: hit.source, actions: hit.actions } : { from: 'bot', text: t('That is outside what this scripted demo knows. I can answer about: late orders, the return policy, best sellers, the supplier, showroom hours, or a weekly summary.') }]);
+      setMsgs((m) => [...m, hit ? { from: 'bot', text: hit.answer, source: hit.cite, actions: hit.actions } : { from: 'bot', text: t('That is outside what this scripted demo knows. I can answer about: late orders, the return policy, best sellers, the supplier, showroom hours, or a weekly summary.') }]);
       setBusy(false);
     }, 650);
   };
