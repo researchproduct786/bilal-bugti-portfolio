@@ -157,3 +157,100 @@ demo is real markup rather than a screenshot, and security headers.
 3. Run a browser-based test suite on a machine that has Chromium.
 4. Set the two contact environment variables.
 5. Only after approval: merge to `main` and promote to production.
+
+---
+
+# Milestone: final visual quality audit
+
+Branch `arena/d81b63b6-bilal-bugti-portfolio`, commit `49c5f6a`. Production untouched, PR #2
+still open and unmerged.
+
+## What changed
+
+**Spatial glass language** — new `src/styles/spatial.css`. Three glass tiers (far / mid / near),
+layered contact + falloff + ambient shadows, a single specular edge highlight per surface, and
+two consistent light sources (cool key upper-left, warm fill lower-right). Blur is applied to a
+few surfaces sitting over real content rather than to everything, so some things stay sharp and
+others genuinely sit behind.
+
+**Nav** — a floating glass pill that thickens its blur, border and shadow once the page moves,
+with a short settle-in that respects reduced motion.
+
+**Hero cut-out** — rebuilt as four real planes: a soft studio plate, a wide glass card holding a
+working storefront, the cut-out subject whose head clears that card's top edge, and a near
+glass dashboard card in front of the shoulder. Uses real `z-index`, so it survives resize, RTL
+and reduced motion.
+
+**The portrait itself** — generated from the supplied photograph with identity preserved, then
+keyed off a chroma backdrop into a genuine alpha cut-out (`portrait-hero.webp`, 900×1016,
+98 KB). The cyan key spill was removed at the pixel level rather than by eroding the matte, so
+fine hair strands survive without a coloured rim. The about-page portrait (`portrait-bilal.webp`)
+was regenerated from the same source, so both portraits show the same person in the same session.
+
+**Motion** — `DepthMotion` drives GSAP ScrollTrigger parallax, staggered reveals and a
+scroll-linked hero timeline where each plane moves at its own speed. Nothing is pinned, nothing
+delays reading, and it aborts on reduced motion, coarse pointers or ≤2 cores.
+
+**Interfaces** — every device screen now holds specific, coherent content; fixed several cards
+that cropped their interface mid-row, a literal `{l.askPlaceholder}` token rendering on screen,
+and an empty dashboard column in the campaign panel. One currency (Rs) across the whole site so
+the marketing figures and the demos agree.
+
+## Bugs found only by rendering the page
+
+| Symptom | Cause |
+| --- | --- |
+| Every page hit the error boundary | `LocaleProvider` was `LocaleContext.Provider` — React 19 resolves that to a lazy `Context` object |
+| Blank hero | Entrance classes were not in the `Interactions` observer selector, so they stayed at `opacity: 0` |
+| Near hero card clipped | A `focus-in` ancestor left `clip-path: inset(0)` behind permanently |
+| 173 px horizontal scroll (desktop) | A light field bled past the viewport edge |
+| 47 px horizontal scroll (phone) | Nav pill's inline padding sat outside its own width |
+| Problem selector was one run-on line | `.ps*` classes were used in markup but had no CSS at all |
+| `{l.askPlaceholder}` visible in the UI | A template literal written into a label table |
+| Parallax silently dead on desktop | Capability gate used `hover: none`, which matches touch-screen desktops |
+
+## Verification actually performed
+
+Headless Chromium 153 (NSS/NSPR built from source, see below), driving the **production build**
+served by `next start`:
+
+- `npx tsc --noEmit` — clean.
+- `npm run build` — clean, 133 static pages.
+- `npm run test:e2e` (BASE=http://127.0.0.1:3100) — **1325 passed, 0 failed**.
+- `npm run check:i18n` — 6 locales, 264 UI keys, 485 content strings, all complete and distinct.
+- Browser sweep of `/en`, `/es`, `/de`, `/fr`, `/ar`, `/zh`, `/en/work`, `/en/work/tillo`,
+  `/en/services`, `/en/services/ai-business-systems`, `/en/process`, `/en/about`, `/en/contact`,
+  `/en/industries`, `/en/insights`, `/en/lab`, `/ar/work`, `/ar/contact`, `/zh/work`, `/fr/lab`
+  at 390×844 — no crashes, no horizontal overflow, **console completely clean**.
+- Arabic verified as real RTL: `dir=rtl` on the locale wrapper, mirrored hero planes, Arabic h1.
+- `prefers-reduced-motion: reduce` — zero hidden or permanently transformed elements.
+- Parallax verified numerically on an emulated desktop: plate +4 px, back card +11 px,
+  subject −24 px, near card +16 px at the same scroll offset — genuine depth separation.
+- Below 900 px and on coarse pointers the parallax is off by design; CSS reveals carry the page.
+
+### Browser tooling note
+Chromium could not start in this sandbox initially: `libnss3`, `libnssutil3` and `libnspr4` were
+missing and every package mirror is blocked. They were built from source over GitHub
+(NSS `NSS_3_101_RTM` + NSPR `main`, `gyp-next`, `ninja`) and loaded via
+`LD_LIBRARY_PATH=/tmp/nss/dist/Release/lib`. `tests/browser.mjs` exposes the `launch()` helper.
+
+## Manual visual QA checklist (still worth a human pass)
+
+Open the preview signed in as `researchproduct786`.
+
+1. **Hero, desktop** — head clearly clears the glass card's top edge; the near card overlaps the
+   shoulder without covering the face; storefront tiles read on both sides of the body.
+2. **Hero, phone (360 / 375 / 390 / 393 / 430)** — three planes still legible, near card clear of
+   the sticky contact bar, no sideways scroll.
+3. **Scroll** — planes separate at different speeds; sections fade/rise once; nothing jumps;
+   no pinned section blocks scrolling.
+4. **Cut-out edges** — zoom to 200 % on the hair: no cyan fringe, no hard matte line.
+5. **Nav** — pill thickens after scrolling; menu overlay opens/closes; language switch keeps you
+   on the same page in the new locale.
+6. **Arabic** — `/ar`: whole layout mirrors, numerals and Rs amounts read correctly, hero planes
+   swap sides.
+7. **Demos** — `/en/work/halden-objects` add to cart, `/en/work/tillo` advance an order,
+   `/en/work/linework-crm` move a deal; every screen shows real content, none empty.
+8. **Contact** — three steps, validation, and the copy/send handoff.
+9. **Reduced motion** — enable it in the OS, reload: everything visible, no animation.
+10. **Console** — no errors on any route.
