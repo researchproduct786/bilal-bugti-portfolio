@@ -130,13 +130,11 @@ referenced image exists and is under 320 KB, sitemap coverage, robots, structure
 demo is real markup rather than a screenshot, and security headers.
 
 ### Known limitations (stated, not hidden)
-1. **No browser-level testing in this sandbox.** Chromium cannot start here (missing `libnspr4` /
-   `libnss3`, and every system package mirror is blocked). The test suite therefore does not
-   claim to verify scrolling, touch, focus order or animation timing — those need a human pass on
-   the preview, or a machine with a browser.
-2. **`scene-leads.webp` is a stand-in.** The image generator's 10-per-turn cap was reached in
-   every attempt; the file currently duplicates `scene-operations.webp`. Replace it with a
-   photograph of two people working through a call list when generation is available.
+1. ~~No browser-level testing in this sandbox.~~ **Superseded** — Chromium was later built from
+   source (see the final milestone below) and driven against the production build. See that
+   section for the routes, locales and motion states actually verified.
+2. ~~`scene-leads.webp` is a stand-in.~~ **Resolved** — it is now a distinct image of a team
+   working through a call list, not a duplicate of `scene-operations.webp`.
 3. **Stock photography is unavailable** from this environment, so the ten photographs are
    generated rather than licensed. An image audit was produced in the previous session; the
    classification of each scene is in that report.
