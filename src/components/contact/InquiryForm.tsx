@@ -27,7 +27,9 @@ export function InquiryForm({
   services: ContentService[];
 }) {
   const c = t.contact;
-  const budgets = ['<$1,000', '$1,000 – $5,000', '$5,000 – $15,000', '$15,000+'];
+  // Budget bands are stated in the local market's currency, matching the rest of
+  // the site, and kept coarse — a range is enough to scope a project.
+  const budgets = ['Under ₨150,000', '₨150,000 – ₨700,000', '₨700,000 – ₨2m', '₨2m+'];
   const timelines = [c.flexible, c.withinMonth, c.oneToThree, c.threePlus];
   const stepNames = [c.step1, c.step2, c.step3];
   const [step, setStep] = useState(0);

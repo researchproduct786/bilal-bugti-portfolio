@@ -25,7 +25,7 @@ export function Capabilities({ t, L }: { t: Dict; L: (p: string) => string }) {
     branding: [c.branding, c.brandingLine],
   };
   return (
-    <div className="capgrid">
+    <div className="capgrid" data-stagger>
       {CAP_ORDER.map((k) => (
         <Link key={k} href={L('/services')} className="capcard reveal" data-cursor>
           <span className="capcard-media"><CapabilityVisual id={k} todayLabel={t.home.today} /></span>
@@ -42,7 +42,7 @@ export function Capabilities({ t, L }: { t: Dict; L: (p: string) => string }) {
 export function WorkGrid({ projects, t, L, locale }: { projects: ContentProject[]; t: Dict; L: (p: string) => string; locale: LocaleCode }) {
   const ui = uiLabels[locale];
   return (
-    <ul className="workgrid2">
+    <ul className="workgrid2" data-stagger>
       {projects.map((p) => <li key={p.slug}><ProjectCard project={p} t={t} L={L} ui={ui} /></li>)}
     </ul>
   );
@@ -51,14 +51,13 @@ export function WorkGrid({ projects, t, L, locale }: { projects: ContentProject[
 /** The portfolio reference artwork, presented inside a real monitor frame. */
 export function ReferenceReel({ title, body, caption, alt }: { title: string; body: string; caption: string; alt?: string }) {
   return (
-    <div className="reel reveal">
-      <div className="monitor">
-        <div className="monitor-screen" style={{ aspectRatio: '16 / 10' }}>
-          <img src="/img/portfolio-reference.webp" alt={title} width={1536} height={960} loading="lazy" decoding="async" />
-        </div>
-        <div className="monitor-stand" aria-hidden="true" />
-        <div className="monitor-base" aria-hidden="true" />
-      </div>
+    <div className="reel reveal" data-scale-in>
+      {/* The artwork is shown whole. It is a framed identity study, not a monitor
+          screenshot, so it is presented in a light-catching frame instead of being
+          cropped into a 16:10 screen. */}
+      <figure className="artframe">
+        <img src="/img/portfolio-reference.webp" alt={title} width={1254} height={800} loading="lazy" decoding="async" />
+      </figure>
       <div className="reel-side">
         <div>
           <p className="kicker">{title}</p>

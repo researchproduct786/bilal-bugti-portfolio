@@ -3,10 +3,12 @@ import { localeCodes, href, type LocaleCode } from '@/i18n/config';
 import { getBundle } from '@/i18n/dictionaries';
 import { Shell } from '@/components/site/Shell';
 import { Hero } from '@/components/home/Hero';
+import { uiLabels } from '@/i18n/ui-labels';
 import { Capabilities, WorkGrid, ReferenceReel, IntroAndServices } from '@/components/home/HomeSections';
 import { ProcessJourney } from '@/components/home/ProcessJourney';
 import { ProblemSelector } from '@/components/home/ProblemSelector';
 import { Scene } from '@/components/visuals/Scene';
+import { KitchenUi } from '@/components/visuals/Ui';
 import { SectionHead, FinalCTA } from '@/components/site/Blocks';
 import { Btn } from '@/components/site/Btn';
 import Link from 'next/link';
@@ -24,12 +26,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   return (
     <Shell b={b}>
-      <Hero t={t} projects={c.projects} portraitAlt={t.ui.portraitNote} />
+      <Hero t={t} projects={c.projects} portraitAlt={t.ui.portraitNote} ui={uiLabels[locale as LocaleCode]} />
 
       <IntroAndServices t={t} c={c} />
 
       {/* Capabilities — visual first */}
-      <section className="section rule" aria-labelledby="cap-h">
+      <section className="section rule depth-section" aria-labelledby="cap-h">
         <div className="wrap">
           <SectionHead id="cap-h" kicker={t.home.capsKicker} title={t.home.capsTitle}>{t.home.capsBody}</SectionHead>
           <Capabilities t={t} L={L} />
@@ -37,7 +39,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* Six products */}
-      <section className="section rule alt2" aria-labelledby="work-h">
+      <section className="section rule alt2 depth-section" aria-labelledby="work-h">
         <div className="wrap">
           <SectionHead id="work-h" kicker={t.home.workKicker} title={t.home.workTitle}>{t.home.workBody}</SectionHead>
           <WorkGrid projects={c.projects} t={t} L={L} locale={locale as LocaleCode} />
@@ -46,7 +48,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* Portfolio reference artwork, in a monitor frame */}
-      <section className="section rule" aria-labelledby="reel-h">
+      <section className="section rule depth-section" aria-labelledby="reel-h">
         <div className="wrap">
           <SectionHead id="reel-h" kicker={t.nav.lab} title={c.pages.lab.title}>{c.pages.lab.lede}</SectionHead>
           <ReferenceReel
@@ -59,7 +61,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* Business problem selector */}
-      <section className="section rule alt" aria-labelledby="ps-h">
+      <section className="section rule alt depth-section" aria-labelledby="ps-h">
         <div className="wrap">
           <SectionHead id="ps-h" kicker={t.home.problemsKicker} title={t.home.problemsTitle}>{t.home.problemsBody}</SectionHead>
           <ProblemSelector t={t} c={c} />
@@ -67,7 +69,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* Seven-step visual journey */}
-      <section className="section rule" aria-labelledby="proc-h">
+      <section className="section rule depth-section" aria-labelledby="proc-h">
         <div className="wrap">
           <SectionHead id="proc-h" kicker={t.home.processKicker} title={t.home.processTitle}>{t.home.processBody}</SectionHead>
           <ProcessJourney t={t} />
@@ -76,10 +78,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* Industries */}
-      <section className="section rule alt2" aria-labelledby="ind-h">
+      <section className="section rule alt2 depth-section" aria-labelledby="ind-h">
         <div className="wrap">
           <SectionHead id="ind-h" kicker={t.home.industriesKicker} title={t.home.industriesTitle}>{t.home.industriesBody}</SectionHead>
-          <div className="indgrid reveal">
+          <div className="indgrid reveal" data-stagger>
             {c.industries.map((i) => (
               <div key={i.name} className="indcard">
                 <p className="indcard-n">{i.name}</p>
@@ -92,7 +94,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* About + portrait */}
-      <section className="section rule about2" aria-labelledby="ab-h">
+      <section className="section rule about2 depth-section" aria-labelledby="ab-h">
         <div className="wrap about2-in">
           <div className="about2-fig reveal">
             <img src="/img/portrait-bilal.webp" alt={t.ui.portraitNote} width={1024} height={1024} loading="lazy" decoding="async" />
@@ -112,7 +114,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <section className="section rule" aria-labelledby="test-h">
         <div className="wrap">
           <SectionHead id="test-h" kicker={t.home.testimonialKicker} title={t.home.testimonialTitle}>{t.home.testimonialBody}</SectionHead>
-          <div className="twall reveal">
+          <div className="twall reveal" data-stagger>
             <figure className="tcard demo">
               <span className="tag concept">{t.ui.sampleData}</span>
               <blockquote>“{t.home.testimonialBody}”</blockquote>
@@ -125,7 +127,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* Working notes */}
-      <section className="section rule alt" aria-labelledby="in-h">
+      <section className="section rule alt depth-section" aria-labelledby="in-h">
         <div className="wrap split">
           <div>
             <p className="kicker reveal">{t.home.insightsKicker}</p>
@@ -146,12 +148,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="wrap duo">
           <Scene name="kitchen" caption={c.projects[4].summary} ratio="4 / 3" />
           <div className="ui-frame reveal">
-            <div className="ui ui-kitchen">
-              <div className="ui-bar"><span className="ui-word">EMBER<span>&amp; RYE</span></span><span className="ui-cart">Kitchen · 19:24</span></div>
-              <div className="ui-body">
-                <div className="kt-ticket"><p className="kt-h">#218 <span>Table 6</span><em>In kitchen</em></p><p><b>1×</b> Charred leek flatbread</p><p><b>2×</b> Rye sourdough</p></div>
-              </div>
-            </div>
+            <KitchenUi l={uiLabels[locale as LocaleCode]} />
           </div>
         </div>
       </section>

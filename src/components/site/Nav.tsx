@@ -50,7 +50,10 @@ export function Nav({ labels, name }: { labels: NavLabels; name: string }) {
 
   return (
     <>
-      <header className={`nav ${scrolled || open ? 'scrolled' : ''}`}>
+      {/* `is-stuck` is the glass-density state: the pill thickens its blur and border
+          once the page moves, the way a physical surface catching more light. */}
+      <header className={`nav ${scrolled || open ? 'scrolled is-stuck' : ''}`}>
+        <span className="nav-glass" aria-hidden="true" />
         <div className="wrap nav-in">
           <Link href={L('/')} className="brand" aria-label={`${name} — ${labels.nav.work}`}>
             <span className="brand-mark" aria-hidden="true">BB</span>

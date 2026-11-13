@@ -38,7 +38,7 @@ export const defaultUiLabels: UiLabels = {
   allObjects: 'All objects', today: 'Today', orders: 'Orders', todaysSales: 'Today’s sales',
   products: 'Products', pending: 'Pending', latestOrders: 'Latest orders', salesByDay: 'Sales by day',
   needsAttention: 'Needs attention', backOffice: 'Back office', assistant: 'Business assistant',
-  askPlaceholder: '{l.askPlaceholder}', openPolicy: 'Open policy',
+  askPlaceholder: 'Ask about policies, orders or suppliers…', openPolicy: 'Open policy',
   source: 'Source', createTask: 'Create a task', pipeline: 'Pipeline', openPipeline: 'Open pipeline',
   leads: 'Leads', newLead: 'New lead', noActivity: 'No activity 7d', remind: 'Remind in 2 days',
   menuAvailability: 'Menu · availability', inKitchen: 'In kitchen', queued: 'Queued', table: 'Table',
@@ -65,22 +65,38 @@ export function StoreUi({ compact = false, l = defaultUiLabels }: { compact?: bo
       </div>
       <div className="ui-body">
         <div className="ui-pdp">
-          <div className="ui-shot"><span className="ui-obj ui-obj--tray" /></div>
+          <div className="ui-shot">
+            <img src="/img/product-tray.webp" alt="" width={420} height={420} loading="lazy" decoding="async" />
+          </div>
           <div className="ui-pdp-info">
             <p className="ui-eyebrow">Organise</p>
             <p className="ui-h">Oak desk tray</p>
-            <p className="ui-price">$84.00 <small>Large · Smoked</small></p>
+            <p className="ui-price">₨3,360 <small>Large · Smoked</small></p>
             <div className="ui-swatches"><i className="on" /><i /><i /></div>
-            <div className="ui-btn">{l.addToCart} — $84.00</div>
+            <div className="ui-btn">{l.addToCart} — ₨3,360</div>
             <p className="ui-fine">{l.ships}</p>
           </div>
         </div>
         {!compact && (
+          <div className="ui-grid3" aria-hidden="true">
+            {[
+              ['product-dripper', 'Ceramic pour-over', '₨1,360'],
+              ['product-grinder', 'Hand grinder', '₨2,320'],
+              ['product-candle', 'Amber & smoke', '₨1,040'],
+            ].map(([src, name, price]) => (
+              <span className="ui-tile" key={src}>
+                <img src={`/img/${src}.webp`} alt="" width={420} height={420} loading="lazy" decoding="async" />
+                <span className="ui-tile-meta"><span>{name}</span><b>{price}</b></span>
+              </span>
+            ))}
+          </div>
+        )}
+        {!compact && (
           <div className="ui-cartpanel">
             <p className="ui-eyebrow">{l.yourCart}</p>
-            <p className="ui-line"><span>1 × Oak desk tray<small>Large · Smoked</small></span><b>$84</b></p>
-            <p className="ui-line"><span>2 × Stoneware cup<small>Sand</small></span><b>$44</b></p>
-            <p className="ui-line tot"><span>{l.subtotal}</span><b>$128</b></p>
+            <p className="ui-line"><span>1 × Oak desk tray<small>Large · Smoked</small></span><b>₨3,360</b></p>
+            <p className="ui-line"><span>2 × Stoneware cup<small>Sand</small></span><b>₨1,760</b></p>
+            <p className="ui-line tot"><span>{l.subtotal}</span><b>₨5,120</b></p>
             <div className="ui-btn">{l.checkout}</div>
           </div>
         )}
@@ -216,6 +232,20 @@ export function CrmUi({ compact = false, l = defaultUiLabels }: { compact?: bool
   );
 }
 
+/** The follow-up automation strip that sits inside the CRM. Exported separately so a
+ *  project card can show the pipeline and the automation as one product. */
+export function FlowStrip({ l = defaultUiLabels }: { l?: UiLabels }) {
+  return (
+    <div className="ui ui-flowstrip">
+      <p className="ui-eyebrow">{l.automationLive}</p>
+      <div className="crm-flow">
+        <span className="crm-node">{l.newLead}</span><i>→</i><span className="crm-node">Assign owner</span><i>→</i>
+        <span className="crm-node">{l.remind}</span><i>→</i><span className="crm-node on">On</span>
+      </div>
+    </div>
+  );
+}
+
 export function KitchenUi({ compact = false, l = defaultUiLabels }: { compact?: boolean; l?: UiLabels }) {
   return (
     <div className="ui ui-kitchen">
@@ -227,6 +257,13 @@ export function KitchenUi({ compact = false, l = defaultUiLabels }: { compact?: 
             <p><b>1×</b> Charred leek flatbread</p>
             <p><b>2×</b> Rye sourdough, cultured butter</p>
             <p><b>1×</b> Smoked lamb shoulder</p>
+            <p className="kt-foot"><span>18:42</span><span>₨ 4,180</span></p>
+          </div>
+          <div className="kt-ticket kt-ticket--next">
+            <p className="kt-h">#217 <span>Table 2</span><em className="ok">{l.queued}</em></p>
+            <p><b>2×</b> Roast cauliflower, tahini</p>
+            <p><b>1×</b> Burnt honey pudding</p>
+            <p className="kt-foot"><span>18:31</span><span>₨ 2,940</span></p>
           </div>
           {!compact && (
             <div className="kt-ticket">
@@ -259,6 +296,15 @@ export function CampaignUi({ compact = false, l = defaultUiLabels }: { compact?:
             <div className="camp-ad a1">Take the long<br />afternoon.</div>
             <div className="camp-ad a2"><span className="camp-can">Slow<br />tide</span></div>
           </div>
+          {/* Only the compact card needs this result strip; the full panel already
+              shows the same figures in its dashboard column. */}
+          {compact && (
+            <div className="camp-metrics">
+              <span><small>{l.spend}</small><b>₨62,000</b></span>
+              <span><small>{l.leads}</small><b>248</b></span>
+              <span><small>{l.costPerLead}</small><b>₨250</b></span>
+            </div>
+          )}
         </div>
         {!compact && (
           <div className="camp-dash">

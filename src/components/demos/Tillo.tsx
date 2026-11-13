@@ -6,16 +6,16 @@ type Status = 'New' | 'Packed' | 'Shipped' | 'Done';
 const flow: Status[] = ['New', 'Packed', 'Shipped', 'Done'];
 const nextLabel: Record<Status, string> = { New: 'Mark packed', Packed: 'Mark shipped', Shipped: 'Mark delivered', Done: '' };
 const seedOrders = [
-  { id: 1042, who: 'Amara Osei', total: 86, items: 3, status: 'New' as Status }, { id: 1041, who: 'Jonas Weber', total: 42.5, items: 1, status: 'New' as Status },
-  { id: 1040, who: 'Lina Haddad', total: 131, items: 4, status: 'Packed' as Status }, { id: 1039, who: 'Tomás Rey', total: 24, items: 1, status: 'Shipped' as Status },
-  { id: 1038, who: 'Mei Tanaka', total: 67, items: 2, status: 'Done' as Status },
+  { id: 1042, who: 'Amara Osei', total: 3440, items: 3, status: 'New' as Status }, { id: 1041, who: 'Jonas Weber', total: 1700, items: 1, status: 'New' as Status },
+  { id: 1040, who: 'Lina Haddad', total: 5240, items: 4, status: 'Packed' as Status }, { id: 1039, who: 'Tomás Rey', total: 960, items: 1, status: 'Shipped' as Status },
+  { id: 1038, who: 'Mei Tanaka', total: 2680, items: 2, status: 'Done' as Status },
 ];
 const seedStock = [
-  { name: 'Ceramic pour-over', price: 34, stock: 12 }, { name: 'House blend 250 g', price: 14, stock: 3 }, { name: 'Paper filters ×100', price: 8, stock: 41 }, { name: 'Hand grinder', price: 58, stock: 2 }, { name: 'Travel tumbler', price: 26, stock: 9 },
+  { name: 'Ceramic pour-over', price: 1360, stock: 12 }, { name: 'House blend 250 g', price: 560, stock: 3 }, { name: 'Paper filters ×100', price: 320, stock: 41 }, { name: 'Hand grinder', price: 2320, stock: 2 }, { name: 'Travel tumbler', price: 1040, stock: 9 },
 ];
 const customers = [
-  { name: 'Amara Osei', orders: 7, spent: 412, note: 'Prefers pickup. Usually orders on Fridays.' }, { name: 'Jonas Weber', orders: 2, spent: 71, note: 'New customer this month.' },
-  { name: 'Lina Haddad', orders: 12, spent: 968, note: 'Wholesale enquiry pending.' }, { name: 'Mei Tanaka', orders: 4, spent: 203, note: 'Asked about gift wrapping.' },
+  { name: 'Amara Osei', orders: 7, spent: 16480, note: 'Prefers pickup. Usually orders on Fridays.' }, { name: 'Jonas Weber', orders: 2, spent: 2840, note: 'New customer this month.' },
+  { name: 'Lina Haddad', orders: 12, spent: 38720, note: 'Wholesale enquiry pending.' }, { name: 'Mei Tanaka', orders: 4, spent: 8120, note: 'Asked about gift wrapping.' },
 ];
 const NAV = ['Home', 'Orders', 'Customers', 'Products', 'Stats'] as const;
 type Tab = (typeof NAV)[number] | 'Settings';
@@ -29,7 +29,8 @@ export default function Tillo() {
   const [prefs, setPrefs] = useState({ 'Low-stock alerts': true, 'Daily summary at 8pm': true, 'Sound on new order': false });
   const open = orders.filter((o) => o.status !== 'Done');
   const low = stock.filter((s) => s.stock <= 3);
-  const today = orders.reduce((s, o) => s + o.total, 0) + 933.5;
+  // Fixed so the demo's headline figure matches the site's pinned figure exactly.
+  const today = 48500;
   const advance = (id: number) => setOrders((os) => os.map((o) => (o.id === id ? { ...o, status: flow[Math.min(3, flow.indexOf(o.status) + 1)] } : o)));
 
   return (
@@ -72,8 +73,8 @@ export default function Tillo() {
             </>)}
             {tab === 'Stats' && (<>
               <p className="t-h">This week</p><p className="t-k">Revenue by day · sample data</p>
-              <Bars data={[640, 720, 590, 810, 1120, 1380, 1284]} labels={['M', 'T', 'W', 'T', 'F', 'S', 'S']} h={130} />
-              <div className="t-two" style={{ marginTop: 16 }}><div><b>{money(6544)}</b>week total</div><div><b>94</b>orders</div></div>
+              <Bars data={[22, 26, 19, 31, 42, 58, 48]} labels={['M', 'T', 'W', 'T', 'F', 'S', 'S']} h={130} />
+              <div className="t-two" style={{ marginTop: 16 }}><div><b>{money(224000)}</b>week total</div><div><b>94</b>orders</div></div>
               <p className="t-note" style={{ marginTop: 14 }}>Best seller: House blend 250 g. Saturday is the busiest day.</p>
             </>)}
             {tab === 'Settings' && (<>

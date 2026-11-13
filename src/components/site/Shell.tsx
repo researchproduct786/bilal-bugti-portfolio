@@ -6,6 +6,7 @@ import { LocaleProvider } from '@/i18n/client';
 import { Nav } from './Nav';
 import { Footer } from './Footer';
 import { Interactions } from './Interactions';
+import { DepthMotion } from './DepthMotion';
 import { MobileBar } from './MobileBar';
 
 /**
@@ -67,6 +68,7 @@ export function Shell({ b, children }: { b: LocaleBundle; children: ReactNode })
       <Footer b={b} name={site.name} />
       <MobileBar label={t.contact.kicker} closeLabel={t.ui.close} />
       <Interactions />
+      <DepthMotion />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }} />
       <span className="sr-only">{L('/')}</span>
     </LocaleProvider>

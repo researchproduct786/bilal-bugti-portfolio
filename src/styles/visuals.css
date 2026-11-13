@@ -19,7 +19,11 @@
 @media (min-width: 900px) {
   .duo { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: end; gap: 0; }
   .duo > .scene { margin: 0; }
-  .duo > .ui-frame { margin-left: -56px; margin-bottom: -20px; position: relative; z-index: 2; }
+  /* The interface plate is intentionally taller than the photo it overlaps, so its
+     full content (rows, footer, CTA) is readable instead of cropped mid-line. */
+  .duo > .ui-frame { margin-left: -56px; margin-bottom: 4px; position: relative; z-index: 2; align-self: end; }
+  .duo > .ui-frame .ui-body { padding-block: 14px 16px; }
+  .duo > .ui-frame .ui-kitchen .ui-body { display: block; }
 }
 
 /* ── Phone frame ─────────────────────────────────────────────── */
@@ -58,7 +62,15 @@
 /* ── Store ───────────────────────────────────────────────────── */
 .ui-store .ui-body { display: grid; gap: 14px; }
 .ui-pdp { display: grid; grid-template-columns: 84px 1fr; gap: 12px; align-items: start; }
-.ui-shot { aspect-ratio: 1; background: linear-gradient(150deg, #1b1f25, #10131a); border-radius: 2px; display: grid; place-items: center; }
+.ui-shot { aspect-ratio: 1; background: #f3efe7; border-radius: 2px; overflow: hidden; display: grid; place-items: center; }
+.ui-shot img { width: 100%; height: 100%; object-fit: cover; }
+/* A real product grid beats a single stretched image: three stills, each with a name and price. */
+.ui-grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.ui-tile { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.ui-tile img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 2px; background: #f3efe7; }
+.ui-tile-meta { display: flex; justify-content: space-between; gap: 4px; font-size: 9px; color: var(--silver); min-width: 0; }
+.ui-tile-meta span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ui-tile-meta b { color: var(--paper); font-weight: 600; flex: none; }
 .ui-obj--tray { width: 54%; aspect-ratio: 1.35; background: linear-gradient(160deg, #a97e50, #6b4c2d); border-radius: 4px; box-shadow: inset 0 -6px 10px rgba(0,0,0,.35), 0 6px 12px rgba(0,0,0,.4); position: relative; }
 .ui-obj--tray::after { content: ''; position: absolute; inset: 12% 10%; border: 1px solid rgba(255,255,255,.18); border-radius: 2px; }
 .ui-pdp-info { display: flex; flex-direction: column; gap: 7px; }
@@ -103,7 +115,9 @@
 .ui-chart { display: flex; align-items: flex-end; gap: 5px; height: 66px; margin-top: 6px; }
 .ui-chart.small { height: 44px; }
 .ui-chart span { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 3px; }
-.ui-chart i { width: 100%; background: linear-gradient(180deg, #6aa3ff, #2c4a80); border-radius: 1px; }
+.ui-chart i { width: 100%; background: linear-gradient(180deg, var(--silver), rgba(150,160,175,.25)); border-radius: 1px; }
+/* Inside the campaign the chart belongs to the brand's green, not the generic blue. */
+.ui-camp .ui-chart i { background: linear-gradient(180deg, #cfe6dd, #2c4a42); }
 .ui-chart small { font-family: var(--f-mono); font-size: 7px; color: var(--dim); }
 .ui-table { width: 100%; border-collapse: collapse; font-size: 9.5px; margin-top: 5px; }
 .ui-table td { padding: 4px 0; border-bottom: 1px solid rgba(236,232,224,.06); color: var(--silver); }
@@ -140,6 +154,8 @@
 
 /* ── Kitchen ─────────────────────────────────────────────────── */
 .ui-kitchen .ui-body { display: grid; gap: 10px; }
+.ui-flowstrip { padding: 10px 12px; display: flex; flex-direction: column; gap: 7px; }
+.ui-flowstrip .crm-flow { flex-wrap: wrap; row-gap: 6px; }
 .kt-orders { display: grid; gap: 7px; }
 @media (min-width: 520px) { .kt-orders { grid-template-columns: 1fr 1fr; } }
 .kt-ticket { border: 1px solid rgba(255,157,107,.3); background: rgba(255,157,107,.06); border-radius: 3px; padding: 8px 9px; font-size: 9.5px; color: var(--silver); }
@@ -164,16 +180,32 @@
 .camp-ad.a1 { background: #f1e8d8; color: #16302b; font-family: var(--f-serif); font-style: italic; font-size: 11px; }
 .camp-ad.a2 { background: #0e1a17; border: 1px solid #2c4a42; }
 .camp-can { display: block; width: 26px; height: 54px; border-radius: 3px 3px 5px 5px; border: 1px solid #6f9a8c; color: #cfe6dd; font-family: var(--f-mono); font-size: 6px; line-height: 1.25; padding-top: 8px; }
+.camp-metrics { display: flex; gap: 12px; border-top: 1px solid rgba(207,230,221,.16); padding-top: 8px; margin-top: 2px; }
+.camp-metrics span { display: flex; flex-direction: column; gap: 2px; }
+.camp-metrics small { font-family: var(--f-mono); font-size: 7px; letter-spacing: .08em; text-transform: uppercase; color: #8db3a6; }
+.camp-metrics b { font-size: 12px; font-weight: 600; color: #d9f0e5; letter-spacing: -.01em; }
+.ui-flowstrip { padding: 10px 12px; display: flex; flex-direction: column; gap: 7px; }
+.ui-flowstrip .crm-flow { flex-wrap: wrap; row-gap: 6px; }
+.kt-orders { display: flex; flex-direction: column; gap: 8px; }
+.kt-ticket--next { opacity: .72; }
+.kt-foot { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 8.5px; letter-spacing: .06em; color: var(--muted); border-top: 1px dashed rgba(236,232,224,.14); margin-top: 7px; padding-top: 5px; }
+.kt-h em.ok { color: var(--ok, #7fc9a2); border-color: currentColor; }
 .camp-dash { padding: 13px 12px; display: flex; flex-direction: column; gap: 8px; border-inline-start: 1px solid rgba(236,232,224,.08); }
 
 /* ── Process journey ─────────────────────────────────────────── */
 .journey { display: flex; flex-direction: column; gap: clamp(26px, 5vw, 54px); counter-reset: none; }
 .jstep { display: grid; gap: 14px; }
 .jstep-media { position: relative; }
+/* The step number sits in its own margin rather than on top of the photograph, so it
+   never overlaps a face or a detail in the image. It hangs off the image's outer edge. */
 .jstep-n {
-  position: absolute; inset-block-start: -10px; inset-inline-start: -6px; z-index: 3;
-  font-family: var(--f-mono); font-size: 30px; line-height: 1; color: var(--paper);
-  mix-blend-mode: difference; letter-spacing: -.02em;
+  position: absolute; z-index: 3;
+  inset-block-start: 10px;
+  inset-inline-start: -18px;
+  font-family: var(--f-mono); font-size: 22px; line-height: 1; color: var(--paper);
+  letter-spacing: -.02em;
+  background: #08090b; border: 1px solid var(--line-strong); border-radius: 4px;
+  padding: 4px 7px;
 }
 .jstep-body { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
 .jstep-t { font-size: clamp(22px, 3vw, 30px); font-weight: 540; font-stretch: 106%; letter-spacing: -.018em; line-height: 1.1; }
@@ -191,6 +223,9 @@
   .jstep:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .jstep:nth-child(even) .jstep-body { order: 1; }
   .journey .jstep-media { position: relative; }
+  /* The badge always hangs into the column gutter on the image's leading edge, which
+     exists on both the left-hand and the reversed right-hand rows. */
+  .jstep-n { font-size: 24px; inset-inline-start: -20px; }
 }
 
 /* ── Capability cards: visual first, one line of plain English ── */
@@ -213,6 +248,17 @@
 .reel { display: grid; gap: 14px; }
 @media (min-width: 760px) { .reel { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: stretch; } }
 .monitor { border: 1px solid rgba(236,232,224,.16); border-radius: 10px; overflow: hidden; background: #08090b; padding: 8px 8px 0; }
+.artframe {
+  position: relative; border-radius: 10px; overflow: hidden;
+  border: 1px solid rgba(236, 232, 224, .14);
+  background: #05060a;
+  box-shadow: 0 2px 6px rgba(0,0,0,.5), 0 30px 70px -30px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.09);
+}
+.artframe img { display: block; width: 100%; height: auto; }
+.artframe::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+  background: linear-gradient(150deg, rgba(255,255,255,.07), transparent 34%);
+}
 .monitor-screen { position: relative; overflow: hidden; border-radius: 4px; background: #05060a; }
 .monitor-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .monitor-stand { width: 32%; height: 12px; margin: 0 auto; background: linear-gradient(180deg, #23272d, #12151a); border-radius: 0 0 4px 4px; }

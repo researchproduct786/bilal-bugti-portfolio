@@ -88,3 +88,44 @@ input[type='range']::-moz-range-thumb { width: 16px; height: 16px; border: 0; bo
 .nf { min-height: 100svh; display: grid; align-items: center; padding: calc(var(--nav-h) + 40px) 0 80px; }
 .nf-code { font-family: var(--f-serif); font-style: italic; font-size: clamp(120px, 26vw, 380px); line-height: .8; color: transparent; -webkit-text-stroke: 1px var(--line-strong); }
 label.f-field { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 0; } label.f-field > input, label.f-field > select, label.f-field > textarea, label.f-field > .f-err, label.f-field > .f-hint { flex: 0 0 100%; }
+
+/* ── Problem selector ────────────────────────────────────────────
+   Eight plain statements, then one written answer. The list is a real radio group:
+   the chosen statement is carried into the answer sheet as the quoted line. */
+.ps { display: grid; gap: clamp(26px, 4vw, 44px); }
+.ps-list { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.ps-item {
+  display: grid; grid-template-columns: 42px minmax(0, 1fr); align-items: baseline; gap: 10px;
+  padding: 15px 12px 15px 2px; border: 0; border-bottom: 1px solid var(--line);
+  background: transparent; color: var(--silver); text-align: start; cursor: pointer;
+  font-size: 15px; line-height: 1.4; transition: color .25s var(--ease), background .25s var(--ease);
+}
+.ps-item .mono { font-size: 10.5px; letter-spacing: .1em; color: var(--muted); }
+.ps-item:hover { color: var(--paper); background: rgba(255, 255, 255, .028); }
+.ps-item[aria-pressed='true'] { color: var(--paper); background: rgba(255, 255, 255, .05); }
+.ps-item[aria-pressed='true'] .mono { color: var(--tungsten); }
+.ps-item:focus-visible { outline: 2px solid var(--paper); outline-offset: 2px; }
+
+.ps-sheet {
+  border: 1px solid var(--line-strong); border-radius: var(--r);
+  padding: clamp(18px, 3vw, 30px);
+  background:
+    linear-gradient(158deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, 0) 55%),
+    rgba(16, 19, 24, .55);
+  display: grid; gap: 16px;
+  animation: ps-in .5s var(--ease) both;
+}
+@keyframes ps-in { from { opacity: 0; transform: translateY(6px); } }
+.ps-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.ps-quote { font-size: clamp(19px, 2.6vw, 26px); line-height: 1.25; color: var(--paper); }
+.ps-sheet .spec { margin-top: 2px; }
+.ps-sheet .spec dd { font-size: 14.5px; }
+.ps-cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; padding-top: 4px; }
+
+@media (min-width: 900px) {
+  .ps { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); align-items: start; gap: 48px; }
+  .ps-item { font-size: 14.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ps-sheet { animation: none; }
+}

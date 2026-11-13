@@ -11,13 +11,33 @@ export interface DemoChrome {
   locale?: string;
 }
 const fallback: DemoChrome = { concept: 'Concept project', loading: 'Loading demonstration…', views: 'views' };
-const ChromeContext = createContext<DemoChrome>(fallback);
-export function DemoChromeProvider({ value, children }: { value?: Partial<DemoChrome>; children: ReactNode }) {
-  return <ChromeContext.Provider value={{ ...fallback, ...value }}>{children}</ChromeContext.Provider>;
+export const ChromeContext = createContext<DemoChrome>(fallback);
+/**
+ * A provider passed as a *prop* rather than rendered as `<Context.Provider>`.
+ * React 19 + next/dynamic cannot treat a lazy-loaded Context export as an element
+ * type, so the context object itself is handed down and consumed here.
+ */
+export function DemoChromeProvider({ ctx, value, children }: { ctx?: typeof ChromeContext; value?: Partial<DemoChrome>; children: ReactNode }) {
+  const C = ctx ?? ChromeContext;
+  return <C.Provider value={{ ...fallback, ...value }}>{children}</C.Provider>;
 }
+export type { ChromeContext as ChromeContextType };
 export const useDemoChrome = () => useContext(ChromeContext);
 
-export const money = (n: number) => `$${n.toLocaleString('en-US', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 })}`;
+/**
+ * Money formatting for every demonstration.
+ *
+ * The site's fictional businesses are Pakistani, so the demos use the same currency
+ * as the pinned figures on the marketing pages (Rs / ₨). One currency everywhere
+ * means the same fictional dataset reads consistently instead of switching to
+ * dollars inside a demo.
+ */
+export const money = (n: number) => {
+  const v = n >= 1000000 ? `${(n / 1000000).toFixed(2).replace(/\.?0+$/, '')}m`
+    : n >= 100000 ? `${Math.round(n / 1000)}k`
+    : Math.round(n).toLocaleString('en-US');
+  return `₨${v}`;
+};
 
 interface ShellProps { title: string; note: string; tabs?: string[]; tab?: string; onTab?: (t: string) => void; theme?: CSSProperties; className?: string; children: ReactNode }
 

@@ -3,69 +3,52 @@
    Every rule below starts single-column and expands at real breakpoints.
    ═══════════════════════════════════════════════════════════════ */
 
-/* ── Hero ────────────────────────────────────────────────────── */
-.hero2 { position: relative; padding: calc(var(--nav-h) + 26px) 0 20px; overflow: hidden; isolation: isolate; }
-.hero2::before {
-  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background:
-    radial-gradient(70% 55% at 82% 8%, rgba(60,110,220,.20), transparent 70%),
-    radial-gradient(50% 40% at 8% 92%, rgba(230,163,92,.10), transparent 70%);
-}
-.hero2-in { display: grid; gap: 26px; }
+/* ── Hero ─────────────────────────────────────────────────────
+   Three physical planes: a back glass panel, the cut-out subject breaking
+   past it, and a near glass card. Authored on a 360px screen first. */
+/* No overflow clipping on the hero: the near card deliberately breaks past the
+   stage's lower-left corner, which is what makes the layer stack read as physical. */
+/* Extra bottom padding on phones keeps the near card clear of the sticky contact bar. */
+.hero2 { position: relative; padding: calc(var(--nav-h) + 34px) 0 44px; overflow: visible; isolation: isolate; }
+@media (max-width: 760px) { .hero2 { padding-block-end: 104px; } }
+.hero2-in { display: grid; gap: 26px; position: relative; z-index: 2; }
 .hero2-copy { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
 .hero2-title {
-  font-size: clamp(42px, 12.5vw, 104px); font-weight: 640; font-stretch: 118%; line-height: .94;
-  letter-spacing: -.03em; text-transform: uppercase;
+  font-size: clamp(42px, 12.5vw, 104px); font-weight: 620; font-stretch: 118%; line-height: .92;
+  letter-spacing: -.035em; text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(255,255,255,.05), 0 18px 60px rgba(0,0,0,.5);
 }
 .hero2-line { font-size: clamp(17px, 4.2vw, 21px); line-height: 1.42; color: var(--silver); max-width: 30em; }
-.hero2-tag { font-size: clamp(18px, 4.4vw, 24px); line-height: 1.35; color: var(--paper); max-width: 24em; }
+.hero2-tag { font-size: clamp(18px, 4.4vw, 25px); line-height: 1.32; color: var(--paper); max-width: 22em; }
 .hero2-cta { display: flex; flex-wrap: wrap; gap: 10px; width: 100%; }
-.hero2-cta .btn { flex: 1 1 46%; justify-content: center; }
+.hero2-cta .btn { flex: 1 1 46%; justify-content: center; min-height: 50px; }
 .hero2-stats { display: flex; gap: 22px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 14px; width: 100%; }
 .hero2-stats li { display: flex; flex-direction: column; gap: 2px; }
 .hero2-stats b { font-size: 22px; font-weight: 600; letter-spacing: -.02em; }
 .hero2-stats span { font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-
-.hero2-visual { position: relative; display: grid; grid-template-columns: 1fr; gap: 12px; }
-.hero2-portrait { position: relative; border-radius: var(--r); overflow: hidden; border: 1px solid var(--line-strong); }
-.hero2-portrait img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 22%; }
-.hero2-portrait::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(6,7,9,.55)); }
-.hero2-phone {
-  position: relative; display: none; width: 46%; max-width: 216px; background: #0a0b0d;
-  border: 1px solid rgba(236,232,224,.2); border-radius: 22px; padding: 6px;
-  box-shadow: 0 26px 50px -22px rgba(0,0,0,.95);
-}
-.hero2-phone-notch { display: block; width: 40px; height: 3px; border-radius: 2px; background: rgba(236,232,224,.25); margin: 2px auto 5px; }
-.hero2-screen { display: flex; flex-direction: column; background: #0d1014; border-radius: 16px; padding: 9px 10px 10px; gap: 5px; }
-.h2s-top { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 7.5px; color: var(--muted); }
-.h2s-k { font-family: var(--f-mono); font-size: 7.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-.h2s-big { font-size: 18px; font-weight: 600; letter-spacing: -.02em; }
-.h2s-two { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
-.h2s-two > span { background: rgba(255,255,255,.06); border-radius: 2px; padding: 4px 5px; font-size: 7pt; color: var(--silver); display: flex; flex-direction: column; }
-.h2s-two b { font-size: 12px; color: var(--paper); }
-.h2s-two > span:first-child { background: rgba(240,179,94,.14); }
-.h2s-two > span:first-child b { color: var(--warn); }
-.h2s-row { display: flex; justify-content: space-between; align-items: center; gap: 6px; font-size: 7.5px; border-top: 1px solid rgba(236,232,224,.08); padding-top: 4px; color: var(--silver); }
-.h2s-row em { font-style: normal; background: var(--paper); color: var(--ink); font-size: 6.5px; padding: 2px 4px; border-radius: 2px; font-weight: 600; }
-.hero2-cap { font-size: 12.5px; color: var(--muted); line-height: 1.5; max-width: 30em; }
+.hero2-cap { font-size: 12.5px; color: var(--muted); line-height: 1.5; max-width: 34em; }
 .hero2-scroll { display: none; }
 
-@media (min-width: 560px) {
-  .hero2-visual { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; gap: 0; }
-  .hero2-portrait { border-radius: var(--r); }
-  .hero2-phone { display: block; margin-inline-start: -34px; margin-top: 24px; z-index: 2; width: 100%; }
-  .hero2-cap { grid-column: 1 / -1; margin-top: 10px; }
-}
+/* Plane 3: the near card, small and sharp. */
+.hero-panel-front { display: flex; flex-direction: column; gap: 5px; padding: 13px 14px; }
+.hero-panel-front .h2s-top { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 8px; color: var(--muted); }
+.hero-panel-front .h2s-k { font-family: var(--f-mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.hero-panel-front .h2s-big { font-size: 21px; font-weight: 620; letter-spacing: -.025em; }
+.hero-panel-front .h2s-two { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-top: 2px; }
+.hero-panel-front .h2s-two > span { display: flex; flex-direction: column; gap: 1px; font-size: 8px; color: var(--muted); background: rgba(255,255,255,.05); border-radius: 3px; padding: 5px 6px; }
+.hero-panel-front .h2s-two b { font-size: 13px; color: var(--paper); font-weight: 620; }
+.hero-panel-front .h2s-two > span:first-child { background: rgba(240,179,94,.16); }
+.hero-panel-front .h2s-two > span:first-child b { color: var(--warn); }
+.hero-panel-front .h2s-row { display: flex; justify-content: space-between; align-items: center; gap: 6px; font-size: 8px; color: var(--silver); border-top: 1px solid rgba(236,232,224,.09); padding-top: 5px; }
+.hero-panel-front .h2s-row em { font-style: normal; background: var(--paper); color: var(--ink); font-size: 6.5px; padding: 2px 4px; border-radius: 2px; font-weight: 600; }
+
 @media (min-width: 900px) {
-  .hero2 { padding: calc(var(--nav-h) + 44px) 0 44px; min-height: 84vh; display: flex; align-items: center; }
-  .hero2-in { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(30px, 5vw, 72px); align-items: center; }
+  .hero2 { padding: calc(var(--nav-h) + 52px) 0 60px; min-height: 88vh; display: flex; align-items: center; }
+  .hero2-in { grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr); gap: clamp(24px, 4.5vw, 64px); align-items: center; }
   .hero2-copy { gap: 18px; }
-  .hero2-cta .btn { flex: 0 1 auto; justify-content: flex-start; }
-  .hero2-visual { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items: end; }
-  .hero2-portrait img { aspect-ratio: 4 / 5; }
-  .hero2-phone { margin-inline-start: -60px; margin-bottom: 30px; }
+  .hero2-cta .btn { flex: 0 1 auto; }
   .hero2-cap { grid-column: 1 / -1; }
-  .hero2-scroll { display: inline-flex; position: absolute; inset-block-end: 16px; inset-inline-end: var(--pad); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); gap: 8px; }
+  .hero2-scroll { display: inline-flex; position: absolute; inset-block-end: 20px; inset-inline-end: var(--pad); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); gap: 8px; z-index: 5; }
 }
 
 /* ── Intro ───────────────────────────────────────────────────── */
@@ -93,8 +76,36 @@
   overflow: hidden;
 }
 .pcard-tag { position: absolute; inset-block-start: 10px; inset-inline-end: 10px; z-index: 3; font-family: var(--f-mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--tungsten); border: 1px solid color-mix(in srgb, var(--tungsten) 45%, transparent); padding: 2px 6px; border-radius: 2px; background: rgba(6,7,9,.6); }
-.pcard-ui { display: block; height: 100%; }
-.pcard-ui.is-phone { display: grid; place-items: end center; }
+/* The media well anchors its interface to the bottom of the card, so each screen
+   reads as a device standing on the card's floor rather than a floating fragment. */
+/* Interfaces are anchored low and allowed to bleed a few pixels past the card's
+   bottom edge — a screen continuing beyond the frame, not a box floating in air. */
+.pcard-ui { display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding-block-end: 0; }
+.pcard-ui > .ui, .pcard-ui > .ui-stack { margin-block-end: -8px; }
+.pcard-ui > .ui-frame { margin-block-end: -14px; }
+.pcard-ui.is-phone { display: flex; align-items: flex-end; justify-content: center; }
+/* Two wide interfaces are stacked into one frame so the card shows a whole product,
+   not the top two rows of one screen. */
+.pcard-ui .ui-stack { display: flex; flex-direction: column; gap: 10px; }
+.pcard-ui .ui-stack > * { width: 100%; }
+.pcard-ui .ui-stack > .ui { border: 1px solid rgba(236,232,224,.1); border-radius: 6px; overflow: hidden; }
+.pcard-ui .ui-stack .crm-flow { display: flex; }
+.pcard-ui .ui-stack .ui-kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* Inside a project card the campaign is a single column: headline, both ad
+   executions and the result strip. The two-column layout left the right-hand
+   column empty once the dashboard was dropped for space. */
+.pcard-ui .ui-camp { align-self: stretch; display: flex; }
+.pcard-ui .ui-camp .camp-body { grid-template-columns: 1.05fr 1fr; flex: 1; }
+.pcard-ui .ui-camp .camp-left { justify-content: space-between; }
+
+/* Fixed-height ad strip: without it the square ad ratio stretches to fill the
+   card's media well and the two executions dominate the whole panel. */
+.pcard-ui .ui-camp .camp-left { padding: 11px 12px; gap: 6px; }
+.pcard-ui .ui-camp .camp-line { font-size: 17px; }
+.pcard-ui .ui-camp .camp-ads { gap: 6px; }
+.pcard-ui .ui-camp .camp-ad { aspect-ratio: auto; height: 118px; padding: 6px; font-size: 8px; }
+.pcard-ui .ui-camp .camp-ad.a1 { font-size: 9.5px; }
+.pcard-ui .ui-camp .camp-can { height: 66px; width: 26px; font-size: 6px; padding-top: 8px; }
 .pcard-ui .phone { max-width: 172px; padding: 5px; border-radius: 20px; }
 .pcard-ui .phone-screen { min-height: 0; padding: 7px 8px 0; border-radius: 15px; }
 .pcard-ui .phone-notch { width: 34px; height: 3px; margin: 1px auto 4px; }
@@ -137,7 +148,14 @@
 @media (min-width: 460px) { .pcard-foot { flex-direction: row; justify-content: space-between; align-items: center; gap: 10px; } }
 
 /* ── Capability cards need smaller internals ──────────────────── */
-.capcard-media { max-height: 168px; overflow: hidden; display: flex; justify-content: center; }
+/* The media area sizes to its own interface. A fixed max-height used to crop these
+   previews mid-row, so cards showed a sliced CTA instead of a finished screen. */
+/* Equal-height media rows keep the eight cards on a clean baseline grid, but the
+   plate itself is never clipped: it flexes to the tallest interface in its row. */
+.capcard { display: flex; flex-direction: column; }
+.capcard-media { display: flex; justify-content: center; align-items: center; flex: 1 1 auto; }
+.capcard-body { margin-top: auto; }
+.capcard-media .ui-frame { overflow: visible; }
 .capcard-media .ui-frame, .capcard-media .ui { width: 100%; }
 .capcard-media .phone { max-width: 132px; padding: 4px; border-radius: 18px; }
 .capcard-media .phone-screen { min-height: 0; padding: 6px 7px 0; border-radius: 14px; }

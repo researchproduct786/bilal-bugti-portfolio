@@ -7,6 +7,7 @@ import '@/styles/home.css';
 import '@/styles/pages.css';
 import '@/styles/demos.css';
 import '@/styles/visuals.css';
+import '@/styles/spatial.css';
 import { site } from '@/data/site';
 import { defaultLocale } from '@/i18n/config';
 

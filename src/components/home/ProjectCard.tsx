@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Dict } from '@/i18n/en';
 import type { ContentProject } from '@/i18n/content/types';
-import { uiFor, defaultUiLabels, type UiLabels } from '@/components/visuals/Ui';
+import { uiFor, defaultUiLabels, CrmUi, CampaignUi, FlowStrip, type UiLabels } from '@/components/visuals/Ui';
 
 /**
  * One project card.
@@ -17,7 +17,16 @@ export function ProjectCard({ project, t, L, ui = defaultUiLabels }: { project: 
       <Link href={L(`/work/${project.slug}`)} className="pcard-media" data-cursor aria-label={`${project.brand} — ${project.what}`}>
         <span className="pcard-tag">{t.ui.concept}</span>
         <span className={`pcard-ui ${project.visual === 'app' ? 'is-phone' : ''}`}>
-          <Ui compact l={ui} />
+          {project.visual === 'crm' ? (
+            <span className="ui-stack">
+              <CrmUi compact l={ui} />
+              <FlowStrip l={ui} />
+            </span>
+          ) : project.visual === 'campaign' ? (
+            <CampaignUi l={ui} />
+          ) : (
+            <Ui compact l={ui} />
+          )}
         </span>
       </Link>
       <div className="pcard-body">

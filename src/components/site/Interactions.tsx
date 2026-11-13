@@ -15,7 +15,11 @@ export function Interactions() {
 
   // Reveal on scroll — re-scan after each navigation.
   useEffect(() => {
-    const els = Array.from(document.querySelectorAll<HTMLElement>('.reveal:not(.is-in)'));
+    // Every entrance class shares one observer. `.reveal` is the original system; the
+    // others are the depth variants (rise / slide / focus / unmask / depth) used by the
+    // spatial layout. They all resolve by adding `.is-in`.
+    const SEL = '.reveal:not(.is-in), .rise:not(.is-in), .slide-in:not(.is-in), .depth-in:not(.is-in), .focus-in:not(.is-in), .unmask:not(.is-in)';
+    const els = Array.from(document.querySelectorAll<HTMLElement>(SEL));
     if (!('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('is-in')); return; }
     const io = new IntersectionObserver((entries) => {
       for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }

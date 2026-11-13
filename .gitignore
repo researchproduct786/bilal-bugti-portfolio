@@ -8,3 +8,8 @@ out
 next-env.d.ts
 .vercel
 tests/shots
+
+# Untouched generation sources for the derived image assets (the .webp files are
+# what the site actually ships). Kept out of Git to avoid 5 MB of dead weight.
+public/img/*-source.png
+public/img/product-stills.png
