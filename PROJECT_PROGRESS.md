@@ -337,3 +337,60 @@ rupee text, no console errors; 360/375/390/393/430/768/1280/1440 all `overflowX:
 motion keeps 7/7 lanes and 0 hidden elements; `/ar` RTL with USD unflipped; Halden demo driven
 end to end — product → PDP → add to cart, cart 0 → 1, USD, no errors. Preview deployment
 `3230624` built **READY** and aliased to the branch URL. `main` untouched.
+
+### Milestone: broadcast hero and final handover
+
+**Hero.** The first screen was a clean two-column header; it is now the control surface the
+direction describes. The subject still breaks the storefront card's top edge, and four glass
+panels now ring him, each carrying content rather than decoration: *what I build* (four named
+capabilities with their own accent), *selected work* (a real link into the Tillo case),
+*my process* (first conversation, build), and the dashboard over the chest. No invented
+client counts, ratings or revenue — every number on screen belongs to the same invented
+sample dataset the demos use, and is labelled as such.
+
+Panel placement was measured, not eyeballed. First attempt put the work panel over the
+storefront's wordmark; the second clipped the dashboard's header row. `/tmp/herogeo2.mjs`
+reports rect intersections against `.hero2-line`, `.hero2-cap`, `.hero2-cta` and `.hpb-bar`
+at 1280/1440/1600, and the panel now clears all of them at every width. Below 900px the
+panels are dropped entirely — the stage has no room, and the copy already says the same
+thing.
+
+The environment plate had been sitting at 0.5 opacity behind a near-black page, doing no
+work; at 0.72 the stage finally has a floor and a light source.
+
+**Two capability lanes were showing empty screens.** The web lane rendered three blank grey
+boxes and the CRM lane two blank columns — the placeholder-interface defect the brief bans
+outright. Both now carry coherent data: named products with USD prices, and a pipeline of
+named companies with deal values. Their art column also got a real vertical band so the
+interface no longer floats in a void.
+
+**Arabic pages had the wrong document language.** `<html>` shipped `lang="en" dir="ltr"` on
+every route because the root layout renders one static element and cannot know the language.
+A screen reader pronounced Arabic with an English voice and `documentElement.dir` was wrong.
+`LocaleDocument` corrects both on mount; layout direction was already right in the first
+paint, so nothing reflows.
+
+**A build-integrity trap, recorded so it is not repeated.** Building while `next start` is
+serving corrupts `.next`: the running server keeps serving stale HTML that references a
+stylesheet the rebuild has deleted, which returns 400. The page then renders with partial
+CSS — capability lanes collapsed to unstyled blocks and a 420px child blew the viewport to
+642px of horizontal overflow. This looked exactly like a CSS regression and cost three
+rebuild cycles. **Always stop the server, `rm -rf .next`, then build.**
+
+**Verified:** typecheck clean; build 133 pages; `test:e2e` 1319/0; `check:i18n` 6 locales
+(283 UI keys, 485 content strings); 20-route sweep all 200 with `ovf=0`, one `h1`, no broken
+images, no rupee text, no console errors; 360/375/390/393/430/768 all `overflowX: 0`; reduced
+motion keeps 7/7 lanes visible with 0 hidden; `/ar` verified `lang="ar" dir="rtl"`, mirrored
+nav and hero panels, USD unflipped, no overflow; all six demos load with USD and no errors;
+contact form driven end to end through all three steps to the brief preview.
+
+**Deployment:** `77fafcd` → `dpl_FMjrfCo498PLfhpnUAgX6MKE72Tx`, **READY**, aliased to
+`bilal-bugti-portfolio-git-arena-d81b6-f88f45-researchproduct786.vercel.app`. Correct repo
+(`1453212235`), correct branch, correct commit. The preview is behind Vercel Deployment
+Protection; verified that an unauthenticated request is redirected to `vercel.com/login`.
+`main` remains at `e46f3e8`.
+
+**Outstanding, needs the owner:** the project has zero environment variables, so the contact
+handoff has no destination. The form works and produces the brief, and *Copy message* works,
+but the email button is disabled and there is no WhatsApp button. `NEXT_PUBLIC_CONTACT_EMAIL`
+and `NEXT_PUBLIC_WHATSAPP_NUMBER` are the two that matter.
