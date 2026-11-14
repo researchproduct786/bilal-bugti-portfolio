@@ -75,7 +75,13 @@
     linear-gradient(170deg, #12151a, #0a0c0f);
   overflow: hidden;
 }
-.pcard-tag { position: absolute; inset-block-start: 10px; inset-inline-end: 10px; z-index: 3; font-family: var(--f-mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--tungsten); border: 1px solid color-mix(in srgb, var(--tungsten) 45%, transparent); padding: 2px 6px; border-radius: 2px; background: rgba(6,7,9,.6); }
+.pcard-tag {
+  flex: none;
+  font-family: var(--f-mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--tungsten); border: 1px solid color-mix(in srgb, var(--tungsten) 45%, transparent);
+  padding: 2px 6px; border-radius: 2px; background: rgba(6, 7, 9, .6); white-space: nowrap;
+}
+.pcard-k { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 /* The media well anchors its interface to the bottom of the card, so each screen
    reads as a device standing on the card's floor rather than a floating fragment. */
 /* Interfaces are anchored low and allowed to bleed a few pixels past the card's
@@ -843,8 +849,12 @@
   .wg-item[data-i='0'] .pcard-media,
   .wg-item[data-i='5'] .pcard-media {
     aspect-ratio: auto;
-    min-block-size: 340px;
-    padding: 22px;
+    /* A controlled height rather than a stretch: the panel is a fixed piece of the
+       composition, and the interface inside is laid out to fill it. Letting the copy
+       column drive the height made the product photograph grow to 430px tall. */
+    min-block-size: 0;
+    block-size: clamp(310px, 25vw, 372px);
+    padding: 16px;
     display: flex;
     /* Centred rather than bottom-anchored: on a landscape card, a bottom-anchored
        interface leaves a third of the panel empty above it. */
@@ -903,4 +913,96 @@
   .lane[data-span='2'] .lv-pl-c { block-size: 17px; }
   .lane[data-span='2'] .lv-flow { gap: 0; }
   .lane[data-span='2'] .lv-fl-line { block-size: 7px; }
+}
+
+/* The storefront lane's interior grows to its column instead of hugging one product
+   row: a narrow strip of shop at the top of a tall panel reads as a placeholder. */
+@media (min-width: 900px) {
+  .lane[data-span='4'] .lane-art { padding: 18px; }
+  .lv-store { block-size: 100%; justify-content: space-between; }
+  .lv-st-body { grid-template-columns: 118px 1fr; gap: 16px; padding: 14px; }
+  .lv-st-name { font-size: 13.5px; }
+  .lv-st-price { font-size: 20px; }
+  .lv-st-buy { font-size: 8.5px; padding: 5px 10px; }
+  /* A second shelf row fills the panel with a believable shop, not one card. */
+  .lv-st-more {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    padding: 0 14px 14px;
+  }
+  .lv-st-more span {
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 8px; border-radius: 5px;
+    background: rgba(255,255,255,.035); border: 1px solid rgba(236,232,224,.08);
+    font-size: 9.5px; color: var(--silver); min-inline-size: 0;
+  }
+  .lv-st-more b { margin-inline-start: auto; color: var(--paper); font-weight: 600; }
+  .lv-st-more i { inline-size: 5px; block-size: 5px; border-radius: 50%; background: var(--ac); flex: none; }
+}
+
+/* The gallery panels' inner interfaces fill their media well. The storefront panel
+   was leaving a third of the frame empty above a single product row. */
+@media (min-width: 900px) {
+  .wg-item[data-i='0'] .pcard-media,
+  .wg-item[data-i='5'] .pcard-media { padding: 16px; align-items: stretch; }
+  .wg-item[data-i='0'] .pcard-ui > .ui-frame,
+  .wg-item[data-i='5'] .pcard-ui > .ui-frame { block-size: 100%; }
+  .wg-item[data-i='0'] .pcard-ui .ui,
+  .wg-item[data-i='5'] .pcard-ui .ui { block-size: 100%; display: flex; flex-direction: column; }
+  /* The body fills the frame and the product image grows into it, so the panel is
+     a photograph of a shop rather than one small card floating in an empty field. */
+  .wg-item[data-i='0'] .pcard-ui .ui-body,
+  .wg-item[data-i='5'] .pcard-ui .ui-body { flex: 1; padding: 0; min-block-size: 0; }
+  .wg-item[data-i='0'] .pcard-ui .ui-pdp,
+  .wg-item[data-i='5'] .pcard-ui .ui-pdp {
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1fr);
+    gap: 0;
+    block-size: 100%;
+    align-items: stretch;
+  }
+  .wg-item[data-i='0'] .pcard-ui .ui-shot,
+  .wg-item[data-i='5'] .pcard-ui .ui-shot {
+    block-size: 100%;
+    border-radius: 0;
+    min-block-size: 0;
+    overflow: hidden;
+  }
+  .wg-item[data-i='0'] .pcard-ui .ui-shot img,
+  .wg-item[data-i='5'] .pcard-ui .ui-shot img { block-size: 100%; object-fit: cover; }
+  .wg-item[data-i='0'] .pcard-ui .ui-pdp-info,
+  .wg-item[data-i='5'] .pcard-ui .ui-pdp-info {
+    padding: 22px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .wg-item[data-i='0'] .pcard-ui .ui-price,
+  .wg-item[data-i='5'] .pcard-ui .ui-price { font-size: 19px; }
+  .wg-item[data-i='0'] .pcard-ui .ui-h,
+  .wg-item[data-i='5'] .pcard-ui .ui-h { font-size: 16px; }
+}
+
+/* Phones: the two wide panels hug their interface instead of parking it at the
+   bottom of a 16:11 well. On desktop the well is a fixed piece of the composition;
+   on a phone a content-driven height is what removes the empty band above the shop. */
+@media (max-width: 899px) {
+  .wg-item[data-i='0'] .pcard-media,
+  .wg-item[data-i='5'] .pcard-media {
+    aspect-ratio: auto;
+    padding: 12px;
+  }
+  .wg-item[data-i='0'] .pcard-ui,
+  .wg-item[data-i='5'] .pcard-ui { block-size: auto; }
+  .wg-item[data-i='0'] .pcard-ui > *,
+  .wg-item[data-i='5'] .pcard-ui > * { margin-block-end: 0; }
+}
+
+/* The second shelf row is a desktop affordance that fills a wide lane. On a phone the
+   lane is narrow, so the row was collapsing to three labels with no separators —
+   "Ceramic pour-over$68Hand grinder$116". Hidden below 900px, where it is not needed. */
+.lv-st-more { display: none; }
+@media (min-width: 900px) {
+  .lv-st-more { display: grid; }
 }

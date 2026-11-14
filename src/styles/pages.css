@@ -219,10 +219,16 @@ label.f-field { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 
 
 /* Everything not chosen recedes: it keeps its geometry, loses its focus. Only a
    chosen card does this, so on first paint the stack is evenly present. */
+/* Recession is expressed through border, tone and a small scale-down, not a heavy
+   opacity drop: at 0.62 the unselected statements fell below a comfortable contrast
+   ratio, and these are questions a visitor has to be able to read in order to pick
+   one. 0.86 keeps them clearly secondary and fully legible. */
 .px-stage:has(.px-card[aria-pressed='true']) .px-card:not([aria-pressed='true']) {
-  opacity: .62;
-  filter: saturate(.75);
+  opacity: .86;
+  border-color: rgba(236, 232, 224, .05);
+  color: var(--muted);
 }
+.px-stage:has(.px-card[aria-pressed='true']) .px-card:not([aria-pressed='true']) .px-n { color: rgba(236, 232, 224, .26); }
 .px-stage .px-card:not([aria-pressed='true']):hover { opacity: 1; filter: none; }
 
 /* — the answer sheet — */
@@ -281,7 +287,7 @@ label.f-field { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 
 @media (max-width: 979px) {
   .px-stage { perspective: 1000px; }
   .px-card { min-block-size: 62px; }
-  .px-card[data-plane='far'] { opacity: .93; }
+  .px-card[data-plane='far'] { opacity: .96; }
 }
 
 @media (prefers-reduced-motion: reduce) {

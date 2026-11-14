@@ -110,6 +110,11 @@ function LaneVisual({ lane }: { lane: string }) {
               <span className="lv-st-buy">Add to cart</span>
             </span>
           </span>
+          <span className="lv-st-more">
+            <span><i />Ceramic pour-over<b>$68</b></span>
+            <span><i />Hand grinder<b>$116</b></span>
+            <span><i />Amber &amp; smoke<b>$52</b></span>
+          </span>
         </span>
       );
     case 'app':

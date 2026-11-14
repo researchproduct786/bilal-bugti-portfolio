@@ -15,7 +15,6 @@ export function ProjectCard({ project, t, L, ui = defaultUiLabels }: { project: 
   return (
     <article className="pcard reveal" style={{ ['--ac' as string]: project.accent }}>
       <Link href={L(`/work/${project.slug}`)} className="pcard-media" data-cursor aria-label={`${project.brand} — ${project.what}`}>
-        <span className="pcard-tag">{t.ui.concept}</span>
         <span className={`pcard-ui ${project.visual === 'app' ? 'is-phone' : ''}`}>
           {project.visual === 'crm' ? (
             <span className="ui-stack">
@@ -30,7 +29,13 @@ export function ProjectCard({ project, t, L, ui = defaultUiLabels }: { project: 
         </span>
       </Link>
       <div className="pcard-body">
-        <p className="pcard-k mono">{project.n} · {project.brand}</p>
+        {/* The disclosure lives with the words, not on top of the interface. On the
+            wide panels it used to sit over a white product photograph, where it was
+            both illegible and on top of the storefront's own cart control. */}
+        <p className="pcard-k mono">
+          <span>{project.n} · {project.brand}</span>
+          <span className="pcard-tag">{t.ui.concept}</span>
+        </p>
         <h3 className="pcard-t">{project.what}</h3>
         <p className="pcard-l">{project.summary}</p>
         <dl className="pcard-dl">
