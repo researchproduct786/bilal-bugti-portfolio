@@ -9,7 +9,7 @@
 /* No overflow clipping on the hero: the near card deliberately breaks past the
    stage's lower-left corner, which is what makes the layer stack read as physical. */
 /* Extra bottom padding on phones keeps the near card clear of the sticky contact bar. */
-.hero2 { position: relative; padding: calc(var(--nav-h) + 34px) 0 44px; overflow: visible; isolation: isolate; }
+.hero2 { position: relative; padding: calc(var(--nav-h) + 34px) 0 44px; overflow: clip; isolation: isolate; }
 @media (max-width: 760px) { .hero2 { padding-block-end: 104px; } }
 .hero2-in { display: grid; gap: 26px; position: relative; z-index: 2; }
 .hero2-copy { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
@@ -309,3 +309,598 @@
 /* ── Duo pairs two photographs side by side on wider screens ── */
 .duo > .scene + .scene { margin-top: 0; }
 @media (max-width: 899px) { .duo > .scene + .scene { margin-top: 4px; } }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Seven capabilities, seven compositions
+   ══════════════════════════════════════════════════════════════════════════
+   A six-column board. Lanes claim different spans, so the eye moves through the
+   section in a rhythm instead of a lattice — wide, narrow, wide, wide, narrow,
+   narrow, narrow. Each lane carries its own --ac accent, and every accent-bearing
+   element inside it (rule, number, art glow, hover edge) reads from that one value.
+*/
+.lanes {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+  counter-reset: lane;
+}
+.lane {
+  grid-column: span 6;
+  min-inline-size: 0;
+  --ac: var(--paper);
+  position: relative;
+  border-radius: 18px;
+  border: 1px solid var(--glass-edge-soft);
+  background:
+    radial-gradient(120% 100% at 12% 0%, color-mix(in srgb, var(--ac) 9%, transparent), transparent 62%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.008) 40%, transparent 78%),
+    rgba(12, 15, 20, 0.55);
+  overflow: hidden;
+  transition: border-color .5s var(--ease), transform .5s var(--ease), box-shadow .5s var(--ease);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 24px 50px -34px rgba(0, 0, 0, 0.9);
+  isolation: isolate;
+}
+/* The accent rule sits on the leading edge, so it is the first thing scanned. */
+.lane::after {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  inline-size: 2px;
+  background: linear-gradient(180deg, transparent, var(--ac) 18%, var(--ac) 82%, transparent);
+  opacity: .5;
+  transition: opacity .5s var(--ease), inline-size .5s var(--ease);
+}
+.lane:hover { border-color: color-mix(in srgb, var(--ac) 38%, var(--glass-edge-soft)); box-shadow: 0 1px 0 rgba(255,255,255,.06) inset, 0 30px 60px -30px rgba(0,0,0,.95); }
+.lane:hover::after { opacity: 1; }
+.lane-link {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  block-size: 100%;
+  gap: 0;
+  text-decoration: none;
+  color: inherit;
+}
+.lane-copy { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 7px; }
+.lane-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: var(--ac); }
+.lane-n { font-size: 10px; letter-spacing: .16em; opacity: .8; }
+.lane-t {
+  font-size: clamp(17px, 2.1vw, 20px);
+  font-weight: 560;
+  font-stretch: 105%;
+  letter-spacing: -.015em;
+  line-height: 1.18;
+}
+.lane-l { font-size: 13.5px; line-height: 1.5; color: var(--silver); }
+.lane-p {
+  margin-block-start: 4px;
+  padding-block-start: 10px;
+  border-top: 1px solid var(--line);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.lane-p b {
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--ac) 75%, var(--muted));
+  margin-block-end: 3px;
+}
+
+/* — the art area, one per lane — */
+.lane-art {
+  display: block;
+  padding: 14px 14px 0;
+  min-block-size: 132px;
+}
+.lv { display: block; position: relative; inline-size: 100%; block-size: 100%; }
+
+/* 01 storefront — the only lane with a photograph, because retail is photographic */
+.lv-store {
+  border-radius: 10px; overflow: hidden;
+  background: rgba(8, 10, 14, .7);
+  border: 1px solid rgba(236, 232, 224, .1);
+  display: flex; flex-direction: column;
+}
+.lv-st-bar { display: flex; align-items: center; justify-content: space-between; padding: 7px 10px; border-bottom: 1px solid rgba(236,232,224,.08); }
+.lv-word { font-family: var(--f-mono); font-size: 8px; letter-spacing: .16em; text-transform: uppercase; color: var(--paper); }
+.lv-word span { color: var(--muted); }
+.lv-cart { font-family: var(--f-mono); font-size: 7.5px; letter-spacing: .08em; color: var(--silver); border: 1px solid rgba(236,232,224,.16); border-radius: 3px; padding: 2px 6px; }
+.lv-st-body { display: grid; grid-template-columns: 74px 1fr; gap: 10px; padding: 10px; align-items: center; }
+.lv-st-photo { display: block; border-radius: 4px; overflow: hidden; background: #f3efe7; aspect-ratio: 1; }
+.lv-st-photo img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; }
+.lv-st-info { display: flex; flex-direction: column; gap: 2px; min-inline-size: 0; }
+.lv-st-name { font-size: 10.5px; color: var(--paper); }
+.lv-st-price { font-size: 13px; font-weight: 600; color: var(--ac); }
+.lv-st-buy { margin-block-start: 3px; align-self: flex-start; font-family: var(--f-mono); font-size: 7.5px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 7px; border-radius: 3px; background: color-mix(in srgb, var(--ac) 88%, #000); color: #08120c; }
+
+/* 02 device — narrow, tall, centred: the shape of the thing */
+.lv-device { display: grid; place-items: center; }
+.lv-ph {
+  inline-size: min(112px, 62%); border-radius: 16px; padding: 9px 8px 12px;
+  background: linear-gradient(170deg, #171b22, #0b0d11);
+  border: 1px solid rgba(236,232,224,.14);
+  display: flex; flex-direction: column; gap: 3px;
+  box-shadow: 0 14px 30px -14px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.07);
+}
+.lv-ph-top { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 6px; color: var(--muted); }
+.lv-ph-k { font-family: var(--f-mono); font-size: 6px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-block-start: 5px; }
+.lv-ph-big { font-size: 15px; font-weight: 600; letter-spacing: -.02em; color: var(--ac); line-height: 1; }
+.lv-ph-row { display: flex; align-items: baseline; gap: 3px; font-size: 6.5px; color: var(--silver); border-top: 1px solid rgba(236,232,224,.08); padding-block-start: 3px; margin-block-start: 3px; }
+.lv-ph-row b { font-size: 9px; color: var(--paper); }
+
+/* 03 website — an editorial page, not a browser chrome */
+.lv-page { display: flex; flex-direction: column; justify-content: space-between; gap: 10px; padding: 2px 0 0; }
+.lv-pg-h { font-size: 12.5px; line-height: 1.3; color: var(--paper); letter-spacing: -.01em; }
+.lv-pg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.lv-pg-grid span { block-size: 34px; border-radius: 4px; background: linear-gradient(180deg, color-mix(in srgb, var(--ac) 16%, transparent), rgba(255,255,255,.02)); border: 1px solid rgba(236,232,224,.07); }
+.lv-pg-url { font-family: var(--f-mono); font-size: 7.5px; letter-spacing: .08em; color: var(--dim); }
+
+/* 04 AI — a conversation, deliberately unlike the data lanes */
+.lv-ai { display: flex; flex-direction: column; gap: 7px; justify-content: center; }
+.lv-ai-q {
+  align-self: flex-end; max-inline-size: 84%;
+  font-size: 10.5px; line-height: 1.35; color: #0a1218;
+  background: color-mix(in srgb, var(--ac) 82%, #fff);
+  border-radius: 9px 9px 3px 9px; padding: 6px 9px;
+}
+.lv-ai-a {
+  align-self: flex-start; max-inline-size: 92%;
+  font-size: 10.5px; line-height: 1.4; color: var(--paper);
+  background: rgba(255,255,255,.045); border: 1px solid rgba(236,232,224,.1);
+  border-radius: 9px 9px 9px 3px; padding: 7px 9px;
+  display: flex; flex-direction: column; gap: 3px;
+}
+.lv-ai-src { font-family: var(--f-mono); font-size: 7px; letter-spacing: .06em; color: var(--ac); opacity: .9; }
+.lv-ai-ok { align-self: flex-start; font-family: var(--f-mono); font-size: 7.5px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; border: 1px solid color-mix(in srgb, var(--ac) 50%, transparent); color: var(--ac); }
+
+/* 05 automation — a chain with one direction */
+.lv-flow { display: flex; flex-direction: column; gap: 0; justify-content: center; }
+.lv-fl-n {
+  font-size: 10px; color: var(--paper); padding: 5px 9px; border-radius: 4px;
+  background: rgba(255,255,255,.045); border: 1px solid rgba(236,232,224,.1);
+  align-self: flex-start;
+}
+.lv-fl-line { inline-size: 1px; block-size: 9px; margin-inline-start: 14px; background: linear-gradient(180deg, var(--ac), transparent); }
+.lv-fl-note { margin-block-start: 8px; font-family: var(--f-mono); font-size: 7.5px; letter-spacing: .08em; color: var(--ac); opacity: .95; }
+
+/* 06 CRM — a small pipeline, three columns */
+.lv-pipe { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; align-content: center; }
+.lv-pl-col { display: flex; flex-direction: column; gap: 4px; min-inline-size: 0; }
+.lv-pl-h { font-family: var(--f-mono); font-size: 7px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lv-pl-h b { color: var(--ac); }
+.lv-pl-c { block-size: 20px; border-radius: 3px; background: rgba(255,255,255,.04); border: 1px solid rgba(236,232,224,.09); border-inline-start: 2px solid var(--ac); }
+
+/* 07 growth — bars, but read left to right as a trend */
+.lv-chart { display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; }
+.lv-ch-bars { display: flex; align-items: flex-end; gap: 4px; block-size: 74px; }
+.lv-ch-bars i {
+  flex: 1; border-radius: 2px 2px 0 0;
+  background: linear-gradient(180deg, var(--ac), color-mix(in srgb, var(--ac) 22%, transparent));
+  transform-origin: bottom;
+  transition: transform .7s var(--ease);
+}
+.lane:hover .lv-ch-bars i { transform: scaleY(1.08); }
+.lv-ch-foot { font-family: var(--f-mono); font-size: 8px; letter-spacing: .06em; color: var(--muted); }
+.lv-ch-foot b { color: var(--ac); font-size: 10px; }
+
+/* --- desktop board --- */
+@media (min-width: 900px) {
+  .lane[style*="--span:4"] { grid-column: span 4; }
+  .lane[style*="--span:3"] { grid-column: span 3; }
+  .lane[style*="--span:2"] { grid-column: span 2; }
+  .lane-art { min-block-size: 150px; }
+  .lv-st-body { grid-template-columns: 92px 1fr; gap: 14px; padding: 12px; }
+  .lv-st-name { font-size: 12px; }
+  .lv-st-price { font-size: 16px; }
+  .lv-ph { inline-size: min(126px, 66%); }
+  .lv-ph-big { font-size: 17px; }
+  .lv-pg-h { font-size: 15px; }
+  .lv-pg-grid span { block-size: 44px; }
+  .lv-ai-q, .lv-ai-a { font-size: 12px; }
+  .lv-fl-n { font-size: 11.5px; }
+  .lv-ch-bars { block-size: 88px; }
+}
+
+/* Each lane arrives from where it sits: the wide ones from the side, the narrow
+   ones out of depth. Seven identical fades would undo the differentiation above. */
+@media (prefers-reduced-motion: no-preference) {
+  .lane.reveal { opacity: 0; transform: none; transition: opacity .9s var(--ease), transform 1s var(--ease); transition-delay: var(--d, 0s); }
+  .lane.reveal.is-in { opacity: 1; }
+  [data-lane='shopify'].reveal { transform: translate3d(-26px, 0, 0); }
+  [data-lane='app'].reveal { transform: translate3d(0, 0, 0) scale(.94); }
+  [data-lane='web'].reveal { transform: translate3d(0, 24px, 0); }
+  [data-lane='ai'].reveal { transform: translate3d(26px, 0, 0); }
+  [data-lane='automation'].reveal { transform: translate3d(0, 0, 0) scale(.94); }
+  [data-lane='crm'].reveal { transform: translate3d(0, 20px, 0); }
+  [data-lane='marketing'].reveal { transform: translate3d(0, 0, 0) scale(.95); }
+  .lane.reveal.is-in { transform: none; }
+}
+
+/* Phones: every lane is full width, so the differentiation has to come from the
+   art and the accent rather than from the span. Nothing that was visible on
+   desktop disappears — the copy order is identical. */
+@media (max-width: 899px) {
+  .lanes { gap: 12px; }
+  .lane { border-radius: 15px; }
+  .lane-art { min-block-size: 124px; }
+  .lv-ph { inline-size: 104px; }
+  .lv-pg-h { font-size: 12px; }
+  .lv-ai-q, .lv-ai-a { font-size: 10.5px; }
+}
+
+/* ── Chapter openings ──────────────────────────────────────────
+   Number and label in a narrow leading column, title and context in a wide one.
+   The number is not decoration: it is the reason the page reads as a sequence.
+   Backgrounds differ per chapter so each one is a place, not a segment. */
+.chapter-sec { position: relative; }
+.chapter {
+  display: grid;
+  gap: 14px;
+  margin-block-end: clamp(30px, 5vw, 64px);
+}
+.chapter-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+}
+.chapter-tag .mono { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+.chapter-tag .mono:first-child {
+  color: var(--paper);
+  padding: 3px 7px;
+  border: 1px solid var(--line-strong);
+  border-radius: 3px;
+  letter-spacing: .1em;
+}
+.chapter-body { display: flex; flex-direction: column; gap: 14px; }
+.chapter-lede { font-size: clamp(15px, 1.9vw, 17.5px); line-height: 1.55; color: var(--silver); max-width: 46em; }
+@media (min-width: 860px) {
+  .chapter { grid-template-columns: 168px minmax(0, 1fr); gap: clamp(22px, 4vw, 56px); align-items: start; }
+  .chapter-tag { flex-direction: column; align-items: flex-start; gap: 8px; padding-block-start: 6px; }
+  .chapter-body { max-width: 54rem; }
+}
+
+/* Each chapter's ground is different. Services is the lightest (most open),
+   work sits deepest, problems is the most neutral, process warms slightly, and
+   about is the quietest of all — it is a person, not a pitch. */
+[data-chapter='services'] { background: radial-gradient(90% 60% at 78% 0%, rgba(126, 200, 165, .05), transparent 62%); }
+[data-chapter='work'] { background: radial-gradient(80% 52% at 8% 0%, rgba(143, 180, 255, .055), transparent 64%); }
+[data-chapter='problems'] { background: radial-gradient(70% 50% at 50% 0%, rgba(183, 156, 255, .045), transparent 66%); }
+[data-chapter='process'] { background: radial-gradient(84% 56% at 88% 4%, rgba(255, 171, 122, .045), transparent 66%); }
+[data-chapter='about'] { background: radial-gradient(76% 60% at 24% 8%, rgba(236, 232, 224, .04), transparent 62%); }
+
+/* About is the last chapter; give it a real pause above it. */
+[data-chapter='about'] { padding-block-start: clamp(56px, 9vw, 130px); }
+
+/* ── Minimal closing footer ────────────────────────────────────
+   After the closing question, one line. No sitemap. */
+.footer-min { border-top: 1px solid var(--line); padding-block: 22px; }
+.footer-min-in { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.footer-min-in .mono { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.footer-min-links { display: flex; gap: 18px; }
+.footer-min-links a { font-size: 12.5px; color: var(--silver); }
+.footer-min-links a:hover { color: var(--paper); }
+@media (max-width: 560px) {
+  .footer-min-in { gap: 10px; }
+  .footer-min-links { gap: 14px; }
+}
+
+/* ── The work gallery: six panels, deliberately unequal ────────────────────
+   Six identical cards in a 2×3 grid is the same failure as seven identical
+   capability cards. Each product gets a span, an accent, its own label and its own
+   entrance, so the section scrolls as a gallery — a wide hero panel followed by
+   smaller ones — instead of as a table of contents. */
+.workgrid2 { grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 760px) {
+  .workgrid2 { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 22px; }
+  .wg-item { grid-column: span 3; }
+  /* Halden (store) opens the gallery wide; Tillo and Deskhand share a row; Linework
+     runs wide as the CRM; Ember and Slowtide close it. */
+  .wg-item[data-i='0'] { grid-column: span 6; }
+  .wg-item[data-i='1'] { grid-column: span 3; }
+  .wg-item[data-i='2'] { grid-column: span 3; }
+  .wg-item[data-i='3'] { grid-column: span 4; }
+  .wg-item[data-i='4'] { grid-column: span 2; }
+  .wg-item[data-i='5'] { grid-column: span 6; }
+}
+@media (min-width: 1100px) {
+  .wg-item[data-i='3'] { grid-column: span 3; }
+  .wg-item[data-i='4'] { grid-column: span 3; }
+  .wg-item[data-i='5'] { grid-column: span 6; }
+}
+
+/* The opening panel is a hero, so its type is larger and it runs wide. The wide
+   panels split horizontally — interface beside copy — rather than putting a wide
+   interface at the bottom of a tall empty frame, which is what produced a large
+   blank expanse above the screen. */
+.wg-item[data-i='0'] .pcard-t { font-size: clamp(22px, 3vw, 30px); }
+.wg-item[data-i='0'] .pcard-dl { display: none; }
+.wg-item[data-i='5'] .pcard-dl { display: none; }
+/* Narrow panels lose the second definition row rather than clipping it. */
+.wg-item[data-i='4'] .pcard-dl > div:nth-child(2) { display: none; }
+.wg-item[data-i='4'] .pcard-media { aspect-ratio: 4 / 3; }
+
+/* Panels arrive through the gallery: a small forward drift plus a rise, staggered
+   by position, so the eye is led across the row rather than down a list. */
+@media (prefers-reduced-motion: no-preference) {
+  .wg-item { transition: opacity .8s var(--ease), transform .9s var(--ease); }
+  .wg-item:nth-child(1) { transition-delay: 0ms; }
+  .wg-item:nth-child(2) { transition-delay: 70ms; }
+  .wg-item:nth-child(3) { transition-delay: 110ms; }
+  .wg-item:nth-child(4) { transition-delay: 90ms; }
+  .wg-item:nth-child(5) { transition-delay: 130ms; }
+  .wg-item:nth-child(6) { transition-delay: 160ms; }
+}
+
+/* Panels that float: a shared lift plus the panel's own accent bloom. */
+.pcard {
+  block-size: 100%;
+  border-radius: 16px;
+  box-shadow: 0 24px 60px -40px rgba(0, 0, 0, .95);
+  transition: border-color .4s var(--ease), transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.pcard:hover { transform: translate3d(0, -4px, 0); box-shadow: 0 34px 72px -34px rgba(0, 0, 0, 1); }
+@media (prefers-reduced-motion: reduce) {
+  .pcard:hover { transform: none; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Process: one pinned frame, seven steps in lockstep
+   ══════════════════════════════════════════════════════════════════════════
+   On desktop the frame is sticky and the steps scroll beside it, so the picture
+   changes exactly as the words that describe it arrive. There is no scroll
+   hijacking: the page scrolls at its own speed and the frame simply stays put.
+   On a phone the frame is removed entirely and each step carries its own picture.
+*/
+.jx { display: block; }
+
+/* — desktop frame — */
+.jx-frame { display: none; }
+
+.jx-shot { position: relative; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; }
+.jx-layer {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transform: scale(1.015);
+  transition: opacity .7s var(--ease), transform .9s var(--ease);
+  will-change: opacity, transform;
+}
+.jx-layer.is-on { opacity: 1; transform: none; }
+.jx-layer .scene, .jx-layer .scene-img { block-size: 100%; }
+.jx-layer .scene-img { aspect-ratio: auto !important; }
+
+.jx-rail { display: flex; flex-direction: column; gap: 0; margin-block-start: 16px; }
+.jx-rail li { display: grid; grid-template-columns: 26px minmax(0, 1fr); align-items: center; gap: 10px; block-size: 22px; }
+.jx-rail-n { font-size: 9.5px; letter-spacing: .1em; color: var(--dim); transition: color .4s var(--ease); }
+.jx-rail-line { block-size: 1px; background: var(--line); transition: background .4s var(--ease); }
+.jx-rail li.is-on .jx-rail-n { color: var(--tungsten); }
+.jx-rail li.is-on .jx-rail-line { background: color-mix(in srgb, var(--tungsten) 65%, var(--line)); }
+
+/* — steps (mobile-first) — */
+.jx-steps { display: grid; gap: 30px; }
+.jx-step {
+  display: grid;
+  gap: 14px;
+  padding-block-start: 4px;
+  border-top: 1px solid var(--line);
+  padding-block-start: 20px;
+}
+.jx-step-media { position: relative; }
+.jx-step-n {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-start: 10px;
+  z-index: 3;
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--paper);
+  background: rgba(8, 10, 14, .74);
+  border: 1px solid rgba(236, 232, 224, .18);
+  border-radius: 3px;
+  padding: 2px 6px;
+}
+.jx-step-t { font-size: clamp(18px, 2.4vw, 22px); font-weight: 560; font-stretch: 104%; letter-spacing: -.015em; line-height: 1.2; }
+.jx-step-p { margin-block-start: 8px; font-size: 14.5px; line-height: 1.6; color: var(--silver); }
+.jx-step-out { margin-block-start: 12px; display: flex; gap: 8px; flex-wrap: wrap; align-items: baseline; font-size: 12.5px; color: var(--muted); }
+.jx-step-out .mono { font-size: 9px; letter-spacing: .13em; text-transform: uppercase; color: var(--tungsten); }
+
+/* — desktop layout: frame pinned on the left, steps scrolling on the right — */
+@media (min-width: 900px) {
+  .jx {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(30px, 5vw, 76px);
+    align-items: start;
+  }
+  .jx-frame {
+    display: block;
+    position: sticky;
+    top: calc(var(--nav-h) + 26px);
+    /* Leaves a readable margin below the frame on short screens. */
+    max-block-size: calc(100dvh - var(--nav-h) - 60px);
+  }
+  .jx-steps { margin-block-start: 0; }
+  .jx-step { min-block-size: 46vh; align-content: center; gap: 0; }
+  /* The pinned image replaces the per-step one, so the copy column stays pure text. */
+  .jx-step-media { display: none; }
+  .jx-step-t { font-size: clamp(20px, 2.3vw, 26px); }
+  .jx-step-p { font-size: 15px; max-width: 34em; }
+  /* Inactive steps recede slightly; the active one is fully present. */
+  .jx-step { opacity: .42; transition: opacity .55s var(--ease); }
+  .jx-step.is-on { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .jx-step, .jx-layer { transition: none; }
+  .jx-step { opacity: 1 !important; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   About: the quietest chapter, and the last one
+   ══════════════════════════════════════════════════════════════════════════
+   The portrait is a true 4:5 with the full head, both shoulders and upper torso
+   inside the frame and real headroom above. Desktop and mobile are framed
+   separately rather than one crop squashed into the other: on a phone the figure
+   is centred and given more of the width; on desktop it holds a narrower column
+   so the copy keeps the reading line.
+*/
+.about2 { position: relative; }
+.about2 .chapter-tag { margin-block-end: clamp(24px, 4vw, 44px); }
+.about2-in { display: grid; gap: 26px; align-items: start; }
+.about2-fig {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-inline-size: 0;
+}
+.about2-fig img {
+  inline-size: 100%;
+  max-inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  /* Mobile framing: centred, holding the whole head and both shoulders with the
+     torso running out of the bottom edge — a portrait, not a face crop. */
+  object-position: 50% 24%;
+  border-radius: 14px;
+  border: 1px solid var(--line-strong);
+  background: #0f1319;
+  box-shadow: 0 30px 70px -40px rgba(0, 0, 0, .95), inset 0 1px 0 rgba(255, 255, 255, .06);
+}
+.about2-fig .mono { font-size: 10px; letter-spacing: .1em; }
+.about2-copy { display: flex; flex-direction: column; }
+.about2-copy .h2 { max-width: 18em; }
+
+@media (min-width: 700px) {
+  .about2-fig img { max-inline-size: 420px; }
+}
+@media (min-width: 900px) {
+  .about2-in { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: clamp(32px, 5vw, 76px); }
+  .about2-fig { position: sticky; top: calc(var(--nav-h) + 30px); }
+  .about2-fig img {
+    /* Desktop framing: the same full portrait, held slightly lower in its column so
+       the head sits level with the first line of the heading beside it. */
+    object-position: 50% 20%;
+    max-inline-size: 440px;
+  }
+  .about2-copy { padding-block-start: 4px; }
+}
+
+/* The About chapter is the last content beat, so it fades in with a longer, softer
+   move than the sections before it — a settling rather than an arrival. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-chapter='about'] .about2-fig img { animation: about-settle 1.6s var(--ease) both; }
+  @keyframes about-settle {
+    from { opacity: 0; transform: translate3d(0, 22px, 0) scale(1.012); filter: brightness(.8) blur(4px); }
+    to   { opacity: 1; transform: none; filter: none; }
+  }
+}
+
+/* Wide lanes (4 or 3 of 6 columns) lay out side by side: the interface sits in its
+   own column at a natural width and the copy keeps a readable measure beside it.
+   A 870px-wide card with a 74px product photo stranded at the left edge is not a
+   composition, it is empty space. Narrow lanes stay stacked. */
+@media (min-width: 900px) {
+  .lane[data-span='4'] .lane-link,
+  .lane[data-span='3'] .lane-link {
+    grid-template-rows: none;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .92fr);
+    align-items: stretch;
+  }
+  .lane[data-span='4'] .lane-art,
+  .lane[data-span='3'] .lane-art {
+    padding: 16px 0 16px 16px;
+    min-block-size: 0;
+    display: flex;
+    align-items: center;
+  }
+  .lane[data-span='4'] .lane-copy,
+  .lane[data-span='3'] .lane-copy {
+    padding: 18px 20px;
+    justify-content: center;
+  }
+  /* The storefront is the widest interface, so it may run a little wider. */
+  .lane[data-span='4'] .lane-link { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); }
+  .lv-store { inline-size: 100%; }
+  .lv-st-body { grid-template-columns: 96px 1fr; }
+  /* The page, conversation and chart lanes were designed for a narrow column; cap
+     them so they do not stretch into a band. */
+  .lv-page, .lv-ai, .lv-chart, .lv-flow, .lv-pipe { inline-size: 100%; max-inline-size: 330px; }
+}
+
+/* Wide gallery panels: media and copy side by side on a landscape card. */
+@media (min-width: 900px) {
+  .wg-item[data-i='0'] .pcard,
+  .wg-item[data-i='5'] .pcard {
+    display: grid;
+    grid-template-columns: minmax(0, 1.28fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+  .wg-item[data-i='0'] .pcard-media,
+  .wg-item[data-i='5'] .pcard-media {
+    aspect-ratio: auto;
+    min-block-size: 340px;
+    padding: 22px;
+    display: flex;
+    /* Centred rather than bottom-anchored: on a landscape card, a bottom-anchored
+       interface leaves a third of the panel empty above it. */
+    align-items: center;
+    overflow: hidden;
+  }
+  .wg-item[data-i='0'] .pcard-ui,
+  .wg-item[data-i='5'] .pcard-ui {
+    inline-size: 100%;
+    height: auto;
+    max-block-size: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  /* The bleed was designed for the portrait cards, where a screen continuing past
+     the bottom edge reads as a device standing on a floor. On a landscape panel it
+     just clips the primary button. */
+  .wg-item[data-i='0'] .pcard-ui > *,
+  .wg-item[data-i='5'] .pcard-ui > * { margin-block-end: 0; }
+  .wg-item[data-i='0'] .pcard-body,
+  .wg-item[data-i='5'] .pcard-body {
+    padding: clamp(20px, 2.4vw, 32px);
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+/* A lane's art area is sized by its content, not stretched to fill the card. The
+   earlier rule let a 132px picture area stretch to 165px, which pushed the AI
+   conversation and the automation chain to the top of a tall empty box. */
+@media (min-width: 900px) {
+  .lane[data-span='2'] .lane-link { grid-template-rows: auto auto; align-content: start; }
+  .lane[data-span='2'] .lane-art {
+    min-block-size: 148px;
+    max-block-size: 172px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lane[data-span='2'] .lv { block-size: auto; }
+}
+
+/* Narrow lanes: the interface sits flush left at the top of its area and the copy
+   follows directly beneath. Centring a 74px-tall chart in a 172px box left a band of
+   empty card above it, which read as a missing image rather than a composition. */
+@media (min-width: 900px) {
+  .lane[data-span='2'] .lane-art {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-block: 18px 4px;
+    max-block-size: none;
+    min-block-size: 0;
+  }
+  .lane[data-span='2'] .lv-ch-bars { block-size: 68px; }
+  .lane[data-span='2'] .lv-ph { inline-size: 104px; }
+  .lane[data-span='2'] .lv-pl-c { block-size: 17px; }
+  .lane[data-span='2'] .lv-flow { gap: 0; }
+  .lane[data-span='2'] .lv-fl-line { block-size: 7px; }
+}

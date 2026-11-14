@@ -245,10 +245,58 @@ Open the preview signed in as `researchproduct786`.
 4. **Cut-out edges** — zoom to 200 % on the hair: no cyan fringe, no hard matte line.
 5. **Nav** — pill thickens after scrolling; menu overlay opens/closes; language switch keeps you
    on the same page in the new locale.
-6. **Arabic** — `/ar`: whole layout mirrors, numerals and Rs amounts read correctly, hero planes
+6. **Arabic** — `/ar`: whole layout mirrors, numerals and dollar amounts read correctly, hero planes
    swap sides.
 7. **Demos** — `/en/work/halden-objects` add to cart, `/en/work/tillo` advance an order,
    `/en/work/linework-crm` move a deal; every screen shows real content, none empty.
-8. **Contact** — three steps, validation, and the copy/send handoff.
+8. **Contact** — three steps, validation, USD budget bands, and the copy/send handoff.
 9. **Reduced motion** — enable it in the OS, reload: everything visible, no animation.
 10. **Console** — no errors on any route.
+
+## Milestone: design correction (Parts A–P)
+
+The homepage was re-sequenced into eight chapters and each one given its own identity.
+Currency, photography and the hero composition were corrected at the same time.
+
+**Sequence now:** hero → introduction → services (7) → work (6) → problems (8) → process (7)
+→ about → closing question → one-line footer. Everything that used to sit below About —
+the testimonial wall, the working notes, the kitchen photograph and interface duo — is
+removed. Nothing was added just to lengthen the page; the page got shorter.
+
+**Corrections of note**
+
+- **Currency.** The whole site is US dollars again: `money()` emits `$`, every demo's sample
+  data was re-denominated, and the inquiry form's budget bands run `Under $2,500` through
+  `$30,000+`. No rupee symbol, abbreviation or regional label remains anywhere in `src/`.
+- **Hero.** The deepest plane was a blurred copy of the subject's own portrait, which put a
+  second face behind his shoulder. It is now a person-free studio environment. The subject's
+  entrance never scales — opacity plus a 9px drift only — and the card's top edge sits below
+  the shoulders so the head clears it. The body is anchored to the stage floor and masked into
+  the panel's shadow instead of ending on a cut line. Two layout bugs fixed on the way: the
+  stage height resolved to `96vw` at desktop widths, and `overflow-x: hidden` on `<html>`
+  disabled every sticky element (now `clip`).
+- **Capabilities.** Seven lanes on a six-column board with different spans, seven accents,
+  seven icons, seven genuinely different interface pictures (storefront, device, page,
+  conversation, chain, pipeline, chart) and seven different entrance directions.
+- **Work.** Six panels with unequal spans: a wide opening storefront panel, paired mid panels,
+  and a wide closing campaign panel. Wide panels split horizontally rather than parking a wide
+  interface at the bottom of a tall empty frame.
+- **Problems.** Eight cards on eight different z-planes. The chosen one lifts clear, the rest
+  recede and lose saturation. The answer panel names the matching capability explicitly.
+- **Process.** One pinned frame on desktop with the active step driven by an
+  IntersectionObserver; the per-step image is hidden there and shown on mobile, where every
+  step keeps its own picture. Four of the seven photographs were replaced because they were
+  regional shop clichés or blank device screens: a grocery counter, a cluttered back office,
+  three empty phones and a stereotyped storefront.
+- **About.** A true 4:5 portrait, generated to the correct frame rather than cropped from the
+  square: full head, both shoulders, upper torso, real headroom. Separate desktop and mobile
+  framing. Heading corrected to the specified wording, the "Buildings for Real Business" line
+  is gone.
+- **Navigation.** Identity, menu toggle and the four chapters form one group at the start of
+  the bar, with a dot indicating the active chapter as the homepage scrolls. Language and the
+  call to action sit opposite. On phones the menu button keeps its 44px target.
+
+**Verified:** typecheck clean; build 133 pages; `test:e2e` 1319/0; `check:i18n` 6 locales
+(273 UI keys, 485 content strings); 20-route browser sweep with no overflow, no broken images,
+no rupee text, one `h1` each and no console errors; 360/375/390/393/430/768 with `overflowX: 0`
+throughout; `/ar` RTL verified; reduced motion leaves everything visible with no transforms.

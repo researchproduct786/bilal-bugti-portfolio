@@ -13,7 +13,14 @@ import { MobileBar } from './MobileBar';
  * The chrome every page shares. Locale-aware navigation labels are assembled on the server
  * and handed to the client components as plain data.
  */
-export function Shell({ b, children }: { b: LocaleBundle; children: ReactNode }) {
+export function Shell({
+  b, children, minimalFooter = false,
+}: {
+  b: LocaleBundle;
+  children: ReactNode;
+  /** The homepage's footnotes are a single line; inner pages keep the full sitemap. */
+  minimalFooter?: boolean;
+}) {
   const { locale, t, c } = b;
   const L = (p: string) => href(locale, p as string);
 
@@ -29,10 +36,10 @@ export function Shell({ b, children }: { b: LocaleBundle; children: ReactNode })
     },
     nav: t.nav,
     primary: [
-      { href: '/work', label: t.nav.work },
-      { href: '/services', label: t.nav.services },
-      { href: '/process', label: t.nav.process },
-      { href: '/about', label: t.nav.about },
+      { href: '/work', label: t.nav.work, chapter: 'work' },
+      { href: '/services', label: t.nav.services, chapter: 'services' },
+      { href: '/process', label: t.nav.process, chapter: 'process' },
+      { href: '/about', label: t.nav.about, chapter: 'about' },
     ],
     index: [
       { href: '/', label: t.ui.home, note: c.projects.length ? `${c.projects.length} ${t.nav.work}` : '' },
@@ -65,7 +72,7 @@ export function Shell({ b, children }: { b: LocaleBundle; children: ReactNode })
       <a className="skip-link" href="#main">{t.ui.skip}</a>
       <Nav labels={labels} name={site.name} />
       <main id="main" tabIndex={-1} style={{ outline: 'none' }}>{children}</main>
-      <Footer b={b} name={site.name} />
+      <Footer b={b} name={site.name} minimal={minimalFooter} />
       <MobileBar label={t.contact.kicker} closeLabel={t.ui.close} />
       <Interactions />
       <DepthMotion />

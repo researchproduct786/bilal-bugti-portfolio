@@ -50,20 +50,20 @@ export function Hero({
             <Btn href={L('/work')}>{t.home.heroCta1}</Btn>
             <Btn href={L('/contact')} variant="ghost">{t.home.heroCta2}</Btn>
           </div>
-          <ul className="hero2-stats rise" style={{ ['--d' as string]: '0.3s' }}>
-            <li><b>{projects.length}</b><span>{t.home.heroStat1}</span></li>
-            <li><b>6</b><span>{t.home.heroStat2}</span></li>
-            <li><b>7</b><span>{t.home.heroStat3}</span></li>
-          </ul>
+          {/* One quiet line of context where the statistic row used to be. The
+              numbers it carried are elsewhere on the page, doing real work. */}
+          <p className="hero2-cap rise" style={{ ['--d' as string]: '0.3s' }}>{t.home.heroProof}</p>
         </div>
 
         {/* ── The spatial stage ── */}
         <div className="hero-stage">
-          {/* Deepest plane: the cinematic studio frame the subject was shot in. It is
-              deliberately soft and low-contrast so it reads as background depth, and
-              it carries the lighting direction the cut-out's rim light matches. */}
+          {/* Deepest plane: an empty cinematic studio — cool key light from the upper
+              left, a warm floor glow on the right, three glass planes out of focus.
+              It is deliberately person-free. The previous plate was a blurred copy of
+              the same portrait, which put a second version of the subject's own face
+              behind his shoulder — a doppelgänger, and the first thing the eye found. */}
           <div className="hero-plate" data-depth="0.05" aria-hidden="true">
-            <img src="/img/hero-backdrop.webp" alt="" width={1600} height={893} decoding="async" />
+            <img src="/img/hero-environment.webp" alt="" width={1600} height={900} decoding="async" />
           </div>
           {/* The back card is deliberately wider than the shoulders and filled with a
               product grid, so whatever the body occludes still reads as a shop. */}
@@ -74,12 +74,12 @@ export function Hero({
             </div>
             <div className="hpb-grid">
               {[
-                ['product-dripper', 'Ceramic pour-over', '₨1,360'],
-                ['product-tray', 'Oak desk tray', '₨3,360'],
-                ['product-grinder', 'Hand grinder', '₨2,320'],
-                ['product-lamp', 'Linen table lamp', '₨5,920'],
-                ['product-bowls', 'Stoneware bowls', '₨1,760'],
-                ['product-candle', 'Amber & smoke', '₨1,040'],
+                ['product-dripper', 'Ceramic pour-over', '$68'],
+                ['product-tray', 'Oak desk tray', '$168'],
+                ['product-grinder', 'Hand grinder', '$116'],
+                ['product-lamp', 'Linen table lamp', '$296'],
+                ['product-bowls', 'Stoneware bowls', '$88'],
+                ['product-candle', 'Amber & smoke', '$52'],
               ].map(([src, name, price]) => (
                 <span className="hpb-tile" key={src}>
                   <img src={`/img/${src}.webp`} alt="" width={420} height={420} loading="lazy" decoding="async" />
@@ -109,14 +109,12 @@ export function Hero({
           >
             <span className="h2s-top"><span>9:41</span><span>{projects[1]?.brand ?? 'Tillo'} app</span></span>
             <span className="h2s-k">{t.home.today} · {ui.demoData}</span>
-            <span className="h2s-big">₨ 48,500</span>
+            <span className="h2s-big">$2,425</span>
             <span className="h2s-two"><span><b>4</b>{ui.orders}</span><span><b>12</b>{ui.pending}</span></span>
             <span className="h2s-row"><span>#1042 Amara O.</span><em>Pack</em></span>
             <span className="h2s-row"><span>#1041 Jonas W.</span><em>Pack</em></span>
           </Link>
         </div>
-
-        <p className="hero2-cap rise" style={{ ['--d' as string]: '0.34s' }}>{t.home.heroProof}</p>
       </div>
 
       <a className="hero2-scroll mono" href="#intro" aria-hidden="true">{t.ui.scroll} ↓</a>

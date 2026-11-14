@@ -60,7 +60,7 @@ export function ServiceVisual({ id, ui = defaultUiLabels, captions = defaultCapt
             <div className="ui-bar"><span className="ui-word">SLOWTIDE<span>Campaign</span></span><span className="ui-cart">Sample data</span></div>
             <div className="ui-body">
               <p className="wm-h"><em>Take the long afternoon.</em></p>
-              <div className="ui-kpis two" style={{ marginTop: 10 }}><div><small>Spend</small><b>₨62,000</b></div><div><small>Leads</small><b>248</b></div><div><small>Cost / lead</small><b>₨250</b></div></div>
+              <div className="ui-kpis two" style={{ marginTop: 10 }}><div><small>Spend</small><b>$3,100</b></div><div><small>Leads</small><b>248</b></div><div><small>Cost / lead</small><b>$12.50</b></div></div>
             </div>
           </div>
         )}

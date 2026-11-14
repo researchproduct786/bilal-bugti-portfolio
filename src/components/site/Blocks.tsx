@@ -33,6 +33,35 @@ export function PageHero({
   );
 }
 
+/**
+ * A chapter opening: number, label, title, one line of context.
+ *
+ * The number is what makes the homepage read as a sequence rather than a stack of
+ * unrelated blocks — the same device a printed report uses between sections.
+ */
+export function Chapter({
+  n, label, title, id, children,
+}: {
+  n: string;
+  label: string;
+  title: ReactNode;
+  id?: string;
+  children?: ReactNode;
+}) {
+  return (
+    <header className="chapter">
+      <p className="chapter-tag reveal">
+        <span className="mono">{n}</span>
+        <span className="mono">{label}</span>
+      </p>
+      <div className="chapter-body">
+        <h2 id={id} className="h2 reveal">{title}</h2>
+        {children && <div className="chapter-lede reveal">{children}</div>}
+      </div>
+    </header>
+  );
+}
+
 /** Final call to action. Copy always comes from the locale dictionary. */
 export function FinalCTA({
   kicker, q, a, primaryHref, primaryLabel, secondaryHref, secondaryLabel,

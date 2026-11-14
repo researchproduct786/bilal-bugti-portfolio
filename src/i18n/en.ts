@@ -49,6 +49,7 @@ export const en = {
     closeMenu: 'Close the site index',
     readsIn: 'Reads in',
     languageHint: 'Every page is available in six languages.',
+    matches: 'Matching capability',
     portraitNote: 'Portrait of Bilal Bugti.',
     demoNote:
       'This is a working interface built for the portfolio. The brand is fictional, the data is invented, and nothing you do here is saved or sent anywhere.',
@@ -92,6 +93,14 @@ export const en = {
     capsKicker: 'What I do',
     capsTitle: 'Seven ways I help a business move forward.',
     capsBody: 'Each one below opens a real demonstration of the interface, not a description of one.',
+    capProblemLabel: 'Where it starts',
+    capProblemShopify: 'A shop that takes orders without a phone call, and a back office you can run alone.',
+    capProblemApp: 'A counter step, a delivery or a stock check that currently costs someone a walk to a desk.',
+    capProblemWeb: 'A visitor arrives with one question and leaves without it being answered.',
+    capProblemAi: 'The same document read by hand, twenty times a week, with the answer typed out again each time.',
+    capProblemAutomation: 'An order is paid and then three people copy it into three places.',
+    capProblemCrm: 'Nobody can say what was quoted, to whom, or when it was last followed up.',
+    capProblemMarketing: 'Spend is rising, enquiries are not, and nobody can name the cost of one real lead.',
     workKicker: 'Selected work',
     workTitle: 'Six products. Each one shows what it does.',
     workBody:
@@ -106,7 +115,7 @@ export const en = {
     processTitle: 'Seven steps, and you can see every one.',
     processBody: 'Understanding first. Code last. Each step below shows what actually happens — the photograph is the work, not decoration.',
     aboutKicker: 'About',
-    aboutTitle: 'Curiosity first. Everything else followed.',
+    aboutTitle: 'Curious first. Everything else follows.',
     aboutBody:
       'Six or seven years of self-directed learning across development, design, marketing and how online businesses really operate. No invented job titles, no borrowed client stories.',
     testimonialKicker: 'Testimonials',

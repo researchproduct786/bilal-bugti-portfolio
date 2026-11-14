@@ -30,12 +30,21 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: var(--nav-h); }
+/* `clip` rather than `hidden`: hidden would turn <html> into a scroll container and
+   silently break every position:sticky on the page (the process frame and the About
+   portrait both rely on sticky). `clip` stops decorative transforms from creating a
+   horizontal scrollbar without that side effect. */
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: var(--nav-h);
+  overflow-x: clip;
+}
 body {
   margin: 0; background: var(--ink); color: var(--paper);
   font-family: var(--f-sans); font-size: 17px; line-height: 1.55; font-weight: 400;
   font-stretch: 100%; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-inline-size: 100%;
 }
 img, svg, canvas { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }

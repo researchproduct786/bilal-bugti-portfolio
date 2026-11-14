@@ -45,6 +45,7 @@ export const de: Dict = {
     closeMenu: 'Seitenindex schließen',
     readsIn: 'Lesbar in',
     languageHint: 'Jede Seite ist in sechs Sprachen verfügbar.',
+    matches: 'Passende Kompetenz',
     portraitNote: 'Porträt von Bilal Bugti.',
     demoNote:
       'Dies ist eine lauffähige Oberfläche, die für dieses Portfolio gebaut wurde. Die Marke ist fiktiv, die Daten sind erfunden, und nichts, was Sie hier tun, wird gespeichert oder gesendet.',
@@ -88,6 +89,14 @@ export const de: Dict = {
     capsKicker: 'Was ich mache',
     capsTitle: 'Sieben Wege, ein Unternehmen voranzubringen.',
     capsBody: 'Jeder davon öffnet eine echte Demonstration der Oberfläche — keine Beschreibung davon.',
+    capProblemLabel: 'Wo es anfängt',
+    capProblemShopify: 'Ein Shop, der Bestellungen ohne Anruf annimmt, und ein Backoffice, das du allein führen kannst.',
+    capProblemApp: 'Ein Schritt am Tresen, eine Lieferung oder eine Bestandsprüfung, die heute jemanden zum Schreibtisch laufen lässt.',
+    capProblemWeb: 'Ein Besucher kommt mit einer Frage und geht, ohne eine Antwort bekommen zu haben.',
+    capProblemAi: 'Dasselbe Dokument zwanzig Mal pro Woche von Hand gelesen, die Antwort jedes Mal neu getippt.',
+    capProblemAutomation: 'Eine Bestellung wird bezahlt und dann von drei Personen an drei Stellen kopiert.',
+    capProblemCrm: 'Niemand kann sagen, was wem angeboten wurde und wann zuletzt nachgefasst wurde.',
+    capProblemMarketing: 'Der Aufwand steigt, die Anfragen nicht, und niemand kann die Kosten eines echten Leads nennen.',
     workKicker: 'Ausgewählte Arbeiten',
     workTitle: 'Sechs Produkte. Jedes zeigt, was es tut.',
     workBody:
@@ -102,7 +111,7 @@ export const de: Dict = {
     processTitle: 'Sieben Schritte — alle sichtbar.',
     processBody: 'Zuerst verstehen, Code zuletzt. Jeder Schritt zeigt, was tatsächlich passiert: das Foto ist die Arbeit, nicht Dekoration.',
     aboutKicker: 'Über mich',
-    aboutTitle: 'Zuerst die Neugier. Alles andere folgte.',
+    aboutTitle: 'Zuerst die Neugier. Alles andere folgt.',
     aboutBody:
       'Sechs bis sieben Jahre selbstbestimmtes Lernen in Entwicklung, Design, Marketing und darin, wie Online-Geschäfte wirklich funktionieren. Keine erfundenen Titel, keine geliehenen Kundengeschichten.',
     testimonialKicker: 'Referenzen',

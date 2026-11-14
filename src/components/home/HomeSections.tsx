@@ -1,49 +1,23 @@
 import Link from 'next/link';
 import type { Dict } from '@/i18n/en';
 import type { SiteContent, ContentProject } from '@/i18n/content/types';
-import { CapabilityVisual } from '@/components/visuals/Capability';
 import { Scene } from '@/components/visuals/Scene';
 import { uiFor } from '@/components/visuals/Ui';
 import { uiLabels } from '@/i18n/ui-labels';
 import type { LocaleCode } from '@/i18n/config';
-import { ProcessJourney } from './ProcessJourney';
 import { ProjectCard } from './ProjectCard';
 
-/** Which capability keys exist, in the order the owner wants them presented. */
-export const CAP_ORDER = ['shopify', 'app', 'web', 'automation', 'crm', 'ai', 'marketing', 'branding'] as const;
-
-export function Capabilities({ t, L }: { t: Dict; L: (p: string) => string }) {
-  const c = t.capabilities;
-  const label: Record<string, [string, string]> = {
-    shopify: [c.shopify, c.shopifyLine],
-    app: [c.app, c.appLine],
-    web: [c.web, c.webLine],
-    automation: [c.automation, c.automationLine],
-    crm: [c.crm, c.crmLine],
-    ai: [c.ai, c.aiLine],
-    marketing: [c.marketing, c.marketingLine],
-    branding: [c.branding, c.brandingLine],
-  };
-  return (
-    <div className="capgrid" data-stagger>
-      {CAP_ORDER.map((k) => (
-        <Link key={k} href={L('/services')} className="capcard reveal" data-cursor>
-          <span className="capcard-media"><CapabilityVisual id={k} todayLabel={t.home.today} /></span>
-          <span className="capcard-body">
-            <span className="capcard-t">{label[k][0]}</span>
-            <span className="capcard-l">{label[k][1]}</span>
-          </span>
-        </Link>
-      ))}
-    </div>
-  );
-}
+export { Capabilities } from './Capabilities';
 
 export function WorkGrid({ projects, t, L, locale }: { projects: ContentProject[]; t: Dict; L: (p: string) => string; locale: LocaleCode }) {
   const ui = uiLabels[locale];
   return (
     <ul className="workgrid2" data-stagger>
-      {projects.map((p) => <li key={p.slug}><ProjectCard project={p} t={t} L={L} ui={ui} /></li>)}
+      {projects.map((p, i) => (
+        <li key={p.slug} className="wg-item" data-i={i}>
+          <ProjectCard project={p} t={t} L={L} ui={ui} />
+        </li>
+      ))}
     </ul>
   );
 }
@@ -93,4 +67,4 @@ export function IntroAndServices({ t, c }: { t: Dict; c: SiteContent }) {
   );
 }
 
-export { ProcessJourney, uiFor };
+export { uiFor };

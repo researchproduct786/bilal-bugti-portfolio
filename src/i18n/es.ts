@@ -45,6 +45,7 @@ export const es: Dict = {
     closeMenu: 'Cerrar el índice del sitio',
     readsIn: 'Se lee en',
     languageHint: 'Todas las páginas están disponibles en seis idiomas.',
+    matches: 'Capacidad que encaja',
     portraitNote: 'Retrato de Bilal Bugti.',
     demoNote:
       'Esta es una interfaz funcional creada para el portafolio. La marca es ficticia, los datos son inventados y nada de lo que hagas aquí se guarda ni se envía.',
@@ -88,6 +89,14 @@ export const es: Dict = {
     capsKicker: 'Lo que hago',
     capsTitle: 'Siete formas de ayudar a que un negocio avance.',
     capsBody: 'Cada una abre una demostración real de la interfaz, no una descripción de ella.',
+    capProblemLabel: 'Dónde empieza',
+    capProblemShopify: 'Una tienda que recibe pedidos sin una llamada, y una trastienda que puedes llevar solo.',
+    capProblemApp: 'Un paso en el mostrador, una entrega o un recuento de stock que hoy obliga a alguien a ir a un escritorio.',
+    capProblemWeb: 'Un visitante llega con una pregunta y se va sin respuesta.',
+    capProblemAi: 'El mismo documento leído a mano veinte veces por semana, con la respuesta escrita de nuevo cada vez.',
+    capProblemAutomation: 'Se paga un pedido y tres personas lo copian en tres sitios.',
+    capProblemCrm: 'Nadie sabe qué se cotizó, a quién, ni cuándo se hizo el último seguimiento.',
+    capProblemMarketing: 'El gasto sube, las consultas no, y nadie puede nombrar el coste de un contacto real.',
     workKicker: 'Trabajo seleccionado',
     workTitle: 'Seis productos. Cada uno muestra lo que hace.',
     workBody:
@@ -102,7 +111,7 @@ export const es: Dict = {
     processTitle: 'Siete pasos, y puedes verlos todos.',
     processBody: 'Primero entender. El código, al final. Cada paso muestra lo que realmente ocurre: la fotografía es el trabajo, no decoración.',
     aboutKicker: 'Sobre mí',
-    aboutTitle: 'Primero la curiosidad. Todo lo demás vino después.',
+    aboutTitle: 'Primero la curiosidad. Todo lo demás viene después.',
     aboutBody:
       'Seis o siete años de aprendizaje autodidacta en desarrollo, diseño, marketing y en cómo funcionan de verdad los negocios online. Sin cargos inventados ni historias de clientes prestadas.',
     testimonialKicker: 'Testimonios',

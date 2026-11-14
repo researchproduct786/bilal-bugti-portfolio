@@ -45,6 +45,7 @@ export const fr: Dict = {
     closeMenu: 'Fermer l’index du site',
     readsIn: 'Lisible en',
     languageHint: 'Chaque page existe en six langues.',
+    matches: 'Compétence adaptée',
     portraitNote: 'Portrait de Bilal Bugti.',
     demoNote:
       'Il s’agit d’une interface fonctionnelle créée pour ce portfolio. La marque est fictive, les données sont inventées, et rien de ce que vous faites ici n’est enregistré ni envoyé.',
@@ -88,6 +89,14 @@ export const fr: Dict = {
     capsKicker: 'Ce que je fais',
     capsTitle: 'Sept façons de faire avancer une entreprise.',
     capsBody: 'Chacune ouvre une véritable démonstration de l’interface, et non sa description.',
+    capProblemLabel: 'Où cela commence',
+    capProblemShopify: 'Une boutique qui prend les commandes sans appel, et un back-office que vous gérez seul.',
+    capProblemApp: 'Une étape au comptoir, une livraison ou un inventaire qui oblige aujourd’hui quelqu’un à retourner au bureau.',
+    capProblemWeb: 'Un visiteur arrive avec une question et repart sans réponse.',
+    capProblemAi: 'Le même document lu à la main vingt fois par semaine, la réponse retapée à chaque fois.',
+    capProblemAutomation: 'Une commande est payée, puis trois personnes la recopient à trois endroits.',
+    capProblemCrm: 'Personne ne sait ce qui a été proposé, à qui, ni quand le dernier suivi a eu lieu.',
+    capProblemMarketing: 'La dépense monte, les demandes non, et personne ne peut nommer le coût d’un vrai contact.',
     workKicker: 'Projets choisis',
     workTitle: 'Six produits. Chacun montre ce qu’il fait.',
     workBody:
@@ -102,7 +111,7 @@ export const fr: Dict = {
     processTitle: 'Sept étapes, et vous pouvez toutes les voir.',
     processBody: 'Comprendre d’abord. Coder en dernier. Chaque étape montre ce qui se passe réellement : la photographie est le travail, pas la décoration.',
     aboutKicker: 'À propos',
-    aboutTitle: 'La curiosité d’abord. Le reste a suivi.',
+    aboutTitle: 'La curiosité d’abord. Tout le reste suit.',
     aboutBody:
       'Six ou sept ans d’apprentissage autonome en développement, design, marketing et sur le fonctionnement réel des entreprises en ligne. Aucun titre inventé, aucune histoire de client empruntée.',
     testimonialKicker: 'Témoignages',

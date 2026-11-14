@@ -4,12 +4,10 @@ import { getBundle } from '@/i18n/dictionaries';
 import { Shell } from '@/components/site/Shell';
 import { Hero } from '@/components/home/Hero';
 import { uiLabels } from '@/i18n/ui-labels';
-import { Capabilities, WorkGrid, ReferenceReel, IntroAndServices } from '@/components/home/HomeSections';
+import { Capabilities, WorkGrid, IntroAndServices } from '@/components/home/HomeSections';
 import { ProcessJourney } from '@/components/home/ProcessJourney';
 import { ProblemSelector } from '@/components/home/ProblemSelector';
-import { Scene } from '@/components/visuals/Scene';
-import { KitchenUi } from '@/components/visuals/Ui';
-import { SectionHead, FinalCTA } from '@/components/site/Blocks';
+import { Chapter, FinalCTA } from '@/components/site/Blocks';
 import { Btn } from '@/components/site/Btn';
 import Link from 'next/link';
 
@@ -17,138 +15,99 @@ export function generateStaticParams() {
   return localeCodes.map((locale) => ({ locale }));
 }
 
+/**
+ * The homepage is a sequence of chapters, in this order and no other:
+ *
+ *   01 Hero            the subject and the interfaces they build
+ *   02 Introduction    one short paragraph about how I work
+ *   03 Services        seven capabilities, each with its own composition
+ *   04 Work            six concept products, each with its own interface
+ *   05 Problems        eight business problems, as an interactive composition
+ *   06 Process         seven steps, image locked to copy
+ *   07 About           Bilal, last of the content chapters
+ *   ── Final CTA       one question, then the minimal footer
+ *
+ * Nothing follows About except the closing question: no testimonials wall, no
+ * working notes, no second gallery. Length is not the goal; sequence is.
+ */
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!(localeCodes as readonly string[]).includes(locale)) notFound();
   const b = getBundle(locale as LocaleCode);
   const { t, c } = b;
   const L = (p: string) => href(locale as LocaleCode, p);
+  const ui = uiLabels[locale as LocaleCode];
 
   return (
-    <Shell b={b}>
-      <Hero t={t} projects={c.projects} portraitAlt={t.ui.portraitNote} ui={uiLabels[locale as LocaleCode]} />
+    <Shell b={b} minimalFooter>
+      <Hero t={t} projects={c.projects} portraitAlt={t.ui.portraitNote} ui={ui} />
 
       <IntroAndServices t={t} c={c} />
 
-      {/* Capabilities — visual first */}
-      <section className="section rule depth-section" aria-labelledby="cap-h">
+      {/* 03 — Services. Seven capabilities, seven different compositions. */}
+      <section id="services" className="section chapter-sec depth-section" data-chapter="services" aria-labelledby="cap-h">
         <div className="wrap">
-          <SectionHead id="cap-h" kicker={t.home.capsKicker} title={t.home.capsTitle}>{t.home.capsBody}</SectionHead>
+          <Chapter n="03" label={t.home.capsKicker} id="cap-h" title={t.home.capsTitle}>
+            {t.home.capsBody}
+          </Chapter>
           <Capabilities t={t} L={L} />
         </div>
       </section>
 
-      {/* Six products */}
-      <section className="section rule alt2 depth-section" aria-labelledby="work-h">
+      {/* 04 — Work. Six concept products. */}
+      <section id="work" className="section chapter-sec alt2 depth-section" data-chapter="work" aria-labelledby="work-h">
         <div className="wrap">
-          <SectionHead id="work-h" kicker={t.home.workKicker} title={t.home.workTitle}>{t.home.workBody}</SectionHead>
+          <Chapter n="04" label={t.home.workKicker} id="work-h" title={t.home.workTitle}>
+            {t.home.workBody}
+          </Chapter>
           <WorkGrid projects={c.projects} t={t} L={L} locale={locale as LocaleCode} />
           <div className="reveal" style={{ marginTop: 36 }}><Btn href={L('/work')} variant="ghost">{t.nav.work}</Btn></div>
         </div>
       </section>
 
-      {/* Portfolio reference artwork, in a monitor frame */}
-      <section className="section rule depth-section" aria-labelledby="reel-h">
+      {/* 05 — Problems. Eight cards that come out of depth, one answer at a time. */}
+      <section id="problems" className="section chapter-sec depth-section" data-chapter="problems" aria-labelledby="ps-h">
         <div className="wrap">
-          <SectionHead id="reel-h" kicker={t.nav.lab} title={c.pages.lab.title}>{c.pages.lab.lede}</SectionHead>
-          <ReferenceReel
-            title={t.nav.lab}
-            body={c.pages.lab.note}
-            caption={t.ui.reelCaption}
-            alt={`${t.nav.lab} — ${c.pages.lab.title}`}
-          />
-        </div>
-      </section>
-
-      {/* Business problem selector */}
-      <section className="section rule alt depth-section" aria-labelledby="ps-h">
-        <div className="wrap">
-          <SectionHead id="ps-h" kicker={t.home.problemsKicker} title={t.home.problemsTitle}>{t.home.problemsBody}</SectionHead>
+          <Chapter n="05" label={t.home.problemsKicker} id="ps-h" title={t.home.problemsTitle}>
+            {t.home.problemsBody}
+          </Chapter>
           <ProblemSelector t={t} c={c} />
         </div>
       </section>
 
-      {/* Seven-step visual journey */}
-      <section className="section rule depth-section" aria-labelledby="proc-h">
+      {/* 06 — Process. Seven steps; the image and the words move as one. */}
+      <section id="process" className="section chapter-sec alt depth-section" data-chapter="process" aria-labelledby="proc-h">
         <div className="wrap">
-          <SectionHead id="proc-h" kicker={t.home.processKicker} title={t.home.processTitle}>{t.home.processBody}</SectionHead>
+          <Chapter n="06" label={t.home.processKicker} id="proc-h" title={t.home.processTitle}>
+            {t.home.processBody}
+          </Chapter>
           <ProcessJourney t={t} />
           <div className="reveal" style={{ marginTop: 44 }}><Link className="textlink" href={L('/process')}>{t.process.kicker} <span aria-hidden="true">→</span></Link></div>
         </div>
       </section>
 
-      {/* Industries */}
-      <section className="section rule alt2 depth-section" aria-labelledby="ind-h">
+      {/* 07 — About. Deliberately the last thing before the closing question. */}
+      <section id="about" className="section chapter-sec about2 depth-section" data-chapter="about" aria-labelledby="ab-h">
         <div className="wrap">
-          <SectionHead id="ind-h" kicker={t.home.industriesKicker} title={t.home.industriesTitle}>{t.home.industriesBody}</SectionHead>
-          <div className="indgrid reveal" data-stagger>
-            {c.industries.map((i) => (
-              <div key={i.name} className="indcard">
-                <p className="indcard-n">{i.name}</p>
-                <p className="indcard-d">{i.note}</p>
-              </div>
-            ))}
-          </div>
-          <div className="reveal" style={{ marginTop: 32 }}><Link className="textlink" href={L('/industries')}>{t.nav.industries} <span aria-hidden="true">→</span></Link></div>
-        </div>
-      </section>
-
-      {/* About + portrait */}
-      <section className="section rule about2 depth-section" aria-labelledby="ab-h">
-        <div className="wrap about2-in">
-          <div className="about2-fig reveal">
-            <img src="/img/portrait-bilal.webp" alt={t.ui.portraitNote} width={1024} height={1024} loading="lazy" decoding="async" />
-            <p className="mono muted">{t.ui.portraitNote}</p>
-          </div>
-          <div className="about2-copy">
-            <p className="kicker reveal">{t.home.aboutKicker}</p>
-            <h2 id="ab-h" className="h2 reveal" style={{ marginTop: 18 }}>{t.home.aboutTitle}</h2>
-            <p className="body reveal" style={{ marginTop: 18 }}>{t.home.aboutBody}</p>
-            <p className="notice reveal" style={{ marginTop: 22 }}><b>{t.about.honest}</b>{t.about.honestBody}</p>
-            <div className="reveal" style={{ marginTop: 24 }}><Btn href={L('/about')} variant="ghost">{t.about.kicker}</Btn></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials — honest about being empty */}
-      <section className="section rule" aria-labelledby="test-h">
-        <div className="wrap">
-          <SectionHead id="test-h" kicker={t.home.testimonialKicker} title={t.home.testimonialTitle}>{t.home.testimonialBody}</SectionHead>
-          <div className="twall reveal" data-stagger>
-            <figure className="tcard demo">
-              <span className="tag concept">{t.ui.sampleData}</span>
-              <blockquote>“{t.home.testimonialBody}”</blockquote>
-              <figcaption><b>{t.nav.testimonials}</b><span>{t.ui.concept}</span></figcaption>
-            </figure>
-            <div className="tcard empty"><span className="mono">01</span><p>{t.home.testimonialBody}</p></div>
-            <div className="tcard empty"><span className="mono">02</span><p>{t.home.testimonialBody}</p></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Working notes */}
-      <section className="section rule alt depth-section" aria-labelledby="in-h">
-        <div className="wrap split">
-          <div>
-            <p className="kicker reveal">{t.home.insightsKicker}</p>
-            <h2 id="in-h" className="h2 reveal" style={{ marginTop: 18 }}>{t.home.insightsTitle}</h2>
-            <p className="body reveal" style={{ marginTop: 16 }}>{t.home.insightsBody}</p>
-            <div className="reveal" style={{ marginTop: 22 }}><Link className="textlink" href={L('/insights')}>{t.insights.kicker} <span aria-hidden="true">→</span></Link></div>
-          </div>
-          <ol className="notes">
-            {c.lessons.map((l, i) => (
-              <li key={l.title} className="reveal"><span className="mono muted">{String(i + 1).padStart(2, '0')}</span><h3 className="h3">{l.title}</h3><p className="body">{l.body}</p></li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* A photograph with an interface, closing the loop */}
-      <section className="section rule tight">
-        <div className="wrap duo">
-          <Scene name="kitchen" caption={c.projects[4].summary} ratio="4 / 3" />
-          <div className="ui-frame reveal">
-            <KitchenUi l={uiLabels[locale as LocaleCode]} />
+          <p className="chapter-tag reveal"><span className="mono">07</span><span className="mono">{t.home.aboutKicker}</span></p>
+          <div className="about2-in">
+            <div className="about2-fig reveal">
+              <img
+                src="/img/portrait-about.webp"
+                alt={t.ui.portraitNote}
+                width={1024}
+                height={1280}
+                loading="lazy"
+                decoding="async"
+              />
+              <p className="mono muted">{t.ui.portraitNote}</p>
+            </div>
+            <div className="about2-copy">
+              <h2 id="ab-h" className="h2 reveal">{t.home.aboutTitle}</h2>
+              <p className="body reveal" style={{ marginTop: 18 }}>{t.home.aboutBody}</p>
+              <p className="notice reveal" style={{ marginTop: 22 }}><b>{t.about.honest}</b>{t.about.honestBody}</p>
+              <div className="reveal" style={{ marginTop: 24 }}><Btn href={L('/about')} variant="ghost">{t.about.kicker}</Btn></div>
+            </div>
           </div>
         </div>
       </section>

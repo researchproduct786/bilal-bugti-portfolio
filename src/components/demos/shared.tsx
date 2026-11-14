@@ -27,17 +27,11 @@ export const useDemoChrome = () => useContext(ChromeContext);
 /**
  * Money formatting for every demonstration.
  *
- * The site's fictional businesses are Pakistani, so the demos use the same currency
- * as the pinned figures on the marketing pages (Rs / ₨). One currency everywhere
- * means the same fictional dataset reads consistently instead of switching to
- * dollars inside a demo.
+ * The portfolio is presented to an international audience, so every figure in the
+ * fictional demo data is in US dollars. One currency everywhere keeps the marketing
+ * pages, the product cards and the working demos consistent with each other.
  */
-export const money = (n: number) => {
-  const v = n >= 1000000 ? `${(n / 1000000).toFixed(2).replace(/\.?0+$/, '')}m`
-    : n >= 100000 ? `${Math.round(n / 1000)}k`
-    : Math.round(n).toLocaleString('en-US');
-  return `₨${v}`;
-};
+export const money = (n: number) => `$${n.toLocaleString('en-US', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 })}`;
 
 interface ShellProps { title: string; note: string; tabs?: string[]; tab?: string; onTab?: (t: string) => void; theme?: CSSProperties; className?: string; children: ReactNode }
 
