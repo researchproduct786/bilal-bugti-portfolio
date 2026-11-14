@@ -300,3 +300,40 @@ removed. Nothing was added just to lengthen the page; the page got shorter.
 (273 UI keys, 485 content strings); 20-route browser sweep with no overflow, no broken images,
 no rupee text, one `h1` each and no console errors; 360/375/390/393/430/768 with `overflowX: 0`
 throughout; `/ar` RTL verified; reduced motion leaves everything visible with no transforms.
+
+### Milestone: visual review of the built site
+
+Screenshotting the production build at 1440, 768 and 390 found four defects in the sections
+that had just been restructured, plus three stale captions:
+
+- **Wide Work panels left the frame a third empty.** The interface sat centred in a fixed
+  340px well inside a 16:11 media box. Fixed height alone was not the answer, and neither was
+  letting the copy column drive height (the product photograph grew to 430px tall). What
+  works: `block-size: clamp(310px, 25vw, 372px)` plus a real fill-the-frame PDP layout —
+  `.ui-body` padding 0, `.ui-pdp` split `.92fr / 1fr`, `.ui-shot img` at `object-fit: cover`,
+  info column flex-centred. Measured at 1440: media 360, ui 328, `deadBelowUi` 16,
+  `deadRight` 16.
+- **The concept-project badge sat on the product photograph.** On the storefront's white
+  studio shot it was illegible, and top-right it overlapped the demo's own cart button. It is
+  now a static flex child beside the product name in the copy column (`tagOverlapsCart: false`).
+- **The two wide panels still had a 16:11 well on phones**, parking the interface at the
+  bottom of an empty band. A `max-width: 899px` block sets `aspect-ratio: auto`, 12px media
+  padding and `block-size: auto`.
+- **The storefront lane's second shelf row collapsed on phones** to three run-together labels
+  ("Ceramic pour-over$68Hand grinder$116"). That row exists to fill a wide desktop lane; it is
+  now `display: none` below 900px and `grid` above.
+- **Three of seven process captions described their predecessors' photographs** — "On the shop
+  floor, with the ledger and the stock" under a photograph of two people in a meeting room.
+  Rewritten in all six locales to describe what each picture now shows.
+- **Problems section, unselected cards.** Opacity `.62` on the recession left 2.9:1 effective
+  contrast. Now `.86` with a border and colour treatment: **4.68:1**, which passes AA.
+
+`docs/screenshots/` holds desktop (1440×900) and mobile (390×844 DPR 2) captures of every
+chapter — WebP q88, 1400px cap, whole set 856 KB.
+
+**Verified after these changes:** typecheck clean; build 133 pages; `test:e2e` 1319/0;
+`check:i18n` 6 locales; 20-route sweep all 200 with `ovf=0`, one `h1`, no broken images, no
+rupee text, no console errors; 360/375/390/393/430/768/1280/1440 all `overflowX: 0`; reduced
+motion keeps 7/7 lanes and 0 hidden elements; `/ar` RTL with USD unflipped; Halden demo driven
+end to end — product → PDP → add to cart, cart 0 → 1, USD, no errors. Preview deployment
+`3230624` built **READY** and aliased to the branch URL. `main` untouched.
