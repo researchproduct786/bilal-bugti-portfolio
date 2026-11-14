@@ -64,8 +64,9 @@ export function Chapter({
 
 /** Final call to action. Copy always comes from the locale dictionary. */
 export function FinalCTA({
-  kicker, q, a, primaryHref, primaryLabel, secondaryHref, secondaryLabel,
+  kicker, q, a, primaryHref, primaryLabel, secondaryHref, secondaryLabel, id,
 }: {
+  id?: string;
   kicker: string;
   q: string;
   a: string;
@@ -75,7 +76,7 @@ export function FinalCTA({
   secondaryLabel?: string;
 }) {
   return (
-    <section className="final" aria-labelledby="final-q">
+    <section id={id} className="final" aria-labelledby="final-q">
       <div className="wrap">
         <p className="kicker reveal">{kicker}</p>
         <h2 id="final-q" className="q reveal" style={{ marginTop: 22 }}>{q}</h2>

@@ -443,7 +443,16 @@
 .lv-page { display: flex; flex-direction: column; justify-content: space-between; gap: 10px; padding: 2px 0 0; }
 .lv-pg-h { font-size: 12.5px; line-height: 1.3; color: var(--paper); letter-spacing: -.01em; }
 .lv-pg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-.lv-pg-grid span { block-size: 34px; border-radius: 4px; background: linear-gradient(180deg, color-mix(in srgb, var(--ac) 16%, transparent), rgba(255,255,255,.02)); border: 1px solid rgba(236,232,224,.07); }
+.lv-pg-grid span {
+  display: flex; flex-direction: column; justify-content: flex-end; gap: 1px;
+  padding: 6px 7px; min-block-size: 40px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--ac) 16%, transparent), rgba(255,255,255,.02));
+  border: 1px solid rgba(236,232,224,.07);
+  min-inline-size: 0;
+}
+.lv-pg-grid b { font-size: 8.5px; font-weight: 500; color: var(--paper); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lv-pg-grid em { font-style: normal; font-family: var(--f-mono); font-size: 8px; color: var(--ac); }
 .lv-pg-url { font-family: var(--f-mono); font-size: 7.5px; letter-spacing: .08em; color: var(--dim); }
 
 /* 04 AI — a conversation, deliberately unlike the data lanes */
@@ -479,7 +488,15 @@
 .lv-pl-col { display: flex; flex-direction: column; gap: 4px; min-inline-size: 0; }
 .lv-pl-h { font-family: var(--f-mono); font-size: 7px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .lv-pl-h b { color: var(--ac); }
-.lv-pl-c { block-size: 20px; border-radius: 3px; background: rgba(255,255,255,.04); border: 1px solid rgba(236,232,224,.09); border-inline-start: 2px solid var(--ac); }
+.lv-pl-c {
+  display: flex; flex-direction: column; gap: 1px;
+  padding: 4px 5px; border-radius: 3px;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(236,232,224,.09);
+  border-inline-start: 2px solid var(--ac);
+  min-inline-size: 0;
+}
+.lv-pl-c b { font-size: 8px; font-weight: 500; color: var(--silver); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lv-pl-c em { font-style: normal; font-family: var(--f-mono); font-size: 7.5px; color: var(--paper); }
 
 /* 07 growth — bars, but read left to right as a trend */
 .lv-chart { display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; }
@@ -836,6 +853,20 @@
   /* The page, conversation and chart lanes were designed for a narrow column; cap
      them so they do not stretch into a band. */
   .lv-page, .lv-ai, .lv-chart, .lv-flow, .lv-pipe { inline-size: 100%; max-inline-size: 330px; }
+  /* In the side-by-side lanes the art column has room to spare, and these three
+     interfaces are content-light. Let them use the extra width instead of leaving a
+     void inside the panel, and give the pipeline rows room to breathe. */
+  .lane[data-span='3'] .lv-page,
+  .lane[data-span='3'] .lv-ai { max-inline-size: 360px; }
+  /* These two are content-light, so their cards were mostly empty around a small
+     interface. Give the art column a real vertical band and let the interface sit
+     in it rather than float in it. */
+  .lane[data-span='3'] .lane-art { padding: 16px 0 16px 16px; }
+  .lane[data-span='3'] .lv-page,
+  .lane[data-span='3'] .lv-ai { min-block-size: 168px; justify-content: center; }
+  .lane[data-span='3'] .lv-pg-grid span { min-block-size: 52px; }
+  .lane[data-span='2'] .lv-pipe { inline-size: 100%; }
+  .lv-pl-c { padding: 6px 6px; }
 }
 
 /* Wide gallery panels: media and copy side by side on a landscape card. */
@@ -1005,4 +1036,13 @@
 .lv-st-more { display: none; }
 @media (min-width: 900px) {
   .lv-st-more { display: grid; }
+}
+
+/* The hero kicker carries two labels. At desktop width it is one quiet line; on a
+   phone it wrapped into a ragged four-line block with a floating separator, so it
+   becomes a single stacked pair with no dot between them. */
+@media (max-width: 599px) {
+  .hero2-copy .kicker { flex-wrap: wrap; gap: 4px 0; display: block; line-height: 1.7; }
+  .hero2-copy .kicker b { display: block; }
+  .hero2-copy .kicker span[aria-hidden] { display: none; }
 }

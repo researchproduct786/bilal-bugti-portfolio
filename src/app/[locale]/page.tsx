@@ -113,6 +113,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       <FinalCTA
+        id="final"
         kicker={t.ui.next}
         q={t.home.finalQ}
         a={t.home.finalA}

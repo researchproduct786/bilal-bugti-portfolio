@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { localeCodes, type LocaleCode, getLocaleMeta } from '@/i18n/config';
 import { getBundle } from '@/i18n/dictionaries';
 import { site } from '@/data/site';
+import { LocaleDocument } from '@/components/site/LocaleDocument';
 
 export function generateStaticParams() {
   return localeCodes.map((locale) => ({ locale }));
@@ -48,14 +49,13 @@ export default async function LocaleLayout({
 
   return (
     <div
-      lang={locale}
-      dir={dir}
       data-locale={locale}
       style={{
         ['--f-sans' as string]: stack.sans ?? "var(--f-sans-base)",
         ['--f-serif' as string]: stack.serif ?? "var(--f-serif-base)",
       }}
     >
+      <LocaleDocument lang={locale} dir={dir} />
       {children}
     </div>
   );

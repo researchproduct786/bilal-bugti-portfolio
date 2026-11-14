@@ -134,7 +134,9 @@ function LaneVisual({ lane }: { lane: string }) {
         <span className="lv lv-page">
           <span className="lv-pg-h">Parts, tools and advice<br />from people who use them.</span>
           <span className="lv-pg-grid">
-            <span /><span /><span />
+            <span><b>Chainset 42T</b><em>$38</em></span>
+            <span><b>Trail tyre</b><em>$54</em></span>
+            <span><b>Brake pads</b><em>$22</em></span>
           </span>
           <span className="lv-pg-url">westgate-retail.com</span>
         </span>
@@ -161,10 +163,16 @@ function LaneVisual({ lane }: { lane: string }) {
     case 'crm':
       return (
         <span className="lv lv-pipe">
-          {[['New', 3], ['Qualified', 2], ['Proposal', 2]].map(([label, n]) => (
-            <span className="lv-pl-col" key={String(label)}>
-              <span className="lv-pl-h">{label} <b>{n}</b></span>
-              <span className="lv-pl-c" /><span className="lv-pl-c" />
+          {[
+            [['New', 3], ['Marisa Okafor', '$4,200'], ['Dev Anand', '$1,850']],
+            [['Qualified', 2], ['Tomas Reid', '$9,600'], ['Hana Sato', '$3,100']],
+            [['Proposal', 2], ['Nadia Haddad', '$14,500'], ['Liam Ó Conaill', '$7,250']],
+          ].map(([head, ...cards]) => (
+            <span className="lv-pl-col" key={String((head as (string | number)[])[0])}>
+              <span className="lv-pl-h">{(head as (string | number)[])[0]} <b>{(head as (string | number)[])[1]}</b></span>
+              {(cards as string[][]).map(([name, value]) => (
+                <span className="lv-pl-c" key={name}><b>{name}</b><em>{value}</em></span>
+              ))}
             </span>
           ))}
         </span>
