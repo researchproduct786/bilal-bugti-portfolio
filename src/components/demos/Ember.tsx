@@ -3,13 +3,13 @@ import { useState } from 'react';
 import { Bars, DemoShell, Kpi, money } from './shared';
 
 const seedMenu = [
-  { id: 'leek', cat: 'Small plates', name: 'Charred leek flatbread', desc: 'Whipped feta, burnt honey, thyme', price: 9, on: true },
-  { id: 'bread', cat: 'Small plates', name: 'Rye sourdough', desc: 'Cultured butter, smoked salt', price: 5, on: true },
-  { id: 'beet', cat: 'Small plates', name: 'Ember-roast beetroot', desc: 'Labneh, dill oil, hazelnut', price: 8, on: true },
-  { id: 'lamb', cat: 'From the fire', name: 'Smoked lamb shoulder', desc: 'Flatbread, pickles, garlic yoghurt', price: 19, on: true },
-  { id: 'trout', cat: 'From the fire', name: 'Cedar-plank trout', desc: 'Brown butter, capers, new potatoes', price: 17, on: true },
-  { id: 'cauli', cat: 'From the fire', name: 'Whole roast cauliflower', desc: 'Tahini, chilli crisp, herbs', price: 14, on: false },
-  { id: 'cake', cat: 'Sweet', name: 'Burnt cheesecake', desc: 'Rye crumb, sour cherry', price: 7, on: true },
+  { id: 'leek', cat: 'Small plates', name: 'Charred leek flatbread', desc: 'Whipped feta, burnt honey, thyme', price: 18, on: true },
+  { id: 'bread', cat: 'Small plates', name: 'Rye sourdough', desc: 'Cultured butter, smoked salt', price: 10, on: true },
+  { id: 'beet', cat: 'Small plates', name: 'Ember-roast beetroot', desc: 'Labneh, dill oil, hazelnut', price: 16, on: true },
+  { id: 'lamb', cat: 'From the fire', name: 'Smoked lamb shoulder', desc: 'Flatbread, pickles, garlic yoghurt', price: 38, on: true },
+  { id: 'trout', cat: 'From the fire', name: 'Cedar-plank trout', desc: 'Brown butter, capers, new potatoes', price: 34, on: true },
+  { id: 'cauli', cat: 'From the fire', name: 'Whole roast cauliflower', desc: 'Tahini, chilli crisp, herbs', price: 28, on: false },
+  { id: 'cake', cat: 'Sweet', name: 'Burnt cheesecake', desc: 'Rye crumb, sour cherry', price: 14, on: true },
 ];
 const STEPS = ['Received', 'Preparing', 'Ready', 'Collected'];
 interface Order { no: number; lines: { name: string; qty: number }[]; total: number; step: number; mine?: boolean }
@@ -20,8 +20,8 @@ export default function Ember() {
   const [menu, setMenu] = useState(seedMenu);
   const [basket, setBasket] = useState<Record<string, number>>({});
   const [orders, setOrders] = useState<Order[]>([
-    { no: 216, lines: [{ name: 'Smoked lamb shoulder', qty: 2 }, { name: 'Rye sourdough', qty: 1 }], total: 43, step: 1 },
-    { no: 217, lines: [{ name: 'Cedar-plank trout', qty: 1 }], total: 17, step: 0 },
+    { no: 216, lines: [{ name: 'Smoked lamb shoulder', qty: 2 }, { name: 'Rye sourdough', qty: 1 }], total: 86, step: 1 },
+    { no: 217, lines: [{ name: 'Cedar-plank trout', qty: 1 }], total: 34, step: 0 },
   ]);
   const [mine, setMine] = useState<number | null>(null);
   const cats = [...new Set(menu.map((m) => m.cat))];
@@ -67,7 +67,7 @@ export default function Ember() {
       )}
       {tab === TABS[1] && (
         <div className="e-admin">
-          <div className="d-kpis"><Kpi label="Sales today" value={money(1386 + session)} sub={session ? `incl. ${money(session)} this session` : 'sample'} /><Kpi label="Orders in queue" value={orders.filter((o) => o.step < 3).length} /><Kpi label="Dishes available" value={`${menu.filter((m) => m.on).length}/${menu.length}`} /></div>
+          <div className="d-kpis"><Kpi label="Sales today" value={money(69.3 + session)} sub={session ? `incl. ${money(session)} this session` : 'sample'} /><Kpi label="Orders in queue" value={orders.filter((o) => o.step < 3).length} /><Kpi label="Dishes available" value={`${menu.filter((m) => m.on).length}/${menu.length}`} /></div>
           <div className="d-cols">
             <div className="d-card"><h4>Order queue</h4>
               {orders.filter((o) => o.step < 3).length === 0 && <p className="d-mut">Queue is clear.</p>}

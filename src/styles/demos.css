@@ -212,3 +212,34 @@
 .s-landing form { display: flex; gap: 8px; flex-wrap: wrap; max-width: 420px; } .s-landing input { flex: 1 1 200px; border-color: rgba(13,42,35,.3); } .s-landing form button { background: #0d2a23; color: #eef7f2; padding: 12px 18px; border-radius: 4px; font-weight: 600; } .s-landing form small { flex-basis: 100%; color: #9c2b1e; } .s-ok { background: #0d2a23; color: #eef7f2; padding: 12px 14px; border-radius: 4px; display: inline-block; }
 .s-points { display: grid; grid-template-columns: repeat(3, 1fr); padding: 24px; gap: 12px; } .s-points li { border-top: 2px solid #0d2a23; padding-top: 10px; font-size: 13px; } .s-points b { display: block; font-size: 26px; font-stretch: 110%; }
 .h-tile .h-obj { transform: scale(1.55); } .h-tile.big .h-obj { transform: scale(2.3); } .h-tile.mini .h-obj { transform: scale(.36); }
+
+/* ── Small-phone pass (360–430 px) ─────────────────────────────
+   These demos were designed at desktop width. On a phone they must still be readable
+   without pinch-zooming, so padding, type and minimum heights come down first. */
+@media (max-width: 480px) {
+  .demo { border-radius: 10px; }
+  .demo-bar { padding: 9px 11px; gap: 6px; font-size: 10.5px; }
+  .demo-tabs { padding: 0 11px; overflow-x: auto; scrollbar-width: none; }
+  .demo-tabs::-webkit-scrollbar { display: none; }
+  .demo-tabs button { white-space: nowrap; padding: 9px 10px; font-size: 12px; }
+  .demo-body { padding: 12px; }
+  .d-cols, .h-co-grid, .s-concept { gap: 16px; }
+  .h-grid { gap: 8px; }
+  .h-pdp, .h-co-grid { padding: 14px; }
+  .t-stage { padding: 14px 10px; }
+  .k-chat, .k-docs { padding: 12px; }
+  .e-cust { min-height: 0; }
+  .e-ticket { gap: 8px; }
+  .s-landing { min-height: 0; }
+  .s-lhero { padding: 26px 16px; }
+  .s-lhero h3 { font-size: clamp(30px, 9vw, 44px); }
+  .s-points { grid-template-columns: 1fr; padding: 16px; }
+  .s-adwrap { min-height: 0; padding: 12px; }
+  .s-ad.f-Banner { padding: 14px; }
+  .d-btn { min-height: 40px; }
+  .d-bars { overflow: hidden; }
+  .d-table { display: block; overflow-x: auto; }
+}
+
+/* Never let a wide table or chart force the page sideways. */
+.demo, .demo-body { max-width: 100%; overflow-x: hidden; }

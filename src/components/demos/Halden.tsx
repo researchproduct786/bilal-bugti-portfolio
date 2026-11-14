@@ -4,12 +4,12 @@ import { Bars, DemoShell, Kpi, money } from './shared';
 
 interface Product { id: string; name: string; cat: string; price: number; blurb: string; colors: { name: string; hex: string }[]; sizes: { name: string; add: number }[]; shape: string }
 const products: Product[] = [
-  { id: 'tray', name: 'Oak desk tray', cat: 'Organise', price: 64, blurb: 'A solid oak tray for the small things that otherwise wander. Oiled, not lacquered, so it ages with use.', colors: [{ name: 'Natural', hex: '#c9a274' }, { name: 'Smoked', hex: '#5a4634' }, { name: 'Black', hex: '#232221' }], sizes: [{ name: 'Small', add: 0 }, { name: 'Large', add: 20 }], shape: 'tray' },
-  { id: 'lamp', name: 'Task lamp No. 2', cat: 'Light', price: 148, blurb: 'A weighted base, one joint, and a warm 2700K beam. Nothing to adjust that does not need adjusting.', colors: [{ name: 'Graphite', hex: '#3a3a3c' }, { name: 'Bone', hex: '#d9d0c0' }, { name: 'Rust', hex: '#9a4f33' }], sizes: [{ name: 'Standard', add: 0 }], shape: 'lamp' },
-  { id: 'pen', name: 'Brass pen rest', cat: 'Organise', price: 28, blurb: 'Turned from a single brass bar. Holds one pen, deliberately.', colors: [{ name: 'Brass', hex: '#b8975a' }, { name: 'Steel', hex: '#9aa0a6' }], sizes: [{ name: 'One size', add: 0 }], shape: 'bar' },
-  { id: 'mat', name: 'Wool desk mat', cat: 'Surface', price: 72, blurb: 'Pressed merino felt, 4 mm thick. Quiet under a keyboard and kind to wrists.', colors: [{ name: 'Charcoal', hex: '#3b3d40' }, { name: 'Oat', hex: '#cfc4ae' }, { name: 'Moss', hex: '#5d6b4f' }], sizes: [{ name: '60 cm', add: 0 }, { name: '90 cm', add: 24 }], shape: 'mat' },
-  { id: 'cup', name: 'Stoneware cup', cat: 'Table', price: 22, blurb: 'Wheel-thrown, unglazed outside, holds 240 ml. No handle; it stays warm in the hand.', colors: [{ name: 'Sand', hex: '#cdbb9f' }, { name: 'Slate', hex: '#4b5157' }], sizes: [{ name: 'Single', add: 0 }, { name: 'Set of 2', add: 18 }], shape: 'cup' },
-  { id: 'clock', name: 'Desk clock', cat: 'Light', price: 96, blurb: 'A silent sweep movement in a milled aluminium ring. Tells the time and nothing else.', colors: [{ name: 'Silver', hex: '#b9bcc2' }, { name: 'Black', hex: '#232221' }], sizes: [{ name: 'One size', add: 0 }], shape: 'ring' },
+  { id: 'tray', name: 'Oak desk tray', cat: 'Organise', price: 128, blurb: 'A solid oak tray for the small things that otherwise wander. Oiled, not lacquered, so it ages with use.', colors: [{ name: 'Natural', hex: '#c9a274' }, { name: 'Smoked', hex: '#5a4634' }, { name: 'Black', hex: '#232221' }], sizes: [{ name: 'Small', add: 0 }, { name: 'Large', add: 40 }], shape: 'tray' },
+  { id: 'lamp', name: 'Task lamp No. 2', cat: 'Light', price: 296, blurb: 'A weighted base, one joint, and a warm 2700K beam. Nothing to adjust that does not need adjusting.', colors: [{ name: 'Graphite', hex: '#3a3a3c' }, { name: 'Bone', hex: '#d9d0c0' }, { name: 'Rust', hex: '#9a4f33' }], sizes: [{ name: 'Standard', add: 0 }], shape: 'lamp' },
+  { id: 'pen', name: 'Brass pen rest', cat: 'Organise', price: 56, blurb: 'Turned from a single brass bar. Holds one pen, deliberately.', colors: [{ name: 'Brass', hex: '#b8975a' }, { name: 'Steel', hex: '#9aa0a6' }], sizes: [{ name: 'One size', add: 0 }], shape: 'bar' },
+  { id: 'mat', name: 'Wool desk mat', cat: 'Surface', price: 144, blurb: 'Pressed merino felt, 4 mm thick. Quiet under a keyboard and kind to wrists.', colors: [{ name: 'Charcoal', hex: '#3b3d40' }, { name: 'Oat', hex: '#cfc4ae' }, { name: 'Moss', hex: '#5d6b4f' }], sizes: [{ name: '60 cm', add: 0 }, { name: '90 cm', add: 48 }], shape: 'mat' },
+  { id: 'cup', name: 'Stoneware cup', cat: 'Table', price: 44, blurb: 'Wheel-thrown, unglazed outside, holds 240 ml. No handle; it stays warm in the hand.', colors: [{ name: 'Sand', hex: '#cdbb9f' }, { name: 'Slate', hex: '#4b5157' }], sizes: [{ name: 'Single', add: 0 }, { name: 'Set of 2', add: 36 }], shape: 'cup' },
+  { id: 'clock', name: 'Desk clock', cat: 'Light', price: 192, blurb: 'A silent sweep movement in a milled aluminium ring. Tells the time and nothing else.', colors: [{ name: 'Silver', hex: '#b9bcc2' }, { name: 'Black', hex: '#232221' }], sizes: [{ name: 'One size', add: 0 }], shape: 'ring' },
 ];
 interface Line { key: string; id: string; name: string; variant: string; price: number; qty: number; hex: string; shape: string }
 const cats = ['All', 'Organise', 'Light', 'Surface', 'Table'];
@@ -141,14 +141,14 @@ export default function Halden() {
         <div className="h-admin">
           <p className="d-sample">Fictional sample data · session orders are added live</p>
           <div className="d-kpis">
-            <Kpi label="Revenue · 7 days" value={money(4812 + orders.reduce((s, o) => s + o.total, 0))} sub="sample" />
+            <Kpi label="Revenue · 7 days" value={money(9600 + orders.reduce((s, o) => s + o.total, 0))} sub="sample" />
             <Kpi label="Orders" value={57 + orders.length} sub={`${orders.length} from this session`} />
-            <Kpi label="Avg. order value" value={money(84.4)} sub="sample" />
+            <Kpi label="Avg. order value" value={money(169)} sub="sample" />
             <Kpi label="Checkout completion" value="68%" sub="sample" />
           </div>
           <div className="d-cols">
             <div className="d-card"><h4>Sales by day</h4><Bars data={[520, 610, 480, 730, 690, 940, 842]} labels={['M', 'T', 'W', 'T', 'F', 'S', 'S']} /></div>
-            <div className="d-card"><h4>Top products</h4><table className="d-table"><tbody>{[['Task lamp No. 2', 14, 2072], ['Oak desk tray', 19, 1356], ['Wool desk mat', 11, 864], ['Desk clock', 5, 480]].map((r) => <tr key={r[0]}><td>{r[0]}</td><td>{r[1]} sold</td><td>{money(r[2] as number)}</td></tr>)}</tbody></table></div>
+            <div className="d-card"><h4>Top products</h4><table className="d-table"><tbody>{[['Task lamp No. 2', 14, 4144], ['Oak desk tray', 19, 2432], ['Wool desk mat', 11, 1584], ['Desk clock', 5, 960]].map((r) => <tr key={r[0]}><td>{r[0]}</td><td>{r[1]} sold</td><td>{money(r[2] as number)}</td></tr>)}</tbody></table></div>
           </div>
           <div className="d-card"><h4>Orders placed in this session</h4>{orders.length === 0 ? <p className="d-mut">None yet — place a demo order in the storefront and it appears here.</p> : <table className="d-table"><tbody>{orders.map((o) => <tr key={o.no}><td>{o.no}</td><td>{o.items} items</td><td>{money(o.total)}</td><td><span className="d-pill ok">Paid (demo)</span></td></tr>)}</tbody></table>}</div>
         </div>

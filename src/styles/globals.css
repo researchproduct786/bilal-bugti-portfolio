@@ -30,12 +30,21 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: var(--nav-h); }
+/* `clip` rather than `hidden`: hidden would turn <html> into a scroll container and
+   silently break every position:sticky on the page (the process frame and the About
+   portrait both rely on sticky). `clip` stops decorative transforms from creating a
+   horizontal scrollbar without that side effect. */
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: var(--nav-h);
+  overflow-x: clip;
+}
 body {
   margin: 0; background: var(--ink); color: var(--paper);
   font-family: var(--f-sans); font-size: 17px; line-height: 1.55; font-weight: 400;
   font-stretch: 100%; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-inline-size: 100%;
 }
 img, svg, canvas { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
@@ -73,7 +82,7 @@ ul, ol { list-style: none; }
 .em { color: var(--paper); }
 
 /* ───────── Layout ───────── */
-.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); box-sizing: border-box; }
 .section { padding: var(--section) 0; position: relative; }
 .section.tight { padding: calc(var(--section) * 0.6) 0; }
 .rule { border-top: 1px solid var(--line); }
@@ -117,7 +126,9 @@ ul, ol { list-style: none; }
 /* ───────── Nav ───────── */
 .nav { position: fixed; inset: 0 0 auto 0; z-index: 90; height: var(--nav-h); display: flex; align-items: center; transition: background .4s, border-color .4s, transform .4s var(--ease); border-bottom: 1px solid transparent; }
 .nav.scrolled { background: rgba(6,7,9,.82); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); border-color: var(--line); }
-.nav-in { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+/* The nav pill inherits the wrap's grid behaviour; constrain it so the wrap's
+   padding is inside its own width instead of pushing it wider than the viewport. */
+.nav-in { display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: 100%; box-sizing: border-box; }
 .brand { display: inline-flex; align-items: center; gap: 12px; font-stretch: 125%; font-weight: 640; text-transform: uppercase; letter-spacing: 0.04em; font-size: 14px; }
 .brand-mark { width: 26px; height: 26px; border: 1px solid var(--paper); display: grid; place-items: center; font-size: 10px; letter-spacing: 0; font-stretch: 110%; }
 .nav-links { display: flex; align-items: center; gap: clamp(18px, 2.4vw, 36px); }

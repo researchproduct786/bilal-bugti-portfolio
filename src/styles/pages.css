@@ -88,3 +88,211 @@ input[type='range']::-moz-range-thumb { width: 16px; height: 16px; border: 0; bo
 .nf { min-height: 100svh; display: grid; align-items: center; padding: calc(var(--nav-h) + 40px) 0 80px; }
 .nf-code { font-family: var(--f-serif); font-style: italic; font-size: clamp(120px, 26vw, 380px); line-height: .8; color: transparent; -webkit-text-stroke: 1px var(--line-strong); }
 label.f-field { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 0; } label.f-field > input, label.f-field > select, label.f-field > textarea, label.f-field > .f-err, label.f-field > .f-hint { flex: 0 0 100%; }
+
+/* ── Problem selector ────────────────────────────────────────────
+   Eight plain statements, then one written answer. The list is a real radio group:
+   the chosen statement is carried into the answer sheet as the quoted line. */
+.ps { display: grid; gap: clamp(26px, 4vw, 44px); }
+.ps-list { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.ps-item {
+  display: grid; grid-template-columns: 42px minmax(0, 1fr); align-items: baseline; gap: 10px;
+  padding: 15px 12px 15px 2px; border: 0; border-bottom: 1px solid var(--line);
+  background: transparent; color: var(--silver); text-align: start; cursor: pointer;
+  font-size: 15px; line-height: 1.4; transition: color .25s var(--ease), background .25s var(--ease);
+}
+.ps-item .mono { font-size: 10.5px; letter-spacing: .1em; color: var(--muted); }
+.ps-item:hover { color: var(--paper); background: rgba(255, 255, 255, .028); }
+.ps-item[aria-pressed='true'] { color: var(--paper); background: rgba(255, 255, 255, .05); }
+.ps-item[aria-pressed='true'] .mono { color: var(--tungsten); }
+.ps-item:focus-visible { outline: 2px solid var(--paper); outline-offset: 2px; }
+
+.ps-sheet {
+  border: 1px solid var(--line-strong); border-radius: var(--r);
+  padding: clamp(18px, 3vw, 30px);
+  background:
+    linear-gradient(158deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, 0) 55%),
+    rgba(16, 19, 24, .55);
+  display: grid; gap: 16px;
+  animation: ps-in .5s var(--ease) both;
+}
+@keyframes ps-in { from { opacity: 0; transform: translateY(6px); } }
+.ps-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.ps-quote { font-size: clamp(19px, 2.6vw, 26px); line-height: 1.25; color: var(--paper); }
+.ps-sheet .spec { margin-top: 2px; }
+.ps-sheet .spec dd { font-size: 14.5px; }
+.ps-cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; padding-top: 4px; }
+
+@media (min-width: 900px) {
+  .ps { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); align-items: start; gap: 48px; }
+  .ps-item { font-size: 14.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ps-sheet { animation: none; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Problems: a spatial composition rather than a list
+   ══════════════════════════════════════════════════════════════════════════
+   Eight cards float on their own planes. Hovering pulls one toward the reader;
+   choosing one lifts it clear and pushes the rest back, where they keep their
+   place but lose contrast and focus. The cards therefore have a permanent spatial
+   relationship — they are not eight identical rows that light up one at a time.
+   Each card also names where it landed in the stack, via its own --z offset.
+*/
+.px { display: grid; gap: clamp(24px, 4vw, 40px); }
+
+.px-stage {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  perspective: 1400px;
+  perspective-origin: 50% 40%;
+  transform-style: preserve-3d;
+}
+
+.px-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) 10px;
+  align-items: center;
+  gap: 10px;
+  inline-size: 100%;
+  min-block-size: 60px;
+  padding: 13px 14px;
+  text-align: start;
+  cursor: pointer;
+  color: var(--silver);
+  border-radius: 12px;
+  border: 1px solid var(--glass-edge-soft);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .012) 46%, transparent 72%),
+    rgba(13, 16, 21, .72);
+  box-shadow: 0 16px 34px -26px rgba(0, 0, 0, .95), inset 0 1px 0 rgba(255, 255, 255, .05);
+  /* Each card is translated to its own depth. That single value is what stops the
+     stack from reading as a table: the planes are genuinely at different distances. */
+  transform: translate3d(0, 0, var(--z, 0));
+  transition:
+    transform .55s var(--ease),
+    opacity .5s var(--ease),
+    filter .5s var(--ease),
+    border-color .5s var(--ease),
+    box-shadow .5s var(--ease),
+    color .4s var(--ease);
+  transition-delay: calc(var(--i) * 22ms);
+}
+
+.px-n {
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--dim);
+  transition: color .4s var(--ease);
+}
+.px-t { font-size: 14.5px; line-height: 1.35; }
+.px-dot {
+  inline-size: 7px;
+  block-size: 7px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  transition: background .4s var(--ease), border-color .4s var(--ease), transform .4s var(--ease);
+}
+
+.px-card:hover {
+  color: var(--paper);
+  transform: translate3d(0, -3px, calc(var(--z, 0px) + 26px));
+  border-color: var(--glass-edge);
+  box-shadow: 0 26px 50px -30px rgba(0, 0, 0, .95), inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+.px-card:focus-visible { outline: 2px solid var(--paper); outline-offset: 3px; }
+
+/* Chosen: it comes forward and stays forward. */
+.px-card[aria-pressed='true'] {
+  color: var(--paper);
+  transform: translate3d(0, -2px, calc(var(--z, 0px) + 44px));
+  border-color: color-mix(in srgb, var(--tungsten) 46%, var(--glass-edge));
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .018) 46%, transparent 72%),
+    rgba(18, 22, 28, .9);
+  box-shadow: 0 34px 66px -34px rgba(0, 0, 0, 1), inset 0 1px 0 rgba(255, 255, 255, .1);
+}
+.px-card[aria-pressed='true'] .px-n { color: var(--tungsten); }
+.px-card[aria-pressed='true'] .px-dot { background: var(--tungsten); border-color: var(--tungsten); transform: scale(1.15); }
+
+/* Everything not chosen recedes: it keeps its geometry, loses its focus. Only a
+   chosen card does this, so on first paint the stack is evenly present. */
+/* Recession is expressed through border, tone and a small scale-down, not a heavy
+   opacity drop: at 0.62 the unselected statements fell below a comfortable contrast
+   ratio, and these are questions a visitor has to be able to read in order to pick
+   one. 0.86 keeps them clearly secondary and fully legible. */
+.px-stage:has(.px-card[aria-pressed='true']) .px-card:not([aria-pressed='true']) {
+  opacity: .86;
+  border-color: rgba(236, 232, 224, .05);
+  color: var(--muted);
+}
+.px-stage:has(.px-card[aria-pressed='true']) .px-card:not([aria-pressed='true']) .px-n { color: rgba(236, 232, 224, .26); }
+.px-stage .px-card:not([aria-pressed='true']):hover { opacity: 1; filter: none; }
+
+/* — the answer sheet — */
+.px-sheet {
+  border: 1px solid var(--glass-edge);
+  border-radius: 18px;
+  padding: clamp(18px, 3vw, 30px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background:
+    linear-gradient(158deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .008) 52%, transparent 76%),
+    rgba(11, 14, 19, .78);
+  -webkit-backdrop-filter: blur(var(--blur-mid));
+  backdrop-filter: blur(var(--blur-mid));
+  box-shadow: var(--lift-2), inset 0 1px 0 rgba(255, 255, 255, .07);
+  animation: px-sheet-in .6s var(--ease) both;
+}
+@keyframes px-sheet-in {
+  from { opacity: 0; transform: translate3d(0, 14px, -30px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+.px-head {
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+}
+.px-svc { color: var(--tungsten); }
+.px-q { font-size: clamp(19px, 2.6vw, 27px); line-height: 1.24; color: var(--paper); margin: 0; }
+.px-spec { display: grid; gap: 16px; margin: 0; }
+.px-spec > div { display: grid; gap: 5px; }
+.px-spec dt {
+  font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--dim);
+}
+.px-spec dd { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--silver); }
+.px-cap { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding-block-start: 14px; border-top: 1px solid var(--line); }
+.px-cap .mono { font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
+.px-cap-link { font-size: 13.5px; color: var(--tungsten); }
+.px-demo { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); }
+.px-demo .mono { font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
+.px-cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+
+/* — desktop: two columns, the stack is wide and the sheet is wide too — */
+@media (min-width: 980px) {
+  .px { grid-template-columns: minmax(0, 1fr) minmax(0, 1.06fr); align-items: start; gap: clamp(28px, 4vw, 56px); }
+  .px-stage { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .px-card { min-block-size: 76px; padding: 16px; }
+  .px-t { font-size: 15px; }
+  /* Odd cards sit a little higher so the arrangement is a composition, not a grid. */
+  .px-card[data-plane='up'] { margin-block-start: 0; }
+  .px-card:nth-child(even) { translate: 0 10px; }
+}
+
+/* — phones: one column, depth expressed with scale rather than translation, so
+   nothing overlaps and every card stays fully tappable — */
+@media (max-width: 979px) {
+  .px-stage { perspective: 1000px; }
+  .px-card { min-block-size: 62px; }
+  .px-card[data-plane='far'] { opacity: .96; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .px-card, .px-sheet { animation: none; transition: none; }
+  .px-card, .px-card:hover, .px-card[aria-pressed='true'] { transform: translate3d(0, 0, 0); }
+  .px-card:nth-child(even) { translate: none; }
+  .px-stage:has(.px-card[aria-pressed='true']) .px-card:not([aria-pressed='true']) { opacity: 1; filter: none; }
+}

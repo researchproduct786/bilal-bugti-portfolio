@@ -2,47 +2,395 @@
 
 Milestone log for the Bilal Bugti portfolio. Updated as work lands.
 
+---
+
+## Current state (branch `arena/d81b63b6-bilal-bugti-portfolio`)
+
+The site has been rebuilt on a six-language locale router and is running the new design
+system. `npm run typecheck`, `npm run build` and `npm run test:e2e` all pass
+(**1301 automated checks, 0 failures**), and `npm run check:i18n` passes for all six
+languages. A Vercel preview deployment of this branch builds and is READY.
+
+### What the visitor gets now
+
+| Area | State |
+| --- | --- |
+| Home | 12 sections: hero, introduction + service lines, eight capabilities, six products, portfolio artwork in a monitor frame, problem selector, seven-step journey, industries, about + portrait, honest testimonials, working notes, closing CTA |
+| Products | Six concept products, each with a real, interactive interface and a distinct identity (Halden Objects, Tillo, Deskhand, Linework, Ember & Rye, Slowtide) |
+| Services | Three practice areas holding seven capabilities, each pairing a photograph with a matching interface |
+| Process | Seven steps, each with one photograph, a plain-English explanation and an outcome label |
+| Languages | English, Arabic (RTL), Spanish, German, French, Simplified Chinese — every page, string and form |
+| Pages | Home, Work, six product pages, Services, three service pages, Process, Industries, About, Insights, Creative Lab, Case studies, Results, Testimonials, Contact, 404 |
+
+---
+
 ## M1 — Foundation
-- **Objective:** project scaffold, design system, content model, i18n-ready structure.
-- **Files:** `package.json`, `next.config.mjs`, `tsconfig.json`, `src/data/*`, `src/i18n/*`, `src/styles/globals.css`, `src/components/site/*`, `src/app/layout.tsx`, `src/app/template.tsx`.
-- **Features:** tokens (black/charcoal, silver, one electric blue), variable-font type system, responsive nav + full-screen index, footer, magnetic buttons, custom cursor (fine pointers only), page-enter transition, scroll reveals, optional sound (muted by default), security headers, env-driven contact config.
-- **Errors found / fixed:** TypeScript 7 broke `next dev` → pinned 5.9. CSS side-effect imports failed typecheck → `src/css.d.ts`.
+- **Files:** `package.json`, `next.config.mjs`, `tsconfig.json`, `src/styles/globals.css`, `src/components/site/*`, `src/app/layout.tsx`.
+- **Features:** design tokens (black / charcoal, silver, one electric blue), variable-font type system, responsive nav + full-screen index, footer, magnetic buttons, custom cursor (fine pointers only), scroll reveals, security headers, env-driven contact config.
+- **Fixed:** TypeScript 7 broke `next dev` → pinned 5.9.
 
-## M2 — 3D studio and transformation
-- **Objective:** cinematic opening scene and the human → machine signature.
-- **Files:** `src/three/studio.ts`, `src/components/home/{StudioCanvas,Hero,LabStudio}.tsx`, `public/scene/*`.
-- **Features:** fully procedural Three.js scene (desk, laptop, three monitors, chair, seated faceless figure), scroll-driven camera path, shader dissolve between human and machine figure, pointer parallax, DPR cap, render pause when off-screen or tab hidden, full disposal on unmount. Lightweight still-image version with a drag-to-compare slider for phones, touch devices, reduced motion and no-WebGL.
-- **Errors found / fixed:** duplicated rotation in limb builder; dev badge baked into captured posters.
+## M2 — 3D studio and transformation *(removed, superseded)*
+- The procedural Three.js studio and the human → machine dissolve were built here, and then
+  removed in M7. The concept was rejected: it said nothing about the business, cost a large
+  download on phones, and made a robot the central identity. `src/three/`, `StudioCanvas`,
+  `IndustryGlobe`, `LabStudio`, `TypeLab`, `demos/Cover` and `public/scene/` are gone; the
+  hero is now a photograph and one working interface, which loads instantly.
 
-## M3 — Home page
-- **Files:** `src/app/page.tsx`, `src/styles/home.css`, `ProblemSelector.tsx`, `IndustryGlobe.tsx`, `TestimonialWall.tsx`, `Cover.tsx`.
-- **Features:** introduction, three capabilities, selected work, business problem selector (8 problems), canvas industry sphere, five-chapter journey, seven-step process, honest testimonial wall, insights, final CTA.
+## M3 — Home page *(rebuilt in M7)*
+- Original version: introduction, three capabilities, canvas industry sphere, five-chapter
+  journey, testimonial wall.
+- The canvas sphere and the decorative sections were replaced; the journey was rewritten as
+  first-person, and the profile is now the real one.
 
 ## M4 — Six concept projects
-- **Files:** `src/components/demos/*`, `src/styles/demos.css`, `src/app/work/**`.
-- **Features:** Halden Objects (store, cart, demo checkout, owner analytics), Tillo (mobile business app), Deskhand (assistant UI with scripted local responses, disclosed), Linework (CRM pipeline + automations), Ember & Rye (ordering linked to kitchen/admin), Slowtide (campaign, creatives, landing page, dashboard). Each is code-split and labelled a concept project with fictional data.
+- **Files:** `src/components/demos/*`, `src/styles/demos.css`, product pages.
+- **Features:** Halden Objects (store, cart, checkout, admin), Tillo (mobile business app),
+  Deskhand (assistant UI with scripted local answers, disclosed in the interface), Linework
+  (CRM pipeline + automations), Ember & Rye (ordering linked to a kitchen display). All six
+  are code-split, labelled concept projects, and use fictional sample data.
 
 ## M5 — Remaining pages, inquiry, SEO
-- **Files:** `src/app/{about,services,industries,case-studies,process,results,testimonials,insights,lab,contact}/**`, `src/components/contact/InquiryForm.tsx`, `sitemap.ts`, `robots.ts`, `opengraph-image.tsx`, `not-found.tsx`, `error.tsx`, `src/styles/pages.css`.
-- **Features:** three service detail pages (problem, solution, included, process, related demos, FAQ + FAQ structured data), three-step validated inquiry form with email / WhatsApp / copy handoff, Creative Lab, 404.
+- Three service detail pages, three-step inquiry form (email / WhatsApp / copy handoff, nothing
+  sent to a server), Creative Lab, 404, sitemap, robots, Open Graph image.
 
 ## M6 — Testing and deployment
-- **Tests:** `npm run typecheck`, `npm run build`, `node tests/e2e.mjs` (every route on desktop and 390 px mobile: status, single h1, metadata, canonical, no horizontal overflow; 404; sitemap/robots/OG; problem selector; menu; all six demos; inquiry form validation and completion; reduced motion; security headers; console errors). Results are recorded in the section below.
+- `npm run typecheck`, `npm run build`, `node tests/e2e.mjs`.
+- Production remains on `main` and was **not** touched by this work.
 
-## Test results
-_See bottom of file — filled in from actual runs._
+---
 
-## Remaining / needs input from Bilal
-- Contact email, WhatsApp number and social URLs (environment variables; placeholders shown until set).
-- An approved photograph for the About page (currently a 3D scene still, labelled as a placeholder).
-- Real testimonials, with permission and source links.
-- Reviewed translations for Arabic, Spanish, German, French and Simplified Chinese (architecture is ready; nothing is machine-translated and shown as verified).
-- Published articles for Insights.
-- Optional: a form backend if inquiries should be delivered without the visitor's email app.
+## M7 — Six-language rebuild and redesign *(this branch)*
 
-### Local run — 2026-11-12 (production build, `next start`)
-- `npm run typecheck` — clean.
-- `npm run build` — success, 28 static pages.
-- `node tests/e2e.mjs` — **74 passed, 0 failed**.
-- `node tests/hero.mjs` — full WebGL hero mounts and scrolls through human → machine with no console errors (software-rendered headless Chromium; not measured on real GPUs or phones).
-- Not tested: real iOS/Android devices, screen readers, Lighthouse scores.
+### Architecture
+- Flat `src/app/*` routes replaced by `src/app/[locale]/`. Unprefixed URLs are rewritten to
+  `/en` by `src/middleware.ts`, so existing links keep working.
+- Every page declares a canonical URL and `hreflang` alternates for all six languages.
+  `sitemap.xml` lists 126 URLs with alternates.
+- `lang` and `dir` are set on a wrapper (`src/app/[locale]/layout.tsx`), not on `<html>`,
+  because a child layout cannot own the `<html>` element. Arabic therefore gets `dir="rtl"` on
+  the content wrapper with logical CSS properties throughout.
+
+### Content and languages
+- `src/i18n/{en,ar,es,de,fr,zh}.ts` — **255 UI keys** per language (nav, buttons, headings,
+  form labels, errors, notices).
+- `src/i18n/content/{locale}.ts` — **485 strings** per language: the six projects with five
+  answered questions each, three services, eight problems, twelve industries, a five-chapter
+  profile, four lessons and the supporting pages.
+- `src/i18n/ui-labels.ts` — **57 labels** for the small interfaces drawn inside the product and
+  service mockups (cart, checkout, column headings, prompts, disclosure notes), plus translated
+  demo-frame notes. Brand names, product names and status values stay in English on purpose:
+  a fictional brand does not translate its own product names, while the business language
+  around them is fully translated.
+- `npm run check:i18n` fails on a missing key, an empty string, a key that is identical to
+  English (a sign of an untranslated string), or an extra key — across dictionaries, content,
+  interface labels and demo notes. All six pass.
+- Arabic was written in full in this milestone; it is not machine-pasted English.
+
+### Visuals
+- Ten generated photographs in `public/img/`, each cropped to a consistent 4:3 and compressed
+  to WebP (q82, 1600 px). Each one is paired with an interface or a caption that explains the
+  business situation, so no image is decoration.
+- The second uploaded artwork is used as `public/img/portfolio-reference.webp` and shown inside
+  a CSS monitor frame (`.reel`), at a modest size on phones.
+- The uploaded photograph of Bilal was used only as an identity reference for the portrait;
+  the original file is not published.
+- Every interface is real HTML/CSS inside the page: store product page and cart, Tillo phone
+  dashboard, Deskhand assistant thread, Linework pipeline, Ember kitchen display, Slowtide
+  campaign dashboard. The fictional numbers are consistent across the whole site
+  (Orders 124, Today's sales ₨48,500, Products 86, Pending 12).
+- Stock photography was **not** used: every stock host is blocked from the build environment.
+  That is stated here rather than hidden.
+
+### Mobile
+- Layouts are authored single-column first and expand at 460 / 560 / 760 / 860 / 900 / 1000 px.
+- The hero keeps the portrait and a working phone interface side by side from 560 px, and
+  stacks them with the interface overlapping the portrait below that, so the visitor never
+  scrolls one large image and then a separate explanation.
+- Interfaces embedded in photographs shrink to 52–62 % width rather than overflowing.
+- Horizontal overflow is asserted per page in the test suite; all pages report 0 px.
+- No WebGL, no scroll pinning, no blocking animation before content.
+
+### Removed
+- Human → machine concept, `src/three/studio.ts`, `public/scene/*`, `StudioCanvas`,
+  `IndustryGlobe`, `LabStudio`, `TypeLab`, `demos/Cover`, the superseded flat pages and the old
+  `src/data/{content,projects,services}.ts`.
+
+### Verification
+| Check | Result |
+| --- | --- |
+| `npm run typecheck` | pass |
+| `npm run build` | pass, 133 static pages |
+| `npm run test:e2e` | **1301 passed, 0 failed** |
+| `npm run check:i18n` | 6 locales, 262 UI keys + 485 content strings + 57 interface labels, complete |
+
+`npm run test:e2e` checks, per locale and per route: HTTP 200, exactly one `<h1>`, correct
+`lang` and `dir`, canonical plus hreflang, no leftover 3D references, no rendered
+`undefined`/`NaN`, no untranslated English chrome; then legacy unprefixed URLs, real 404s, every
+referenced image exists and is under 320 KB, sitemap coverage, robots, structured data, that the
+demo is real markup rather than a screenshot, and security headers.
+
+### Known limitations (stated, not hidden)
+1. ~~No browser-level testing in this sandbox.~~ **Superseded** — Chromium was later built from
+   source (see the final milestone below) and driven against the production build. See that
+   section for the routes, locales and motion states actually verified.
+2. ~~`scene-leads.webp` is a stand-in.~~ **Resolved** — it is now a distinct image of a team
+   working through a call list, not a duplicate of `scene-operations.webp`.
+3. **Stock photography is unavailable** from this environment, so the ten photographs are
+   generated rather than licensed. An image audit was produced in the previous session; the
+   classification of each scene is in that report.
+4. **Contact needs environment variables.** `NEXT_PUBLIC_CONTACT_EMAIL` and
+   `NEXT_PUBLIC_WHATSAPP_NUMBER` must be set on the deployment for the form's handoff buttons to
+   point anywhere real.
+5. **Preview is SSO-protected.** The Vercel preview deployment is `private` with
+   `ssoProtection: all_except_custom_domains`, so opening the preview URL requires signing in to
+   the Vercel account.
+6. **Testimonials and results are intentionally near-empty**, because inventing them was
+   explicitly out of scope. Both pages say so.
+
+---
+
+## Next
+1. Replace `scene-leads.webp` with a real photograph.
+2. Human pass on the preview at 360 / 375 / 390 / 393 / 430 px, plus a screen-reader pass.
+3. Run a browser-based test suite on a machine that has Chromium.
+4. Set the two contact environment variables.
+5. Only after approval: merge to `main` and promote to production.
+
+---
+
+# Milestone: final visual quality audit
+
+Branch `arena/d81b63b6-bilal-bugti-portfolio`, commit `49c5f6a`. Production untouched, PR #2
+still open and unmerged.
+
+## What changed
+
+**Spatial glass language** — new `src/styles/spatial.css`. Three glass tiers (far / mid / near),
+layered contact + falloff + ambient shadows, a single specular edge highlight per surface, and
+two consistent light sources (cool key upper-left, warm fill lower-right). Blur is applied to a
+few surfaces sitting over real content rather than to everything, so some things stay sharp and
+others genuinely sit behind.
+
+**Nav** — a floating glass pill that thickens its blur, border and shadow once the page moves,
+with a short settle-in that respects reduced motion.
+
+**Hero cut-out** — rebuilt as four real planes: a soft studio plate, a wide glass card holding a
+working storefront, the cut-out subject whose head clears that card's top edge, and a near
+glass dashboard card in front of the shoulder. Uses real `z-index`, so it survives resize, RTL
+and reduced motion.
+
+**The portrait itself** — generated from the supplied photograph with identity preserved, then
+keyed off a chroma backdrop into a genuine alpha cut-out (`portrait-hero.webp`, 900×1016,
+98 KB). The cyan key spill was removed at the pixel level rather than by eroding the matte, so
+fine hair strands survive without a coloured rim. The about-page portrait (`portrait-bilal.webp`)
+was regenerated from the same source, so both portraits show the same person in the same session.
+
+**Motion** — `DepthMotion` drives GSAP ScrollTrigger parallax, staggered reveals and a
+scroll-linked hero timeline where each plane moves at its own speed. Nothing is pinned, nothing
+delays reading, and it aborts on reduced motion, coarse pointers or ≤2 cores.
+
+**Interfaces** — every device screen now holds specific, coherent content; fixed several cards
+that cropped their interface mid-row, a literal `{l.askPlaceholder}` token rendering on screen,
+and an empty dashboard column in the campaign panel. One currency (Rs) across the whole site so
+the marketing figures and the demos agree.
+
+## Bugs found only by rendering the page
+
+| Symptom | Cause |
+| --- | --- |
+| Every page hit the error boundary | `LocaleProvider` was `LocaleContext.Provider` — React 19 resolves that to a lazy `Context` object |
+| Blank hero | Entrance classes were not in the `Interactions` observer selector, so they stayed at `opacity: 0` |
+| Near hero card clipped | A `focus-in` ancestor left `clip-path: inset(0)` behind permanently |
+| 173 px horizontal scroll (desktop) | A light field bled past the viewport edge |
+| 47 px horizontal scroll (phone) | Nav pill's inline padding sat outside its own width |
+| Problem selector was one run-on line | `.ps*` classes were used in markup but had no CSS at all |
+| `{l.askPlaceholder}` visible in the UI | A template literal written into a label table |
+| Parallax silently dead on desktop | Capability gate used `hover: none`, which matches touch-screen desktops |
+
+## Verification actually performed
+
+Headless Chromium 153 (NSS/NSPR built from source, see below), driving the **production build**
+served by `next start`:
+
+- `npx tsc --noEmit` — clean.
+- `npm run build` — clean, 133 static pages.
+- `npm run test:e2e` (BASE=http://127.0.0.1:3100) — **1325 passed, 0 failed**.
+- `npm run check:i18n` — 6 locales, 264 UI keys, 485 content strings, all complete and distinct.
+- Browser sweep of `/en`, `/es`, `/de`, `/fr`, `/ar`, `/zh`, `/en/work`, `/en/work/tillo`,
+  `/en/services`, `/en/services/ai-business-systems`, `/en/process`, `/en/about`, `/en/contact`,
+  `/en/industries`, `/en/insights`, `/en/lab`, `/ar/work`, `/ar/contact`, `/zh/work`, `/fr/lab`
+  at 390×844 — no crashes, no horizontal overflow, **console completely clean**.
+- Arabic verified as real RTL: `dir=rtl` on the locale wrapper, mirrored hero planes, Arabic h1.
+- `prefers-reduced-motion: reduce` — zero hidden or permanently transformed elements.
+- Parallax verified numerically on an emulated desktop: plate +4 px, back card +11 px,
+  subject −24 px, near card +16 px at the same scroll offset — genuine depth separation.
+- Below 900 px and on coarse pointers the parallax is off by design; CSS reveals carry the page.
+
+### Browser tooling note
+Chromium could not start in this sandbox initially: `libnss3`, `libnssutil3` and `libnspr4` were
+missing and every package mirror is blocked. They were built from source over GitHub
+(NSS `NSS_3_101_RTM` + NSPR `main`, `gyp-next`, `ninja`) and loaded via
+`LD_LIBRARY_PATH=/tmp/nss/dist/Release/lib`. `tests/browser.mjs` exposes the `launch()` helper.
+
+## Manual visual QA checklist (still worth a human pass)
+
+Open the preview signed in as `researchproduct786`.
+
+1. **Hero, desktop** — head clearly clears the glass card's top edge; the near card overlaps the
+   shoulder without covering the face; storefront tiles read on both sides of the body.
+2. **Hero, phone (360 / 375 / 390 / 393 / 430)** — three planes still legible, near card clear of
+   the sticky contact bar, no sideways scroll.
+3. **Scroll** — planes separate at different speeds; sections fade/rise once; nothing jumps;
+   no pinned section blocks scrolling.
+4. **Cut-out edges** — zoom to 200 % on the hair: no cyan fringe, no hard matte line.
+5. **Nav** — pill thickens after scrolling; menu overlay opens/closes; language switch keeps you
+   on the same page in the new locale.
+6. **Arabic** — `/ar`: whole layout mirrors, numerals and dollar amounts read correctly, hero planes
+   swap sides.
+7. **Demos** — `/en/work/halden-objects` add to cart, `/en/work/tillo` advance an order,
+   `/en/work/linework-crm` move a deal; every screen shows real content, none empty.
+8. **Contact** — three steps, validation, USD budget bands, and the copy/send handoff.
+9. **Reduced motion** — enable it in the OS, reload: everything visible, no animation.
+10. **Console** — no errors on any route.
+
+## Milestone: design correction (Parts A–P)
+
+The homepage was re-sequenced into eight chapters and each one given its own identity.
+Currency, photography and the hero composition were corrected at the same time.
+
+**Sequence now:** hero → introduction → services (7) → work (6) → problems (8) → process (7)
+→ about → closing question → one-line footer. Everything that used to sit below About —
+the testimonial wall, the working notes, the kitchen photograph and interface duo — is
+removed. Nothing was added just to lengthen the page; the page got shorter.
+
+**Corrections of note**
+
+- **Currency.** The whole site is US dollars again: `money()` emits `$`, every demo's sample
+  data was re-denominated, and the inquiry form's budget bands run `Under $2,500` through
+  `$30,000+`. No rupee symbol, abbreviation or regional label remains anywhere in `src/`.
+- **Hero.** The deepest plane was a blurred copy of the subject's own portrait, which put a
+  second face behind his shoulder. It is now a person-free studio environment. The subject's
+  entrance never scales — opacity plus a 9px drift only — and the card's top edge sits below
+  the shoulders so the head clears it. The body is anchored to the stage floor and masked into
+  the panel's shadow instead of ending on a cut line. Two layout bugs fixed on the way: the
+  stage height resolved to `96vw` at desktop widths, and `overflow-x: hidden` on `<html>`
+  disabled every sticky element (now `clip`).
+- **Capabilities.** Seven lanes on a six-column board with different spans, seven accents,
+  seven icons, seven genuinely different interface pictures (storefront, device, page,
+  conversation, chain, pipeline, chart) and seven different entrance directions.
+- **Work.** Six panels with unequal spans: a wide opening storefront panel, paired mid panels,
+  and a wide closing campaign panel. Wide panels split horizontally rather than parking a wide
+  interface at the bottom of a tall empty frame.
+- **Problems.** Eight cards on eight different z-planes. The chosen one lifts clear, the rest
+  recede and lose saturation. The answer panel names the matching capability explicitly.
+- **Process.** One pinned frame on desktop with the active step driven by an
+  IntersectionObserver; the per-step image is hidden there and shown on mobile, where every
+  step keeps its own picture. Four of the seven photographs were replaced because they were
+  regional shop clichés or blank device screens: a grocery counter, a cluttered back office,
+  three empty phones and a stereotyped storefront.
+- **About.** A true 4:5 portrait, generated to the correct frame rather than cropped from the
+  square: full head, both shoulders, upper torso, real headroom. Separate desktop and mobile
+  framing. Heading corrected to the specified wording, the "Buildings for Real Business" line
+  is gone.
+- **Navigation.** Identity, menu toggle and the four chapters form one group at the start of
+  the bar, with a dot indicating the active chapter as the homepage scrolls. Language and the
+  call to action sit opposite. On phones the menu button keeps its 44px target.
+
+**Verified:** typecheck clean; build 133 pages; `test:e2e` 1319/0; `check:i18n` 6 locales
+(273 UI keys, 485 content strings); 20-route browser sweep with no overflow, no broken images,
+no rupee text, one `h1` each and no console errors; 360/375/390/393/430/768 with `overflowX: 0`
+throughout; `/ar` RTL verified; reduced motion leaves everything visible with no transforms.
+
+### Milestone: visual review of the built site
+
+Screenshotting the production build at 1440, 768 and 390 found four defects in the sections
+that had just been restructured, plus three stale captions:
+
+- **Wide Work panels left the frame a third empty.** The interface sat centred in a fixed
+  340px well inside a 16:11 media box. Fixed height alone was not the answer, and neither was
+  letting the copy column drive height (the product photograph grew to 430px tall). What
+  works: `block-size: clamp(310px, 25vw, 372px)` plus a real fill-the-frame PDP layout —
+  `.ui-body` padding 0, `.ui-pdp` split `.92fr / 1fr`, `.ui-shot img` at `object-fit: cover`,
+  info column flex-centred. Measured at 1440: media 360, ui 328, `deadBelowUi` 16,
+  `deadRight` 16.
+- **The concept-project badge sat on the product photograph.** On the storefront's white
+  studio shot it was illegible, and top-right it overlapped the demo's own cart button. It is
+  now a static flex child beside the product name in the copy column (`tagOverlapsCart: false`).
+- **The two wide panels still had a 16:11 well on phones**, parking the interface at the
+  bottom of an empty band. A `max-width: 899px` block sets `aspect-ratio: auto`, 12px media
+  padding and `block-size: auto`.
+- **The storefront lane's second shelf row collapsed on phones** to three run-together labels
+  ("Ceramic pour-over$68Hand grinder$116"). That row exists to fill a wide desktop lane; it is
+  now `display: none` below 900px and `grid` above.
+- **Three of seven process captions described their predecessors' photographs** — "On the shop
+  floor, with the ledger and the stock" under a photograph of two people in a meeting room.
+  Rewritten in all six locales to describe what each picture now shows.
+- **Problems section, unselected cards.** Opacity `.62` on the recession left 2.9:1 effective
+  contrast. Now `.86` with a border and colour treatment: **4.68:1**, which passes AA.
+
+`docs/screenshots/` holds desktop (1440×900) and mobile (390×844 DPR 2) captures of every
+chapter — WebP q88, 1400px cap, whole set 856 KB.
+
+**Verified after these changes:** typecheck clean; build 133 pages; `test:e2e` 1319/0;
+`check:i18n` 6 locales; 20-route sweep all 200 with `ovf=0`, one `h1`, no broken images, no
+rupee text, no console errors; 360/375/390/393/430/768/1280/1440 all `overflowX: 0`; reduced
+motion keeps 7/7 lanes and 0 hidden elements; `/ar` RTL with USD unflipped; Halden demo driven
+end to end — product → PDP → add to cart, cart 0 → 1, USD, no errors. Preview deployment
+`3230624` built **READY** and aliased to the branch URL. `main` untouched.
+
+### Milestone: broadcast hero and final handover
+
+**Hero.** The first screen was a clean two-column header; it is now the control surface the
+direction describes. The subject still breaks the storefront card's top edge, and four glass
+panels now ring him, each carrying content rather than decoration: *what I build* (four named
+capabilities with their own accent), *selected work* (a real link into the Tillo case),
+*my process* (first conversation, build), and the dashboard over the chest. No invented
+client counts, ratings or revenue — every number on screen belongs to the same invented
+sample dataset the demos use, and is labelled as such.
+
+Panel placement was measured, not eyeballed. First attempt put the work panel over the
+storefront's wordmark; the second clipped the dashboard's header row. `/tmp/herogeo2.mjs`
+reports rect intersections against `.hero2-line`, `.hero2-cap`, `.hero2-cta` and `.hpb-bar`
+at 1280/1440/1600, and the panel now clears all of them at every width. Below 900px the
+panels are dropped entirely — the stage has no room, and the copy already says the same
+thing.
+
+The environment plate had been sitting at 0.5 opacity behind a near-black page, doing no
+work; at 0.72 the stage finally has a floor and a light source.
+
+**Two capability lanes were showing empty screens.** The web lane rendered three blank grey
+boxes and the CRM lane two blank columns — the placeholder-interface defect the brief bans
+outright. Both now carry coherent data: named products with USD prices, and a pipeline of
+named companies with deal values. Their art column also got a real vertical band so the
+interface no longer floats in a void.
+
+**Arabic pages had the wrong document language.** `<html>` shipped `lang="en" dir="ltr"` on
+every route because the root layout renders one static element and cannot know the language.
+A screen reader pronounced Arabic with an English voice and `documentElement.dir` was wrong.
+`LocaleDocument` corrects both on mount; layout direction was already right in the first
+paint, so nothing reflows.
+
+**A build-integrity trap, recorded so it is not repeated.** Building while `next start` is
+serving corrupts `.next`: the running server keeps serving stale HTML that references a
+stylesheet the rebuild has deleted, which returns 400. The page then renders with partial
+CSS — capability lanes collapsed to unstyled blocks and a 420px child blew the viewport to
+642px of horizontal overflow. This looked exactly like a CSS regression and cost three
+rebuild cycles. **Always stop the server, `rm -rf .next`, then build.**
+
+**Verified:** typecheck clean; build 133 pages; `test:e2e` 1319/0; `check:i18n` 6 locales
+(283 UI keys, 485 content strings); 20-route sweep all 200 with `ovf=0`, one `h1`, no broken
+images, no rupee text, no console errors; 360/375/390/393/430/768 all `overflowX: 0`; reduced
+motion keeps 7/7 lanes visible with 0 hidden; `/ar` verified `lang="ar" dir="rtl"`, mirrored
+nav and hero panels, USD unflipped, no overflow; all six demos load with USD and no errors;
+contact form driven end to end through all three steps to the brief preview.
+
+**Deployment:** `77fafcd` → `dpl_FMjrfCo498PLfhpnUAgX6MKE72Tx`, **READY**, aliased to
+`bilal-bugti-portfolio-git-arena-d81b6-f88f45-researchproduct786.vercel.app`. Correct repo
+(`1453212235`), correct branch, correct commit. The preview is behind Vercel Deployment
+Protection; verified that an unauthenticated request is redirected to `vercel.com/login`.
+`main` remains at `e46f3e8`.
+
+**Outstanding, needs the owner:** the project has zero environment variables, so the contact
+handoff has no destination. The form works and produces the brief, and *Copy message* works,
+but the email button is disabled and there is no WhatsApp button. `NEXT_PUBLIC_CONTACT_EMAIL`
+and `NEXT_PUBLIC_WHATSAPP_NUMBER` are the two that matter.
