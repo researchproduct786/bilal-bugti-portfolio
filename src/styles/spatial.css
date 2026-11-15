@@ -646,3 +646,34 @@
    floating glass out of the void. */
 .hero-plate { opacity: 0.72; }
 @media (max-width: 899px) { .hero-plate { opacity: 0.4; } }
+
+/* ── Pointer parallax offsets ──────────────────────────────────────────────── */
+/* Interactions sets --px / --py per layer on pointer move. Reading them through
+   `translate` rather than `transform` means the scroll parallax (which owns
+   `transform` via GSAP) and the pointer parallax never fight over the same
+   property, so both can be active at once. Defaults are 0, so nothing moves on
+   touch, on reduced motion, or before the pointer enters. */
+.hero-plate, .hero-panel-back, .hero-panel-front, .hero-mini,
+.hero-subject-wrap {
+  translate: var(--px, 0px) var(--py, 0px);
+}
+/* The wrapper takes the subject's own placing, so the figure inside stays exactly
+   where it was: same box, same anchoring, same stacking. */
+.hero-subject-wrap {
+  position: absolute;
+  inset-inline: 0;
+  margin-inline: auto;
+  inset-block-start: 0;
+  inline-size: min(72%, 430px);
+  z-index: 3;
+}
+.hero-subject-wrap .hero-subject { position: relative; inset: auto; margin: 0; width: 100%; z-index: auto; }
+@media (min-width: 560px) {
+  .hero-subject-wrap { inline-size: min(70%, 440px); inset-block-start: auto; inset-block-end: 1%; }
+}
+@media (min-width: 900px) {
+  .hero-subject-wrap { inline-size: min(70%, 500px); inset-block-end: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-plate, .hero-panel-back, .hero-panel-front, .hero-mini, .hero-subject-wrap { translate: none; }
+}

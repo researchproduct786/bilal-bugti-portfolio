@@ -839,7 +839,12 @@
     padding: 16px 0 16px 16px;
     min-block-size: 0;
     display: flex;
-    align-items: center;
+    /* Centred horizontally but pinned to the top: a column-height art area with a
+       centred item leaves the same dead space above and below, which read as a
+       floating phone in an empty panel. Top-aligned, the interface sits beside the
+       title it belongs to. */
+    align-items: flex-start;
+    justify-content: center;
   }
   .lane[data-span='4'] .lane-copy,
   .lane[data-span='3'] .lane-copy {
@@ -1046,3 +1051,10 @@
   .hero2-copy .kicker b { display: block; }
   .hero2-copy .kicker span[aria-hidden] { display: none; }
 }
+
+/* The app lane: phone plus a short caption, so a narrow device does not float alone
+   in a wide art column. */
+.lv-device { display: flex; align-items: flex-start; gap: 14px; }
+.lv-device-note { display: flex; flex-direction: column; gap: 4px; font-size: 10.5px; line-height: 1.45; color: var(--muted); max-inline-size: 120px; padding-block-start: 8px; }
+.lv-dn-k { font-family: var(--f-mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--ac); }
+@media (max-width: 899px) { .lv-device-note { display: none; } }

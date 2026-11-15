@@ -18,7 +18,7 @@ interface NavLabels {
  * Sections the homepage navigation points at, and the heading each one reads as.
  * On any other page these resolve to that page's own route instead.
  */
-const SECTION_IDS = ['work', 'services', 'process', 'about'] as const;
+const SECTION_IDS = ['services', 'work', 'process', 'about'] as const;
 
 export function Nav({ labels, name }: { labels: NavLabels; name: string }) {
   const pathname = usePathname();

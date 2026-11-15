@@ -117,15 +117,21 @@ export function Hero({
             </div>
           </div>
 
-          <div className="hero-subject" data-hero-subject>
-            <img
-              src="/img/portrait-hero.webp"
-              alt={portraitAlt}
-              width={900}
-              height={1016}
-              fetchPriority="high"
-              decoding="async"
-            />
+          {/* The wrapper carries the parallax, not the figure. The figure has a
+              `transform` entrance animation with fill-mode backwards, and a running
+              or filled animation takes precedence over the `translate` property — so
+              a parallax set on the figure itself would be silently ignored. */}
+          <div className="hero-subject-wrap" data-depth="0.15">
+            <div className="hero-subject" data-hero-subject>
+              <img
+                src="/img/portrait-hero.webp"
+                alt={portraitAlt}
+                width={900}
+                height={1016}
+                fetchPriority="high"
+                decoding="async"
+              />
+            </div>
           </div>
 
           {/* Brings the first piece of work forward as a real, clickable entry point.

@@ -35,11 +35,14 @@ export function Shell({
       primaryNav: t.ui.primaryNav,
     },
     nav: t.nav,
+    /* The six destinations the wayfinding promises. Home is the brand mark, so the
+       bar carries the five sections; on the homepage each one jumps to its chapter. */
     primary: [
-      { href: '/work', label: t.nav.work, chapter: 'work' },
       { href: '/services', label: t.nav.services, chapter: 'services' },
+      { href: '/work', label: t.nav.work, chapter: 'work' },
       { href: '/process', label: t.nav.process, chapter: 'process' },
       { href: '/about', label: t.nav.about, chapter: 'about' },
+      { href: '/contact', label: t.nav.contact },
     ],
     index: [
       { href: '/', label: t.ui.home, note: c.projects.length ? `${c.projects.length} ${t.nav.work}` : '' },

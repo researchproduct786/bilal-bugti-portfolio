@@ -31,11 +31,14 @@ type Lane = {
 export function Capabilities({ t, L }: { t: Dict; L: (p: string) => string }) {
   const c = t.capabilities;
   const p = t.home;
+  /* The seven capabilities in the order they are presented, with spans that tile the
+     six-column board exactly: 3+3 / 4+2 / 2+2+2+2. The storefront keeps the wide
+     panel because it is the only lane with a photograph, and a photograph needs room. */
   const lanes: Lane[] = [
-    { key: 'shopify', n: '01', accent: '#7ec8a5', span: 4, title: c.shopify, line: c.shopifyLine, problem: p.capProblemShopify, icon: 'store' },
-    { key: 'app', n: '02', accent: '#8fb4ff', span: 2, title: c.app, line: c.appLine, problem: p.capProblemApp, icon: 'device' },
-    { key: 'web', n: '03', accent: '#d9c48a', span: 3, title: c.web, line: c.webLine, problem: p.capProblemWeb, icon: 'page' },
-    { key: 'ai', n: '04', accent: '#b79cff', span: 3, title: c.ai, line: c.aiLine, problem: p.capProblemAi, icon: 'spark' },
+    { key: 'web', n: '01', accent: '#d9c48a', span: 3, title: c.web, line: c.webLine, problem: p.capProblemWeb, icon: 'page' },
+    { key: 'app', n: '02', accent: '#8fb4ff', span: 3, title: c.app, line: c.appLine, problem: p.capProblemApp, icon: 'device' },
+    { key: 'shopify', n: '03', accent: '#7ec8a5', span: 4, title: c.shopify, line: c.shopifyLine, problem: p.capProblemShopify, icon: 'store' },
+    { key: 'ai', n: '04', accent: '#b79cff', span: 2, title: c.ai, line: c.aiLine, problem: p.capProblemAi, icon: 'spark' },
     { key: 'automation', n: '05', accent: '#6fd0e0', span: 2, title: c.automation, line: c.automationLine, problem: p.capProblemAutomation, icon: 'flow' },
     { key: 'crm', n: '06', accent: '#ffab7a', span: 2, title: c.crm, line: c.crmLine, problem: p.capProblemCrm, icon: 'pipe' },
     { key: 'marketing', n: '07', accent: '#f2b3c8', span: 2, title: c.marketing, line: c.marketingLine, problem: p.capProblemMarketing, icon: 'chart' },
@@ -126,6 +129,12 @@ function LaneVisual({ lane }: { lane: string }) {
             <span className="lv-ph-big">$2,425</span>
             <span className="lv-ph-row"><b>4</b>open</span>
             <span className="lv-ph-row"><b>2</b>low stock</span>
+          </span>
+          {/* The phone alone in a wide column left a void. The caption names what the
+              owner is looking at, so the lane reads as a device in use, not a mock-up. */}
+          <span className="lv-device-note">
+            <span className="lv-dn-k">Orders today</span>
+            <span>Packed and ready for collection.</span>
           </span>
         </span>
       );

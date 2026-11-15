@@ -49,6 +49,8 @@ export default async function LocaleLayout({
 
   return (
     <div
+      lang={locale}
+      dir={dir}
       data-locale={locale}
       style={{
         ['--f-sans' as string]: stack.sans ?? "var(--f-sans-base)",
