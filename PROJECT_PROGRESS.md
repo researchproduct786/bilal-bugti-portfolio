@@ -394,3 +394,45 @@ Protection; verified that an unauthenticated request is redirected to `vercel.co
 handoff has no destination. The form works and produces the brief, and *Copy message* works,
 but the email button is disabled and there is no WhatsApp button. `NEXT_PUBLIC_CONTACT_EMAIL`
 and `NEXT_PUBLIC_WHATSAPP_NUMBER` are the two that matter.
+
+## Request C — visual redesign (commit `e069602`)
+
+The hero, introduction and About portrait were rebuilt earlier in this request; this
+commit finishes the rest of the page and fixes what the browser found.
+
+**Selected Work** is now a gallery of six unequal panels. Each panel's media well holds a
+working interface on a pool of the project's own accent, then a kicker with the concept
+disclosure, one heading, one line of explanation and the link. The two wide panels run
+interface beside copy at ≥900px. The duplicated wide-panel rule block that earlier passes
+had left in `home.css` (five overlapping copies) is removed.
+
+**Process** keeps one pinned frame on desktop, and that frame now carries the active step's
+number and title, so the photograph and the words are visibly the same step. Steps are 22vh
+rather than 34vh; the section had been 3000px tall to say seven short sentences.
+`tests/process.mjs` walks all seven states and asserts seven distinct images, seven distinct
+titles and a completed cross-fade — the browser evidence the brief asked for.
+
+**Chapter colour.** The per-chapter washes were previously painted on the section
+background, where the generic `depth-section` wash sat on top of them; measured at four
+points each, the chapters were 6–14 RGB apart. The colour now lives on each chapter's own
+depth layer, with two bleeds per section at different corners.
+
+**Fixed from the width sweep:** `.workgrid2` used a bare `1fr` and let a card leave the
+viewport at 360 and 375 (`minmax(0, 1fr)` now); the campaign panel clipped its chart and
+lost its two-column body when stretched; nav/footer/problem/scroll links were 16–22px tap
+targets; the longest button label overflowed at 360px; and the hero's fictional page
+mock-up hard-coded "Start a project", which the e2e suite rightly read as untranslated
+chrome in five locales.
+
+**Verification:** `tsc` clean, build 133 pages, i18n 283 keys / 485 strings, e2e 1313
+passed, zero horizontal overflow and zero sub-24px tap targets at 360–1440, `/ar` RTL
+clean, no section left invisible under reduced motion. All visual checks were made against
+a local production build of this commit: the deployed branch preview is still behind
+Vercel SSO, and I did not touch that setting.
+
+**Sandbox note for future sessions:** `node_modules` and `/tmp` are not part of the
+workspace snapshot, and the sandbox image loses the NSS libraries Chromium needs. The
+matching `libnspr4.so` / `libnss3.so` / `libnssutil3.so` ship inside
+`node_modules/@sparticuz/chromium/bin/al2023.tar.br` — decompress it with Node's
+`brotliDecompressSync`, untar to `/tmp/nss2`, and run browsers with
+`LD_LIBRARY_PATH=/tmp/nss2/lib`. `pip install --break-system-packages pillow` for crops.
