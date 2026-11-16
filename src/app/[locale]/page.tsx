@@ -3,7 +3,6 @@ import { localeCodes, href, type LocaleCode } from '@/i18n/config';
 import { getBundle } from '@/i18n/dictionaries';
 import { Shell } from '@/components/site/Shell';
 import { Hero } from '@/components/home/Hero';
-import { uiLabels } from '@/i18n/ui-labels';
 import { Capabilities, WorkGrid, IntroAndServices } from '@/components/home/HomeSections';
 import { ProcessJourney } from '@/components/home/ProcessJourney';
 import { ProblemSelector } from '@/components/home/ProblemSelector';
@@ -36,11 +35,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const b = getBundle(locale as LocaleCode);
   const { t, c } = b;
   const L = (p: string) => href(locale as LocaleCode, p);
-  const ui = uiLabels[locale as LocaleCode];
 
   return (
     <Shell b={b} minimalFooter>
-      <Hero t={t} projects={c.projects} portraitAlt={t.ui.portraitNote} ui={ui} />
+      <Hero t={t} portraitAlt={t.ui.portraitNote} />
 
       <IntroAndServices t={t} c={c} />
 
@@ -60,7 +58,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <Chapter n="04" label={t.home.workKicker} id="work-h" title={t.home.workTitle}>
             {t.home.workBody}
           </Chapter>
-          <WorkGrid projects={c.projects} t={t} L={L} locale={locale as LocaleCode} />
+          <WorkGrid projects={c.projects} t={t} L={L} />
           <div className="reveal" style={{ marginTop: 36 }}><Btn href={L('/work')} variant="ghost">{t.nav.work}</Btn></div>
         </div>
       </section>

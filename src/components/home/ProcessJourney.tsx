@@ -85,6 +85,13 @@ export function ProcessJourney({ t }: { t: Dict }) {
             </div>
           ))}
         </div>
+        {/* The pinned frame carries the step's own number and title, so the picture
+            and the words are visibly the same step rather than two columns that
+            happen to scroll together. */}
+        <div className="jx-frame-tag" aria-hidden="true">
+          <span className="jx-frame-n mono">{cur.n}</span>
+          <span className="jx-frame-t">{cur.title}</span>
+        </div>
         <ol className="jx-rail" aria-hidden="true">
           {steps.map((s, i) => (
             <li key={s.n} className={i === active ? 'is-on' : ''}>

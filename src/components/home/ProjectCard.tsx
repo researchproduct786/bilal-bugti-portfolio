@@ -4,16 +4,19 @@ import type { ContentProject } from '@/i18n/content/types';
 import { uiFor, defaultUiLabels, CrmUi, CampaignUi, FlowStrip, type UiLabels } from '@/components/visuals/Ui';
 
 /**
- * One project card.
+ * One project card in the gallery.
  *
- * Every card leads with a working interface for that specific product, then answers the
- * questions a visitor actually has: what is it, who is it for, what does it solve.
- * No two cards use the same interface, so the six read as six products.
+ * The brief for this section was blunt: lead with the work, cut the copy. The card
+ * used to run a heading, a summary, two definition rows, three skill chips and a link —
+ * six blocks of text above a small interface. Now it runs a large media well, the
+ * brand and concept disclosure, one line, and the link. Everything else — who it is
+ * for, what it solves, the decisions, the measurements — lives on the project page,
+ * where a visitor who is actually interested will go.
  */
 export function ProjectCard({ project, t, L, ui = defaultUiLabels }: { project: ContentProject; t: Dict; L: (p: string) => string; ui?: UiLabels }) {
   const Ui = uiFor[project.visual];
   return (
-    <article className="pcard reveal" style={{ ['--ac' as string]: project.accent }}>
+    <article className="pcard reveal2" style={{ ['--ac' as string]: project.accent }}>
       <Link href={L(`/work/${project.slug}`)} className="pcard-media" data-cursor aria-label={`${project.brand} — ${project.what}`}>
         <span className={`pcard-ui ${project.visual === 'app' ? 'is-phone' : ''}`}>
           {project.visual === 'crm' ? (
@@ -29,22 +32,15 @@ export function ProjectCard({ project, t, L, ui = defaultUiLabels }: { project: 
         </span>
       </Link>
       <div className="pcard-body">
-        {/* The disclosure lives with the words, not on top of the interface. On the
-            wide panels it used to sit over a white product photograph, where it was
-            both illegible and on top of the storefront's own cart control. */}
         <p className="pcard-k mono">
           <span>{project.n} · {project.brand}</span>
           <span className="pcard-tag">{t.ui.concept}</span>
         </p>
         <h3 className="pcard-t">{project.what}</h3>
         <p className="pcard-l">{project.summary}</p>
-        <dl className="pcard-dl">
-          <div><dt>{t.work.whoFor}</dt><dd>{project.who}</dd></div>
-          <div><dt>{t.work.whatItSolves}</dt><dd>{project.problem}</dd></div>
-        </dl>
         <div className="pcard-foot">
-          <span className="chips">{project.skills.slice(0, 3).map((s) => <span className="chip" key={s}>{s}</span>)}</span>
-          <Link href={L(`/work/${project.slug}`)} className="textlink">{t.work.openDemo} <span aria-hidden="true">→</span></Link>
+          <span className="pcard-go">{t.work.openDemo} <i aria-hidden="true">→</i></span>
+          <span className="chips">{[project.skills[0], project.skills[1]].filter(Boolean).map((s) => <span className="chip" key={s}>{s}</span>)}</span>
         </div>
       </div>
     </article>

@@ -98,6 +98,7 @@ ul, ol { list-style: none; }
   display: inline-flex; align-items: center; gap: 14px; min-height: 52px; padding: 0 22px 0 24px;
   background: var(--bg); color: var(--fg); border: 1px solid var(--bg); border-radius: var(--r);
   font-size: 15px; font-weight: 560; font-stretch: 105%; letter-spacing: 0.005em; white-space: nowrap;
+  max-inline-size: 100%;
   transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
   position: relative;
 }
@@ -132,9 +133,11 @@ ul, ol { list-style: none; }
 .brand { display: inline-flex; align-items: center; gap: 12px; font-stretch: 125%; font-weight: 640; text-transform: uppercase; letter-spacing: 0.04em; font-size: 14px; }
 .brand-mark { width: 26px; height: 26px; border: 1px solid var(--paper); display: grid; place-items: center; font-size: 10px; letter-spacing: 0; font-stretch: 110%; }
 .nav-links { display: flex; align-items: center; gap: clamp(18px, 2.4vw, 36px); }
-.nav-links a.nl { font-size: 14px; color: var(--silver); position: relative; padding: 8px 0; transition: color .2s; }
+/* A 19px tall link is an awkward thing to tap. The padding gives it a 40px target
+   without moving the visible baseline. */
+.nav-links a.nl { display: inline-flex; align-items: center; min-height: 40px; font-size: 14px; color: var(--silver); position: relative; padding: 8px 0; transition: color .2s; }
 .nav-links a.nl:hover, .nav-links a.nl[aria-current='page'] { color: var(--paper); }
-.nav-links a.nl[aria-current='page']::after { content: ''; position: absolute; left: 0; right: 0; bottom: 2px; height: 1px; background: var(--paper); }
+.nav-links a.nl[aria-current='page']::after { content: ''; position: absolute; left: 0; right: 0; bottom: 10px; height: 1px; background: var(--paper); }
 .menu-btn { display: inline-flex; align-items: center; gap: 10px; height: 40px; padding: 0 4px; font-size: 14px; }
 .menu-btn i { width: 22px; height: 9px; position: relative; display: block; }
 .menu-btn i::before, .menu-btn i::after { content: ''; position: absolute; left: 0; right: 0; height: 1.5px; background: currentColor; transition: transform .35s var(--ease), top .35s var(--ease); }
@@ -251,3 +254,10 @@ details.faq p { padding: 0 0 26px; color: var(--silver); max-width: 44em; }
 .final .q { font-family: var(--f-serif); font-style: italic; font-size: clamp(44px, 8.4vw, 150px); line-height: .96; letter-spacing: -0.02em; max-width: 9.5em; }
 .final .a { margin-top: 28px; font-size: clamp(19px, 1.9vw, 26px); color: var(--silver); }
 .final .row { margin-top: 44px; display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* The longest button label ("Let's discuss your business problem") is wider than a
+   360px phone allows. Below 380px the label wraps and the arrow moves to its own line
+   rather than the button running off the page. */
+@media (max-width: 380px) {
+  .btn { white-space: normal; padding-block: 12px; text-align: start; gap: 10px; min-height: 48px; }
+}

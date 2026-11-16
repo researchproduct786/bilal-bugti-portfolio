@@ -18,7 +18,7 @@ export function Interactions() {
     // Every entrance class shares one observer. `.reveal` is the original system; the
     // others are the depth variants (rise / slide / focus / unmask / depth) used by the
     // spatial layout. They all resolve by adding `.is-in`.
-    const SEL = '.reveal:not(.is-in), .rise:not(.is-in), .slide-in:not(.is-in), .depth-in:not(.is-in), .focus-in:not(.is-in), .unmask:not(.is-in)';
+    const SEL = '.reveal:not(.is-in), .reveal2:not(.is-in), .rise:not(.is-in), .slide-in:not(.is-in), .depth-in:not(.is-in), .focus-in:not(.is-in), .unmask:not(.is-in)';
     const els = Array.from(document.querySelectorAll<HTMLElement>(SEL));
     if (!('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('is-in')); return; }
     const io = new IntersectionObserver((entries) => {

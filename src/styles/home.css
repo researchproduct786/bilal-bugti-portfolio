@@ -29,26 +29,13 @@
 .hero2-cap { font-size: 12.5px; color: var(--muted); line-height: 1.5; max-width: 34em; }
 .hero2-scroll { display: none; }
 
-/* Plane 3: the near card, small and sharp. */
-.hero-panel-front { display: flex; flex-direction: column; gap: 5px; padding: 13px 14px; }
-.hero-panel-front .h2s-top { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 8px; color: var(--muted); }
-.hero-panel-front .h2s-k { font-family: var(--f-mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-.hero-panel-front .h2s-big { font-size: 21px; font-weight: 620; letter-spacing: -.025em; }
-.hero-panel-front .h2s-two { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-top: 2px; }
-.hero-panel-front .h2s-two > span { display: flex; flex-direction: column; gap: 1px; font-size: 8px; color: var(--muted); background: rgba(255,255,255,.05); border-radius: 3px; padding: 5px 6px; }
-.hero-panel-front .h2s-two b { font-size: 13px; color: var(--paper); font-weight: 620; }
-.hero-panel-front .h2s-two > span:first-child { background: rgba(240,179,94,.16); }
-.hero-panel-front .h2s-two > span:first-child b { color: var(--warn); }
-.hero-panel-front .h2s-row { display: flex; justify-content: space-between; align-items: center; gap: 6px; font-size: 8px; color: var(--silver); border-top: 1px solid rgba(236,232,224,.09); padding-top: 5px; }
-.hero-panel-front .h2s-row em { font-style: normal; background: var(--paper); color: var(--ink); font-size: 6.5px; padding: 2px 4px; border-radius: 2px; font-weight: 600; }
-
 @media (min-width: 900px) {
   .hero2 { padding: calc(var(--nav-h) + 52px) 0 60px; min-height: 88vh; display: flex; align-items: center; }
   .hero2-in { grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr); gap: clamp(24px, 4.5vw, 64px); align-items: center; }
   .hero2-copy { gap: 18px; }
   .hero2-cta .btn { flex: 0 1 auto; }
   .hero2-cap { grid-column: 1 / -1; }
-  .hero2-scroll { display: inline-flex; position: absolute; inset-block-end: 20px; inset-inline-end: var(--pad); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); gap: 8px; z-index: 5; }
+  .hero2-scroll { display: inline-flex; align-items: center; min-height: 30px; position: absolute; inset-block-end: 20px; inset-inline-end: var(--pad); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); gap: 8px; z-index: 5; }
 }
 
 /* ── Intro ───────────────────────────────────────────────────── */
@@ -69,11 +56,22 @@
 .pcard { border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; background: linear-gradient(180deg, rgba(255,255,255,.025), transparent 55%); display: flex; flex-direction: column; transition: border-color .35s var(--ease); }
 .pcard:hover { border-color: color-mix(in srgb, var(--ac) 42%, var(--line)); }
 .pcard-media {
-  position: relative; display: block; padding: 12px 12px 0; aspect-ratio: 16 / 11;
+  /* A letterbox rather than a square-ish well: at 4:3 the short interfaces sat in a
+     band of empty dark with a wide margin above and below them. 16:10 is close to the
+     shape the interfaces themselves take, and the ones that are shorter now stretch
+     to the well instead of floating in it. */
+  position: relative; display: block; padding: 14px; aspect-ratio: 16 / 10;
   background:
     radial-gradient(90% 80% at 78% 0%, color-mix(in srgb, var(--ac) 16%, transparent), transparent 72%),
     linear-gradient(170deg, #12151a, #0a0c0f);
   overflow: hidden;
+}
+/* A pool of the project's own accent sits behind the interface, so the screen is lit
+   by the colour it belongs to instead of pasted onto a flat dark rectangle. */
+.pcard-media::before {
+  content: ''; position: absolute; inset: auto 12% 8% 12%; block-size: 55%;
+  background: radial-gradient(60% 100% at 50% 100%, color-mix(in srgb, var(--ac) 28%, transparent), transparent 74%);
+  filter: blur(26px); pointer-events: none;
 }
 .pcard-tag {
   flex: none;
@@ -82,14 +80,32 @@
   padding: 2px 6px; border-radius: 2px; background: rgba(6, 7, 9, .6); white-space: nowrap;
 }
 .pcard-k { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-/* The media well anchors its interface to the bottom of the card, so each screen
-   reads as a device standing on the card's floor rather than a floating fragment. */
-/* Interfaces are anchored low and allowed to bleed a few pixels past the card's
-   bottom edge — a screen continuing beyond the frame, not a box floating in air. */
-.pcard-ui { display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding-block-end: 0; }
-.pcard-ui > .ui, .pcard-ui > .ui-stack { margin-block-end: -8px; }
-.pcard-ui > .ui-frame { margin-block-end: -14px; }
-.pcard-ui.is-phone { display: flex; align-items: flex-end; justify-content: center; }
+/* The media well is a stage, not a shelf: the interface sits centred in it, with the
+   accent pool behind it. Bottom-anchoring left short interfaces floating above a
+   large empty band, and the negative bleed that used to fake a "device standing on a
+   floor" just clipped the primary button mid-cursor on the taller wells. */
+.pcard-ui { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; height: 100%; padding-block-end: 0; }
+.pcard-ui.is-phone { display: flex; align-items: center; justify-content: center; }
+/* A window that fills its frame reads as an application; the same window floating in
+   the middle of a taller frame reads as an illustration of one. The interface stretches
+   to the well and its body grows, so the card never shows dead space inside the screen. */
+.pcard-ui > .ui:not(.ui-phone) { block-size: 100%; display: flex; flex-direction: column; }
+.pcard-ui > .ui:not(.ui-phone):not(.ui-camp) > .ui-body { flex: 1 1 auto; display: flex; flex-direction: column; gap: 10px; }
+.pcard-ui > .ui:not(.ui-phone) > .ui-body > .ui-kpis { flex: none; }
+.pcard-ui .ui-ai .ai-thread { flex: 1 1 auto; }
+/* A phone that fills its well reads as a device; a small one in a wide well reads as an
+   icon. It grows with the column, capped so it never overflows the frame. */
+.pcard-ui.is-phone .phone { max-width: min(300px, 62%); }
+/* The two-part cards (pipeline + automation strip) share the well between them rather
+   than stacking as a short block at the top. */
+.pcard-ui > .ui-stack { block-size: 100%; justify-content: space-between; }
+/* The campaign interface keeps its own proportions inside the well. Forcing it to fill
+   the frame's height stretched the two ad creatives into wide panels and pushed the
+   dashboard out of the card; the well is a stage, so the layer is simply centred. */
+.pcard-ui .ui-camp { block-size: auto; max-inline-size: 100%; }
+/* The campaign's own two-column grid must survive the generic stretch rule above. */
+.pcard-ui .ui-camp .camp-body { display: grid; }
+.pcard-ui > .ui-stack > .ui:first-child { flex: 1 1 auto; }
 /* Two wide interfaces are stacked into one frame so the card shows a whole product,
    not the top two rows of one screen. */
 .pcard-ui .ui-stack { display: flex; flex-direction: column; gap: 10px; }
@@ -109,10 +125,10 @@
 .pcard-ui .ui-camp .camp-left { padding: 11px 12px; gap: 6px; }
 .pcard-ui .ui-camp .camp-line { font-size: 17px; }
 .pcard-ui .ui-camp .camp-ads { gap: 6px; }
-.pcard-ui .ui-camp .camp-ad { aspect-ratio: auto; height: 118px; padding: 6px; font-size: 8px; }
+.pcard-ui .ui-camp .camp-ad { padding: 6px; font-size: 8px; }
 .pcard-ui .ui-camp .camp-ad.a1 { font-size: 9.5px; }
 .pcard-ui .ui-camp .camp-can { height: 66px; width: 26px; font-size: 6px; padding-top: 8px; }
-.pcard-ui .phone { max-width: 172px; padding: 5px; border-radius: 20px; }
+.pcard-ui .phone { max-width: 244px; padding: 5px; border-radius: 20px; }
 .pcard-ui .phone-screen { min-height: 0; padding: 7px 8px 0; border-radius: 15px; }
 .pcard-ui .phone-notch { width: 34px; height: 3px; margin: 1px auto 4px; }
 .pcard-ui .ap-big { font-size: 16px; }
@@ -122,19 +138,19 @@
 .pcard-ui .ap-k { font-size: 7px; margin: 5px 0 3px; }
 .pcard-ui .ap-top { font-size: 6.5px; margin-bottom: 5px; }
 .pcard-ui .ap-nav { font-size: 8px; padding: 5px 0 7px; }
-.pcard-ui .ui { transform-origin: top left; width: 100%; }
+.pcard-ui .ui { transform-origin: top center; width: 100%; font-size: 12.5px; }
 .pcard-ui .ui-bar { padding: 6px 8px; }
 .pcard-ui .ui-word { font-size: 8.5px; }
 .pcard-ui .ui-word span { font-size: 6.5px; }
 .pcard-ui .ui-cart { font-size: 7px; padding: 2px 5px; }
 .pcard-ui .ui-body { padding: 9px; }
-.pcard-ui .ui-kpis b { font-size: 12px; }
+.pcard-ui .ui-kpis b { font-size: 13.5px; }
 .pcard-ui .ui-kpis small { font-size: 6.5px; }
 .pcard-ui .ui-kpis span { display: none; }
 .pcard-ui .ui-fine, .pcard-ui .ui-split { display: none; }
-.pcard-ui .ui-pdp { grid-template-columns: 62px 1fr; gap: 9px; }
-.pcard-ui .ui-price { font-size: 13px; }
-.pcard-ui .ui-h { font-size: 12px; }
+.pcard-ui .ui-pdp { grid-template-columns: 96px 1fr; gap: 11px; }
+.pcard-ui .ui-price { font-size: 15px; }
+.pcard-ui .ui-h { font-size: 13.5px; }
 .pcard-ui .crm-flow { display: none; }
 .pcard-ui .kt-menu { display: none; }
 .pcard-ui .ui-table { display: none; }
@@ -320,15 +336,22 @@
    Seven capabilities, seven compositions
    ══════════════════════════════════════════════════════════════════════════
    A six-column board. Lanes claim different spans, so the eye moves through the
-   section in a rhythm instead of a lattice — wide, narrow, wide, wide, narrow,
+   section in a rhythm instead of a lattice — wide, wide, wide, narrow, narrow,
    narrow, narrow. Each lane carries its own --ac accent, and every accent-bearing
-   element inside it (rule, number, art glow, hover edge) reads from that one value.
+   element inside it (rule, number, art glow, hover edge) reads from that value.
+
+   The art is the composition: each surface fills its media column at a size where
+   the content inside it is legible. Where the work is physical, a photograph sits
+   behind it. Copy is a heading, one line and a short "where it starts".
 */
 .lanes {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 14px;
   counter-reset: lane;
+  /* Cards are sized by their own content. A stretched card with short copy is a dead
+     band; uneven bottoms read as a gallery, a hole reads as a mistake. */
+  align-items: start;
 }
 .lane {
   grid-column: span 6;
@@ -338,9 +361,10 @@
   border-radius: 18px;
   border: 1px solid var(--glass-edge-soft);
   background:
-    radial-gradient(120% 100% at 12% 0%, color-mix(in srgb, var(--ac) 9%, transparent), transparent 62%),
+    radial-gradient(118% 96% at 6% 0%, color-mix(in srgb, var(--ac) 15%, transparent), transparent 58%),
+    radial-gradient(90% 80% at 100% 100%, color-mix(in srgb, var(--ac2, var(--ac)) 10%, transparent), transparent 62%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.008) 40%, transparent 78%),
-    rgba(12, 15, 20, 0.55);
+    rgba(11, 14, 19, 0.62);
   overflow: hidden;
   transition: border-color .5s var(--ease), transform .5s var(--ease), box-shadow .5s var(--ease);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 24px 50px -34px rgba(0, 0, 0, 0.9);
@@ -355,161 +379,162 @@
   inline-size: 2px;
   background: linear-gradient(180deg, transparent, var(--ac) 18%, var(--ac) 82%, transparent);
   opacity: .5;
-  transition: opacity .5s var(--ease), inline-size .5s var(--ease);
+  transition: opacity .5s var(--ease);
 }
 .lane:hover { border-color: color-mix(in srgb, var(--ac) 38%, var(--glass-edge-soft)); box-shadow: 0 1px 0 rgba(255,255,255,.06) inset, 0 30px 60px -30px rgba(0,0,0,.95); }
 .lane:hover::after { opacity: 1; }
-.lane-link {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  block-size: 100%;
-  gap: 0;
-  text-decoration: none;
-  color: inherit;
-}
+.lane-link { display: grid; grid-template-rows: auto auto; block-size: 100%; text-decoration: none; color: inherit; }
 .lane-copy { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 7px; }
 .lane-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: var(--ac); }
 .lane-n { font-size: 10px; letter-spacing: .16em; opacity: .8; }
-.lane-t {
-  font-size: clamp(17px, 2.1vw, 20px);
-  font-weight: 560;
-  font-stretch: 105%;
-  letter-spacing: -.015em;
-  line-height: 1.18;
-}
+.lane-t { font-size: clamp(17px, 2.1vw, 20px); font-weight: 560; font-stretch: 105%; letter-spacing: -.015em; line-height: 1.18; text-wrap: balance; }
 .lane-l { font-size: 13.5px; line-height: 1.5; color: var(--silver); }
-.lane-p {
-  margin-block-start: 4px;
-  padding-block-start: 10px;
-  border-top: 1px solid var(--line);
-  font-size: 12.5px;
-  line-height: 1.5;
-  color: var(--muted);
-}
-.lane-p b {
-  display: block;
-  font-family: var(--f-mono);
-  font-size: 9px;
-  font-weight: 400;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--ac) 75%, var(--muted));
-  margin-block-end: 3px;
-}
-
-/* — the art area, one per lane — */
-.lane-art {
-  display: block;
-  padding: 14px 14px 0;
-  min-block-size: 132px;
-}
+.lane-cta { display: inline-flex; align-items: center; gap: 6px; margin-block-start: 8px; font-family: var(--f-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: color-mix(in srgb, var(--ac) 88%, #fff); }
+.lane-cta i { font-style: normal; transition: transform .35s var(--ease); }
+.lane:hover .lane-cta i { transform: translateX(4px); }
+.lane-p { margin-block-start: 2px; padding-block-start: 10px; border-top: 1px solid var(--line); font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+.lane-p b { display: block; font-family: var(--f-mono); font-size: 9px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: color-mix(in srgb, var(--ac) 75%, var(--muted)); margin-block-end: 3px; }
+.lane-art { display: block; padding: 14px 14px 0; min-block-size: 132px; }
 .lv { display: block; position: relative; inline-size: 100%; block-size: 100%; }
 
-/* 01 storefront — the only lane with a photograph, because retail is photographic */
-.lv-store {
-  border-radius: 10px; overflow: hidden;
-  background: rgba(8, 10, 14, .7);
-  border: 1px solid rgba(236, 232, 224, .1);
+/* ── Lane art, image-first ────────────────────────────────────────────────
+   Every lane's media column holds a real surface at a readable size. Two of them
+   also hold a photograph, because the work happens somewhere physical — a desk, a
+   counter, a shop. The photograph is never the whole story: the interface sits on
+   top of it, so a visitor sees the product and the context together. */
+
+/* 01 · website — a browser over a desk photograph */
+.lv-web2, .lv-app2 { position: relative; display: block; border-radius: 12px; overflow: hidden; isolation: isolate; }
+.lv-web2 .lv-photo, .lv-app2 .lv-photo { position: absolute; inset: 0; z-index: 0; }
+.lv-web2 .lv-photo img, .lv-app2 .lv-photo img { inline-size: 100%; block-size: 100%; object-fit: cover; opacity: .5; }
+.lv-web2::after, .lv-app2::after {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(6, 9, 13, .55), rgba(6, 9, 13, .88));
+}
+.lv-browser {
+  position: relative; z-index: 2;
   display: flex; flex-direction: column;
+  margin: 14px;
+  border-radius: 8px; overflow: hidden;
+  background: #0b0e13;
+  border: 1px solid rgba(236, 232, 224, .13);
+  box-shadow: 0 24px 44px -22px rgba(0, 0, 0, .95);
 }
-.lv-st-bar { display: flex; align-items: center; justify-content: space-between; padding: 7px 10px; border-bottom: 1px solid rgba(236,232,224,.08); }
-.lv-word { font-family: var(--f-mono); font-size: 8px; letter-spacing: .16em; text-transform: uppercase; color: var(--paper); }
+.lv-br-bar { display: flex; align-items: center; gap: 3px; padding: 5px 7px; border-bottom: 1px solid rgba(255, 255, 255, .07); background: rgba(255, 255, 255, .035); }
+.lv-br-bar i { inline-size: 4px; block-size: 4px; border-radius: 50%; background: rgba(255, 255, 255, .2); }
+.lv-br-bar em { margin-inline-start: 5px; font-style: normal; font-family: var(--f-mono); font-size: 6.5px; letter-spacing: .06em; color: var(--dim); }
+.lv-br-nav { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 9px; border-bottom: 1px solid rgba(255, 255, 255, .06); }
+.lv-br-nav b { font-family: var(--f-mono); font-size: 7px; letter-spacing: .16em; color: var(--paper); font-weight: 400; }
+.lv-br-nav span { display: flex; gap: 7px; }
+.lv-br-nav span i { font-style: normal; font-size: 6.5px; color: var(--muted); }
+.lv-br-nav u { text-decoration: none; font-size: 6px; color: var(--silver); border: 1px solid rgba(255, 255, 255, .16); border-radius: 2px; padding: 1px 4px; }
+.lv-br-hero { display: flex; flex-direction: column; gap: 6px; padding: 10px 9px; }
+.lv-br-h { font-size: 13px; line-height: 1.16; letter-spacing: -.015em; color: var(--paper); }
+.lv-br-cta { align-self: flex-start; font-family: var(--f-mono); font-size: 6px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 7px; border-radius: 2px; background: #efece6; color: #0b0e13; }
+.lv-br-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; padding: 0 9px 9px; }
+.lv-br-grid > span { display: flex; flex-direction: column; gap: 1px; padding: 4px; border-radius: 3px; background: rgba(255, 255, 255, .04); border: 1px solid rgba(255, 255, 255, .07); min-inline-size: 0; }
+.lv-br-grid img { inline-size: 100%; aspect-ratio: 5 / 4; object-fit: cover; border-radius: 2px; background: #f3efe7; }
+.lv-br-grid b { font-size: 6.5px; font-weight: 500; color: var(--silver); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lv-br-grid em { font-style: normal; font-family: var(--f-mono); font-size: 6.5px; color: var(--ac); }
+
+/* 02 · app — a phone in front of a counter photograph */
+.lv-hands { position: relative; z-index: 2; display: flex; justify-content: center; padding: 16px 14px 18px; }
+.lv-phone2 {
+  inline-size: min(150px, 62%);
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 9px 8px 9px;
+  border-radius: 16px;
+  background: linear-gradient(170deg, #171c24, #0a0d12);
+  border: 1px solid rgba(236, 232, 224, .17);
+  box-shadow: 0 26px 44px -18px rgba(0, 0, 0, 1), 0 1px 0 rgba(255, 255, 255, .1) inset;
+}
+.lv-ph2-top { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 5.5px; color: var(--muted); }
+.lv-ph2-top em { font-style: normal; }
+.lv-ph2-k { font-family: var(--f-mono); font-size: 5px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-block-start: 5px; }
+.lv-ph2-big { font-size: 15px; font-weight: 600; letter-spacing: -.025em; color: var(--paper); line-height: 1.05; }
+.lv-ph2-two { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-block-start: 4px; }
+.lv-ph2-two span { display: flex; flex-direction: column; font-size: 5px; color: var(--muted); background: rgba(255, 255, 255, .05); border-radius: 3px; padding: 3px 4px; }
+.lv-ph2-two b { font-size: 9px; color: var(--paper); }
+.lv-ph2-two span:first-child { background: rgba(143, 180, 255, .16); }
+.lv-ph2-row { display: flex; align-items: center; gap: 3px; font-size: 5.5px; color: var(--silver); border-top: 1px solid rgba(255, 255, 255, .08); padding-block-start: 3px; margin-block-start: 3px; }
+.lv-ph2-row b { color: var(--paper); font-weight: 600; }
+.lv-ph2-row i { margin-inline-start: auto; font-style: normal; font-size: 4.5px; padding: 1px 3px; border-radius: 2px; background: #dfe6f2; color: #0b0e13; }
+.lv-ph2-nav { display: flex; gap: 4px; justify-content: center; margin-block-start: 6px; }
+.lv-ph2-nav i { inline-size: 9px; block-size: 2px; border-radius: 2px; background: rgba(255, 255, 255, .14); }
+.lv-ph2-nav i.on { background: var(--ac); }
+
+/* 03 · storefront — a photograph of the shop with the product page floating on it */
+.lv-store { position: relative; display: block; border-radius: 12px; overflow: hidden; isolation: isolate; background: rgba(8, 10, 14, .7); }
+.lv-st-photo { position: relative; display: flex; flex-direction: column; justify-content: center; block-size: 100%; min-block-size: 190px; }
+.lv-st-photo > img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; opacity: .62; }
+.lv-st-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6, 9, 13, .35), rgba(6, 9, 13, .6)); }
+.lv-st-float {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  margin: 12px;
+  border-radius: 8px; overflow: hidden;
+  background: rgba(10, 13, 18, .9);
+  border: 1px solid rgba(236, 232, 224, .14);
+  box-shadow: 0 22px 40px -20px rgba(0, 0, 0, .95);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.lv-st-bar { display: flex; align-items: center; justify-content: space-between; padding: 6px 9px; border-bottom: 1px solid rgba(236, 232, 224, .08); }
+.lv-word { font-family: var(--f-mono); font-size: 7.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--paper); }
 .lv-word span { color: var(--muted); }
-.lv-cart { font-family: var(--f-mono); font-size: 7.5px; letter-spacing: .08em; color: var(--silver); border: 1px solid rgba(236,232,224,.16); border-radius: 3px; padding: 2px 6px; }
-.lv-st-body { display: grid; grid-template-columns: 74px 1fr; gap: 10px; padding: 10px; align-items: center; }
-.lv-st-photo { display: block; border-radius: 4px; overflow: hidden; background: #f3efe7; aspect-ratio: 1; }
-.lv-st-photo img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; }
+.lv-cart { font-family: var(--f-mono); font-size: 6.5px; letter-spacing: .08em; color: var(--silver); border: 1px solid rgba(236, 232, 224, .16); border-radius: 3px; padding: 2px 5px; }
+.lv-st-body { display: grid; grid-template-columns: 62px 1fr; gap: 9px; padding: 9px; align-items: center; }
+.lv-st-thumb { display: block; border-radius: 4px; overflow: hidden; background: #f3efe7; aspect-ratio: 1; }
+.lv-st-thumb img { inline-size: 100%; block-size: 100%; object-fit: cover; }
 .lv-st-info { display: flex; flex-direction: column; gap: 2px; min-inline-size: 0; }
-.lv-st-name { font-size: 10.5px; color: var(--paper); }
-.lv-st-price { font-size: 13px; font-weight: 600; color: var(--ac); }
-.lv-st-buy { margin-block-start: 3px; align-self: flex-start; font-family: var(--f-mono); font-size: 7.5px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 7px; border-radius: 3px; background: color-mix(in srgb, var(--ac) 88%, #000); color: #08120c; }
+.lv-st-name { font-size: 9.5px; color: var(--paper); }
+.lv-st-price { font-size: 12px; font-weight: 600; color: var(--ac); }
+.lv-st-buy { margin-block-start: 3px; align-self: flex-start; font-family: var(--f-mono); font-size: 6.5px; letter-spacing: .08em; text-transform: uppercase; padding: 3px 6px; border-radius: 2px; background: color-mix(in srgb, var(--ac) 88%, #000); color: #08120c; }
+.lv-st-more { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; padding: 0 9px 9px; }
+.lv-st-more span { display: flex; align-items: center; gap: 4px; padding: 4px 5px; border-radius: 3px; background: rgba(255, 255, 255, .045); border: 1px solid rgba(236, 232, 224, .08); font-size: 6.5px; color: var(--silver); min-inline-size: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lv-st-more b { margin-inline-start: auto; color: var(--paper); font-weight: 600; }
+.lv-st-more i { inline-size: 3px; block-size: 3px; border-radius: 50%; background: var(--ac); flex: none; }
 
-/* 02 device — narrow, tall, centred: the shape of the thing */
-.lv-device { display: grid; place-items: center; }
-.lv-ph {
-  inline-size: min(112px, 62%); border-radius: 16px; padding: 9px 8px 12px;
-  background: linear-gradient(170deg, #171b22, #0b0d11);
-  border: 1px solid rgba(236,232,224,.14);
-  display: flex; flex-direction: column; gap: 3px;
-  box-shadow: 0 14px 30px -14px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.07);
-}
-.lv-ph-top { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 6px; color: var(--muted); }
-.lv-ph-k { font-family: var(--f-mono); font-size: 6px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-block-start: 5px; }
-.lv-ph-big { font-size: 15px; font-weight: 600; letter-spacing: -.02em; color: var(--ac); line-height: 1; }
-.lv-ph-row { display: flex; align-items: baseline; gap: 3px; font-size: 6.5px; color: var(--silver); border-top: 1px solid rgba(236,232,224,.08); padding-block-start: 3px; margin-block-start: 3px; }
-.lv-ph-row b { font-size: 9px; color: var(--paper); }
+/* 04 · AI — a conversation plus the document it answered from */
+.lv-ai { display: flex; flex-direction: column; gap: 6px; justify-content: center; }
+.lv-ai-q { align-self: flex-end; max-inline-size: 88%; font-size: 9.5px; line-height: 1.35; color: #0a1218; background: color-mix(in srgb, var(--ac) 82%, #fff); border-radius: 8px 8px 3px 8px; padding: 5px 8px; }
+.lv-ai-a { align-self: flex-start; max-inline-size: 92%; font-size: 9.5px; line-height: 1.4; color: var(--paper); background: rgba(255, 255, 255, .045); border: 1px solid rgba(236, 232, 224, .1); border-radius: 8px 8px 8px 3px; padding: 6px 8px; display: flex; flex-direction: column; gap: 3px; }
+.lv-ai-src { font-family: var(--f-mono); font-size: 6.5px; letter-spacing: .06em; color: color-mix(in srgb, var(--ac) 85%, #fff); }
+.lv-ai-acts { display: flex; gap: 4px; }
+.lv-ai-acts i { font-style: normal; font-family: var(--f-mono); font-size: 6px; letter-spacing: .08em; text-transform: uppercase; padding: 2px 6px; border-radius: 2px; border: 1px solid color-mix(in srgb, var(--ac) 46%, transparent); color: color-mix(in srgb, var(--ac) 88%, #fff); }
+.lv-ai-acts i:first-child { background: color-mix(in srgb, var(--ac) 20%, transparent); }
+.lv-ai-doc { display: flex; flex-direction: column; gap: 1px; margin-block-start: 2px; padding: 5px 7px; border-radius: 4px; border-inline-start: 2px solid color-mix(in srgb, var(--ac) 70%, transparent); background: rgba(255, 255, 255, .03); }
+.lv-ai-doc b { font-size: 7.5px; font-weight: 500; color: var(--silver); }
+.lv-ai-doc span { font-family: var(--f-mono); font-size: 6px; color: var(--dim); }
 
-/* 03 website — an editorial page, not a browser chrome */
-.lv-page { display: flex; flex-direction: column; justify-content: space-between; gap: 10px; padding: 2px 0 0; }
-.lv-pg-h { font-size: 12.5px; line-height: 1.3; color: var(--paper); letter-spacing: -.01em; }
-.lv-pg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-.lv-pg-grid span {
-  display: flex; flex-direction: column; justify-content: flex-end; gap: 1px;
-  padding: 6px 7px; min-block-size: 40px;
-  border-radius: 4px;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--ac) 16%, transparent), rgba(255,255,255,.02));
-  border: 1px solid rgba(236,232,224,.07);
-  min-inline-size: 0;
-}
-.lv-pg-grid b { font-size: 8.5px; font-weight: 500; color: var(--paper); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.lv-pg-grid em { font-style: normal; font-family: var(--f-mono); font-size: 8px; color: var(--ac); }
-.lv-pg-url { font-family: var(--f-mono); font-size: 7.5px; letter-spacing: .08em; color: var(--dim); }
+/* 05 · automation — a chain with a trigger, two steps and a stated cost */
+.lv-flow { display: flex; flex-direction: column; justify-content: center; }
+.lv-fl-trigger { align-self: flex-start; display: flex; align-items: center; gap: 5px; font-size: 9.5px; color: #07131a; background: color-mix(in srgb, var(--ac) 82%, #fff); padding: 4px 8px; border-radius: 4px; }
+.lv-fl-trigger i { inline-size: 4px; block-size: 4px; border-radius: 50%; background: #07131a; }
+.lv-fl-n { align-self: flex-start; font-size: 9.5px; color: var(--paper); padding: 4px 8px; border-radius: 4px; background: rgba(255, 255, 255, .05); border: 1px solid rgba(236, 232, 224, .1); }
+.lv-fl-line { inline-size: 1px; block-size: 8px; margin-inline-start: 12px; background: linear-gradient(180deg, var(--ac), transparent); }
+.lv-fl-note { margin-block-start: 8px; font-family: var(--f-mono); font-size: 6.5px; letter-spacing: .08em; color: color-mix(in srgb, var(--ac) 85%, #fff); }
 
-/* 04 AI — a conversation, deliberately unlike the data lanes */
-.lv-ai { display: flex; flex-direction: column; gap: 7px; justify-content: center; }
-.lv-ai-q {
-  align-self: flex-end; max-inline-size: 84%;
-  font-size: 10.5px; line-height: 1.35; color: #0a1218;
-  background: color-mix(in srgb, var(--ac) 82%, #fff);
-  border-radius: 9px 9px 3px 9px; padding: 6px 9px;
-}
-.lv-ai-a {
-  align-self: flex-start; max-inline-size: 92%;
-  font-size: 10.5px; line-height: 1.4; color: var(--paper);
-  background: rgba(255,255,255,.045); border: 1px solid rgba(236,232,224,.1);
-  border-radius: 9px 9px 9px 3px; padding: 7px 9px;
-  display: flex; flex-direction: column; gap: 3px;
-}
-.lv-ai-src { font-family: var(--f-mono); font-size: 7px; letter-spacing: .06em; color: var(--ac); opacity: .9; }
-.lv-ai-ok { align-self: flex-start; font-family: var(--f-mono); font-size: 7.5px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; border: 1px solid color-mix(in srgb, var(--ac) 50%, transparent); color: var(--ac); }
-
-/* 05 automation — a chain with one direction */
-.lv-flow { display: flex; flex-direction: column; gap: 0; justify-content: center; }
-.lv-fl-n {
-  font-size: 10px; color: var(--paper); padding: 5px 9px; border-radius: 4px;
-  background: rgba(255,255,255,.045); border: 1px solid rgba(236,232,224,.1);
-  align-self: flex-start;
-}
-.lv-fl-line { inline-size: 1px; block-size: 9px; margin-inline-start: 14px; background: linear-gradient(180deg, var(--ac), transparent); }
-.lv-fl-note { margin-block-start: 8px; font-family: var(--f-mono); font-size: 7.5px; letter-spacing: .08em; color: var(--ac); opacity: .95; }
-
-/* 06 CRM — a small pipeline, three columns */
-.lv-pipe { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; align-content: center; }
-.lv-pl-col { display: flex; flex-direction: column; gap: 4px; min-inline-size: 0; }
-.lv-pl-h { font-family: var(--f-mono); font-size: 7px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* 06 · CRM — a pipeline, three columns, real deals */
+.lv-pipe { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; align-content: center; }
+.lv-pl-col { display: flex; flex-direction: column; gap: 3px; min-inline-size: 0; }
+.lv-pl-h { font-family: var(--f-mono); font-size: 6px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .lv-pl-h b { color: var(--ac); }
-.lv-pl-c {
-  display: flex; flex-direction: column; gap: 1px;
-  padding: 4px 5px; border-radius: 3px;
-  background: rgba(255,255,255,.04); border: 1px solid rgba(236,232,224,.09);
-  border-inline-start: 2px solid var(--ac);
-  min-inline-size: 0;
-}
-.lv-pl-c b { font-size: 8px; font-weight: 500; color: var(--silver); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.lv-pl-c em { font-style: normal; font-family: var(--f-mono); font-size: 7.5px; color: var(--paper); }
+.lv-pl-c { display: flex; flex-direction: column; gap: 0; padding: 3px 4px; border-radius: 3px; background: rgba(255, 255, 255, .04); border: 1px solid rgba(236, 232, 224, .09); border-inline-start: 2px solid var(--ac); min-inline-size: 0; }
+.lv-pl-c b { font-size: 6.5px; font-weight: 500; color: var(--silver); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lv-pl-c em { font-style: normal; font-family: var(--f-mono); font-size: 6.5px; color: var(--paper); }
 
-/* 07 growth — bars, but read left to right as a trend */
-.lv-chart { display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; }
-.lv-ch-bars { display: flex; align-items: flex-end; gap: 4px; block-size: 74px; }
-.lv-ch-bars i {
-  flex: 1; border-radius: 2px 2px 0 0;
-  background: linear-gradient(180deg, var(--ac), color-mix(in srgb, var(--ac) 22%, transparent));
-  transform-origin: bottom;
-  transition: transform .7s var(--ease);
-}
-.lane:hover .lv-ch-bars i { transform: scaleY(1.08); }
-.lv-ch-foot { font-family: var(--f-mono); font-size: 8px; letter-spacing: .06em; color: var(--muted); }
-.lv-ch-foot b { color: var(--ac); font-size: 10px; }
+/* 07 · growth — the creative beside the numbers a business would actually read */
+.lv-camp2 { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1fr); gap: 7px; align-items: stretch; }
+.lv-cp-art { display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 6px; padding: 8px 7px; border-radius: 7px; background: linear-gradient(162deg, #14352c, #0a1917 74%); border: 1px solid rgba(126, 200, 165, .32); }
+.lv-cp-h { align-self: flex-start; font-family: var(--f-serif); font-style: italic; font-size: 10px; line-height: 1.15; color: #e8f3ec; }
+.lv-cp-can { inline-size: 30%; aspect-ratio: 1 / 2.4; display: grid; place-items: center; border-radius: 2px 2px 5px 5px; background: linear-gradient(180deg, #efece6, #cfd8d1); color: #14352c; font-family: var(--f-mono); font-size: 4px; letter-spacing: .1em; text-align: center; line-height: 1.3; text-transform: uppercase; }
+.lv-cp-meta { display: flex; flex-direction: column; gap: 3px; min-inline-size: 0; }
+.lv-cp-row { display: flex; align-items: baseline; justify-content: space-between; gap: 5px; font-size: 6.5px; border-block-end: 1px solid rgba(236, 232, 224, .08); padding-block-end: 2px; }
+.lv-cp-row i { font-style: normal; color: var(--muted); }
+.lv-cp-row b { font-weight: 600; color: var(--paper); }
+.lv-cp-row b.ac { color: var(--ac); }
+.lv-cp-bars { display: flex; align-items: flex-end; gap: 2px; block-size: 26px; margin-block-start: 2px; }
+.lv-cp-bars i { flex: 1; border-radius: 1px 1px 0 0; background: linear-gradient(180deg, var(--ac), color-mix(in srgb, var(--ac) 22%, transparent)); }
 
 /* --- desktop board --- */
 @media (min-width: 900px) {
@@ -517,16 +542,10 @@
   .lane[style*="--span:3"] { grid-column: span 3; }
   .lane[style*="--span:2"] { grid-column: span 2; }
   .lane-art { min-block-size: 150px; }
-  .lv-st-body { grid-template-columns: 92px 1fr; gap: 14px; padding: 12px; }
-  .lv-st-name { font-size: 12px; }
-  .lv-st-price { font-size: 16px; }
-  .lv-ph { inline-size: min(126px, 66%); }
-  .lv-ph-big { font-size: 17px; }
-  .lv-pg-h { font-size: 15px; }
-  .lv-pg-grid span { block-size: 44px; }
-  .lv-ai-q, .lv-ai-a { font-size: 12px; }
-  .lv-fl-n { font-size: 11.5px; }
-  .lv-ch-bars { block-size: 88px; }
+  .lv-ai-q, .lv-ai-a { font-size: 10.5px; }
+  .lv-fl-n, .lv-fl-trigger { font-size: 10px; }
+  .lv-br-h { font-size: 14px; }
+  .lv-phone2 { inline-size: min(168px, 64%); }
 }
 
 /* Each lane arrives from where it sits: the wide ones from the side, the narrow
@@ -534,13 +553,13 @@
 @media (prefers-reduced-motion: no-preference) {
   .lane.reveal { opacity: 0; transform: none; transition: opacity .9s var(--ease), transform 1s var(--ease); transition-delay: var(--d, 0s); }
   .lane.reveal.is-in { opacity: 1; }
-  [data-lane='shopify'].reveal { transform: translate3d(-26px, 0, 0); }
-  [data-lane='app'].reveal { transform: translate3d(0, 0, 0) scale(.94); }
-  [data-lane='web'].reveal { transform: translate3d(0, 24px, 0); }
-  [data-lane='ai'].reveal { transform: translate3d(26px, 0, 0); }
-  [data-lane='automation'].reveal { transform: translate3d(0, 0, 0) scale(.94); }
-  [data-lane='crm'].reveal { transform: translate3d(0, 20px, 0); }
-  [data-lane='marketing'].reveal { transform: translate3d(0, 0, 0) scale(.95); }
+  [data-lane='web'].reveal { transform: translate3d(-30px, 0, 0); }
+  [data-lane='app'].reveal { transform: translate3d(30px, 0, 0); }
+  [data-lane='shopify'].reveal { transform: translate3d(0, 34px, 0); }
+  [data-lane='ai'].reveal { transform: translate3d(0, 0, 0) scale(.9); }
+  [data-lane='automation'].reveal { transform: translate3d(0, 0, 0) scale(.9); }
+  [data-lane='crm'].reveal { transform: translate3d(0, 26px, 0); }
+  [data-lane='marketing'].reveal { transform: translate3d(0, 0, 0) scale(.9); }
   .lane.reveal.is-in { transform: none; }
 }
 
@@ -550,10 +569,149 @@
 @media (max-width: 899px) {
   .lanes { gap: 12px; }
   .lane { border-radius: 15px; }
-  .lane-art { min-block-size: 124px; }
-  .lv-ph { inline-size: 104px; }
-  .lv-pg-h { font-size: 12px; }
-  .lv-ai-q, .lv-ai-a { font-size: 10.5px; }
+  .lane-art { min-block-size: 124px; padding: 14px 14px 0; }
+  .lv-ai-q, .lv-ai-a { font-size: 10px; }
+  .lv-st-photo { min-block-size: 176px; }
+  .lv-phone2 { inline-size: min(140px, 58%); }
+  .lv-br-h { font-size: 12px; }
+}
+
+/* ── Lane layouts ─────────────────────────────────────────────────────────
+   Wide lanes (4 or 3 of six columns) put the interface in its own column, at a size
+   where the screen inside it is actually legible, with the copy beside it. Narrow
+   lanes (2 of six) stack: interface first, then the words. Neither arrangement
+   leaves a band of empty card, which is what the previous version did when it
+   centred a 104px phone in a 340px column. */
+@media (min-width: 900px) {
+  .lane[data-span='4'] .lane-link,
+  .lane[data-span='3'] .lane-link {
+    grid-template-rows: none;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+    align-items: stretch;
+  }
+  .lane[data-span='4'] .lane-link { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); }
+  .lane[data-span='4'] .lane-art,
+  .lane[data-span='3'] .lane-art {
+    padding: 14px;
+    min-block-size: 0;
+    display: flex;
+    align-items: stretch;
+  }
+  .lane[data-span='4'] .lane-art > .lv,
+  .lane[data-span='3'] .lane-art > .lv { inline-size: 100%; }
+  .lane[data-span='4'] .lane-copy,
+  .lane[data-span='3'] .lane-copy { padding: 20px 22px; justify-content: center; }
+  /* The storefront's photograph is the tallest surface, so its media column is
+     allowed to grow with it. */
+  .lv-st-photo { min-block-size: 210px; }
+  .lane[data-span='4'] .lv-st-body { grid-template-columns: 84px 1fr; gap: 12px; }
+  .lane[data-span='4'] .lv-st-name { font-size: 11px; }
+  .lane[data-span='4'] .lv-st-price { font-size: 15px; }
+
+  /* Narrow lanes: the surface fills the width of the card and the copy follows. */
+  .lane[data-span='2'] .lane-link { grid-template-rows: auto auto; align-content: start; }
+  .lane[data-span='2'] .lane-art {
+    min-block-size: 190px;
+    max-block-size: none;
+    display: flex;
+    align-items: stretch;
+    padding: 16px 16px 4px;
+  }
+  /* The three narrow lanes share a row, so the tallest card sets the height and the
+     other two used to carry a dead band at their base. Giving the surface itself the
+     stretch — a tinted panel that fills the well with the interface centred inside —
+     turns that band into part of the composition instead of a hole in the card. */
+  .lane[data-span='2'] .lane-art { block-size: 208px; overflow: hidden; }
+  .lane[data-span='2'] .lane-art > .lv {
+    inline-size: 100%;
+    block-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding: 14px;
+    min-inline-size: 0;
+    border-radius: 10px;
+    background:
+      linear-gradient(158deg, color-mix(in srgb, var(--ac) 12%, transparent), transparent 62%),
+      rgba(7, 10, 14, .5);
+    border: 1px solid color-mix(in srgb, var(--ac) 20%, rgba(255, 255, 255, .07));
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .05) inset;
+  }
+  /* The three narrow lanes share one row, so the shortest copy used to leave a
+     dead band inside its card. The link stretches and the copy column distributes,
+     which keeps the row even and the words optically centred against the art. */
+  .lane[data-span='2'] .lane-copy { justify-content: flex-start; }
+  .lane[data-span='2'] .lane-art > .lv { inline-size: 100%; }
+  .lane[data-span='2'] .lv-ai-q, .lane[data-span='2'] .lv-ai-a { font-size: 9.5px; }
+  .lane[data-span='2'] .lv-fl-n, .lane[data-span='2'] .lv-fl-trigger { font-size: 8.5px; }
+  .lane[data-span='2'] .lv-pl-c b { font-size: 6.5px; }
+  .lane[data-span='2'] .lv-pl-c em { font-size: 7px; white-space: nowrap; }
+  /* A vertical chain in a 450px-wide art column left two thirds of the panel empty
+     and pushed the story into one corner. Beside the copy, the chain reads better
+     left to right — the same direction the eye already travels in the card. */
+  /* Specificity note: `.lane-art > .lv` sets display/flex for the well, so each
+     surface re-asserts its own layout at the same weight (`.lv.lv-*`). */
+  .lane[data-span='2'] .lane-art > .lv.lv-pipe { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-content: center; }
+  .lane[data-span='2'] .lane-art > .lv.lv-pipe .lv-pl-col { gap: 4px; }
+  .lane[data-span='2'] .lv-pl-col { align-self: start; }
+  /* Growth: the creative on top, the four figures beneath it — a campaign card, read
+     the way a campaign is: the work first, then the numbers it produced. */
+  .lane[data-span='2'] .lane-art > .lv.lv-camp2 { display: flex; flex-direction: column; gap: 7px; }
+  .lane[data-span='2'] .lv-cp-art { flex: none; block-size: 96px; flex-direction: row; align-items: center; justify-content: space-between; }
+  .lane[data-span='2'] .lv-cp-can { inline-size: 26px; aspect-ratio: 1 / 2.6; }
+  .lane[data-span='2'] .lv-cp-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 8px; }
+  .lane[data-span='2'] .lv-cp-bars { display: none; }
+  /* Automation: three steps in a row with connectors between them, the stated cost
+     on its own line. A vertical chain in a 420px-wide well left two thirds empty. */
+  .lane[data-span='2'] .lane-art > .lv.lv-flow {
+    display: flex;
+    flex-direction: row; align-items: center; justify-content: space-between;
+    gap: 0; flex-wrap: wrap;
+  }
+  .lane[data-span='2'] .lv-fl-trigger, .lane[data-span='2'] .lv-fl-n { font-size: 8px; padding: 4px 6px; }
+  .lane[data-span='2'] .lv-fl-note { flex-basis: 100%; text-align: center; margin-block-start: 12px; }
+  .lane[data-span='2'] .lv-fl-line { inline-size: 12px; block-size: 1px; margin: 0; background: linear-gradient(90deg, var(--ac), transparent); }
+  .lane[data-span='2'] .lv-fl-note { flex-basis: 100%; margin-block-start: 8px; }
+  .lane[data-span='2'] .lv-cp-h { font-size: 9px; }
+}
+
+/* The storefront lane's floating product page keeps its proportions as the media
+   column grows; on the widest layout it can afford a larger thumbnail and price. */
+@media (min-width: 900px) {
+  .lv-st-body { grid-template-columns: 96px 1fr; gap: 14px; padding: 12px; }
+  .lv-st-name { font-size: 12px; }
+  .lv-st-price { font-size: 16px; }
+  .lv-st-buy { font-size: 8px; padding: 4px 9px; }
+  .lv-st-more span { font-size: 7.5px; }
+}
+
+/* Each lane arrives from where it sits: the wide ones from the side, the narrow
+   ones out of depth. Seven identical fades would undo the differentiation above. */
+@media (prefers-reduced-motion: no-preference) {
+  .lane.reveal { opacity: 0; transform: none; transition: opacity .9s var(--ease), transform 1s var(--ease); transition-delay: var(--d, 0s); }
+  .lane.reveal.is-in { opacity: 1; }
+  [data-lane='web'].reveal { transform: translate3d(-30px, 0, 0); }
+  [data-lane='app'].reveal { transform: translate3d(30px, 0, 0); }
+  [data-lane='shopify'].reveal { transform: translate3d(0, 34px, 0); }
+  [data-lane='ai'].reveal { transform: translate3d(0, 0, 0) scale(.9); }
+  [data-lane='automation'].reveal { transform: translate3d(0, 0, 0) scale(.9); }
+  [data-lane='crm'].reveal { transform: translate3d(0, 26px, 0); }
+  [data-lane='marketing'].reveal { transform: translate3d(0, 0, 0) scale(.9); }
+  .lane.reveal.is-in { transform: none; }
+}
+
+/* Phones: every lane is full width, so the differentiation has to come from the
+   art and the accent rather than from the span. Nothing that was visible on
+   desktop disappears — the copy order is identical. */
+@media (max-width: 899px) {
+  .lanes { gap: 12px; }
+  .lane { border-radius: 15px; }
+  .lane-art { min-block-size: 124px; padding: 14px 14px 0; }
+  .lv-ai-q, .lv-ai-a { font-size: 10px; }
+  .lv-st-photo { min-block-size: 176px; }
+  .lv-phone2 { inline-size: min(140px, 58%); }
+  .lv-br-h { font-size: 12px; }
 }
 
 /* ── Chapter openings ──────────────────────────────────────────
@@ -591,14 +749,43 @@
 /* Each chapter's ground is different. Services is the lightest (most open),
    work sits deepest, problems is the most neutral, process warms slightly, and
    about is the quietest of all — it is a person, not a pitch. */
-[data-chapter='services'] { background: radial-gradient(90% 60% at 78% 0%, rgba(126, 200, 165, .05), transparent 62%); }
-[data-chapter='work'] { background: radial-gradient(80% 52% at 8% 0%, rgba(143, 180, 255, .055), transparent 64%); }
-[data-chapter='problems'] { background: radial-gradient(70% 50% at 50% 0%, rgba(183, 156, 255, .045), transparent 66%); }
-[data-chapter='process'] { background: radial-gradient(84% 56% at 88% 4%, rgba(255, 171, 122, .045), transparent 66%); }
-[data-chapter='about'] { background: radial-gradient(76% 60% at 24% 8%, rgba(236, 232, 224, .04), transparent 62%); }
+/* Each chapter is a place, not a segment of one long dark page.
+   The colour lives on the section's own depth layer (`::before`, which spatial.css
+   already uses for a generic blue/amber wash) rather than on the section background —
+   painting the background alone left the generic wash sitting on top of it and
+   flattened every chapter back to the same grey-navy. Two bleeds per chapter, at
+   different corners and scales, so each one has a direction as well as a temperature. */
+[data-chapter] { --ch-1: transparent; --ch-2: transparent; }
+[data-chapter='services'] { --ch-1: rgba(111, 208, 224, .17); --ch-2: rgba(126, 200, 165, .12); }
+[data-chapter='work'] { --ch-1: rgba(143, 180, 255, .16); --ch-2: rgba(111, 208, 224, .09); }
+[data-chapter='problems'] { --ch-1: rgba(183, 156, 255, .16); --ch-2: rgba(255, 171, 122, .07); }
+[data-chapter='process'] { --ch-1: rgba(255, 171, 122, .15); --ch-2: rgba(217, 196, 138, .09); }
+[data-chapter='about'] { --ch-1: rgba(236, 232, 224, .075); --ch-2: rgba(143, 180, 255, .05); }
+
+[data-chapter].depth-section::before,
+[data-chapter]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(76% 54% at 86% -4%, var(--ch-1), transparent 66%),
+    radial-gradient(58% 46% at 2% 78%, var(--ch-2), transparent 72%);
+}
+
+/* A hairline at the top of each chapter marks where one place ends and the next
+   begins; without it a change of ground reads as a rendering seam. This uses the
+   section's own ::after so it does not collide with the colour layer above. */
+[data-chapter]::after {
+  content: ''; position: absolute; inset-block-start: 0; inset-inline: var(--pad);
+  block-size: 1px; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(236, 232, 224, .11) 18%, rgba(236, 232, 224, .11) 82%, transparent);
+}
 
 /* About is the last chapter; give it a real pause above it. */
 [data-chapter='about'] { padding-block-start: clamp(56px, 9vw, 130px); }
+
 
 /* ── Minimal closing footer ────────────────────────────────────
    After the closing question, one line. No sitemap. */
@@ -606,7 +793,8 @@
 .footer-min-in { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
 .footer-min-in .mono { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
 .footer-min-links { display: flex; gap: 18px; }
-.footer-min-links a { font-size: 12.5px; color: var(--silver); }
+/* Footer links get a real tap target; at 12.5px with no padding they were a 19px band. */
+.footer-min-links a { display: inline-flex; align-items: center; min-height: 32px; font-size: 12.5px; color: var(--silver); }
 .footer-min-links a:hover { color: var(--paper); }
 @media (max-width: 560px) {
   .footer-min-in { gap: 10px; }
@@ -614,19 +802,17 @@
 }
 
 /* ── The work gallery: six panels, deliberately unequal ────────────────────
-   Six identical cards in a 2×3 grid is the same failure as seven identical
-   capability cards. Each product gets a span, an accent, its own label and its own
-   entrance, so the section scrolls as a gallery — a wide hero panel followed by
-   smaller ones — instead of as a table of contents. */
-.workgrid2 { grid-template-columns: 1fr; align-items: start; }
+   The media well is the card. Each concept is shown at a size where the interface
+   inside it is readable, with one line of copy and the disclosure; the detail —
+   who it is for, what it solves, the decisions, the measurements — lives on the
+   project page. Panels take different spans so the section scrolls as a gallery. */
+/* minmax(0, 1fr), not 1fr: a bare 1fr keeps the column's min-content floor, which let
+   the interface inside a card push the card wider than the page at 360 and 375. */
+.workgrid2 { grid-template-columns: minmax(0, 1fr); align-items: start; }
 @media (min-width: 760px) {
   .workgrid2 { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 22px; }
   .wg-item { grid-column: span 3; }
-  /* Halden (store) opens the gallery wide; Tillo and Deskhand share a row; Linework
-     runs wide as the CRM; Ember and Slowtide close it. */
   .wg-item[data-i='0'] { grid-column: span 6; }
-  .wg-item[data-i='1'] { grid-column: span 3; }
-  .wg-item[data-i='2'] { grid-column: span 3; }
   .wg-item[data-i='3'] { grid-column: span 4; }
   .wg-item[data-i='4'] { grid-column: span 2; }
   .wg-item[data-i='5'] { grid-column: span 6; }
@@ -634,44 +820,74 @@
 @media (min-width: 1100px) {
   .wg-item[data-i='3'] { grid-column: span 3; }
   .wg-item[data-i='4'] { grid-column: span 3; }
-  .wg-item[data-i='5'] { grid-column: span 6; }
 }
 
-/* The opening panel is a hero, so its type is larger and it runs wide. The wide
-   panels split horizontally — interface beside copy — rather than putting a wide
-   interface at the bottom of a tall empty frame, which is what produced a large
-   blank expanse above the screen. */
-.wg-item[data-i='0'] .pcard-t { font-size: clamp(22px, 3vw, 30px); }
-.wg-item[data-i='0'] .pcard-dl { display: none; }
-.wg-item[data-i='5'] .pcard-dl { display: none; }
-/* Narrow panels lose the second definition row rather than clipping it. */
-.wg-item[data-i='4'] .pcard-dl > div:nth-child(2) { display: none; }
-.wg-item[data-i='4'] .pcard-media { aspect-ratio: 4 / 3; }
-
-/* Panels arrive through the gallery: a small forward drift plus a rise, staggered
-   by position, so the eye is led across the row rather than down a list. */
-@media (prefers-reduced-motion: no-preference) {
-  .wg-item { transition: opacity .8s var(--ease), transform .9s var(--ease); }
-  .wg-item:nth-child(1) { transition-delay: 0ms; }
-  .wg-item:nth-child(2) { transition-delay: 70ms; }
-  .wg-item:nth-child(3) { transition-delay: 110ms; }
-  .wg-item:nth-child(4) { transition-delay: 90ms; }
-  .wg-item:nth-child(5) { transition-delay: 130ms; }
-  .wg-item:nth-child(6) { transition-delay: 160ms; }
+/* The two wide panels run interface beside copy: a 6-column panel with a 16:11
+   media well and copy underneath would be a 900px-wide picture with a caption. */
+@media (min-width: 900px) {
+  .wg-item[data-i='0'] .pcard,
+  .wg-item[data-i='5'] .pcard {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+  .wg-item[data-i='0'] .pcard-media,
+  .wg-item[data-i='5'] .pcard-media {
+    aspect-ratio: auto;
+    block-size: clamp(300px, 26vw, 380px);
+    padding: 18px;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+  }
+  .wg-item[data-i='0'] .pcard-ui,
+  .wg-item[data-i='5'] .pcard-ui { inline-size: 100%; height: auto; max-block-size: 100%; overflow: hidden; }
+  .wg-item[data-i='0'] .pcard-ui > *,
+  .wg-item[data-i='5'] .pcard-ui > * { margin-block-end: 0; }
+  .wg-item[data-i='0'] .pcard-body,
+  .wg-item[data-i='5'] .pcard-body { padding: clamp(20px, 2.4vw, 32px); justify-content: center; gap: 12px; }
+  .wg-item[data-i='0'] .pcard-t,
+  .wg-item[data-i='5'] .pcard-t { font-size: clamp(22px, 3vw, 30px); }
+  /* On the widest panels the store interface grows into the well, so the panel reads
+     as a photograph of a working shop rather than a card floating in a dark field. */
+  .wg-item[data-i='0'] .pcard-ui > .ui-frame,
+  .wg-item[data-i='5'] .pcard-ui > .ui-frame { block-size: 100%; }
+  .wg-item[data-i='0'] .pcard-ui .ui,
+  .wg-item[data-i='5'] .pcard-ui .ui { block-size: 100%; display: flex; flex-direction: column; }
+  .wg-item[data-i='0'] .pcard-ui .ui-body,
+  .wg-item[data-i='5'] .pcard-ui .ui-body { flex: 1; padding: 0; min-block-size: 0; }
+  .wg-item[data-i='0'] .pcard-ui .ui-pdp,
+  .wg-item[data-i='5'] .pcard-ui .ui-pdp { grid-template-columns: minmax(0, .92fr) minmax(0, 1fr); gap: 0; block-size: 100%; align-items: stretch; }
+  .wg-item[data-i='0'] .pcard-ui .ui-shot,
+  .wg-item[data-i='5'] .pcard-ui .ui-shot { block-size: 100%; border-radius: 0; min-block-size: 0; overflow: hidden; }
+  .wg-item[data-i='0'] .pcard-ui .ui-shot img,
+  .wg-item[data-i='5'] .pcard-ui .ui-shot img { block-size: 100%; object-fit: cover; }
+  .wg-item[data-i='0'] .pcard-ui .ui-pdp-info,
+  .wg-item[data-i='5'] .pcard-ui .ui-pdp-info { padding: 22px; justify-content: center; display: flex; flex-direction: column; gap: 6px; }
+  .wg-item[data-i='0'] .pcard-ui .ui-price,
+  .wg-item[data-i='5'] .pcard-ui .ui-price { font-size: 21px; }
+  .wg-item[data-i='0'] .pcard-ui .ui-h,
+  .wg-item[data-i='5'] .pcard-ui .ui-h { font-size: 17px; }
 }
 
-/* Panels that float: a shared lift plus the panel's own accent bloom. */
-.pcard {
-  block-size: 100%;
-  border-radius: 16px;
-  box-shadow: 0 24px 60px -40px rgba(0, 0, 0, .95);
-  transition: border-color .4s var(--ease), transform .5s var(--ease), box-shadow .5s var(--ease);
-}
-.pcard:hover { transform: translate3d(0, -4px, 0); box-shadow: 0 34px 72px -34px rgba(0, 0, 0, 1); }
-@media (prefers-reduced-motion: reduce) {
-  .pcard:hover { transform: none; }
+/* Phones: the wide panels hug their interface instead of parking it at the bottom
+   of a fixed well. */
+@media (max-width: 899px) {
+  .wg-item[data-i='0'] .pcard-media,
+  .wg-item[data-i='5'] .pcard-media { aspect-ratio: auto; padding: 14px; }
+  /* On the narrowest phones the campaign's two-column body has no room to be two
+     columns, so it stacks and the dashboard sits under the creative. */
+  .pcard-ui .ui-camp .camp-body { grid-template-columns: minmax(0, 1fr); }
+  .wg-item[data-i='0'] .pcard-ui,
+  .wg-item[data-i='5'] .pcard-ui { block-size: auto; }
+  .wg-item[data-i='0'] .pcard-ui > *,
+  .wg-item[data-i='5'] .pcard-ui > * { margin-block-end: 0; }
+  .pcard-ui .ui { font-size: 9px; }
+  .pcard-ui .ui-pdp { grid-template-columns: 78px minmax(0, 1fr); }
+  .pcard-ui .phone { max-width: 190px; }
 }
 
+/* ══════════════════════════════════════════════════════════════════════════
 /* ══════════════════════════════════════════════════════════════════════════
    Process: one pinned frame, seven steps in lockstep
    ══════════════════════════════════════════════════════════════════════════
@@ -1018,6 +1234,14 @@
   .wg-item[data-i='5'] .pcard-ui .ui-price { font-size: 19px; }
   .wg-item[data-i='0'] .pcard-ui .ui-h,
   .wg-item[data-i='5'] .pcard-ui .ui-h { font-size: 16px; }
+/* The assistant card is mostly empty at compact size: one exchange in a tall well.
+   Giving the transcript real type and letting it sit in the middle turns the well
+   into a screen you can read. */
+.pcard-ui .ai-thread { display: flex; flex-direction: column; gap: 10px; }
+.pcard-ui .ai-q, .pcard-ui .ai-a { font-size: 12.5px; line-height: 1.45; }
+.pcard-ui .ai-src { font-size: 9.5px; }
+.pcard-ui .ai-input { font-size: 11px; padding: 7px 7px 7px 13px; }
+.pcard-ui .ui-ai .ui-body { justify-content: center; gap: 12px; }
 }
 
 /* Phones: the two wide panels hug their interface instead of parking it at the
@@ -1058,3 +1282,219 @@
 .lv-device-note { display: flex; flex-direction: column; gap: 4px; font-size: 10.5px; line-height: 1.45; color: var(--muted); max-inline-size: 120px; padding-block-start: 8px; }
 .lv-dn-k { font-family: var(--f-mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--ac); }
 @media (max-width: 899px) { .lv-device-note { display: none; } }
+/* ══════════════════════════════════════════════════════════════════════════
+   Introduction — the range of the work in one layered composition
+   ══════════════════════════════════════════════════════════════════════════
+   The section used to be anchored by a single photograph of someone packing a
+   parcel: one business, one kind of work, standing in for the whole practice. This
+   is five surfaces instead — a page in a monitor, an app on a phone, an automation
+   chain, a pipeline and a campaign — layered in depth so the eye reads them as one
+   body of work rather than a collage.
+
+   Everything is real markup: the same interfaces the concept projects use, so the
+   composition cannot drift away from what the work actually is.
+   ══════════════════════════════════════════════════════════════════════════ */
+.mix {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 1 / 0.76;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(70% 60% at 24% 10%, rgba(88, 210, 240, .12), transparent 68%),
+    radial-gradient(60% 56% at 84% 88%, rgba(255, 171, 122, .1), transparent 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, .025), transparent 60%),
+    rgba(8, 11, 16, .72);
+  overflow: hidden;
+}
+.mix-glow {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(52% 42% at 62% 44%, rgba(143, 180, 255, .14), transparent 72%);
+}
+.mix-k {
+  display: block;
+  font-family: var(--f-mono); font-size: 7.5px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* 1 · the monitor */
+.mix-screen {
+  position: absolute;
+  inset-block-start: 5%;
+  inset-inline-start: 4%;
+  inline-size: 62%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(236, 232, 224, .13);
+  background: #0b0e13;
+  box-shadow: 0 30px 56px -26px rgba(0, 0, 0, .98), 0 1px 0 rgba(255, 255, 255, .07) inset;
+}
+.mix-chrome {
+  display: flex; align-items: center; gap: 4px;
+  padding: 5px 7px; border-bottom: 1px solid rgba(255, 255, 255, .07);
+  background: rgba(255, 255, 255, .03);
+}
+.mix-chrome i { inline-size: 4px; block-size: 4px; border-radius: 50%; background: rgba(255, 255, 255, .2); }
+.mix-chrome em {
+  margin-inline-start: 5px; font-style: normal;
+  font-family: var(--f-mono); font-size: 6.5px; letter-spacing: .06em; color: var(--dim);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.mix-nav { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 9px; border-bottom: 1px solid rgba(255, 255, 255, .06); }
+.mix-nav em { font-style: normal; font-family: var(--f-mono); font-size: 7px; letter-spacing: .16em; color: var(--paper); }
+.mix-nav span { display: flex; gap: 7px; }
+.mix-nav span i { font-style: normal; font-size: 6.5px; color: var(--muted); }
+.mix-nav b { font-size: 6px; font-weight: 500; color: var(--silver); border: 1px solid rgba(255, 255, 255, .16); border-radius: 2px; padding: 1px 4px; }
+.mix-hero { display: flex; flex-direction: column; gap: 6px; padding: 9px 9px 10px; }
+.mix-hero-h { font-size: 13px; line-height: 1.16; letter-spacing: -.015em; color: var(--paper); }
+.mix-hero-cta {
+  align-self: flex-start;
+  font-family: var(--f-mono); font-size: 6px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 7px; border-radius: 2px; background: #efece6; color: #0b0e13;
+}
+.mix-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; padding: 0 9px 9px; }
+.mix-grid > span { display: flex; flex-direction: column; gap: 1px; padding: 4px; border-radius: 3px; background: rgba(255, 255, 255, .04); border: 1px solid rgba(255, 255, 255, .06); min-inline-size: 0; }
+.mix-grid img { inline-size: 100%; block-size: auto; aspect-ratio: 5 / 4; object-fit: cover; border-radius: 2px; background: #f3efe7; }
+.mix-grid b { font-size: 6px; font-weight: 500; color: var(--silver); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mix-grid em { font-style: normal; font-family: var(--f-mono); font-size: 6px; color: #d9c48a; }
+
+/* 2 · the phone */
+.mix-phone {
+  position: absolute;
+  inset-block-start: 42%;
+  inset-inline-start: 2%;
+  z-index: 4;
+  display: flex; flex-direction: column; gap: 2px;
+  inline-size: 27%;
+  padding: 7px 6px;
+  border-radius: 14px;
+  background: linear-gradient(170deg, #171c24, #0a0d12);
+  border: 1px solid rgba(236, 232, 224, .16);
+  box-shadow: 0 26px 48px -18px rgba(0, 0, 0, 1), 0 1px 0 rgba(255, 255, 255, .09) inset;
+}
+.mix-ph-top { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 5.5px; color: var(--muted); }
+.mix-ph-top em { font-style: normal; }
+.mix-ph-k { font-family: var(--f-mono); font-size: 5px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-block-start: 4px; }
+.mix-ph-big { font-size: 14px; font-weight: 600; letter-spacing: -.025em; color: var(--paper); line-height: 1.05; }
+.mix-ph-row { display: flex; align-items: center; gap: 3px; font-size: 5.5px; color: var(--silver); border-top: 1px solid rgba(255, 255, 255, .08); padding-block-start: 2px; margin-block-start: 2px; }
+.mix-ph-row b { color: var(--paper); font-weight: 600; }
+.mix-ph-row em { margin-inline-start: auto; font-style: normal; font-size: 4.5px; padding: 1px 3px; border-radius: 2px; background: #dfe6f2; color: #0a0d12; }
+.mix-ph-chart { display: flex; align-items: flex-end; gap: 2px; block-size: 18px; margin-block-start: 5px; }
+.mix-ph-chart i { flex: 1; border-radius: 1px 1px 0 0; background: linear-gradient(180deg, #8fb4ff, rgba(143, 180, 255, .22)); }
+.mix-ph-nav { display: flex; gap: 3px; justify-content: center; margin-block-start: 5px; }
+.mix-ph-nav i { inline-size: 8px; block-size: 2px; border-radius: 2px; background: rgba(255, 255, 255, .14); }
+.mix-ph-nav i.on { background: #8fb4ff; }
+
+/* 3 · the pipeline */
+.mix-pipe {
+  position: absolute;
+  inset-block-start: 2%;
+  inset-inline-end: 2%;
+  z-index: 3;
+  inline-size: 31%;
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 7px 8px 8px;
+  border-radius: 8px;
+  background: rgba(11, 16, 22, .88);
+  border: 1px solid rgba(255, 171, 122, .28);
+  box-shadow: 0 18px 36px -20px rgba(0, 0, 0, .95);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.mix-pipe-row { display: flex; justify-content: space-between; align-items: center; gap: 6px; font-size: 6.5px; color: var(--silver); border-block-start: 1px solid rgba(255, 255, 255, .07); padding-block-start: 2px; }
+.mix-pipe-row i { font-style: normal; }
+.mix-pipe-row b { font-weight: 600; color: #ffab7a; }
+
+/* 4 · the automation */
+.mix-flow {
+  position: absolute;
+  inset-block-start: 22%;
+  inset-inline-end: 2%;
+  z-index: 3;
+  inline-size: 27%;
+  display: flex; flex-direction: column;
+  padding: 7px 8px 8px;
+  border-radius: 8px;
+  background: rgba(11, 16, 22, .88);
+  border: 1px solid rgba(111, 208, 224, .28);
+  box-shadow: 0 18px 36px -20px rgba(0, 0, 0, .95);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.mix-node { align-self: flex-start; display: flex; align-items: center; gap: 4px; font-size: 6.5px; color: var(--paper); padding: 2px 5px; border-radius: 3px; margin-block-start: 4px; background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .1); white-space: nowrap; }
+.mix-node b { inline-size: 3px; block-size: 3px; border-radius: 50%; background: #6fd0e0; flex: none; }
+.mix-line { inline-size: 1px; block-size: 6px; margin-inline-start: 10px; background: linear-gradient(180deg, #6fd0e0, transparent); }
+
+/* 5 · the campaign */
+.mix-camp {
+  position: absolute;
+  inset-block-end: 3%;
+  inset-inline-end: 3%;
+  z-index: 3;
+  inline-size: 26%;
+  aspect-ratio: 3 / 4;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  padding: 8px 7px;
+  border-radius: 8px;
+  background: linear-gradient(162deg, #14352c, #0a1917 72%);
+  border: 1px solid rgba(126, 200, 165, .32);
+  box-shadow: 0 20px 40px -22px rgba(0, 0, 0, .95);
+}
+.mix-camp-h { font-family: var(--f-serif); font-style: italic; font-size: 10px; line-height: 1.15; color: #e8f3ec; align-self: flex-start; }
+.mix-camp-can { inline-size: 34%; aspect-ratio: 1 / 2.4; display: grid; place-items: center; border-radius: 3px 3px 6px 6px; background: linear-gradient(180deg, #efece6, #cfd8d1); color: #14352c; font-family: var(--f-mono); font-size: 4.5px; letter-spacing: .1em; text-align: center; line-height: 1.3; text-transform: uppercase; box-shadow: 0 6px 14px -6px rgba(0, 0, 0, .8); }
+.mix-camp-foot { font-family: var(--f-mono); font-size: 5.5px; letter-spacing: .08em; text-transform: uppercase; color: rgba(232, 243, 236, .6); align-self: flex-start; }
+
+.mix-cap { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-block-start: 10px; font-size: 10px; letter-spacing: .04em; color: var(--muted); }
+.mix-cap-note { text-transform: uppercase; font-size: 9px; letter-spacing: .12em; color: var(--dim); flex: none; }
+
+@media (max-width: 520px) {
+  .mix { aspect-ratio: 5 / 6; }
+  .mix-screen { inline-size: 74%; }
+  .mix-phone { inline-size: 30%; inset-block-start: 40%; }
+  .mix-camp { inline-size: 28%; }
+  .mix-cap { font-size: 9.5px; }
+  .mix-cap-note { display: none; }
+}
+
+/* ── Process: the pinned frame names its own step ──────────────────────────
+   Without this the picture and the copy were two columns in step only by timing;
+   a visitor had to trust that the image belonged to the paragraph they were
+   reading. The frame now carries the number and the title of the active step, so
+   the pairing is explicit. The rail beneath it stays: it shows how far the
+   seven-step sequence has to run.                                          */
+.jx-frame-tag {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-block-start: 14px;
+  padding-block-start: 12px;
+  border-block-start: 1px solid var(--line-strong);
+}
+.jx-frame-n {
+  font-size: 11px;
+  letter-spacing: .14em;
+  color: var(--tungsten);
+  flex: none;
+}
+.jx-frame-t {
+  font-size: 15px;
+  font-weight: 540;
+  font-stretch: 104%;
+  letter-spacing: -.012em;
+  color: var(--paper);
+}
+@media (max-width: 899px) { .jx-frame-tag { display: none; } }
+
+/* The desktop steps no longer need 46vh each: the copy is short and the pinned
+   frame already carries the title. A tighter rhythm keeps the section from being a
+   long empty scroll on the right of a single photograph. */
+@media (min-width: 900px) {
+  /* A step is only as tall as its words. At 34vh each one held a paragraph in the
+     middle of a mostly empty band, and the section ran to 3000px to say seven short
+     things. The pinned frame is what carries the sequence; the copy just has to keep
+     up with it, and it does at 22vh. */
+  .jx-step { min-block-size: 22vh; padding-block: 22px; }
+  .jx-rail { margin-block-start: 12px; }
+  .jx-shot { border-radius: 16px; }
+}

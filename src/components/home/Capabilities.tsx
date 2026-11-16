@@ -9,17 +9,25 @@ import type { Dict } from '@/i18n/en';
  * of something. Here each lane has its own accent, its own internal geometry, its own
  * representation of what the work actually is, and its own hover motion — a storefront
  * is wide and photographic, an app is narrow and device-shaped, AI is a conversation,
- * automation is a chain, a CRM is a pipeline, growth is a rising chart.
+ * automation is a chain, a CRM is a pipeline, growth is a campaign with numbers beside
+ * it.
  *
- * All seven share the same *system*: the same corner radius, the same label
- * typography, the same rule under the title, the same "where this starts" line. That
- * is what makes them a family without making them clones.
+ * What changed in this pass: the art is no longer a caption-sized thumbnail above a
+ * block of text. The interface *is* the panel — it fills the lane's media column, and
+ * the copy sits beside it on wide lanes and beneath it on narrow ones. Each lane also
+ * carries a photography layer where the work is physical (a shop, a counter, a
+ * campaign) so the section reads as a portfolio, not a spec sheet.
+ *
+ * All seven share the same *system*: same corner radius, same label typography, same
+ * rule under the title, same one-line problem statement. That is what makes them a
+ * family without making them clones.
  */
 
 type Lane = {
   key: string;
   n: string;
   accent: string;
+  accent2: string;
   /** grid span on the wide board */
   span: number;
   title: string;
@@ -32,16 +40,15 @@ export function Capabilities({ t, L }: { t: Dict; L: (p: string) => string }) {
   const c = t.capabilities;
   const p = t.home;
   /* The seven capabilities in the order they are presented, with spans that tile the
-     six-column board exactly: 3+3 / 4+2 / 2+2+2+2. The storefront keeps the wide
-     panel because it is the only lane with a photograph, and a photograph needs room. */
+     six-column board exactly: 3+3 / 4+2 / 2+2+2+2. */
   const lanes: Lane[] = [
-    { key: 'web', n: '01', accent: '#d9c48a', span: 3, title: c.web, line: c.webLine, problem: p.capProblemWeb, icon: 'page' },
-    { key: 'app', n: '02', accent: '#8fb4ff', span: 3, title: c.app, line: c.appLine, problem: p.capProblemApp, icon: 'device' },
-    { key: 'shopify', n: '03', accent: '#7ec8a5', span: 4, title: c.shopify, line: c.shopifyLine, problem: p.capProblemShopify, icon: 'store' },
-    { key: 'ai', n: '04', accent: '#b79cff', span: 2, title: c.ai, line: c.aiLine, problem: p.capProblemAi, icon: 'spark' },
-    { key: 'automation', n: '05', accent: '#6fd0e0', span: 2, title: c.automation, line: c.automationLine, problem: p.capProblemAutomation, icon: 'flow' },
-    { key: 'crm', n: '06', accent: '#ffab7a', span: 2, title: c.crm, line: c.crmLine, problem: p.capProblemCrm, icon: 'pipe' },
-    { key: 'marketing', n: '07', accent: '#f2b3c8', span: 2, title: c.marketing, line: c.marketingLine, problem: p.capProblemMarketing, icon: 'chart' },
+    { key: 'web', n: '01', accent: '#d9c48a', accent2: '#58d2f0', span: 3, title: c.web, line: c.webLine, problem: p.capProblemWeb, icon: 'page' },
+    { key: 'app', n: '02', accent: '#8fb4ff', accent2: '#b79cff', span: 3, title: c.app, line: c.appLine, problem: p.capProblemApp, icon: 'device' },
+    { key: 'shopify', n: '03', accent: '#7ec8a5', accent2: '#d9c48a', span: 4, title: c.shopify, line: c.shopifyLine, problem: p.capProblemShopify, icon: 'store' },
+    { key: 'ai', n: '04', accent: '#b79cff', accent2: '#8fb4ff', span: 2, title: c.ai, line: c.aiLine, problem: p.capProblemAi, icon: 'spark' },
+    { key: 'automation', n: '05', accent: '#6fd0e0', accent2: '#7ec8a5', span: 2, title: c.automation, line: c.automationLine, problem: p.capProblemAutomation, icon: 'flow' },
+    { key: 'crm', n: '06', accent: '#ffab7a', accent2: '#f2b3c8', span: 2, title: c.crm, line: c.crmLine, problem: p.capProblemCrm, icon: 'pipe' },
+    { key: 'marketing', n: '07', accent: '#f2b3c8', accent2: '#ffab7a', span: 2, title: c.marketing, line: c.marketingLine, problem: p.capProblemMarketing, icon: 'chart' },
   ];
 
   return (
@@ -52,7 +59,7 @@ export function Capabilities({ t, L }: { t: Dict; L: (p: string) => string }) {
           className="lane reveal"
           data-lane={l.key}
           data-span={l.span}
-          style={{ ['--ac' as string]: l.accent, ['--span' as string]: String(l.span) }}
+          style={{ ['--ac' as string]: l.accent, ['--ac2' as string]: l.accent2, ['--span' as string]: String(l.span) }}
         >
           <Link href={L('/services')} className="lane-link" aria-label={`${l.title} — ${l.line}`}>
             <span className="lane-art" aria-hidden="true">
@@ -66,6 +73,7 @@ export function Capabilities({ t, L }: { t: Dict; L: (p: string) => string }) {
               <span className="lane-t">{l.title}</span>
               <span className="lane-l">{l.line}</span>
               <span className="lane-p"><b>{p.capProblemLabel}</b>{l.problem}</span>
+              <span className="lane-cta">{t.services.viewService} <i aria-hidden="true">→</i></span>
             </span>
           </Link>
         </li>
@@ -95,87 +103,116 @@ function Icon({ name }: { name: Lane['icon'] }) {
 }
 
 /**
- * Each lane's own picture. These are CSS and HTML rather than images: they stay crisp
- * at any width, they cost nothing to download, and — unlike a photograph — they can
- * show the *interface* the lane produces, which is the actual product.
+ * Each lane's own picture, sized to fill its media column.
+ *
+ * These are real interfaces built in HTML and CSS rather than screenshots: they stay
+ * crisp at any width, they cost nothing to download, and they can show the *interface*
+ * the lane produces, which is the actual product. Where the work is physical — a shop,
+ * a counter, a campaign — a photograph sits behind or beside the interface so the lane
+ * has both the thing being used and the thing being built.
  */
 function LaneVisual({ lane }: { lane: string }) {
   switch (lane) {
+    /* 01 — a website, in a browser, on a desk */
+    case 'web':
+      return (
+        <span className="lv lv-web2">
+          <span className="lv-photo"><img src="/img/scene-build.webp" alt="" width={1600} height={1200} loading="lazy" decoding="async" /></span>
+          <span className="lv-browser">
+            <span className="lv-br-bar"><i /><i /><i /><em>westgate-retail.com</em></span>
+            <span className="lv-br-nav"><b>WESTGATE</b><span><i>Shop</i><i>Guides</i><i>Service</i></span><u>Cart 2</u></span>
+            <span className="lv-br-hero">
+              <span className="lv-br-h">Parts, tools and advice from people who use them.</span>
+              <span className="lv-br-cta">Browse the range</span>
+            </span>
+            <span className="lv-br-grid">
+              <span><img src="/img/product-grinder.webp" alt="" width={90} height={90} loading="lazy" decoding="async" /><b>Hand grinder</b><em>$116</em></span>
+              <span><img src="/img/product-tray.webp" alt="" width={90} height={90} loading="lazy" decoding="async" /><b>Oak tray</b><em>$168</em></span>
+              <span><img src="/img/product-lamp.webp" alt="" width={90} height={90} loading="lazy" decoding="async" /><b>Table lamp</b><em>$296</em></span>
+            </span>
+          </span>
+        </span>
+      );
+
+    /* 02 — an app in the hand, at a counter */
+    case 'app':
+      return (
+        <span className="lv lv-app2">
+          <span className="lv-photo"><img src="/img/scene-operations.webp" alt="" width={1600} height={1200} loading="lazy" decoding="async" /></span>
+          <span className="lv-hands">
+            <span className="lv-phone2">
+              <span className="lv-ph2-top"><i>9:41</i><em>Tillo</em></span>
+              <span className="lv-ph2-k">Today · sample data</span>
+              <span className="lv-ph2-big">$2,425</span>
+              <span className="lv-ph2-two"><span><b>4</b>open</span><span><b>2</b>low stock</span></span>
+              <span className="lv-ph2-row"><b>#1042</b>Amara O.<i>Pack</i></span>
+              <span className="lv-ph2-row"><b>#1041</b>Jonas W.<i>Pack</i></span>
+              <span className="lv-ph2-nav"><i className="on" /><i /><i /><i /><i /></span>
+            </span>
+          </span>
+        </span>
+      );
+
+    /* 03 — a storefront, photographic, with the product page inside it */
     case 'shopify':
       return (
         <span className="lv lv-store">
-          <span className="lv-st-bar"><span className="lv-word">HALDEN<span>Objects</span></span><span className="lv-cart">Cart · 2</span></span>
-          <span className="lv-st-body">
-            <span className="lv-st-photo"><img src="/img/product-tray.webp" alt="" width={420} height={420} loading="lazy" decoding="async" /></span>
-            <span className="lv-st-info">
-              <span className="lv-st-name">Oak desk tray</span>
-              <span className="lv-st-price">$168</span>
-              <span className="lv-st-buy">Add to cart</span>
+          <span className="lv-st-photo"><img src="/img/scene-ecommerce.webp" alt="" width={1600} height={1200} loading="lazy" decoding="async" />
+            <span className="lv-st-float">
+              <span className="lv-st-bar"><span className="lv-word">HALDEN<span>Objects</span></span><span className="lv-cart">Cart · 2</span></span>
+              <span className="lv-st-body">
+                <span className="lv-st-thumb"><img src="/img/product-tray.webp" alt="" width={120} height={120} loading="lazy" decoding="async" /></span>
+                <span className="lv-st-info">
+                  <span className="lv-st-name">Oak desk tray</span>
+                  <span className="lv-st-price">$168</span>
+                  <span className="lv-st-buy">Add to cart — $168</span>
+                </span>
+              </span>
+              <span className="lv-st-more">
+                <span><i />Ceramic pour-over<b>$68</b></span>
+                <span><i />Hand grinder<b>$116</b></span>
+                <span><i />Amber &amp; smoke<b>$52</b></span>
+              </span>
             </span>
           </span>
-          <span className="lv-st-more">
-            <span><i />Ceramic pour-over<b>$68</b></span>
-            <span><i />Hand grinder<b>$116</b></span>
-            <span><i />Amber &amp; smoke<b>$52</b></span>
-          </span>
         </span>
       );
-    case 'app':
-      return (
-        <span className="lv lv-device">
-          <span className="lv-ph">
-            <span className="lv-ph-top"><span>9:41</span><span>Tillo</span></span>
-            <span className="lv-ph-k">Today</span>
-            <span className="lv-ph-big">$2,425</span>
-            <span className="lv-ph-row"><b>4</b>open</span>
-            <span className="lv-ph-row"><b>2</b>low stock</span>
-          </span>
-          {/* The phone alone in a wide column left a void. The caption names what the
-              owner is looking at, so the lane reads as a device in use, not a mock-up. */}
-          <span className="lv-device-note">
-            <span className="lv-dn-k">Orders today</span>
-            <span>Packed and ready for collection.</span>
-          </span>
-        </span>
-      );
-    case 'web':
-      return (
-        <span className="lv lv-page">
-          <span className="lv-pg-h">Parts, tools and advice<br />from people who use them.</span>
-          <span className="lv-pg-grid">
-            <span><b>Chainset 42T</b><em>$38</em></span>
-            <span><b>Trail tyre</b><em>$54</em></span>
-            <span><b>Brake pads</b><em>$22</em></span>
-          </span>
-          <span className="lv-pg-url">westgate-retail.com</span>
-        </span>
-      );
+
+    /* 04 — an assistant answering from a document */
     case 'ai':
       return (
         <span className="lv lv-ai">
           <span className="lv-ai-q">What is our refund window for wholesale?</span>
-          <span className="lv-ai-a">30 days, from the invoice date.<span className="lv-ai-src">Source · Terms v4, §2.1</span></span>
-          <span className="lv-ai-ok">Approve</span>
+          <span className="lv-ai-a">
+            30 days, from the invoice date.
+            <span className="lv-ai-src">Source · Terms v4, §2.1</span>
+          </span>
+          <span className="lv-ai-acts"><i>Approve</i><i>Open document</i></span>
+          <span className="lv-ai-doc"><b>Wholesale terms</b><span>§2.1 · Returns</span></span>
         </span>
       );
+
+    /* 05 — an automation chain with its trigger and its outcome */
     case 'automation':
       return (
         <span className="lv lv-flow">
-          <span className="lv-fl-n">Order paid</span>
+          <span className="lv-fl-trigger"><i />Order paid</span>
           <span className="lv-fl-line" />
           <span className="lv-fl-n">Create task</span>
           <span className="lv-fl-line" />
-          <span className="lv-fl-n">Notify</span>
-          <span className="lv-fl-note">4 manual steps removed</span>
+          <span className="lv-fl-n">Notify team</span>
+          <span className="lv-fl-note">3 steps · no copy-paste</span>
         </span>
       );
+
+    /* 06 — a pipeline with real deals and real values */
     case 'crm':
       return (
         <span className="lv lv-pipe">
           {[
-            [['New', 3], ['Marisa Okafor', '$4,200'], ['Dev Anand', '$1,850']],
-            [['Qualified', 2], ['Tomas Reid', '$9,600'], ['Hana Sato', '$3,100']],
-            [['Proposal', 2], ['Nadia Haddad', '$14,500'], ['Liam Ó Conaill', '$7,250']],
+            [['New', 6], ['Al Noor Traders', '$12.0k'], ['Brightline Studio', '$4.8k']],
+            [['Qualified', 4], ['Westgate Retail', '$16.0k'], ['Orbit Print', '$3.0k']],
+            [['Proposal', 3], ['Sunrise Clinic', '$20.5k'], ['Delta Freight', '$7.5k']],
           ].map(([head, ...cards]) => (
             <span className="lv-pl-col" key={String((head as (string | number)[])[0])}>
               <span className="lv-pl-h">{(head as (string | number)[])[0]} <b>{(head as (string | number)[])[1]}</b></span>
@@ -186,11 +223,22 @@ function LaneVisual({ lane }: { lane: string }) {
           ))}
         </span>
       );
+
+    /* 07 — a campaign: the creative, the audience, the readable numbers */
     default:
       return (
-        <span className="lv lv-chart">
-          <span className="lv-ch-bars">{[34, 52, 41, 68, 59, 82, 74, 96].map((h, i) => <i key={i} style={{ blockSize: `${h}%` }} />)}</span>
-          <span className="lv-ch-foot"><b>$12.50</b> cost per lead</span>
+        <span className="lv lv-camp2">
+          <span className="lv-cp-art">
+            <span className="lv-cp-h">Take the<br />long afternoon.</span>
+            <span className="lv-cp-can">Slow<br />tide</span>
+          </span>
+          <span className="lv-cp-meta">
+            <span className="lv-cp-row"><i>Audience</i><b>Retail · tea</b></span>
+            <span className="lv-cp-row"><i>Spend</i><b>$3,100</b></span>
+            <span className="lv-cp-row"><i>Leads</i><b>248</b></span>
+            <span className="lv-cp-row"><i>Cost / lead</i><b className="ac">$12.50</b></span>
+            <span className="lv-cp-bars">{[30, 44, 39, 58, 52, 71, 66].map((h, i) => <i key={i} style={{ blockSize: `${h}%` }} />)}</span>
+          </span>
         </span>
       );
   }

@@ -677,3 +677,344 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-plate, .hero-panel-back, .hero-panel-front, .hero-mini, .hero-subject-wrap { translate: none; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   HERO — cinematic portrait stage (replaces the storefront composition)
+   ══════════════════════════════════════════════════════════════════════════
+   A full-bleed studio photograph, the cut-out subject standing in it, and four
+   floating capability panels placed in the gutters beside the head. Nothing here
+   is an e-commerce surface: the shop and the sales dashboard belong to the
+   capability and Work sections, where they are examples, not identity.
+
+   Geometry is expressed in percentages of the stage plus explicit min/max
+   widths, so the gutters stay clear of the face from 900px out to 1600px.
+   Panels are `position: absolute` inside `.hero-stage`, which is a real box —
+   so no panel can drift over the copy column or the page edge.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* — the environment: one photograph, full-bleed, masked rather than filtered — */
+.hero-env {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: clip;
+}
+.hero-env img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: 50% 46%;
+  opacity: .52;
+  /* The mask dissolves the plate into the page at the edges, so the hero has no
+     horizontal seam where the photograph stops. */
+  -webkit-mask-image: radial-gradient(120% 96% at 50% 34%, #000 26%, rgba(0,0,0,.55) 62%, transparent 92%);
+  mask-image: radial-gradient(120% 96% at 50% 34%, #000 26%, rgba(0,0,0,.55) 62%, transparent 92%);
+}
+/* A colour wash over the plate: cyan key upper left, violet mid, amber fill lower
+   right. This is what stops the section reading as a monochrome black field. */
+.hero-env-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(46% 52% at 16% 12%, rgba(88, 210, 240, 0.14), transparent 68%),
+    radial-gradient(40% 46% at 84% 18%, rgba(183, 156, 255, 0.12), transparent 70%),
+    radial-gradient(58% 62% at 74% 96%, rgba(255, 171, 122, 0.1), transparent 72%);
+}
+@media (max-width: 899px) {
+  .hero-env img { opacity: .34; object-position: 50% 40%; }
+  .hero-env-glow { background:
+    radial-gradient(60% 40% at 20% 6%, rgba(88, 210, 240, 0.12), transparent 70%),
+    radial-gradient(58% 44% at 82% 30%, rgba(183, 156, 255, 0.1), transparent 72%);
+  }
+}
+
+/* — the stage — */
+.hero-stage {
+  height: clamp(520px, 60vw, 660px);
+}
+/* The plate inside the stage is no longer needed as a separate photograph: the
+   section itself carries the environment. It stays as a soft focus falloff so the
+   figure still has something to sit on. */
+.hero-stage .hero-plate {
+  inset-block-start: 6%;
+  height: 76%;
+  opacity: 1;
+  border-radius: 0;
+  background: radial-gradient(58% 52% at 50% 84%, rgba(88, 210, 240, 0.11), transparent 72%);
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.hero-stage .hero-plate img { display: none; }
+
+/* Contact shadow and rim: the figure is standing on something, and lit from two
+   sides. Two blurred elliptical gradients — no extra image, no runtime filter. */
+.hero-ground {
+  position: absolute;
+  inset-inline: 24%;
+  inset-block-end: 0;
+  block-size: 11%;
+  z-index: 1;
+  border-radius: 50%;
+  /* A dark contact shadow, not a light cloud: it has to read as the figure meeting
+     the floor, and it must not brighten the plate where the fade already is. */
+  background: radial-gradient(50% 50% at 50% 50%, rgba(3, 5, 8, .96), rgba(3, 5, 8, .5) 52%, transparent 74%);
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+.hero-subject-wrap { z-index: 3; }
+@media (min-width: 900px) {
+  /* The figure is the composition: at 46% of a 640px stage the head was too small
+     to carry a 660px-tall hero. 56% puts the head at roughly a third of the stage
+     height, which is what makes a portrait read as the subject rather than an
+     illustration in the corner. The torso runs off the bottom edge on purpose. */
+  .hero-subject-wrap { inline-size: min(62%, 620px); inset-block-end: -5%; }
+  .hero-subject { width: 100%; }
+  /* A longer, softer fade at the base so the jacket dissolves into the stage floor
+     instead of ending on a straight cut across the chest. */
+  .hero-subject img {
+    -webkit-mask-image: linear-gradient(180deg, #000 76%, rgba(0, 0, 0, .8) 86%, rgba(0, 0, 0, .3) 96%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 76%, rgba(0, 0, 0, .8) 86%, rgba(0, 0, 0, .3) 96%, transparent 100%);
+  }
+}
+/* The rim light: a cool edge on the left and a warm one on the right, matching the
+   two light sources in the plate. */
+.hero-subject::before {
+  inset: 12% 6% 4%;
+  background:
+    radial-gradient(40% 46% at 22% 34%, rgba(88, 210, 240, 0.3), transparent 72%),
+    radial-gradient(42% 48% at 82% 42%, rgba(255, 171, 122, 0.2), transparent 74%);
+  filter: blur(26px);
+}
+
+/* ── Four floating capability panels ────────────────────────────────────────
+   Each has its own accent, its own tint, its own depth (data-depth drives the
+   pointer parallax) and its own resting offset (data-place drives the scroll
+   drift). Two sit high either side of the head, two sit low, so the face is
+   always in clear air. */
+.hpanel {
+  display: none;
+}
+@media (min-width: 900px) {
+  .hpanel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute;
+    z-index: 4;
+    inline-size: clamp(178px, 15vw, 214px);
+    padding: 12px 13px 13px;
+    border-radius: 15px;
+    color: var(--paper);
+    /* Glass, tinted by the panel's own accent rather than grey on grey. */
+    background:
+      linear-gradient(158deg, color-mix(in srgb, var(--ac) 16%, rgba(255, 255, 255, .1)) 0%, rgba(255, 255, 255, .02) 44%, transparent 72%),
+      rgba(10, 14, 20, 0.66);
+    border: 1px solid color-mix(in srgb, var(--ac) 26%, rgba(255, 255, 255, .14));
+    box-shadow:
+      0 26px 60px -30px rgba(0, 0, 0, .95),
+      0 2px 10px -4px rgba(0, 0, 0, .6),
+      0 0 0 1px rgba(255, 255, 255, .03) inset,
+      0 1px 0 rgba(255, 255, 255, .1) inset;
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    backdrop-filter: blur(16px) saturate(150%);
+    /* A slow, low-amplitude float, offset per panel so they never beat together. */
+    animation: hpanel-float 9s ease-in-out infinite;
+    animation-delay: var(--fd, 0s);
+  }
+  /* Placement is measured against the figure, not guessed. `products` and `ai`
+     hang in the left gutter beside the shoulder; `apps` and `growth` sit in the
+     right gutter. None of the four boxes crosses the head: the figure occupies
+     the centre ~34% of the stage and every panel stops short of that band. */
+  .hpanel[data-place='a'] { inset-block-start: 6%;  inset-inline-start: -4%; --fd: -1.2s; }
+  .hpanel[data-place='b'] { inset-block-start: 4%;  inset-inline-end: -4%;   --fd: -3.4s; }
+  .hpanel[data-place='c'] { inset-block-end: 10%; inset-inline-start: -7%;  --fd: -5.1s; }
+  .hpanel[data-place='d'] { inset-block-end: 8%;  inset-inline-end: -7%;    --fd: -7.3s; }
+}
+
+@keyframes hpanel-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(0, -7px, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hpanel { animation: none; }
+}
+
+.hpanel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.hpanel-k {
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--ac) 86%, #fff);
+}
+.hpanel-n { font-size: 8.5px; color: var(--dim); }
+.hpanel-art {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(6, 9, 13, .55);
+  border: 1px solid rgba(255, 255, 255, .06);
+}
+.hpanel-copy { font-size: 11px; line-height: 1.42; color: var(--silver); }
+
+/* The entrance: each panel arrives from its own direction, on its own clock. */
+@media (prefers-reduced-motion: no-preference) {
+  .hpanel { animation: hpanel-float 9s ease-in-out infinite, hpanel-in 1.1s var(--ease) backwards; }
+  .hpanel[data-place='a'] { animation-delay: -1.2s, 1.0s; transform-origin: 100% 0; }
+  .hpanel[data-place='b'] { animation-delay: -3.4s, 1.24s; transform-origin: 0 0; }
+  .hpanel[data-place='c'] { animation-delay: -5.1s, 1.48s; transform-origin: 100% 100%; }
+  .hpanel[data-place='d'] { animation-delay: -7.3s, 1.72s; transform-origin: 0 100%; }
+  @keyframes hpanel-in {
+    from { opacity: 0; transform: translate3d(var(--fx, 20px), var(--fy, 14px), 0) scale(.94); filter: blur(6px); }
+    to   { opacity: 1; transform: none; filter: none; }
+  }
+  .hpanel[data-place='a'] { --fx: -26px; --fy: 10px; }
+  .hpanel[data-place='b'] { --fx: 26px;  --fy: 8px; }
+  .hpanel[data-place='c'] { --fx: -20px; --fy: 24px; }
+  .hpanel[data-place='d'] { --fx: 20px;  --fy: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hpanel { animation: none !important; opacity: 1; }
+}
+
+/* ── The four miniature interfaces ─────────────────────────────────────────── */
+.hp { display: block; position: relative; inline-size: 100%; }
+
+/* 01 — a page in a browser */
+.hp-browser { background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.01)); }
+.hp-bar { display: flex; align-items: center; gap: 3px; padding: 5px 7px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.hp-bar i { inline-size: 4px; block-size: 4px; border-radius: 50%; background: rgba(255,255,255,.22); }
+.hp-bar em {
+  margin-inline-start: 5px; font-style: normal; font-family: var(--f-mono);
+  font-size: 6.5px; letter-spacing: .06em; color: var(--dim);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.hp-page { display: flex; flex-direction: column; gap: 5px; padding: 8px 9px 9px; }
+.hp-page-h { font-size: 13px; line-height: 1.12; letter-spacing: -.01em; color: var(--paper); }
+.hp-page-h b { font-weight: 600; color: color-mix(in srgb, var(--ac) 70%, #fff); }
+.hp-page-nav { display: flex; gap: 7px; font-family: var(--f-mono); font-size: 6.5px; letter-spacing: .06em; color: var(--muted); }
+.hp-page-cta {
+  align-self: flex-start; margin-block-start: 2px;
+  font-family: var(--f-mono); font-size: 6.5px; letter-spacing: .08em; text-transform: uppercase;
+  padding: 3px 7px; border-radius: 3px; color: #06121a;
+  background: color-mix(in srgb, var(--ac) 88%, #fff);
+}
+
+/* 02 — a phone with a working screen */
+.hp-phone {
+  display: flex; flex-direction: column; gap: 2px;
+  margin: 8px auto; inline-size: 84px;
+  padding: 7px 6px 8px; border-radius: 11px;
+  background: linear-gradient(170deg, #161b22, #0a0d11);
+  border: 1px solid rgba(255,255,255,.13);
+  box-shadow: 0 10px 22px -12px rgba(0,0,0,.9);
+}
+.hp-ph-top { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 5.5px; color: var(--muted); }
+.hp-ph-top em { font-style: normal; }
+.hp-ph-big { font-size: 13px; font-weight: 600; letter-spacing: -.02em; color: var(--paper); line-height: 1.1; }
+.hp-ph-k { font-family: var(--f-mono); font-size: 5px; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); }
+.hp-ph-row {
+  display: flex; align-items: center; gap: 3px;
+  font-size: 5.5px; color: var(--silver);
+  border-top: 1px solid rgba(255,255,255,.07); padding-block-start: 2px; margin-block-start: 2px;
+}
+.hp-ph-row b { color: var(--paper); font-weight: 600; }
+.hp-ph-row i {
+  margin-inline-start: auto; font-style: normal;
+  font-size: 4.5px; padding: 1px 3px; border-radius: 2px;
+  background: color-mix(in srgb, var(--ac) 82%, #fff); color: #07131c;
+}
+.hp-ph-nav { display: flex; gap: 4px; justify-content: center; margin-block-start: 5px; }
+.hp-ph-nav i { inline-size: 10px; block-size: 2px; border-radius: 2px; background: rgba(255,255,255,.14); }
+.hp-ph-nav i.on { background: var(--ac); }
+
+/* 03 — an assistant, with its source */
+.hp-ai { display: flex; flex-direction: column; gap: 5px; padding: 8px; }
+.hp-ai-q {
+  align-self: flex-end; max-inline-size: 92%;
+  font-size: 8px; line-height: 1.3; color: #0b1018;
+  background: color-mix(in srgb, var(--ac) 84%, #fff);
+  border-radius: 7px 7px 2px 7px; padding: 4px 6px;
+}
+.hp-ai-a {
+  font-size: 8px; line-height: 1.35; color: var(--paper);
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09);
+  border-radius: 7px 7px 7px 2px; padding: 5px 6px;
+  display: flex; flex-direction: column; gap: 3px;
+}
+.hp-ai-src { font-family: var(--f-mono); font-size: 5.5px; letter-spacing: .05em; color: color-mix(in srgb, var(--ac) 85%, #fff); }
+.hp-ai-acts { display: flex; gap: 4px; }
+.hp-ai-acts i {
+  font-style: normal; font-family: var(--f-mono); font-size: 5.5px;
+  letter-spacing: .07em; text-transform: uppercase;
+  padding: 2px 5px; border-radius: 2px;
+  border: 1px solid color-mix(in srgb, var(--ac) 42%, transparent);
+  color: color-mix(in srgb, var(--ac) 88%, #fff);
+}
+.hp-ai-acts i:first-child { background: color-mix(in srgb, var(--ac) 20%, transparent); }
+
+/* 04 — an automation chain */
+.hp-flow { display: flex; flex-direction: column; padding: 9px 9px 8px; }
+.hp-fl-n {
+  display: flex; align-items: center; gap: 5px;
+  align-self: flex-start;
+  font-size: 8px; color: var(--paper);
+  padding: 3px 7px; border-radius: 4px;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+}
+.hp-fl-n b { inline-size: 4px; block-size: 4px; border-radius: 50%; background: var(--ac); flex: none; }
+.hp-fl-l { inline-size: 1px; block-size: 7px; margin-inline-start: 14px; background: linear-gradient(180deg, var(--ac), transparent); }
+.hp-fl-foot { margin-block-start: 8px; font-family: var(--f-mono); font-size: 6px; letter-spacing: .06em; color: color-mix(in srgb, var(--ac) 80%, #fff); }
+
+/* ── Mobile presentation of the same four panels ────────────────────────────
+   A designed two-column sequence below the copy and the portrait: each card is
+   complete (label, miniature, sentence, link), so nothing is hidden on a phone
+   and nothing is squeezed into a desktop composition. */
+.hpanels-m {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-block-start: 4px;
+}
+.hpm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 11px 11px 12px;
+  border-radius: 13px;
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--ac) 14%, rgba(255, 255, 255, .07)), rgba(255, 255, 255, .012) 46%, transparent 76%),
+    rgba(11, 15, 21, 0.72);
+  border: 1px solid color-mix(in srgb, var(--ac) 22%, rgba(255, 255, 255, .1));
+  box-shadow: 0 18px 40px -26px rgba(0, 0, 0, .95), 0 1px 0 rgba(255, 255, 255, .07) inset;
+}
+.hpm .hpanel-k { font-size: 8px; }
+.hpm-art { display: block; border-radius: 7px; overflow: hidden; background: rgba(6, 9, 13, .6); border: 1px solid rgba(255,255,255,.06); }
+.hpm-copy { font-size: 11.5px; line-height: 1.42; color: var(--silver); }
+.hpm-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: var(--f-mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--ac) 85%, #fff);
+  min-block-size: 24px;
+}
+.hpm-art .hp-phone { inline-size: 70px; margin-block: 6px; }
+@media (min-width: 560px) {
+  .hpanels-m { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  .hpanels-m { display: none; }
+}
+
+/* Mobile panel art: a fixed box for all four, with each miniature filling it, so the
+   cards are equal height and no mini interface floats in an empty well. */
+.hpm-art { aspect-ratio: 4 / 3; display: grid; }
+.hpm-art > .hp { block-size: 100%; }
+.hpm-art .hp-browser { display: flex; flex-direction: column; }
+.hpm-art .hp-page { flex: 1; justify-content: center; gap: 6px; }
+.hpm-art .hp-ai, .hpm-art .hp-flow { justify-content: center; }
+.hpm-art .hp-phone { block-size: auto; margin-block: auto; inline-size: min(96px, 72%); }
