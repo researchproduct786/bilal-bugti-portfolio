@@ -2,18 +2,29 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { Btn } from './Btn';
 
-export function PageHero({ crumbs, kicker, title, lede, children }: { crumbs?: { href?: string; label: string }[]; kicker: string; title: ReactNode; lede?: ReactNode; children?: ReactNode }) {
+export function PageHero({
+  crumbs, kicker, title, lede, children,
+}: {
+  crumbs?: { href?: string; label: string }[];
+  kicker: string;
+  title: ReactNode;
+  lede?: ReactNode;
+  children?: ReactNode;
+}) {
   return (
     <header className="phero">
       <div className="wrap">
         {crumbs && (
           <nav className="crumbs" aria-label="Breadcrumb">
             {crumbs.map((c, i) => (
-              <span key={i}>{c.href ? <Link href={c.href}>{c.label}</Link> : <span aria-current="page">{c.label}</span>}{i < crumbs.length - 1 && <span aria-hidden="true">&nbsp;&nbsp;/</span>}</span>
+              <span key={i}>
+                {c.href ? <Link href={c.href}>{c.label}</Link> : <span aria-current="page">{c.label}</span>}
+                {i < crumbs.length - 1 && <span aria-hidden="true">&nbsp;&nbsp;/</span>}
+              </span>
             ))}
           </nav>
         )}
-        <p className="kicker" style={{ marginTop: crumbs ? 28 : 0 }}>{kicker}</p>
+        <p className="kicker" style={{ marginTop: crumbs ? 24 : 0 }}>{kicker}</p>
         <h1 className="h1">{title}</h1>
         {lede && <p className="lede">{lede}</p>}
         {children && <div className="phero-meta">{children}</div>}
@@ -22,16 +33,57 @@ export function PageHero({ crumbs, kicker, title, lede, children }: { crumbs?: {
   );
 }
 
-export function FinalCTA({ q = 'Have a problem worth solving?', a = 'Let’s turn your idea into something real.' }: { q?: string; a?: string }) {
+/**
+ * A chapter opening: number, label, title, one line of context.
+ *
+ * The number is what makes the homepage read as a sequence rather than a stack of
+ * unrelated blocks — the same device a printed report uses between sections.
+ */
+export function Chapter({
+  n, label, title, id, children,
+}: {
+  n: string;
+  label: string;
+  title: ReactNode;
+  id?: string;
+  children?: ReactNode;
+}) {
   return (
-    <section className="final" aria-labelledby="final-q">
+    <header className="chapter">
+      <p className="chapter-tag reveal">
+        <span className="mono">{n}</span>
+        <span className="mono">{label}</span>
+      </p>
+      <div className="chapter-body">
+        <h2 id={id} className="h2 reveal">{title}</h2>
+        {children && <div className="chapter-lede reveal">{children}</div>}
+      </div>
+    </header>
+  );
+}
+
+/** Final call to action. Copy always comes from the locale dictionary. */
+export function FinalCTA({
+  kicker, q, a, primaryHref, primaryLabel, secondaryHref, secondaryLabel, id,
+}: {
+  id?: string;
+  kicker: string;
+  q: string;
+  a: string;
+  primaryHref: string;
+  primaryLabel: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}) {
+  return (
+    <section id={id} className="final" aria-labelledby="final-q">
       <div className="wrap">
-        <p className="kicker reveal">Next step</p>
-        <h2 id="final-q" className="q reveal" style={{ marginTop: 26 }}>{q}</h2>
+        <p className="kicker reveal">{kicker}</p>
+        <h2 id="final-q" className="q reveal" style={{ marginTop: 22 }}>{q}</h2>
         <p className="a reveal">{a}</p>
         <div className="row reveal">
-          <Btn href="/contact">Start a project</Btn>
-          <Btn href="/process" variant="ghost">See how I work</Btn>
+          <Btn href={primaryHref}>{primaryLabel}</Btn>
+          {secondaryHref && secondaryLabel && <Btn href={secondaryHref} variant="ghost">{secondaryLabel}</Btn>}
         </div>
       </div>
     </section>
@@ -40,11 +92,11 @@ export function FinalCTA({ q = 'Have a problem worth solving?', a = 'Let’s tur
 
 export function SectionHead({ kicker, title, children, id }: { kicker: string; title: ReactNode; children?: ReactNode; id?: string }) {
   return (
-    <div className="split" style={{ marginBottom: 'clamp(40px, 6vw, 80px)' }}>
+    <div className="split" style={{ marginBottom: 'clamp(28px, 5vw, 72px)' }}>
       <div><p className="kicker reveal">{kicker}</p></div>
       <div>
         <h2 id={id} className="h2 reveal">{title}</h2>
-        {children && <div className="lede reveal" style={{ marginTop: 24 }}>{children}</div>}
+        {children && <div className="lede reveal" style={{ marginTop: 18 }}>{children}</div>}
       </div>
     </div>
   );
